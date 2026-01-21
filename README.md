@@ -1,1 +1,106 @@
-# Jornal Retro
+:README.md
+# Portfólio Lorissette13
+
+Portfólio pessoal e rede social minimalista com estética retro-moderna. Combina apresentação profissional com compartilhamento de interesses pessoais (filmes, jogos, música, viagens).
+
+## ✨ Funcionalidades
+
+- **Portfólio profissional**: Trajetória, projetos e habilidades
+- **Blog pessoal**: Posts sobre interesses diversos (140 caracteres/parágrafo)
+- **Galeria visual**: Carrossel de imagens favoritas
+- **Sistema de favoritos**: Destaque para conteúdo especial
+- **Navegação responsiva**: Adaptado para todos os dispositivos
+- **Conteúdo dinâmico**: Arquivos de texto separados para fácil edição
+
+## 🛠️ Tecnologias
+
+- **Frontend**: HTML5, CSS3 (Vanilla), JavaScript ES6+
+- **Estilo**: Fonte Special Elite, paleta de cores verdes naturais
+- **Estrutura**: Arquitetura modular com componentes reutilizáveis
+- **Dados**: JSON para conteúdo estruturado, TXT para textos simples
+
+## 🚀 Instalação Local
+
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/lorissette13-portfolio.git
+   cd lorissette13-portfolio
+
+2. **Estrutura básica**
+
+lorissette13-portfolio/
+├── index.html
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── data/
+└── pages/
+
+3. **Servidor local(opcional)**
+
+# Com Python
+python -m http.server 8000
+
+# Ou com Node.js
+npx serve .
+
+4. **Acesse no navegador**
+http://localhost:8000
+
+## Estrutura de arquivos
+
+.
+├── index.html              # Página inicial
+├── pages/                  # Páginas completas
+│   ├── quem-sou.html
+│   ├── cotidiano.html
+│   ├── trajetoria.html
+│   └── projetos.html
+├── assets/css/            # Estilos organizados
+├── assets/js/             # Scripts modulares
+├── assets/data/           # Conteúdo editável
+└── README.md
+
+## Customização
+
+1. Editar conteúdos
+
+    Textos: Modifique os arquivos em assets/data/
+
+    Posts: Edite posts.json para adicionar novos conteúdos
+
+    Projetos: Atualize projects.json
+
+2. Personalizar estilo
+
+    Cores: Edite as variáveis CSS em assets/css/style.css
+
+    Tipografia: Altere a fonte no @import do Google Fonts
+
+    Layout: Ajuste os breakpoints em assets/css/responsive.css
+
+3. Adicionar imagens
+
+    Coloque imagens em assets/images/
+
+    Atualize os caminhos no JSON correspondente
+
+    Execute otimização (recomendado: compressão para web)
+
+## Próximas features
+
+    Integração com Spotify API
+
+    Modo escuro automático
+
+    Botão que muda site para inglês
+
+## Licença
+
+Projeto pessoal - Uso livre para referência e estudo
+
+## Autor
+
+lorissette13 (by loris)
+Desenvolvedor front-end nascido em 1995
+GitHub | LinkedIn | Portfólio
