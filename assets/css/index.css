@@ -7,10 +7,7 @@
 /* 1. Reset e Variáveis Globais */
 @import url('style.css');
 
-/* 2. Responsividade Base */
-@import url('responsive.css');
-
-/* 3. Componentes Específicos */
+/* 2. Componentes Específicos */
 @import url('home.css');
 @import url('page.css');
 @import url('posts.css');
