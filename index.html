@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gazeta Retro - Jornal Vintage Digital</title>
+    <title>Kingstone Journal - Portfólio de Loris Simon</title>
     
     <!-- Fontes do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Text:wght@400;600&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:wght@700;900&family=Crimson+Text:wght@400;600&family=Special+Elite&family=Times+New+Roman&display=swap" rel="stylesheet">
     
     <!-- Link para CSS -->
     <link rel="stylesheet" href="style.css">
@@ -19,96 +19,125 @@
         <!-- HEADER -->
         <header class="header">
             <div class="top-bar">
-                <span class="edition">Edição Especial</span>
-                <span class="date">Sábado, 15 de Outubro de 1938</span>
-                <span class="price">Preço: 2 Vinténs</span>
+                <span class="edition">Portfólio Digital</span>
+                <span class="date">Nascido em 1995</span>
+                <span class="price">Developer & Creative</span>
             </div>
             
             <div class="logo-section">
-                <h1 class="logo" id="typewriter-logo">GAZETA RETRO</h1>
-                <p class="slogan">Verdades que resistem ao tempo</p>
+                <h1 class="logo" id="typewriter-logo">Kingstone</h1>
+                <p class="slogan">by burntilldead • Atemporal como as memórias</p>
                 <div class="divider"></div>
             </div>
             
             <nav class="nav-menu">
-                <a href="#" class="nav-item">Últimas</a>
-                <a href="#" class="nav-item">Política</a>
-                <a href="#" class="nav-item">Cultura</a>
-                <a href="#" class="nav-item">Esportes</a>
-                <a href="#" class="nav-item">Crônicas</a>
+                <a href="#about" class="nav-item">Sobre Mim</a>
+                <a href="#curriculum" class="nav-item">Currículo</a>
+                <a href="#projects" class="nav-item">Projetos Dev</a>
+                <a href="#daily" class="nav-item">Cotidianos</a>
+                <a href="#gallery" class="nav-item">Galeria</a>
             </nav>
         </header>
 
         <!-- MAIN CONTENT -->
         <main class="content">
             <!-- HERO SECTION -->
-            <section class="hero">
-                <h2 class="headline">A ERA DO RÁDIO CHEGA AO INTERIOR</h2>
+            <section class="hero" id="about">
+                <h2 class="headline">LORIS SIMON: DEVELOPER & STORYTELLER</h2>
                 <div class="hero-content">
-                    <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rádio antigo" class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Workspace criativo com notebooks e livros" class="hero-image">
                     <div class="hero-text">
-                        <p class="lead">As famílias agora se reúnem ao redor do aparelho para ouvir as notícias do mundo. A tecnologia promete revolucionar a comunicação nos lares brasileiros.</p>
-                        <button class="btn-read-more" id="main-btn">Ler na íntegra</button>
+                        <p class="lead">Desenvolvedor apaixonado por criar experiências digitais com alma. Minha jornada combina código limpo com narrativas significativas, onde cada projeto conta uma história. Acredito que a tecnologia deve servir à criatividade, não substituí-la.</p>
+                        <button class="btn-read-more" id="main-btn">Explorar Jornada</button>
                     </div>
                 </div>
             </section>
 
             <!-- NEWS GRID -->
             <section class="news-grid">
-                <!-- Coluna 1 -->
-                <article class="news-column">
-                    <h3 class="section-title">Notícias do Dia</h3>
+                <!-- Coluna 1: CURRÍCULO -->
+                <article class="news-column" id="curriculum">
+                    <h3 class="section-title">Trajetória Profissional</h3>
                     <div class="news-item">
-                        <h4 class="news-title">Novas Linhas de Bonde</h4>
-                        <p class="news-text">A prefeitura anuncia expansão das linhas de bonde para os bairros mais afastados. A promessa é conectar toda a cidade até o próximo ano.</p>
-                        <button class="btn-small news-btn">Comentar</button>
+                        <h4 class="news-title">Experiências & Conquistas</h4>
+                        <p class="news-text">Mais de 8 anos desenvolvendo soluções web escaláveis. Especializado em front-end moderno com React/Vue, mas com raízes sólidas em HTML/CSS/JS vanilla. Arquiteturas componentizadas e performance como prioridade.</p>
+                        <p class="news-text">Já atuei em startups ágeis e grandes corporações, sempre levando design system e UX para o centro do processo. Mentorias técnicas e formação de squads completos.</p>
+                        <button class="btn-small news-btn">Linha do Tempo</button>
                     </div>
                     
                     <div class="news-item">
-                        <h4 class="news-title">Festival de Jazz</h4>
-                        <p class="news-text">O ritmo que conquistou o mundo agora chega aos nossos teatros. Músicos internacionais confirmam presença no evento de novembro.</p>
-                        <button class="btn-small news-btn">Comentar</button>
+                        <h4 class="news-title">Habilidades Técnicas</h4>
+                        <p class="news-text">Stack principal: JavaScript/TypeScript, React, Vue, Node.js. Domínio de CSS avançado (Grid, Flexbox, animações). Experiência com AWS, Docker, CI/CD. Design thinking e prototipagem no Figma.</p>
+                        <button class="btn-small news-btn">Stack Completo</button>
                     </div>
                 </article>
 
-                <!-- Coluna 2 -->
-                <article class="news-column">
-                    <h3 class="section-title">Comentários</h3>
-                    <div class="comment-section" id="comment-section">
-                        <div class="comment">
-                            <p class="comment-text">"A modernidade avança, mas devemos preservar nossas tradições. O equilíbrio é fundamental para o progresso."</p>
-                            <p class="comment-author">- Prof. Almeida</p>
+                <!-- Coluna 2: PROJETOS -->
+                <article class="news-column" id="projects">
+                    <h3 class="section-title">Projetos em Destaque</h3>
+                    <div class="projects-section">
+                        <div class="project">
+                            <p class="project-text">"Jornal Retro Digital" - Este projeto! Um experimento front-end completo com design vintage anos 30-50, responsivo e totalmente funcional. HTML5 semântico, CSS3 avançado e JavaScript vanilla.</p>
+                            <p class="project-tech">Stack: HTML5 • CSS3 • JavaScript • Responsive Design</p>
                         </div>
                         
-                        <div class="comment">
-                            <p class="comment-text">"As novas tecnologias trazem esperança para os jovens. O futuro se apresenta cheio de possibilidades."</p>
-                            <p class="comment-author">- Dr. Santos</p>
+                        <div class="project">
+                            <p class="project-text">"E-commerce Artesanal" - Plataforma para pequenos produtores com carrinho dinâmico, pagamentos integrados e dashboard administrativo. Foco em performance mobile-first.</p>
+                            <p class="project-tech">Stack: React • Node.js • MongoDB • Stripe API</p>
                         </div>
                         
-                        <div class="add-comment">
-                            <textarea placeholder="Adicione seu comentário..." class="comment-input" id="comment-input"></textarea>
-                            <button class="btn-submit" id="submit-comment">Publicar</button>
+                        <div class="project">
+                            <p class="project-text">"App de Viagens Colaborativo" - Rede social para viajantes compartilharem rotas autênticas. Mapas interativos, sistema de reviews e recomendações baseadas em IA.</p>
+                            <p class="project-tech">Stack: Vue.js • Python • Mapbox • Machine Learning</p>
                         </div>
                     </div>
                 </article>
 
-                <!-- Coluna 3 -->
-                <article class="news-column">
-                    <h3 class="section-title">Galeria</h3>
-                    <div class="gallery">
-                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cidade antiga" class="gallery-img">
-                        <img src="https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Máquina de escrever" class="gallery-img">
+                <!-- Coluna 3: COTIDIANOS -->
+                <article class="news-column" id="daily">
+                    <h3 class="section-title">Cotidianos por Tags</h3>
+                    <div class="tags-section">
+                        <div class="tag-category">
+                            <h4 class="tag-title">🎮 Video Games</h4>
+                            <p class="tag-text">Análises de jogos indie, desenvolvimento de pequenos prototypes em Unity, reflexões sobre narrativa interativa.</p>
+                        </div>
+                        
+                        <div class="tag-category">
+                            <h4 class="tag-title">🎵 Música & Shows</h4>
+                            <p class="tag-text">Registros de concertos, descobertas musicais obscuras, playlists curadas para coding sessions.</p>
+                        </div>
+                        
+                        <div class="tag-category">
+                            <h4 class="tag-title">✈️ Viagens</h4>
+                            <p class="tag-text">Diários de viagens como nômade digital, dtechs de cidades com boa infra para devs, fotografia de arquitetura.</p>
+                        </div>
+                        
+                        <div class="tag-category">
+                            <h4 class="tag-title">☕ Vida de Dev</h4>
+                            <p class="tag-text">Rotinas, setups, ferramentas que realmente funcionam, burnout e criatividade no desenvolvimento.</p>
+                        </div>
                     </div>
                 </article>
+            </section>
+
+            <!-- GALERIA -->
+            <section class="gallery-section" id="gallery">
+                <h3 class="section-title gallery-title">Galeria Visual</h3>
+                <div class="gallery-grid">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Setup de trabalho minimalista" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Instrumentos musicais vintage" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Viagem urbana noturna" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Projetos de código em exibição" class="gallery-img">
+                </div>
             </section>
         </main>
 
         <!-- FOOTER -->
         <footer class="footer">
             <div class="divider-footer"></div>
-            <p class="footer-text">Gazeta Retro - Fundada em 1920</p>
-            <p class="editor">Editor-Chefe: Arthur Monteiro</p>
-            <button class="btn-newsletter" id="newsletter-btn">Assinar Newsletter</button>
+            <p class="footer-text">Kingstone Journal • Portfólio Pessoal de Loris Simon</p>
+            <p class="editor">Desenvolvido com código e café • 1995 - Presente</p>
+            <p class="signature">burntilldead</p>
         </footer>
     </div>
 
