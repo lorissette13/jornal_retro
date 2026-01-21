@@ -1,0 +1,39 @@
+:assets/css/index.css
+/* ==========================================================================
+   ARQUIVO DE IMPORTAÇÃO PRINCIPAL - PORTFÓLIO LORISSETTE13
+   Importa todos os estilos na ordem correta
+   ========================================================================== */
+
+/* 1. Reset e Variáveis Globais */
+@import url('style.css');
+
+/* 2. Responsividade Base */
+@import url('responsive.css');
+
+/* 3. Componentes Específicos */
+@import url('home.css');
+@import url('page.css');
+@import url('posts.css');
+@import url('timeline.css');
+@import url('projects.css');
+@import url('gallery.css');
+@import url('navigation.css');
+
+/* 4. Utilitários (se necessário futuramente) */
+/* @import url('utilities.css'); */
+
+/* 
+   ORDEM DE ESPECIFICIDADE CSS:
+   1. style.css (reset, variáveis, base)
+   2. responsive.css (media queries globais)
+   3. home.css (estilos específicos da home)
+   4. page.css (estilos comuns de páginas)
+   5. posts.css (sistema de posts)
+   6. timeline.css (timeline interativa)
+   7. projects.css (grid de projetos)
+   8. gallery.css (galeria e carrossel)
+   9. navigation.css (navegação e loading)
+   
+   Esta ordem garante que estilos específicos sobrescrevam os gerais
+   quando necessário, mantendo a consistência visual.
+*/
