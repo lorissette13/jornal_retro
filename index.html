@@ -3,12 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gazeta Retro</title>
+    <title>Gazeta Retro - Jornal Vintage Digital</title>
+    
+    <!-- Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Text:wght@400;600&family=Special+Elite&display=swap" rel="stylesheet">
+    
+    <!-- Link para CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
 </head>
 <body>
-    <h1>GAZETA RETRO</h1>
-    <button id="botao">Clique Aqui</button>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="top-bar">
+                <span class="edition">Edição Especial</span>
+                <span class="date">Sábado, 15 de Outubro de 1938</span>
+                <span class="price">Preço: 2 Vinténs</span>
+            </div>
+            
+            <div class="logo-section">
+                <h1 class="logo" id="typewriter-logo">GAZETA RETRO</h1>
+                <p class="slogan">Verdades que resistem ao tempo</p>
+                <div class="divider"></div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">Últimas</a>
+                <a href="#" class="nav-item">Política</a>
+                <a href="#" class="nav-item">Cultura</a>
+                <a href="#" class="nav-item">Esportes</a>
+                <a href="#" class="nav-item">Crônicas</a>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+            <!-- HERO SECTION -->
+            <section class="hero">
+                <h2 class="headline">A ERA DO RÁDIO CHEGA AO INTERIOR</h2>
+                <div class="hero-content">
+                    <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rádio antigo" class="hero-image">
+                    <div class="hero-text">
+                        <p class="lead">As famílias agora se reúnem ao redor do aparelho para ouvir as notícias do mundo. A tecnologia promete revolucionar a comunicação nos lares brasileiros.</p>
+                        <button class="btn-read-more" id="main-btn">Ler na íntegra</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEWS GRID -->
+            <section class="news-grid">
+                <!-- Coluna 1 -->
+                <article class="news-column">
+                    <h3 class="section-title">Notícias do Dia</h3>
+                    <div class="news-item">
+                        <h4 class="news-title">Novas Linhas de Bonde</h4>
+                        <p class="news-text">A prefeitura anuncia expansão das linhas de bonde para os bairros mais afastados. A promessa é conectar toda a cidade até o próximo ano.</p>
+                        <button class="btn-small news-btn">Comentar</button>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h4 class="news-title">Festival de Jazz</h4>
+                        <p class="news-text">O ritmo que conquistou o mundo agora chega aos nossos teatros. Músicos internacionais confirmam presença no evento de novembro.</p>
+                        <button class="btn-small news-btn">Comentar</button>
+                    </div>
+                </article>
+
+                <!-- Coluna 2 -->
+                <article class="news-column">
+                    <h3 class="section-title">Comentários</h3>
+                    <div class="comment-section" id="comment-section">
+                        <div class="comment">
+                            <p class="comment-text">"A modernidade avança, mas devemos preservar nossas tradições. O equilíbrio é fundamental para o progresso."</p>
+                            <p class="comment-author">- Prof. Almeida</p>
+                        </div>
+                        
+                        <div class="comment">
+                            <p class="comment-text">"As novas tecnologias trazem esperança para os jovens. O futuro se apresenta cheio de possibilidades."</p>
+                            <p class="comment-author">- Dr. Santos</p>
+                        </div>
+                        
+                        <div class="add-comment">
+                            <textarea placeholder="Adicione seu comentário..." class="comment-input" id="comment-input"></textarea>
+                            <button class="btn-submit" id="submit-comment">Publicar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Coluna 3 -->
+                <article class="news-column">
+                    <h3 class="section-title">Galeria</h3>
+                    <div class="gallery">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cidade antiga" class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Máquina de escrever" class="gallery-img">
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="divider-footer"></div>
+            <p class="footer-text">Gazeta Retro - Fundada em 1920</p>
+            <p class="editor">Editor-Chefe: Arthur Monteiro</p>
+            <button class="btn-newsletter" id="newsletter-btn">Assinar Newsletter</button>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
