@@ -1,0 +1,93 @@
+:components/timeline-preview.html
+<div class="timeline-preview">
+    <h3 class="preview-title">destaques da trajetória</h3>
+    
+    <div class="preview-items">
+        <div class="preview-item">
+            <div class="preview-icon">🎓</div>
+            <div class="preview-content">
+                <h4 class="preview-item-title">bacharel em sistemas</h4>
+                <p class="preview-item-desc">formação completa em 2017 com projeto de tese premiado</p>
+            </div>
+        </div>
+        
+        <div class="preview-item">
+            <div class="preview-icon">💼</div>
+            <div class="preview-content">
+                <h4 class="preview-item-title">desenvolvedor sênior</h4>
+                <p class="preview-item-desc">atual posição em empresa global tech desde 2022</p>
+            </div>
+        </div>
+        
+        <div class="preview-item">
+            <div class="preview-icon">🏅</div>
+            <div class="preview-content">
+                <h4 class="preview-item-title">aws certified</h4>
+                <p class="preview-item-desc">certificação em arquitetura de soluções cloud</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="btn-container">
+        <a href="pages/trajetoria.html" class="btn-small">ver trajetória completa</a>
+    </div>
+</div>
+
+<style>
+.timeline-preview {
+    background: rgba(245, 245, 245, 0.9);
+    padding: 25px;
+    border-radius: 4px;
+    border: 1px solid #95A568;
+    margin: 20px 0;
+}
+
+.preview-title {
+    font-family: 'Special Elite', monospace;
+    font-size: 1.3rem;
+    color: #657043;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+.preview-items {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.preview-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid rgba(149, 165, 104, 0.3);
+}
+
+.preview-icon {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.preview-content {
+    flex: 1;
+}
+
+.preview-item-title {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    color: #2a2a2a;
+    margin-bottom: 5px;
+    text-transform: lowercase;
+}
+
+.preview-item-desc {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.9rem;
+    color: #3a3a3a;
+    line-height: 1.5;
+}
+</style>

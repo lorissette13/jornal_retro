@@ -1,0 +1,126 @@
+:assets/data/gallery.json
+{
+  "images": [
+    {
+      "id": "gallery-001",
+      "title": "setup de trabalho",
+      "category": "setup",
+      "year": "2024",
+      "description": "meu ambiente de trabalho atual com monitor duplo, teclado mecânico e iluminação personalizada.",
+      "favorite": true,
+      "tags": ["setup", "ergonomia", "iluminação"],
+      "image": "setup-2024.jpg",
+      "thumbnail": "setup-2024-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-002",
+      "title": "coleção de jogos retro",
+      "category": "games",
+      "year": "2023",
+      "description": "parte da minha coleção de jogos retrô para consoles clássicos dos anos 80-90.",
+      "favorite": true,
+      "tags": ["retro", "coleção", "jogos"],
+      "image": "retro-games.jpg",
+      "thumbnail": "retro-games-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-003",
+      "title": "viagem para portugal",
+      "category": "viagens",
+      "year": "2023",
+      "description": "vista do castelo de são jorge em lisboa durante o pôr do sol.",
+      "favorite": true,
+      "tags": ["portugal", "lisboa", "pôr do sol"],
+      "image": "lisboa-castle.jpg",
+      "thumbnail": "lisboa-castle-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-004",
+      "title": "evento de tecnologia",
+      "category": "eventos",
+      "year": "2023",
+      "description": "participação como palestrante em conferência de desenvolvimento front-end.",
+      "favorite": false,
+      "tags": ["evento", "palestra", "tecnologia"],
+      "image": "tech-event.jpg",
+      "thumbnail": "tech-event-thumb.jpg",
+      "credit": "foto do evento"
+    },
+    {
+      "id": "gallery-005",
+      "title": "projeto em desenvolvimento",
+      "category": "projetos",
+      "year": "2024",
+      "description": "screenshot de um projeto em desenvolvimento mostrando interface e código.",
+      "favorite": true,
+      "tags": ["desenvolvimento", "interface", "código"],
+      "image": "project-dev.jpg",
+      "thumbnail": "project-dev-thumb.jpg",
+      "credit": "captura de tela"
+    },
+    {
+      "id": "gallery-006",
+      "title": "estante de livros",
+      "category": "livros",
+      "year": "2024",
+      "description": "minha estante com livros de ficção científica, fantasia e tecnologia.",
+      "favorite": false,
+      "tags": ["livros", "estante", "coleção"],
+      "image": "book-shelf.jpg",
+      "thumbnail": "book-shelf-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-007",
+      "title": "workshop de programação",
+      "category": "eventos",
+      "year": "2022",
+      "description": "ministrando workshop de javascript para iniciantes em espaço colaborativo.",
+      "favorite": false,
+      "tags": ["workshop", "ensino", "javascript"],
+      "image": "coding-workshop.jpg",
+      "thumbnail": "coding-workshop-thumb.jpg",
+      "credit": "foto do participante"
+    },
+    {
+      "id": "gallery-008",
+      "title": "equipamento de áudio",
+      "category": "hobbies",
+      "year": "2023",
+      "description": "setup de áudio para gravação de podcasts e trilhas sonoras.",
+      "favorite": false,
+      "tags": ["áudio", "podcast", "equipamento"],
+      "image": "audio-setup.jpg",
+      "thumbnail": "audio-setup-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-009",
+      "title": "café da manhã criativo",
+      "category": "cotidiano",
+      "year": "2024",
+      "description": "ritual matinal com café especial e planejamento do dia de trabalho.",
+      "favorite": true,
+      "tags": ["café", "rotina", "criatividade"],
+      "image": "morning-coffee.jpg",
+      "thumbnail": "morning-coffee-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-010",
+      "title": "ferramentas de desenvolvimento",
+      "category": "setup",
+      "year": "2024",
+      "description": "ferramentas físicas que uso no processo criativo e de desenvolvimento.",
+      "favorite": false,
+      "tags": ["ferramentas", "criação", "processo"],
+      "image": "dev-tools.jpg",
+      "thumbnail": "dev-tools-thumb.jpg",
+      "credit": "foto própria"
+    }
+  ],
+  "categories": ["setup", "games", "viagens", "eventos", "projetos", "livros", "hobbies", "cotidiano"]
+}

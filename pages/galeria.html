@@ -1,0 +1,179 @@
+:pages/galeria.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>galeria • lorissette13</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/page.css">
+    <link rel="stylesheet" href="../assets/css/gallery.css">
+    
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div id="header-container"></div>
+
+        <!-- CONTEÚDO DA PÁGINA -->
+        <main class="page-content">
+            <div class="page-header">
+                <h1 class="page-title">galeria</h1>
+                <div class="page-subtitle">momentos, projetos e inspirações visuais</div>
+            </div>
+            
+            <!-- Filtros da Galeria -->
+            <div class="gallery-filters">
+                <div class="filter-group">
+                    <label for="gallery-category" class="filter-label">categoria:</label>
+                    <select id="gallery-category" class="filter-select">
+                        <option value="all">todas</option>
+                        <option value="setup">setup</option>
+                        <option value="games">games</option>
+                        <option value="viagens">viagens</option>
+                        <option value="eventos">eventos</option>
+                        <option value="projetos">projetos</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="gallery-year" class="filter-label">ano:</label>
+                    <select id="gallery-year" class="filter-select">
+                        <option value="all">todos</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">mostrar:</label>
+                    <div class="toggle-buttons">
+                        <button class="toggle-btn active" data-filter="all">todas</button>
+                        <button class="toggle-btn" data-filter="favorites">favoritas</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carrossel Principal -->
+            <section class="main-carousel-section">
+                <div class="carousel-container">
+                    <button class="carousel-btn main-prev" aria-label="imagem anterior">‹</button>
+                    
+                    <div class="main-carousel">
+                        <div class="carousel-slide active" data-index="0">
+                            <div class="slide-content">
+                                <div class="slide-image-placeholder">
+                                    <div class="image-icon">🖼️</div>
+                                    <div class="image-loading">carregando imagem...</div>
+                                </div>
+                                <div class="slide-info">
+                                    <h3 class="slide-title">carregando...</h3>
+                                    <p class="slide-description">a galeria está sendo carregada</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-btn main-next" aria-label="próxima imagem">›</button>
+                </div>
+                
+                <!-- Controles do Carrossel -->
+                <div class="carousel-controls">
+                    <div class="carousel-counter">
+                        <span id="current-slide">1</span> / <span id="total-slides">1</span>
+                    </div>
+                    
+                    <div class="carousel-actions">
+                        <button class="action-btn favorite-btn" id="slide-favorite" aria-label="marcar como favorita">
+                            ☆
+                        </button>
+                        <button class="action-btn fullscreen-btn" id="slide-fullscreen" aria-label="tela cheia">
+                            ⛶
+                        </button>
+                        <button class="action-btn download-btn" id="slide-download" aria-label="baixar imagem">
+                            ↓
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Miniaturas -->
+            <section class="thumbnails-section">
+                <h3 class="section-title">todas as imagens</h3>
+                <div class="thumbnails-container" id="thumbnails-container">
+                    <!-- Miniaturas carregadas via JavaScript -->
+                    <div class="loading-thumbnails">
+                        <p>carregando miniaturas...</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Estatísticas -->
+            <div class="gallery-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-images">0</span>
+                    <span class="stat-label">imagens</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="favorite-images">0</span>
+                    <span class="stat-label">favoritas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-categories">0</span>
+                    <span class="stat-label">categorias</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-years">0</span>
+                    <span class="stat-label">anos</span>
+                </div>
+            </div>
+            
+            <!-- Botão de Voltar -->
+            <div class="btn-container">
+                <a href="../index.html" class="btn-read-more">voltar para home</a>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- Modal para Visualização -->
+    <div class="modal" id="image-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="fechar">×</button>
+            <div class="modal-image-container">
+                <img id="modal-image" src="" alt="" class="modal-image">
+            </div>
+            <div class="modal-info">
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+                <div class="modal-meta">
+                    <span id="modal-category"></span>
+                    <span id="modal-year"></span>
+                    <span id="modal-credit"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/gallery.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carrega componentes
+            loadComponent('header-container', '../components/header.html');
+            loadComponent('footer-container', '../components/footer.html');
+            
+            // Inicializa galeria
+            initGallery();
+        });
+    </script>
+</body>
+</html>

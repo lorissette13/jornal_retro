@@ -1,0 +1,117 @@
+:pages/cotidiano.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cotidiano • lorissette13</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/page.css">
+    <link rel="stylesheet" href="../assets/css/posts.css">
+    
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div id="header-container"></div>
+
+        <!-- CONTEÚDO DA PÁGINA -->
+        <main class="page-content">
+            <div class="page-header">
+                <h1 class="page-title">cotidiano</h1>
+                <div class="page-subtitle">pensamentos, descobertas e momentos do dia a dia</div>
+            </div>
+            
+            <!-- Filtros por Categoria -->
+            <div class="filters-container">
+                <div class="filter-label">filtrar por:</div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">todos</button>
+                    <button class="filter-btn" data-category="filmes">filmes</button>
+                    <button class="filter-btn" data-category="jogos">jogos</button>
+                    <button class="filter-btn" data-category="boardgames">boardgames</button>
+                    <button class="filter-btn" data-category="livros">livros</button>
+                    <button class="filter-btn" data-category="música">música</button>
+                    <button class="filter-btn" data-category="dev-life">dev life</button>
+                </div>
+            </div>
+            
+            <!-- Sistema de Navegação -->
+            <div class="posts-navigation">
+                <button class="nav-btn prev-btn" id="prev-btn" disabled>
+                    ‹ anterior
+                </button>
+                <div class="page-info">
+                    página <span id="current-page">1</span> de <span id="total-pages">1</span>
+                </div>
+                <button class="nav-btn next-btn" id="next-btn">
+                    próximo ›
+                </button>
+            </div>
+            
+            <!-- Lista de Posts -->
+            <div class="posts-container" id="posts-container">
+                <div class="loading-posts">
+                    <p>carregando posts...</p>
+                </div>
+            </div>
+            
+            <!-- Navegação Inferior -->
+            <div class="posts-navigation bottom-nav">
+                <button class="nav-btn prev-btn" id="prev-btn-bottom" disabled>
+                    ‹ anterior
+                </button>
+                <div class="page-info">
+                    página <span id="current-page-bottom">1</span> de <span id="total-pages-bottom">1</span>
+                </div>
+                <button class="nav-btn next-btn" id="next-btn-bottom">
+                    próximo ›
+                </button>
+            </div>
+            
+            <!-- Estatísticas -->
+            <div class="posts-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-posts-count">0</span>
+                    <span class="stat-label">posts</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-categories-count">0</span>
+                    <span class="stat-label">categorias</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="favorites-count">0</span>
+                    <span class="stat-label">favoritos</span>
+                </div>
+            </div>
+            
+            <!-- Botão de Voltar -->
+            <div class="btn-container">
+                <a href="../index.html" class="btn-read-more">voltar para home</a>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/posts.js"></script>
+    <script src="../assets/js/filters.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carrega componentes
+            loadComponent('header-container', '../components/header.html');
+            loadComponent('footer-container', '../components/footer.html');
+            
+            // Inicializa sistema de posts
+            initPostsPage();
+        });
+    </script>
+</body>
+</html>

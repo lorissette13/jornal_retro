@@ -1,0 +1,125 @@
+:assets/data/projects.json
+{
+  "projects": [
+    {
+      "id": "proj-001",
+      "title": "jornal retro digital",
+      "description": "portfólio com estética vintage anos 30-50. foco em html/css vanilla e design responsivo.",
+      "category": "frontend",
+      "year": "2024",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["html5", "css3", "javascript", "responsive design"],
+      "features": ["design vintage", "totalmente responsivo", "sem frameworks", "performático"],
+      "github": "https://github.com/lorissette13/retro-journal",
+      "demo": "https://lorissette13.github.io/retro-journal",
+      "image": "retro-journal.jpg"
+    },
+    {
+      "id": "proj-002",
+      "title": "e-commerce artesanal",
+      "description": "plataforma para pequenos produtores com carrinho dinâmico e pagamentos integrados.",
+      "category": "fullstack",
+      "year": "2023",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["react", "node.js", "mongodb", "stripe", "jwt"],
+      "features": ["carrinho em tempo real", "checkout seguro", "dashboard admin", "mobile-first"],
+      "github": "https://github.com/lorissette13/artisanal-shop",
+      "demo": "https://artisanal-shop.vercel.app",
+      "image": "artisanal-shop.jpg"
+    },
+    {
+      "id": "proj-003",
+      "title": "app de viagens colaborativo",
+      "description": "rede social para viajantes compartilharem rotas autênticas e recomendações.",
+      "category": "fullstack",
+      "year": "2023",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["vue.js", "python", "mapbox", "mongodb", "docker"],
+      "features": ["mapas interativos", "sistema de reviews", "recomendações por ia", "comunidade"],
+      "github": "https://github.com/lorissette13/travel-collab",
+      "demo": "https://travel-collab.netlify.app",
+      "image": "travel-app.jpg"
+    },
+    {
+      "id": "proj-004",
+      "title": "sistema de design open source",
+      "description": "biblioteca de componentes reutilizáveis com documentação completa em storybook.",
+      "category": "frontend",
+      "year": "2022",
+      "status": "ativo",
+      "favorite": false,
+      "tech": ["react", "typescript", "storybook", "styled-components", "npm"],
+      "features": ["50+ componentes", "documentação completa", "theme switching", "a11y compliant"],
+      "github": "https://github.com/lorissette13/design-system",
+      "demo": "https://design-system-storybook.vercel.app",
+      "image": "design-system.jpg"
+    },
+    {
+      "id": "proj-005",
+      "title": "dashboard de analytics",
+      "description": "painel administrativo para visualização de dados em tempo real com gráficos interativos.",
+      "category": "frontend",
+      "year": "2022",
+      "status": "ativo",
+      "favorite": false,
+      "tech": ["react", "d3.js", "websockets", "chart.js", "tailwind"],
+      "features": ["gráficos em tempo real", "filtros avançados", "exportação de dados", "dark mode"],
+      "github": "https://github.com/lorissette13/analytics-dashboard",
+      "demo": "https://analytics-dashboard-demo.vercel.app",
+      "image": "analytics-dashboard.jpg"
+    },
+    {
+      "id": "proj-006",
+      "title": "plataforma de cursos online",
+      "description": "sistema completo de e-learning com vídeos, exercícios e certificados.",
+      "category": "fullstack",
+      "year": "2021",
+      "status": "ativo",
+      "favorite": false,
+      "tech": ["next.js", "node.js", "postgresql", "aws s3", "ffmpeg"],
+      "features": ["streaming de vídeo", "exercícios interativos", "sistema de progresso", "certificados"],
+      "github": "https://github.com/lorissette13/learning-platform",
+      "demo": "https://learn-platform.vercel.app",
+      "image": "learning-platform.jpg"
+    },
+    {
+      "id": "proj-007",
+      "title": "app de produtividade pomodoro",
+      "description": "aplicativo de gerenciamento de tempo com técnica pomodoro e estatísticas.",
+      "category": "mobile",
+      "year": "2021",
+      "status": "ativo",
+      "favorite": false,
+      "tech": ["react native", "expo", "async storage", "notificações"],
+      "features": ["temporizador pomodoro", "estatísticas diárias", "notificações", "modo foco"],
+      "github": "https://github.com/lorissette13/pomodoro-app",
+      "demo": null,
+      "image": "pomodoro-app.jpg"
+    },
+    {
+      "id": "proj-008",
+      "title": "ferramenta de colaboração em código",
+      "description": "editor de código colaborativo em tempo real com syntax highlighting.",
+      "category": "fullstack",
+      "year": "2020",
+      "status": "arquivado",
+      "favorite": false,
+      "tech": ["vue.js", "socket.io", "codemirror", "redis", "docker"],
+      "features": ["edição em tempo real", "syntax highlighting", "chat integrado", "salvamento automático"],
+      "github": "https://github.com/lorissette13/code-collab",
+      "demo": null,
+      "image": "code-collab.jpg"
+    }
+  ],
+  "categories": ["frontend", "fullstack", "mobile", "devops", "design"],
+  "technologies": {
+    "frontend": ["html5", "css3", "javascript", "typescript", "react", "vue", "sass", "tailwind"],
+    "backend": ["node.js", "python", "java", "graphql", "rest api"],
+    "database": ["mongodb", "postgresql", "redis", "mysql"],
+    "devops": ["docker", "aws", "ci/cd", "nginx", "linux"],
+    "mobile": ["react native", "expo", "flutter", "ios", "android"]
+  }
+}

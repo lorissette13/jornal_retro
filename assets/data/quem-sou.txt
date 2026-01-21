@@ -1,0 +1,8 @@
+:assets/data/quem-sou.txt
+desenvolvedor front-end com alma de artesão digital, combinando código limpo com narrativas visuais. nascido em 1995, minha jornada mistura tecnologia vintage com inovação contemporânea.
+---
+fora do terminal, sou colecionador de momentos: cafés em xícaras velhas, trilhas sonoras para concentração, jogos retrô que inspiram soluções modernas. meu processo criativo é orgânico - começa no papel, evolui no editor de código, amadurece no navegador.
+---
+acredito que interfaces devem conversar, não apenas funcionar - cada linha de código carrega intenção, cada animação conta uma história. trabalho com a filosofia de que simplicidade técnica é a forma mais sofisticada de complexidade resolvida.
+---
+nas horas vagas, mergulho em mundos ficcionais através de livros, filmes e jogos. cada história que consumo deixa marcas no meu trabalho, criando pontes entre narrativas humanas e experiências digitais.

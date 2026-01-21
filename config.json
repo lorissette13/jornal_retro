@@ -1,0 +1,46 @@
+:config.json
+{
+  "app": {
+    "name": "lorissette13 Portfolio",
+    "version": "2.0.0",
+    "author": "lorissette13",
+    "year": "2024",
+    "description": "Portfólio pessoal com estética retro-moderna"
+  },
+  "features": {
+    "navigation": true,
+    "posts": true,
+    "projects": true,
+    "gallery": true,
+    "timeline": true,
+    "favorites": true,
+    "search": true,
+    "responsive": true
+  },
+  "settings": {
+    "postsPerPage": 4,
+    "projectsPerPage": 6,
+    "imagesPerCarousel": 4,
+    "defaultTheme": "light",
+    "defaultLanguage": "pt-br",
+    "enableAnalytics": false,
+    "enableComments": false
+  },
+  "apis": {
+    "spotify": {
+      "enabled": false,
+      "endpoint": "https://api.spotify.com/v1",
+      "scopes": ["user-read-recently-played"]
+    },
+    "github": {
+      "enabled": false,
+      "endpoint": "https://api.github.com/users/lorissette13",
+      "scopes": ["repos", "user"]
+    }
+  },
+  "social": {
+    "github": "https://github.com/lorissette13",
+    "linkedin": "https://linkedin.com/in/lorissette13",
+    "email": "contato@lorissette13.com"
+  }
+}

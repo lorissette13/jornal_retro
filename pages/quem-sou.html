@@ -1,0 +1,115 @@
+:pages/quem-sou.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quem sou eu • lorissette13</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/page.css">
+    
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👤</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div id="header-container"></div>
+
+        <!-- CONTEÚDO DA PÁGINA -->
+        <main class="page-content">
+            <div class="page-header">
+                <h1 class="page-title">quem sou eu</h1>
+                <div class="page-subtitle">um desenvolvedor, um colecionador de histórias, um artesão digital</div>
+            </div>
+            
+            <div class="content-wrapper">
+                <!-- Seção Principal -->
+                <section class="page-section">
+                    <div class="section-content" id="full-who-content">
+                        <!-- Conteúdo carregado via JS -->
+                        <div class="loading-section">
+                            <p>carregando conteúdo...</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Seção Interesses -->
+                <section class="page-section">
+                    <h2 class="section-title">interesses & paixões</h2>
+                    <div class="interests-grid">
+                        <div class="interest-card">
+                            <div class="interest-icon">🎮</div>
+                            <h3 class="interest-title">jogos retrô & indie</h3>
+                            <p class="interest-text">desde os clássicos 8-bit até as experiências narrativas mais ousadas dos indies atuais.</p>
+                        </div>
+                        
+                        <div class="interest-card">
+                            <div class="interest-icon">📚</div>
+                            <h3 class="interest-title">literatura especulativa</h3>
+                            <p class="interest-text">ficção científica, fantasia e horror que expandem os limites da imaginação humana.</p>
+                        </div>
+                        
+                        <div class="interest-card">
+                            <div class="interest-icon">🎵</div>
+                            <h3 class="interest-title">trilhas sonoras</h3>
+                            <p class="interest-text">colecionador de bandas sonoras que contam histórias sem palavras, perfeitas para coding sessions.</p>
+                        </div>
+                        
+                        <div class="interest-card">
+                            <div class="interest-icon">☕</div>
+                            <h3 class="interest-title">rituais do café</h3>
+                            <p class="interest-text">a arte da pausa perfeita, do grão à xícara, como parte do processo criativo.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Seção Filosofia -->
+                <section class="page-section">
+                    <h2 class="section-title">filosofia de trabalho</h2>
+                    <div class="philosophy-content">
+                        <div class="philosophy-item">
+                            <h3 class="philosophy-title">código com intenção</h3>
+                            <p class="philosophy-text">cada linha deve ter propósito, cada função deve contar parte da história maior.</p>
+                        </div>
+                        
+                        <div class="philosophy-item">
+                            <h3 class="philosophy-title">aprendizado contínuo</h3>
+                            <p class="philosophy-text">a tecnologia evolui, e nós evoluímos com ela. curiosidade é o combustível.</p>
+                        </div>
+                        
+                        <div class="philosophy-item">
+                            <h3 class="philosophy-title">colaboração sobre competição</h3>
+                            <p class="philosophy-text">as melhores soluções nascem da troca de ideias e perspectivas diversas.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Botão de Voltar -->
+                <div class="btn-container">
+                    <a href="../index.html" class="btn-read-more">voltar para home</a>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/text-loader.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carrega o conteúdo completo da página
+            loadFullPageContent('quem-sou');
+            
+            // Carrega componentes
+            loadComponent('header-container', '../components/header.html');
+            loadComponent('footer-container', '../components/footer.html');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+:components/post-card.html
+<article class="post-card" data-id="{{id}}" data-category="{{category}}" data-favorite="{{favorite}}">
+    <div class="post-card-header">
+        <div class="post-meta">
+            <span class="post-category {{category}}">{{category}}</span>
+            <span class="post-date">{{date}}</span>
+            {{#favorite}}
+            <span class="post-favorite">★ favorito</span>
+            {{/favorite}}
+        </div>
+        
+        <h2 class="post-title">{{title}}</h2>
+        
+        <div class="post-tags">
+            {{#tags}}
+            <span class="post-tag">{{.}}</span>
+            {{/tags}}
+        </div>
+    </div>
+    
+    <div class="post-content">
+        {{#paragraphs}}
+        <p class="post-paragraph">{{.}}</p>
+        {{/paragraphs}}
+    </div>
+    
+    <div class="post-actions">
+        <button class="post-action-btn favorite-btn" data-post-id="{{id}}" aria-label="marcar como favorito">
+            {{#favorite}}★{{/favorite}}{{^favorite}}☆{{/favorite}}
+        </button>
+        <button class="post-action-btn share-btn" data-post-id="{{id}}" aria-label="compartilhar post">
+            ↪
+        </button>
+    </div>
+</article>

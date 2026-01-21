@@ -1,0 +1,118 @@
+:pages/trajetoria.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trajetória • lorissette13</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/page.css">
+    <link rel="stylesheet" href="../assets/css/timeline.css">
+    
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div id="header-container"></div>
+
+        <!-- CONTEÚDO DA PÁGINA -->
+        <main class="page-content">
+            <div class="page-header">
+                <h1 class="page-title">trajetória</h1>
+                <div class="page-subtitle">linha do tempo profissional e acadêmica</div>
+            </div>
+            
+            <!-- Filtros da Timeline -->
+            <div class="timeline-filters">
+                <div class="filter-label">mostrar:</div>
+                <div class="filter-buttons">
+                    <button class="timeline-filter-btn active" data-filter="all">tudo</button>
+                    <button class="timeline-filter-btn" data-filter="work">trabalho</button>
+                    <button class="timeline-filter-btn" data-filter="education">educação</button>
+                    <button class="timeline-filter-btn" data-filter="certification">certificações</button>
+                    <button class="timeline-filter-btn" data-filter="project">projetos</button>
+                    <button class="timeline-filter-btn" data-filter="favorites">favoritos</button>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="timeline-container">
+                <div class="timeline" id="timeline">
+                    <!-- Timeline items serão inseridos via JavaScript -->
+                    <div class="timeline-loading">
+                        <p>carregando trajetória...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navegação da Timeline -->
+            <div class="timeline-navigation">
+                <button class="nav-btn timeline-prev-btn" id="timeline-prev-btn" disabled>
+                    ‹ anterior
+                </button>
+                <div class="timeline-info">
+                    <span id="timeline-year-display">2013</span> - <span id="timeline-year-display-end">presente</span>
+                </div>
+                <button class="nav-btn timeline-next-btn" id="timeline-next-btn">
+                    próximo ›
+                </button>
+            </div>
+            
+            <!-- Habilidades -->
+            <section class="skills-section">
+                <h2 class="section-title">habilidades técnicas</h2>
+                <div class="skills-container" id="skills-container">
+                    <!-- Skills carregadas via JavaScript -->
+                    <div class="loading-skills">carregando habilidades...</div>
+                </div>
+            </section>
+            
+            <!-- Estatísticas -->
+            <div class="timeline-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-experience">8+</span>
+                    <span class="stat-label">anos de experiência</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-projects">20+</span>
+                    <span class="stat-label">projetos concluídos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-certifications">5+</span>
+                    <span class="stat-label">certificações</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="current-role">sênior</span>
+                    <span class="stat-label">nível atual</span>
+                </div>
+            </div>
+            
+            <!-- Botão de Voltar -->
+            <div class="btn-container">
+                <a href="../index.html" class="btn-read-more">voltar para home</a>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/timeline.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carrega componentes
+            loadComponent('header-container', '../components/header.html');
+            loadComponent('footer-container', '../components/footer.html');
+            
+            // Inicializa timeline
+            initTimeline();
+        });
+    </script>
+</body>
+</html>
