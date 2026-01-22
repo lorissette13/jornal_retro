@@ -16,6 +16,10 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
   - Adicionado `.project-link` com gradiente temático e animação hover
   - Padronização visual entre todas as colunas da homepage
 
+- 📝 **`style.css`**
+  - Adicionada importação do `home.css`
+  - Movidas regras específicas da homepage para o final do arquivo para garantir prioridade de carregamento
+
 ### Limpeza de Código e Princípios Clean Code
 
 #### Adicionado
