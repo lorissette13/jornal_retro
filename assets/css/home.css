@@ -306,8 +306,63 @@
         padding: 12px 15px 12px 25px;
         font-size: 0.9rem;
     }
+    
+    .thumbnails-container-home {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Grid de Miniaturas na Home */
+.thumbnails-container-home {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap-lg);
+    margin: var(--spacing-xl) 0 var(--spacing-2xl) 0;
 }
 
+.thumbnail-item-home {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 1/1;
+    background: linear-gradient(135deg, rgba(149, 165, 104, 0.1), rgba(245, 245, 245, 0.8));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.thumbnail-item-home:hover {
+    transform: translateY(-5px);
+    border-color: #8b4513;
+    box-shadow: 0 10px 20px rgba(139, 69, 19, 0.15);
+}
+
+.thumbnail-item-home .image-icon {
+    font-size: 4rem;
+    color: var(--color-primary-brown);
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.thumbnail-item-home:hover .image-icon {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.thumbnail-item-home .image-title {
+    font-family: var(--font-family-mono);
+    font-size: 0.9rem;
+    color: var(--color-dark-text);
+    text-align: center;
+    text-transform: lowercase;
+    letter-spacing: var(--letter-spacing-normal);
+}
 @media (max-width: 480px) {
     .carousel-item {
         width: 150px;
@@ -335,3 +390,7 @@
         font-size: 0.85rem;
     }
 }
+    
+    .thumbnails-container-home {
+        grid-template-columns: 1fr;
+    }

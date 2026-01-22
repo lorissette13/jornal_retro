@@ -51,6 +51,7 @@
     line-height: 1;
     position: relative;
     z-index: 3;
+    text-align: center;
 }
 
 .slogan {
@@ -61,6 +62,7 @@
     margin-bottom: var(--spacing-2xl);
     letter-spacing: var(--letter-spacing-wider);
     text-transform: lowercase;
+    text-align: center;
 }
 
 .divider {

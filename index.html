@@ -109,24 +109,12 @@
             <!-- GALERIA -->
             <section class="gallery-section" id="gallery">
                 <h3 class="section-title gallery-title">galeria visual</h3>
-                <div class="gallery-carousel-container">
-                    <button class="carousel-btn prev" id="carousel-prev" aria-label="Imagem anterior">←</button>
-                    <div class="gallery-carousel-wrapper">
-                        <div class="gallery-carousel" id="carousel-track">
-                            <!-- Itens do carrossel serão carregados via JS -->
-                        </div>
-                    </div>
-                    <button class="carousel-btn next" id="carousel-next" aria-label="Próxima imagem">→</button>
+                <div class="thumbnails-container-home" id="home-thumbnails">
+                    <!-- Miniaturas carregadas via JavaScript -->
                 </div>
                 <div class="gallery-button-container">
-                    <a href="pages/galeria.html" class="btn-read-more">ver galeria</a>
+                    <a href="pages/galeria.html" class="btn-read-more">ver galeria completa</a>
                 </div>
-                    <script src="assets/js/gallery.js"></script>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            loadFeaturedGallery(4);
-                        });
-                    </script>
             </section>
         </main>
 
@@ -178,6 +166,16 @@
             
             // Carrega dados modulares (posts, experiências, projetos)
             loadFeaturedContent();
+            
+            // Carrega galeria
+            if (typeof loadGalleryData === 'function') {
+                loadGalleryData();
+            }
+            setTimeout(() => {
+                if (typeof loadFeaturedGallery === 'function') {
+                    loadFeaturedGallery(4);
+                }
+            }, 200);
         });
         
         function loadFeaturedContent() {

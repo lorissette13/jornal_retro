@@ -503,11 +503,11 @@ function closeModal() {
 }
 
 /**
- * Carrega imagens para carrossel da home
+ * Carrega imagens para grid de miniaturas da home
  * Mostra apenas imagens favoritas
  */
 function loadFeaturedGallery(limit = 4) {
-    const container = document.getElementById('carousel-track');
+    const container = document.getElementById('home-thumbnails');
     if (!container) return;
     
     // Se galleryData ainda não foi carregado, aguarda
@@ -526,15 +526,26 @@ function loadFeaturedGallery(limit = 4) {
     }
     
     container.innerHTML = featured.map((image, index) => `
-        <div class="carousel-item" data-index="${index}">
-            <div class="carousel-image-placeholder" data-image="${image.image}">
-                <div class="image-icon">🖼️</div>
-                <div class="image-title">${image.title}</div>
-            </div>
-        </div>
+        <a href="pages/galeria.html" class="thumbnail-item-home" data-index="${index}">
+            <div class="image-icon">${getIconForCategory(image.category)}</div>
+            <div class="image-title">${image.title}</div>
+        </a>
     `).join('');
-    
-    setupHomeCarousel();
+}
+
+/**
+ * Retorna ícone adequado para cada categoria
+ */
+function getIconForCategory(category) {
+    const icons = {
+        'setup': '💻',
+        'games': '🎮',
+        'viagens': '✈️',
+        'eventos': '🎪',
+        'projetos': '📁',
+        'default': '🖼️'
+    };
+    return icons[category] || icons.default;
 }
 
 /**
