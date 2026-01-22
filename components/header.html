@@ -1,5 +1,6 @@
 :components/header.html
-<header class="header">
+<link rel="stylesheet" href="../assets/css/header.css">
+<header class="header" role="banner">
     <div class="top-bar">
         <span class="edition">portfólio digital</span>
         <span class="date">since 1995</span>
@@ -15,60 +16,10 @@
     </div>
     
     <!-- Menu carregado via modulo -->
-    <nav class="nav-menu" id="nav-menu-pages"></nav>
+    <nav class="nav-menu" id="nav-menu-pages" role="navigation" aria-label="Navegação principal"></nav>
     
     <!-- Divisor após menu -->
     <div class="menu-divider"></div>
 </header>
 
-<script>
-    // Carrega o menu modular nas páginas internas
-    document.addEventListener('DOMContentLoaded', function() {
-        const navContainer = document.getElementById('nav-menu-pages');
-        
-        fetch('../components/nav-menu.html')
-            .then(response => response.text())
-            .then(html => {
-                navContainer.innerHTML = html;
-                
-                // Ajusta os links para o contexto de páginas internas
-                const navItems = document.querySelectorAll('.nav-item');
-                navItems.forEach(item => {
-                    let href = item.getAttribute('href');
-                    // Se o link começa com ./, precisa adicionar ../
-                    if (href.startsWith('./pages/')) {
-                        // já está certo, deixa como está
-                    } else if (href === './index.html') {
-                        item.href = '../index.html';
-                    }
-                    
-                    // Após carregar o menu, atualiza o estado ativo
-                    const currentPage = window.location.pathname.split('/').pop();
-                    const newHref = item.getAttribute('href');
-                    
-                    if (newHref.includes(currentPage) || 
-                        (currentPage === 'index.html' && newHref.includes('../index'))) {
-                        item.classList.add('active');
-                    }
-                });
-            })
-            .catch(error => console.error('Erro carregando menu:', error));
-    });
-</script>
-
-<style>
-.logo-link {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.logo-link:hover {
-    color: #7E8C54;
-}
-
-.nav-item.active {
-    color: #7E8C54;
-    font-weight: bold;
-}
-</style>
+<script src="../assets/js/header-loader.js"></script>

@@ -1,63 +1,49 @@
 /**
- * Sistema de Posts do Cotidiano
- * Carrega, filtra e exibe posts com navegação por páginas
+ * Sistema de Posts do Cotidiano - Refatorado
+ * Carrega dados de assets/data/posts.json
  */
 
-const POSTS_PER_PAGE = 4;
 let currentPage = 1;
-let currentCategory = 'all';
+const itemsPerPage = 4;
 let allPosts = [];
 let filteredPosts = [];
 
-// Mock dos posts (sem necessidade de fetch)
-const POSTS_DATA = {
-  "posts": [
-    {
-      "id": "post-001",
-      "title": "nova descoberta musical",
-      "category": "música",
-      "date": "2024-01-15",
-      "favorite": true,
-      "tags": ["indie", "synthwave", "descoberta"],
-      "paragraphs": [
-        "descobri a banda 'timecop1983' essa semana e já virou minha trilha sonora oficial para codar.",
-        "synthwave com toques nostálgicos dos anos 80, perfeito para sessões noturnas de desenvolvimento.",
-        "recomendo o álbum 'journeys' para quem busca foco e atmosfera em suas sessões de trabalho."
-      ]
-    },
-    {
-      "id": "post-002",
-      "title": "jogo indie que surpreendeu",
-      "category": "jogos",
-      "date": "2024-01-10",
-      "favorite": true,
-      "tags": ["indie", "pixel-art", "narrativa"],
-      "paragraphs": [
-        "finalizei 'stray gods' e que experiência única! musical interativo com mitologia grega.",
-        "as escolhas do jogador alteram as canções e o desfecho da história de forma orgânica.",
-        "raro ver jogos que mesclam tão bem mecânicas de escolha com composição musical."
-      ]
-    },
-    {
-      "id": "post-003",
-      "title": "ritual matinal ajustado",
-      "category": "dev-life",
-      "date": "2024-01-08",
-      "favorite": false,
-      "tags": ["rotina", "produtividade", "café"],
-      "paragraphs": [
-        "após testar várias abordagens, finalmente encontrei um ritual matinal que funciona.",
-        "20 minutos de leitura técnica, seguidos por planejamento do dia no papel, não digital.",
-        "o segredo foi separar consumo de informação de criação logo pela manhã."
-      ]
-    },
-    {
-      "id": "post-004",
-      "title": "filme que inspira código",
-      "category": "filmes",
-      "date": "2024-01-05",
-      "favorite": true,
-      "tags": ["sci-fi", "inspiração", "futurismo"],
+function initPosts() {
+    loadJSON('../assets/data/posts.json')
+        .then(data => {
+            allPosts = data.posts || [];
+            filteredPosts = allPosts;
+            displayPosts();
+            setupFilters('.filter-btn', handleFilterChange);
+            setupPagination('prev-btn', 'next-btn', handlePageChange);
+        })
+        .catch(error => console.error('Erro carregando posts:', error));
+}
+
+function handleFilterChange(category) {
+    currentPage = 1;
+    filteredPosts = filterData(allPosts, category, 'category');
+    displayPosts();
+}
+
+function handlePageChange(direction) {
+    if (direction === 'prev' && currentPage > 1) {
+        currentPage--;
+    } else if (direction === 'next') {
+        const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+        }
+    }
+    displayPosts();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function displayPosts() {
+    const pagination = paginateData(filteredPosts, currentPage, itemsPerPage);
+    document.getElementById('posts-container').innerHTML = pagination.items.map(renderPostHTML).join('');
+    updatePaginationControls(currentPage, pagination.totalPages, 'current-page', 'total-pages', 'prev-btn', 'next-btn');
+}
       "paragraphs": [
         "revendo 'her' percebi quantas interfaces do filme influenciaram design atual.",
         "a simplicidade das interações entre humano e ia mostra poder da comunicação não-verbal.",

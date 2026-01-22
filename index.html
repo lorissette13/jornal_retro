@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio pessoal de Loris, desenvolvedor e criativo desde 1995. Projetos, trajetória profissional, cotidiano e galeria visual.">
     <title>lorissette13 - portfólio pessoal</title>
 
     <!-- Fontes do Google -->
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Times+New+Roman&display=swap" rel="stylesheet">
 
     <!-- Link para CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
 </head>
-<body class="home-page">
+<body>
     <div class="container">
         <!-- HEADER -->
         <header class="header">
@@ -23,19 +24,20 @@
                 <span class="date">since 1995</span>
                 <span class="price">developer & creative</span>
             </div>
-
+            
             <div class="logo-section">
                 <h1 class="logo" id="typewriter-logo">lorissette13</h1>
                 <p class="slogan">by loris</p>
                 <div class="divider"></div>
             </div>
-
-            <nav class="nav-menu" id="nav-menu">
-                <!-- Carregado via módulo -->
+            
+            <nav class="nav-menu">
+                <a href="#who" class="nav-item">quem sou</a>
+                <a href="#curriculum" class="nav-item">curriculum</a>
+                <a href="#projects" class="nav-item">projetos de desenvolvimento</a>
+                <a href="#daily" class="nav-item">cotidiano</a>
+                <a href="pages/galeria.html" class="nav-item">galeria</a>
             </nav>
-
-            <!-- DIVISOR APÓS MENU -->
-            <div class="menu-divider"></div>
         </header>
 
         <!-- MAIN CONTENT -->
@@ -46,36 +48,63 @@
                 <div class="who-content">
                     <div class="who-grid">
                         <div class="who-column">
-                            <p class="paragraph">lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+                            <p class="paragraph">desenvolvedor front-end com alma de artesão digital, combinando código limpo com narrativas visuais. nascido em 1995, minha jornada mistura tecnologia vintage com inovação contemporânea. acredito que interfaces devem conversar, não apenas funcionar - cada linha de código carrega intenção, cada animação conta uma história.</p>
                         </div>
                         
                         <div class="who-column">
-                            <p class="paragraph">sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
+                            <p class="paragraph">fora do terminal, sou colecionador de momentos: cafés em xícaras velhas, trilhas sonoras para concentração, jogos retrô que inspiram soluções modernas. meu processo criativo é orgânico - começa no papel, evolui no editor de código, amadurece no navegador. trabalho com a filosofia de que simplicidade técnica é a forma mais sofisticada de complexidade resolvida.</p>
                         </div>
                     </div>
 
                     <div class="btn-container">
-                        <button class="btn-read-more" onclick="navigateToPage('pages/quem-sou.html')">ler mais sobre mim</button>
+                        <a href="pages/quem-sou.html" class="btn-read-more">ler mais sobre mim</a>
                     </div>
                 </div>
             </section>
 
             <!-- NEWS GRID -->
-            <section class="news-grid" id="featured-posts-section">
+            <section class="news-grid">
                 <!-- Coluna 1: CURRÍCULO -->
                 <article class="news-column" id="curriculum">
                     <h3 class="section-title">trajetória profissional</h3>
-                    <div id="featured-experiences">
+                    <div class="news-item">
+                        <h4 class="news-title">experiências & conquistas</h4>
+                        <p class="news-text">mais de 8 anos desenvolvendo soluções web escaláveis. especializado em front-end moderno com react/vue, mas com raízes sólidas em html/css/js vanilla. arquiteturas componentizadas e performance como prioridade.</p>
+                        <p class="news-text">já atuei em startups ágeis e grandes corporações, sempre levando design system e ux para o centro do processo. mentorias técnicas e formação de squads completos.</p>
+                        <div class="btn-container">
+                            <a href="pages/trajetoria.html" class="btn-small news-btn">linha do tempo</a>
+                        </div>
                     </div>
-                    <a href="pages/trajetoria.html" class="btn-read-more">ver trajetória completa</a>
+                    
+                    <div class="news-item">
+                        <h4 class="news-title">habilidades técnicas</h4>
+                        <p class="news-text">stack principal: javascript/typescript, react, vue, node.js. domínio de css avançado (grid, flexbox, animações). experiência com aws, docker, ci/cd. design thinking e prototipagem no figma.</p>
+                        <div class="btn-container">
+                            <a href="pages/trajetoria.html" class="btn-small news-btn">stack completo</a>
+                        </div>
+                    </div>
                 </article>
 
                 <!-- Coluna 2: PROJETOS -->
                 <article class="news-column" id="projects">
                     <h3 class="section-title">projetos em destaque</h3>
-                    <div id="featured-projects">
+                    <div class="projects-section">
+                        <div class="project">
+                            <p class="project-text">"jornal retro digital" - este projeto! um experimento front-end completo com design vintage anos 30-50, responsivo e totalmente funcional. html5 semântico, css3 avançado e javascript vanilla.</p>
+                            <p class="project-tech">stack: html5 • css3 • javascript • responsive design</p>
+                        </div>
+                        
+                        <div class="project">
+                            <p class="project-text">"e-commerce artesanal" - plataforma para pequenos produtores com carrinho dinâmico, pagamentos integrados e dashboard administrativo. foco em performance mobile-first.</p>
+                            <p class="project-tech">stack: react • node.js • mongodb • stripe api</p>
+                        </div>
+                        
+                        <div class="project">
+                            <p class="project-text">"app de viagens colaborativo" - rede social para viajantes compartilharem rotas autênticas. mapas interativos, sistema de reviews e recomendações baseadas em ia.</p>
+                            <p class="project-tech">stack: vue.js • python • mapbox • machine learning</p>
+                        </div>
                     </div>
-                    <button class="btn-read-more" onclick="navigateToPage('pages/projetos.html')">ver todos os projetos</button>
+                    <a href="pages/projetos.html" class="btn-read-more">ver todos os projetos</a>
                 </article>
 
                 <!-- Coluna 3: COTIDIANO -->
@@ -102,19 +131,20 @@
                             <p class="tag-text">rotinas, setups, ferramentas que realmente funcionam, burnout e criatividade no desenvolvimento.</p>
                         </div>
                     </div>
-                    <button class="btn-read-more" onclick="navigateToPage('pages/cotidiano.html')">ver cotidiano completo</button>
+                    <a href="pages/cotidiano.html" class="btn-read-more">ver cotidiano completo</a>
                 </article>
             </section>
 
             <!-- GALERIA -->
             <section class="gallery-section" id="gallery">
                 <h3 class="section-title gallery-title">galeria visual</h3>
-                <div class="thumbnails-container-home" id="home-thumbnails">
-                    <!-- Miniaturas carregadas via JavaScript -->
+                <div class="gallery-grid">
+                    <div class="mock-image-gallery">📁</div>
+                    <div class="mock-image-gallery">🎮</div>
+                    <div class="mock-image-gallery">🎵</div>
+                    <div class="mock-image-gallery">✈️</div>
                 </div>
-                <div class="gallery-button-container">
-                    <a href="pages/galeria.html" class="btn-read-more">ver galeria completa</a>
-                </div>
+                <a href="pages/galeria.html" class="btn-read-more">ver galeria completa</a>
             </section>
         </main>
 
@@ -127,80 +157,17 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/navigation-buttons.js"></script>
-    <script src="assets/js/text-loader.js"></script>
-    <script src="assets/js/timeline.js"></script>
-    <script src="assets/js/posts.js"></script>
-    <script src="assets/js/projects.js"></script>
-    <script src="assets/js/gallery.js"></script>
-    <script src="assets/js/posts-parser.js"></script>
-    <script src="assets/js/data-parser.js"></script>
-    <script src="assets/js/main.js"></script>
-    
+    <script src="assets/js/utils/typewriter.js"></script>
+    <script src="assets/js/utils/component-checker.js"></script>
+    <script src="assets/js/utils/navigation-checker.js"></script>
     <script>
-        // Carrega menu modular na home
+        // Inicialização simples da home
         document.addEventListener('DOMContentLoaded', function() {
-            const navContainer = document.getElementById('nav-menu');
-            
-            fetch('./components/nav-menu.html')
-                .then(response => response.text())
-                .then(html => {
-                    navContainer.innerHTML = html;
-                    
-                    // Após carregar o menu, atualiza o estado ativo
-                    const navItems = document.querySelectorAll('.nav-item');
-                    navItems.forEach(item => {
-                        if (item.getAttribute('href') === 'index.html' || 
-                            item.getAttribute('data-page') === 'home') {
-                            item.classList.add('active');
-                        }
-                    });
-                    
-                    // Inicializa o typewriter
-                    if (typeof initTypewriter === 'function') {
-                        initTypewriter();
-                    }
-                })
-                .catch(error => console.error('Erro carregando menu:', error));
-            
-            // Carrega dados modulares (posts, experiências, projetos)
-            loadFeaturedContent();
-            
-            // Carrega galeria
-            if (typeof loadGalleryData === 'function') {
-                loadGalleryData();
+            // Ativa efeito typewriter no logo
+            if (typeof initTypewriter === 'function') {
+                initTypewriter();
             }
-            setTimeout(() => {
-                if (typeof loadFeaturedGallery === 'function') {
-                    loadFeaturedGallery(4);
-                }
-            }, 200);
         });
-        
-        function loadFeaturedContent() {
-            try {
-                // Carrega 2 experiências mais recentes
-                const recentTrajectory = getRecentTrajectory(2);
-                const experienceContainer = document.getElementById('featured-experiences');
-                if (experienceContainer && recentTrajectory.length > 0) {
-                    experienceContainer.innerHTML = recentTrajectory.map(renderTrajectoryHTML).join('');
-                }
-            } catch (e) {
-                console.error('Erro carregando trajetórias:', e);
-            }
-            
-            try {
-                // Carrega 5 projetos mais recentes
-                const recentProjects = getRecentProjects(5);
-                const projectContainer = document.getElementById('featured-projects');
-                if (projectContainer && recentProjects.length > 0) {
-                    projectContainer.innerHTML = recentProjects.map(renderProjectHTML).join('');
-                }
-            } catch (e) {
-                console.error('Erro carregando projetos:', e);
-            }
-        }
     </script>
 </body>
 </html>

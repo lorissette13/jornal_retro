@@ -1,0 +1,15 @@
+/* header.css */
+.logo-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo-link:hover {
+    color: #7E8C54;
+}
+
+.nav-item.active {
+    color: #7E8C54;
+    font-weight: bold;
+}
