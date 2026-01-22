@@ -80,7 +80,24 @@ featured: true/false
 
 **Status**: Commits 87063f3 → 4cd8280 (Problema concluído)
 
-## 📚 REFERÊNCIA
+## � ARQUIVOS EXISTENTES (NÃO CRIAR NOVOS)
+
+**Regra Permanente**: Não criar mais arquivos `.md` de instruções. Tudo deve estar em:
+
+1. **PROMPT_CONSOLIDADO.md** (este arquivo) - Stack, estrutura, regras gerais
+2. **REGRAS_PERMANENTES.md** - Regras que não podem ser removidas sem pedido expresso
+3. **TESTES.md** - Guia de execução e cobertura de testes
+4. **README.md** - Documentação do projeto
+
+**Arquivos que NÃO devem existir**:
+- ❌ CHANGELOG.md (histórico vai em seção deste arquivo)
+- ❌ FIXES_*.md (tudo vai em HISTÓRICO DE CORREÇÕES aqui)
+- ❌ MUDANCAS_*.md (consolidado acima)
+- ❌ TESTES_COMPONENTES.md (consolidado em TESTES.md)
+- ❌ TESTES_SIMPLIFICACAO.md (consolidado em TESTES.md)
+- ❌ CODE_REVIEW_*.md (não criar)
+
+## �📚 REFERÊNCIA
 → [REGRAS_PERMANENTES.md](REGRAS_PERMANENTES.md) (regras que não podem ser removidas)
 → [README.md](README.md)
 
