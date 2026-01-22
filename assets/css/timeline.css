@@ -257,24 +257,6 @@
     color: #d4af37;
 }
 
-/* Navegação da Timeline */
-.timeline-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--gap-md) 0;
-    margin: var(--spacing-2xl) 0;
-    border-top: var(--border-width-thin) solid var(--color-border-primary);
-    border-bottom: var(--border-width-thin) solid var(--color-border-primary);
-}
-
-.timeline-info {
-    font-family: var(--font-family-mono);
-    color: var(--color-text-muted);
-    font-size: var(--font-size-lg);
-    text-align: center;
-}
-
 /* Seção de Habilidades */
 .skills-section {
     margin: var(--spacing-3xl) 0 var(--spacing-2xl);

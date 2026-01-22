@@ -346,42 +346,6 @@
     background: #657043;
 }
 
-/* Paginação */
-.pagination {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 40px 0;
-}
-
-.pagination-btn {
-    padding: 8px 15px;
-    background: rgba(149, 165, 104, 0.1);
-    border: 1px solid #95A568;
-    border-radius: 3px;
-    color: #657043;
-    cursor: pointer;
-    font-family: 'Special Elite', monospace;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-}
-
-.pagination-btn:hover:not(:disabled) {
-    background: rgba(149, 165, 104, 0.2);
-    transform: translateY(-2px);
-}
-
-.pagination-btn.active {
-    background: #7E8C54;
-    color: white;
-    border-color: #657043;
-}
-
-.pagination-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
 /* Estatísticas */
 .projects-stats {
     display: grid;
