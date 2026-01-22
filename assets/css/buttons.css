@@ -105,6 +105,31 @@ a.btn-read-more:active {
     box-shadow: 
         0 4px 12px rgba(85, 107, 47, 0.25),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    text-decoration: none !important;
+}
+
+/* Garante que links com .btn-small não têm sublinhado */
+a.btn-small {
+    text-decoration: none !important;
+}
+
+a.btn-small:visited {
+    color: #f5f0e1;
+    text-decoration: none !important;
+}
+
+a.btn-small:hover {
+    text-decoration: none !important;
+}
+
+a.btn-small:active {
+    text-decoration: none !important;
+}
+
+/* Reduzir tamanho de .btn-small quando em .news-item para proporção correta */
+.news-item .btn-container .btn-small {
+    padding: 10px 24px;
+    font-size: 0.90rem;
 }
 
 .btn-secondary:hover,
