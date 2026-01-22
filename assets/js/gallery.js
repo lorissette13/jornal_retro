@@ -105,27 +105,25 @@ function updateMainCarousel() {
     if (!carousel || filteredGallery.length === 0) return;
 
     slides = [...filteredGallery];
-    let html = '';
-    for (let i = 0; i < 4; i++) {
-        const slide = slides[(currentSlideIndex + i) % slides.length];
-        html += `
-            <div class="carousel-slide ${i === 0 ? 'active' : ''}" data-index="${(currentSlideIndex + i) % slides.length}">
-                <div class="slide-content">
-                    <div class="slide-image-placeholder" data-image="${slide.image}">
-                        <div class="image-icon">🖼️</div>
-                        <div class="image-loading">${slide.title}</div>
-                    </div>
-                    <div class="slide-info">
-                        <h3 class="slide-title">${slide.title}</h3>
-                        <p class="slide-description">${slide.description}</p>
-                        <div class="slide-meta">
-                            ${slide.tags.map(tag => `<span class="slide-tag">${tag}</span>`).join('')}
-                        </div>
+    // Exibe apenas 1 card grande centralizado
+    const slide = slides[currentSlideIndex];
+    const html = `
+        <div class="carousel-slide active" data-index="${currentSlideIndex}">
+            <div class="slide-content">
+                <div class="slide-image-placeholder" data-image="${slide.image}">
+                    <div class="image-icon">🖼️</div>
+                    <div class="image-loading">${slide.title}</div>
+                </div>
+                <div class="slide-info">
+                    <h3 class="slide-title">${slide.title}</h3>
+                    <p class="slide-description">${slide.description}</p>
+                    <div class="slide-meta">
+                        ${slide.tags.map(tag => `<span class="slide-tag">${tag}</span>`).join('')}
                     </div>
                 </div>
             </div>
-        `;
-    }
+        </div>
+    `;
     carousel.innerHTML = html;
     document.getElementById('current-slide').textContent = currentSlideIndex + 1;
     document.getElementById('total-slides').textContent = slides.length;
@@ -256,7 +254,7 @@ function setupCarouselControls() {
 
 // Navega para slide específico
 function goToSlide(index) {
-    if (index < 0) index = slides.length - 4;
+    if (index < 0) index = slides.length - 1;
     if (index >= slides.length) index = 0;
     currentSlideIndex = index;
     updateMainCarousel();
