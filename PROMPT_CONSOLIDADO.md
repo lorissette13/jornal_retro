@@ -6,7 +6,12 @@
 ## 🏗️ ARQUITETURA
 ```
 index.html | style.css | script.js
-assets/css/tokens.css (variáveis centralizadas)
+assets/css/
+  ├── tokens.css (variáveis centralizadas)
+  ├── layout.css (body, container, page layout - espaçamento 50px top, 80px bottom)
+  ├── buttons.css (todos tipos de botão)
+  ├── filters.css (estilos base de filtros)
+  └── filter-colors.css (cores específicas por categoria)
 assets/js/ (carregamento e renderização)
 assets/data/
   ├── posts/      (YYYY-MM-DD-slug.md)
@@ -16,9 +21,22 @@ pages/ | components/
 ```
 
 ## 🎨 DESIGN SYSTEM
-Todas variáveis CSS centralizadas em `tokens.css`. **Regra**: use variáveis em vez de hardcoding.
+CSS modularizado para máxima reutilização e manutenção centralizada:
 
-Principais: `--color-primary-brown`, `--color-accent-gold`, `--color-accent-olive`, `--color-cat-*`, `--spacing-*`, `--font-family-serif`, `--border-width-*`, `--transition-*`, `--z-*`
+**Módulos CSS** (importados automaticamente via style.css):
+- `tokens.css`: Variáveis de cores, espaçamento, tipografia, bordas, sombras
+- `layout.css`: Body, container, headers, footers, espaçamento global (50px top, 80px bottom)
+- `buttons.css`: Todos tipos de botão (btn-primary, btn-secondary, nav-btn) com efeito shine
+- `filters.css`: Estilos base de componentes de filtro
+- `filter-colors.css`: Cores específicas por categoria (filmes, jogos, livros, etc)
+
+**Regra Importante**: Sempre editar em UM ÚNICO LUGAR:
+- Cores → `tokens.css`
+- Layout/espaçamento → `layout.css`
+- Botões → `buttons.css`
+- Filtros → `filters.css` ou `filter-colors.css`
+
+Principais variáveis: `--color-primary-brown`, `--color-accent-gold`, `--color-accent-olive`, `--color-accent-sage`, `--container-margin-y` (50px), `--container-margin-bottom` (80px), `--spacing-*`, `--font-family-serif`
 
 ## 📝 CONTEÚDO
 
