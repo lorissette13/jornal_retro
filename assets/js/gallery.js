@@ -1,7 +1,5 @@
-/**
- * Sistema de Galeria com Carrossel
- * Galeria interativa com filtros e carrossel
- */
+// Sistema de Galeria com Carrossel
+// Galeria interativa com filtros e carrossel
 
 let galleryData = [];
 let filteredGallery = [];
