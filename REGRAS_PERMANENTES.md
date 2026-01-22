@@ -63,7 +63,24 @@ index.html (home, header inline)
 - ✅ **Logo** com typewriter effect
 - ✅ Classe `hide-on-home` para ocultar HOME apenas na home page
 
+### Botões - Padrão Obrigatório
+- **Classes**: `.btn-read-more` (primário) e `.btn-small` (secundário)
+- **CSS**: Sempre em `assets/css/buttons.css` (NUNCA em style.css)
+- **Cores**: Gradiente olive - `--color-accent-olive` (#556B2F) a `--color-accent-olive-light` (#6B8E23)
+- **Efeito**: Shine/brilho com `::before` pseudo-element (linear-gradient 90deg)
+- **Texto**: `text-decoration: none !important;` para links
+- **HTML obrigatório**: Nenhuma classe `news-btn` ou classes obsoletas
+- **Verificação**: Validar cores.json antes de commit
+
+### Parágrafos "Quem Sou" - Layout Lado-a-Lado
+- **Classe CSS**: `.who-grid.two-columns` (OBRIGATÓRIO)
+- **HTML**: `<div class="who-grid two-columns">` (NÃO deixar vazio)
+- **Layout**: `grid-template-columns: repeat(2, 1fr)` em desktop
+- **Altura**: ~140 caracteres por parágrafo (máximo 3 linhas)
+- **Responsividade**: Muda para 1 coluna em 900px (mobile)
+
 ### Navigation (nav-menu.html)
+
 ```html
 <a href="./index.html" class="nav-item hide-on-home" data-page="home">home</a>
 ```
