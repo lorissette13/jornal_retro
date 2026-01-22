@@ -1,109 +1,136 @@
 # 📋 REGRAS PERMANENTES - lorissette13
 
-## 🎯 Decisões Técnicas
+## 🎯 Decisões Técnicas (Essenciais)
 
 | Decisão | Regra |
 |---------|-------|
-| Cores | `tokens.css` sempre |
-| Layout | `layout.css` |
-| Botões | `buttons.css` |
-| Header | `header.css` |
-| Typewriter | `typewriter.js` |
-| Componentes | `/components/` |
-| Testes visuais | `npm test -- tests/visual.test.js` (após CSS) |
-| Funções | `setup*()`, `display*()`, `fetch*()`, `render*()` |
-| Módulos | Testar em HOME + página interna |
-| Dados | JSON com `_id` (MongoDB compatible) |
+| **Cores** | `tokens.css` sempre |
+| **Layout** | `layout.css` |
+| **Botões** | `buttons.css` |
+| **Header** | `header.css` + `header-loader.js` |
+| **Footer** | ✅ Obrigatório em TODAS as páginas |
+| **Botão HOME** | ✅ Visível em páginas internas, oculto na HOME |
+| **Typewriter** | `typewriter.js` ativo sempre |
+| **Componentes** | `/components/` carregados dinamicamente |
+| **Dados** | Centralizado em `assets/content/` |
+| **Funções** | `setup*()`, `display*()`, `fetch*()`, `render*()` |
+| **Módulos** | Testar em HOME + página interna |
+| **Testes** | 30% cobertura essencial, consolidado em `tests/index.test.js` |
 
-## 📐 Arquitetura
+## 📐 Arquitetura Essencial
 
 ```
 index.html (home, header inline)
-├── assets/css/
-│   ├── tokens.css (variáveis - SEMPRE usar!)
-│   ├── header.css (logo grande na home, pequeno internamente)
-│   ├── layout.css (grid/flex)
-│   └── page.css (páginas)
-├── assets/js/
-│   ├── utils/typewriter.js (efeito digitação logo)
-│   ├── utils/component-loader.js
-│   └── [page-modules]
-├── assets/data/ (Markdown + JSON)
+├── assets/
+│   ├── css/
+│   │   ├── tokens.css (variáveis SEMPRE!)
+│   │   ├── header.css (logo 4.5rem home / 2.5rem internas)
+│   │   ├── layout.css (grid/flex)
+│   │   ├── navigation.css (menu + botão home)
+│   │   └── page.css (páginas internas)
+│   ├── js/
+│   │   ├── header-loader.js (menu + nav)
+│   │   ├── utils/typewriter.js (digitação)
+│   │   ├── utils/component-loader.js
+│   │   └── [page-modules: posts.js, projects.js, etc]
+│   └── content/
+│       ├── blog/
+│       │   ├── data.json (todos posts)
+│       │   └── images/
+│       ├── projects/
+│       │   ├── data.json (todos projetos)
+│       │   └── images/
+│       ├── timeline/
+│       │   ├── data.json (todas experiências)
+│       │   └── images/
+│       └── gallery/
+│           ├── data.json (todas imagens)
+│           └── images/
 ├── pages/*.html (classe="internal-page" obrigatória)
-└── components/ (header, footer, etc)
+├── components/
+│   ├── header.html
+│   ├── footer.html
+│   └── nav-menu.html
+└── tests/
+    └── index.test.js (22 testes essenciais)
 ```
 
-**Header Info:**
-- Logo: 4.5rem (home) | 2.5rem (internas)
-- Fonte: Special Elite monospace
-- Cores: Paleta verde de tokens.css
-- Divider entre "lorissette13" e "by loris": REMOVIDO
-- **Botão HOME**: Visível em TODAS as páginas internas, oculto apenas na HOME (classe `hide-on-home` em nav-menu.html)
-- Typewriter: Ativo em todas as páginas
+## 🎨 Componentes Obrigatórios
 
-## 📝 Conteúdo
+### Header (em TODAS as páginas)
+- ✅ **Footer** carregado via `loadComponent('footer-container', '../components/footer.html')`
+- ✅ **Menu** com HOME link (visível em internas, oculto em home)
+- ✅ **Logo** com typewriter effect
+- ✅ Classe `hide-on-home` para ocultar HOME apenas na home page
 
-### Posts: `assets/data/posts/YYYY-MM-DD-slug.md`
-```yaml
----
-title: "título"
-category: "música|jogos|filmes|livros|boardgames|dev-life|viagens"
-date: "YYYY-MM-DD"
-favorite: true/false
-tags: ["tag1", "tag2"]
----
-## Conteúdo
+### Navigation (nav-menu.html)
+```html
+<a href="./index.html" class="nav-item hide-on-home" data-page="home">home</a>
+```
+- `hide-on-home` = display:none na HOME
+- Outras páginas: link funciona normalmente
+
+## 📊 Dados - Estrutura Centralizada (v1.1+)
+
+**Local**: `assets/content/` (pronto para API/MongoDB)
+
+```json
+{
+  "blog/data.json": [{_id, title, category, date, favorite, tags, content}],
+  "projects/data.json": [{_id, title, status, featured, date, description}],
+  "timeline/data.json": [{_id, title, company, period, featured, content}],
+  "gallery/data.json": [{_id, title, category, date, image_url, description}]
+}
 ```
 
-### Projetos: `assets/data/projects/YYYY-MM-DD-slug.md`
-```yaml
----
-title: "Nome"
-status: "completed|in-progress"
-featured: true/false
-date: "YYYY-MM-DD"
----
-## Descrição
-```
+**Carregamento**: Cada módulo usa `loadJSON('assets/content/[section]/data.json')`
 
-### Trajetória: `assets/data/trajectory/YYYY-MM-DD-slug.md`
-```yaml
----
-title: "Cargo"
-company: "Empresa"
-period: "Jan 2020 - Dez 2021"
-featured: true/false
----
-## Realizações
-```
+## ✅ Testes - 30% Essencial (22 testes)
 
-## ✅ Testes
+**Arquivo único**: `tests/index.test.js`
 
-**Automático**: `http://localhost:8000/?debug=components`  
-**Manual**: `ComponentChecker.runAll()` no console
+**Cobertura obrigatória**:
+- ✅ Componentes carregam (header, footer)
+- ✅ Dados carregam (posts, projetos, timeline, galeria)
+- ✅ HOME link visível em páginas internas
+- ✅ Typewriter effect existe
+- ✅ Cores tokens aplicadas
+- ✅ Navegação básica funciona
 
-**Checklist obrigatório**:
-- ✓ Header presente (logo + menu)
-- ✓ Footer presente
-- ✓ CSS carregado
-- ✓ Links funcionam
+**Removed**: 40+ testes redundantes (visual.test.js, navigation.test.js, main.test.js)
+
+## 🔄 Workflow Essencial
+
+1. **Adicionar conteúdo**: `assets/content/[section]/data.json`
+2. **Estilo**: Usar `tokens.css` sempre (variáveis)
+3. **Testar**: 
+   - `npm test` (testes automáticos)
+   - `http://localhost:8000/?debug=components` (visual)
+4. **Commit**: Mensagem clara (fix/feat/refactor)
+5. **Push**: GitHub
+
+## ✅ Checklist Obrigatório (SEMPRE)
+
+- ✓ Header presente (logo + menu com HOME)
+- ✓ Footer presente em TODAS as páginas
+- ✓ Botão HOME visível em páginas internas
+- ✓ CSS carregado (tokens aplicados)
+- ✓ Dados carregam de `assets/content/`
 - ✓ Sem erros console
+- ✓ Links funcionam (HOME, nav, botões)
+- ✓ Typewriter ativo
+- ✓ Testes passam (npm test)
 
-## 🚀 Workflow
+## 📚 Stack Final
 
-1. Editar conteúdo em `assets/data/`
-2. Atualizar estilo em `tokens.css` (variáveis)
-3. Testar: `?debug=components`
-4. Commit → Push
+- **Frontend**: HTML5 + CSS3 Grid/Flexbox + Vanilla JS (ES6+)
+- **Dados**: JSON centralizado (`assets/content/`)
+- **Componentes**: HTML dinâmicos via `loadComponent()`
+- **Estilo**: Tokens-based (design system em CSS)
+- **Testes**: Jest com 30% cobertura essencial
+- **Design**: Retro 30-50s, 4→2→1 responsivo
+- **Fonts**: Special Elite + Times New Roman
 
-## 🔄 Padrão de Páginas
-
-## 📦 Stack
-
-- HTML5 + CSS3 Grid/Flexbox
-- Vanilla JS (ES6+)
-- Markdown + JSON
-- Google Fonts: Special Elite + Times New Roman
-- Retro 30-50s (jornal), 4→2→1 responsive
-
-**Referência**: Ver [PROMPT_CONSOLIDADO.md](PROMPT_CONSOLIDADO.md)
+---
+**Última atualização**: Jan 22, 2026  
+**Versão**: 1.2 (com footer, HOME button, dados centralizados, testes simplificados)
