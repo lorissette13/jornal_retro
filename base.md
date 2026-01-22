@@ -193,16 +193,12 @@ body {
 }
 
 .divider {
-    height: 3px;
-    background: linear-gradient(to right, 
-        transparent, 
-        #a07850 20%, 
-        #8b4513 50%, 
-        #a07850 80%, 
-        transparent);
-    margin: 25px auto;
-    width: 70%;
-    border-radius: 1px;
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #a07850, transparent);
+    margin: 0 auto 30px;
+    position: relative;
+    z-index: 2;
 }
 
 .nav-menu {
@@ -210,8 +206,6 @@ body {
     justify-content: center;
     gap: 30px;
     padding: 22px 0;
-    border-top: 1px solid #d2b48c;
-    border-bottom: 2px solid #2a2018;
     margin-bottom: 45px;
     flex-wrap: wrap;
     position: relative;
