@@ -157,20 +157,21 @@
     border-color: #d4a017;
 }
 
-/* Navegação entre Posts */
+/* Navegação entre Posts - EM LINHA */
 .posts-navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--gap-md) 0;
-    margin: var(--gap-md) 0;
-    border-top: var(--border-width-thin) solid var(--color-border-primary);
-    border-bottom: var(--border-width-thin) solid var(--color-border-primary);
+    padding: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+    background: rgba(245, 245, 245, 0.9);
+    border-radius: var(--border-radius-medium);
+    border: var(--border-width-thin) solid var(--color-border-primary);
+    gap: var(--gap-md);
 }
 
 .posts-navigation.bottom-nav {
-    border-top: none;
-    margin-top: 40px;
+    margin-top: var(--spacing-2xl);
 }
 
 .page-info {

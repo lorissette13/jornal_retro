@@ -10,17 +10,25 @@ function initTypewriter() {
 
     const text = 'lorissette13';
     let index = 0;
+    
+    // Limpa o conteúdo inicial
+    logo.textContent = '';
 
     function typeWriter() {
         if (index < text.length) {
             logo.textContent = text.substring(0, index + 1);
             index++;
-            setTimeout(typeWriter, 150);
+            setTimeout(typeWriter, 120);
+        } else {
+            // Remove o cursor piscante após terminar
+            setTimeout(() => {
+                logo.style.setProperty('--after-display', 'none');
+            }, 500);
         }
     }
 
-    // Pequeno delay antes de começar
-    setTimeout(typeWriter, 1000);
+    // Começa após um pequeno delay
+    setTimeout(typeWriter, 500);
 }
 
 // Smooth scroll para navegação

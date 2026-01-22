@@ -52,6 +52,19 @@
     position: relative;
     z-index: 3;
     text-align: center;
+    min-height: 60px;
+}
+
+/* Cursor piscando para efeito typewriter */
+.logo::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
 }
 
 .slogan {
@@ -116,6 +129,11 @@
 
 .nav-item:hover::after {
     width: 100%;
+}
+
+/* Ocultar botão home na página inicial */
+body.home-page .nav-item.hide-on-home {
+    display: none;
 }
 
 /* SEÇÃO WHO */
