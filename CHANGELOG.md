@@ -41,8 +41,14 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
   - `.who-content`, `.who-column`, `.who-column:last-child::before`
   - `.news-item`, `.news-item:last-child`
 
+#### Corrigido
+- 🐛 **Layout da home restaurado**: Problema onde limpeza de CSS duplicado removeu regras essenciais da página inicial
+- 🐛 **Carregamento universal de CSS**: `style.css` (raiz) agora importa módulos `layout.css`, `buttons.css`, etc.
+- 🐛 **Regras duplicadas removidas**: Limpeza de `assets/css/style.css` para evitar conflitos de sobrescrita
+
 #### Git Commits
 ```
+[NOVO] fix: restore universal CSS loading by importing layout.css in root style.css
 [NOVO] refactor: remove unused JS files (10 files, 3.2K linhas removidas)
 [NOVO] refactor: remove duplicate CSS rules and update layout.css variables
 [NOVO] feat: add code analysis script and update roadmap in PROMPT_CONSOLIDADO.md
