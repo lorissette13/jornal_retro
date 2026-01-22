@@ -25,7 +25,6 @@ function loadTimelineData() {
             
             filteredTimeline = [...timelineData];
             
-            loadFavoritesFromLocalStorage();
             setupTimelineFilters();
             setupTimelineNavigation();
             updateTimelineDisplay();
@@ -67,8 +66,6 @@ function setTimelineFilter(filter) {
     // Aplica filtro
     if (filter === 'all') {
         filteredTimeline = [...timelineData];
-    } else if (filter === 'favorites') {
-        filteredTimeline = timelineData.filter(item => item.favorite);
     } else {
         filteredTimeline = timelineData.filter(item => item.type === filter);
     }
@@ -104,19 +101,12 @@ function createTimelineItem(item) {
     const period = item.period;
     const typeLabel = getTypeLabel(item.type);
     const icon = getTypeIcon(item.type);
-    const isFavorite = item.favorite;
     
     return `
         <div class="timeline-item" data-id="${item.id}" data-year="${period.split('-')[0]}" data-type="${item.type}">
             <div class="timeline-date">${period}</div>
             
             <div class="timeline-content">
-                <button class="timeline-favorite-btn ${isFavorite ? 'active' : ''}" 
-                        data-id="${item.id}" 
-                        aria-label="adicionar aos favoritos">
-                    ${isFavorite ? '★' : '☆'}
-                </button>
-                
                 <div class="timeline-type">${icon} ${typeLabel}</div>
                 
                 <h3 class="timeline-title">${item.title}</h3>
@@ -167,13 +157,6 @@ function animateTimelineItems() {
     });
     
     // Adiciona listeners para botões de favoritar
-    document.querySelectorAll('.timeline-favorite-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const itemId = btn.dataset.id;
-            toggleTimelineFavorite(itemId);
-        });
-    });
 }
 
 // Configura navegação da timeline
@@ -329,69 +312,12 @@ function showTimelineError() {
     }
 }
 
-// Alterna status de favorito de um item da timeline
-function toggleTimelineFavorite(itemId) {
-    const item = timelineData.find(exp => exp.id === itemId);
-    if (!item) return;
-    
-    // Alterna o status
-    item.favorite = !item.favorite;
-    
-    // Atualiza localStorage
-    saveFavoritesToLocalStorage();
-    
-    // Atualiza visual do botão
-    const btn = document.querySelector(`.timeline-favorite-btn[data-id="${itemId}"]`);
-    if (btn) {
-        btn.classList.toggle('active');
-        btn.textContent = item.favorite ? '★' : '☆';
-    }
-}
-
-// Salva favoritos no localStorage
-function saveFavoritesToLocalStorage() {
-    const favorites = {
-        timeline: timelineData.filter(item => item.favorite).map(item => item.id),
-        gallery: typeof galleryData !== 'undefined' 
-            ? galleryData.filter(img => img.favorite).map(img => img.id)
-            : []
-    };
-    localStorage.setItem('portfolio-favorites', JSON.stringify(favorites));
-}
-
-// Carrega favoritos do localStorage
-function loadFavoritesFromLocalStorage() {
-    const saved = localStorage.getItem('portfolio-favorites');
-    if (!saved) return;
-    
-    try {
-        const favorites = JSON.parse(saved);
-        
-        // Restaura favoritos de timeline
-        if (favorites.timeline && timelineData) {
-            timelineData.forEach(item => {
-                item.favorite = favorites.timeline.includes(item.id);
-            });
-        }
-        
-        // Restaura favoritos de galeria (se disponível)
-        if (favorites.gallery && typeof galleryData !== 'undefined') {
-            galleryData.forEach(img => {
-                img.favorite = favorites.gallery.includes(img.id);
-            });
-        }
-    } catch (error) {
-        console.error('Erro ao carregar favoritos:', error);
-    }
-}
-
-// Carrega experiências favoritas para a home
+// Carrega experiências em destaque para a home (primeiras experiências)
 function loadFeaturedExperiences(limit = 2) {
     const container = document.getElementById('featured-experiences');
     if (!container) return;
     
     const featured = timelineData
-        .filter(exp => exp.favorite)
         .sort((a, b) => {
             const yearA = parseInt(a.period.split('-')[0]);
             const yearB = parseInt(b.period.split('-')[0]);
@@ -402,7 +328,7 @@ function loadFeaturedExperiences(limit = 2) {
     if (featured.length === 0) {
         container.innerHTML = `
             <h3 class="section-title">trajetória profissional</h3>
-            <p class="loading-text">nenhuma experiência marcada como favorita</p>
+            <p class="loading-text">nenhuma experiência disponível</p>
         `;
         return;
     }
@@ -411,7 +337,7 @@ function loadFeaturedExperiences(limit = 2) {
         <h3 class="section-title">trajetória profissional</h3>
         ${featured.map(createExperiencePreview).join('')}
         <div class="btn-container">
-            <a href="pages/trajetoria.html" class="btn-small">ver trajetória completa</a>
+            <a href="pages/trajetoria.html" class="btn-read-more">ver trajetória completa</a>
         </div>
     `;
     container.innerHTML = html;

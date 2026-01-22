@@ -3,8 +3,8 @@
 /* Container de Posts */
 .posts-container {
     display: grid;
-    gap: var(--gap-xl);
-    margin: var(--spacing-lg) 0;
+    gap: var(--gap-2xl);
+    margin: var(--spacing-lg) 0 var(--spacing-3xl) 0;
 }
 
 /* Card de Post Individual */

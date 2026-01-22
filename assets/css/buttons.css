@@ -13,6 +13,7 @@ button, .btn, input[type="button"], input[type="submit"] {
     overflow: hidden;
     border: none;
     display: inline-block;
+    text-decoration: none !important;
 }
 
 /* EFEITO SHINE/GLASS EM TODOS OS BOTÕES */
@@ -57,6 +58,24 @@ button, .btn, input[type="button"], input[type="submit"] {
         0 0 0 1px rgba(85, 107, 47, 0.15);
     text-decoration: none !important;
     white-space: nowrap;
+}
+
+/* Garante que TODOS os elementos com classes de botão não têm sublinhado */
+a[class*="btn"],
+a.btn,
+a.btn-read-more,
+a.btn-small,
+a.btn-primary,
+a.btn-secondary,
+a.btn-large {
+    text-decoration: none !important;
+}
+
+a[class*="btn"]:hover,
+a[class*="btn"]:visited,
+a[class*="btn"]:active,
+a[class*="btn"]:focus {
+    text-decoration: none !important;
 }
 
 /* Garante que links com .btn-read-more não têm sublinhado */

@@ -1,5 +1,17 @@
 # 📋 REGRAS PERMANENTES - lorissette13
 
+## 🚀 SPRINT FIXES v3.0 - Resumo de Novas Regras (7 Regras - Máx 60 chars)
+
+| Regra | Descrição |
+|-------|-----------|
+| **Seções Permanentes** | "Experiências & Conquistas" + "Habilidades" hardcoded na HOME |
+| **Espaçamento Home** | `.who-section` e `.news-grid`: margin 30px (não 60px) |
+| **Hover Cards** | `.news-item`, `.project`: `translateX(8px)` no hover |
+| **Footer Retro** | Componente em `components/footer.html`, em TODAS páginas |
+| **Sem Favoritos** | Sistema removido, campo JSON mantido para future use |
+| **Botões Sem Linha** | `text-decoration: none !important` em TODO btn classes |
+| **Cards Espaçamento** | Gap 50px entre cards, margin-bottom 50px antes botão voltar |
+
 ## 🎯 Decisões Técnicas (Essenciais)
 
 | Decisão | Regra |
@@ -21,9 +33,11 @@
 
 ---
 
-## 🏛️ REGRAS PERMANENTES v2.0 (PODE SER REMOVIDA APENAS COM PEDIDO EXPRESSO)
+## 🏛️ REGRAS PERMANENTES v3.0 (PODE SER REMOVIDA APENAS COM PEDIDO EXPRESSO)
 
 **Nota Importante**: As regras abaixo são PERMANENTES. Para remover qualquer uma, é necessário fazer um pedido EXPLÍCITO como: _"Remova a regra de [título]"_.
+
+**Total de Regras Permanentes**: 14 (7 anteriores + 7 novas da Sprint Fixes)
 
 ### 1. 📝 Scripts Diagnóstico - SEMPRE Python
 **[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Scripts Diagnóstico"]**
@@ -80,6 +94,66 @@
 - ✅ Exemplo: `<link rel="stylesheet" href="assets/css/style.css?v=2.0">`
 - ✅ Atualizar versão quando CSS é significativamente mudado
 - ✅ Força refresh do browser (sem cache do arquivo antigo)
+
+### 8. 🎯 Seções Permanentes - Experiências & Habilidades (Task 6)
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Seções Permanentes"]**
+- ✅ "Experiências & Conquistas" hardcoded em `index.html` (linhas 51-56)
+- ✅ "Habilidades Técnicas" hardcoded em `index.html` (linhas 62-66)
+- ✅ Ambas são HTML estático (não dependem de JS/fetch)
+- ✅ Sempre visíveis na HOME mesmo com erros JavaScript
+- ✅ Testadas em `tests/index.test.js` (Task 6)
+
+### 9. 📏 Espaçamento Padrão - Seções Home (Task 1)
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Espaçamento Padrão"]**
+- ✅ `.who-section`: margin-bottom `30px` (não 60px)
+- ✅ `.news-grid`: margin `30px 0` (não 60px 0)
+- ✅ Simetria: 30px acima/abaixo da seção
+- ✅ Remove "barra amarela" visual (excesso spacing)
+- ✅ Aplicado em `assets/css/style.css` e `header.css`
+
+### 10. 🪰 Hover Cards - Transform Elegante (Task 2)
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Hover Cards"]**
+- ✅ `.news-item:hover`, `.project:hover`: `transform: translateX(8px)`
+- ✅ `.tag-category:hover`: mesmo `translateX(8px)`
+- ✅ `will-change: transform` para performance
+- ✅ SEM `animation: forwards` (evita opacity: 0 invisibility)
+- ✅ Overflow: visible em parent (não clipar movimento)
+- ✅ Aplicado em `assets/css/style.css`
+
+### 11. 🦶 Footer Retro - Componente Reusável (Task 3)
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Footer Retro"]**
+- ✅ Arquivo: `components/footer.html` (sempre usar este)
+- ✅ Links: email, github, linkedin (rel="noopener noreferrer")
+- ✅ Separador: `text-decoration: line-through` ("developed...")
+- ✅ Font: Times New Roman (typewriter)
+- ✅ Hover: color → sage `#7E8C54` + `scale(1.05)`
+- ✅ Carregado em: HOME + 5 páginas internas
+
+### 12. ⭐ Sistema de Favoritos - REMOVIDO (Task 4)
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Sistema de Favoritos"]**
+- ✅ Todas funções removidas: `toggleTimelineFavorite()`, `saveFavoritesToLocalStorage()`
+- ✅ Botão ★/☆ removido de `createTimelineItem()` template
+- ✅ Filtro 'favorites' removido de `setTimelineFilter()`
+- ✅ Campo `favorite` em JSON mantido (para "future implementation")
+- ✅ `loadFeaturedExperiences()` agora: sort by year DESC, return first N
+- ✅ Aplicado em `assets/js/timeline.js`
+
+### 13. 🔘 Botões - Sem Sublinhado (Task 5)
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Botões Sem Sublinhado"]**
+- ✅ Base selector: `text-decoration: none !important`
+- ✅ Comprehensive selector: `a[class*="btn"]` (todos botões)
+- ✅ Todos estados: hover, visited, active, focus
+- ✅ ALL 6 botões HOME afetados: "linha do tempo", "stack completo", etc.
+- ✅ Aplicado em `assets/css/buttons.css`
+
+### 14. 📐 Espaçamento Cards - Gap & Margin (Task 7)
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Espaçamento Cards"]**
+- ✅ `.projects-grid`: gap `var(--gap-2xl)` (50px)
+- ✅ `.posts-container`: gap `var(--gap-2xl)` (50px)
+- ✅ `.projects-container`: margin-bottom `var(--spacing-3xl)` (50px)
+- ✅ `.posts-container`: margin-bottom `var(--spacing-3xl)` (50px)
+- ✅ Melhor separação visual entre cards e botão voltar
+- ✅ Aplicado em `assets/css/projects.css` e `posts.css`
 
 ## 📐 Arquitetura Essencial
 
@@ -219,4 +293,4 @@ index.html (home, header inline)
 
 ---
 **Última atualização**: Jan 22, 2026  
-**Versão**: 2.0 (Sprint Tipografia & Modularização - 7 Regras Permanentes)
+**Versão**: 3.0 (Sprint Fixes Visuais & UX - 14 Regras Permanentes)

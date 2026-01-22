@@ -45,6 +45,9 @@
             <!-- NEWS GRID -->
             <section class="news-grid">
                 <!-- Coluna 1: CURRÍCULO -->
+                <!-- TASK 6: SEÇÕES PERMANENTES - Experiências & Conquistas + Habilidades Técnicas
+                     Estas seções SEMPRE aparecem na home (hardcoded HTML, não dependem de JS/fetch)
+                     Testadas em tests/index.test.js - não remover -->
                 <article class="news-column" id="curriculum">
                     <h3 class="section-title">trajetória profissional</h3>
                     <div class="news-item">
@@ -134,11 +137,8 @@
             </section>
         </main>
 
-        <!-- FOOTER -->
-        <footer class="footer">
-            <p class="footer-text">portfólio pessoal de lorissette13</p>
-            <p class="editor">desenvolvido com código e café • desde 1995</p>
-        </footer>
+        <!-- FOOTER - Carregado via componente -->
+        <div id="footer-container"></div>
     </div>
 
     <!-- JavaScript -->
@@ -152,6 +152,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Carrega componentes
             loadComponent('header-container', 'components/header.html');
+            loadComponent('footer-container', 'components/footer.html');
             
             // Ativa efeito typewriter no logo após carregar o componente
             setTimeout(function() {

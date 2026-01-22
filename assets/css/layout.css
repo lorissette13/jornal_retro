@@ -133,7 +133,7 @@ body::after {
 header, .header {
     border-bottom: 2px solid var(--color-accent-sage);
     margin-bottom: 40px;
-    padding-bottom: 20px;
+    padding-bottom: 0;
     position: relative;
     z-index: 2;
 }

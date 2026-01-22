@@ -2,7 +2,7 @@
 
 /* Container de Projetos */
 .projects-container {
-    margin: var(--spacing-2xl) 0;
+    margin: var(--spacing-2xl) 0 var(--spacing-3xl) 0;
 }
 .projects-controls {
     background: rgba(245, 245, 245, 0.9);
@@ -125,8 +125,8 @@
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: var(--gap-xl);
-    margin: var(--spacing-2xl) 0;
+    gap: var(--gap-2xl);
+    margin: var(--spacing-2xl) 0 var(--spacing-3xl) 0;
 }
 
 .project-card {
