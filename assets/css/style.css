@@ -1,3 +1,8 @@
+/* IMPORT DE MÓDULOS PRINCIPAIS */
+@import url('./buttons.css');
+@import url('./filters.css');
+@import url('./filter-colors.css');
+
 /* ==========================================================================
    PORTFÓLIO LORISSETTE13 - DESIGN RETRO JORNAL ANOS 30-50
    ========================================================================== */
@@ -348,115 +353,6 @@ body::after {
     margin-right: 10px;
     margin-top: 5px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-/* BOTÕES */
-.btn-container {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.btn-read-more {
-    font-family: 'Special Elite', monospace;
-    background: linear-gradient(145deg, var(--color-accent-olive), var(--color-accent-olive-light));
-    color: #f5f0e1;
-    border: none;
-    padding: 15px 35px;
-    font-size: 1.05rem;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    letter-spacing: 1.2px;
-    text-transform: lowercase;
-    box-shadow: 
-        0 5px 15px rgba(85, 107, 47, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        0 0 0 1px rgba(85, 107, 47, 0.15);
-    position: relative;
-    overflow: hidden;
-    font-weight: 400;
-    z-index: 1;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.btn-read-more::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-    transition: left 0.7s ease;
-    z-index: 1;
-}
-
-.btn-read-more:hover::before {
-    left: 100%;
-}
-
-.btn-read-more:hover {
-    transform: translateY(-3px);
-    box-shadow: 
-        0 8px 20px rgba(85, 107, 47, 0.35),
-        0 0 0 1px rgba(85, 107, 47, 0.2);
-}
-
-.btn-read-more:active {
-    transform: translateY(-1px);
-    transition: all 0.1s ease;
-}
-
-.btn-small {
-    font-family: 'Special Elite', monospace;
-    background: linear-gradient(145deg, var(--color-accent-olive-light), var(--color-accent-sage));
-    color: #f5f0e1;
-    border: none;
-    padding: 10px 25px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    letter-spacing: 1.2px;
-    text-transform: lowercase;
-    box-shadow: 
-        0 4px 12px rgba(85, 107, 47, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    position: relative;
-    overflow: hidden;
-    font-weight: 400;
-    z-index: 1;
-}
-
-.btn-small::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-    transition: left 0.7s ease;
-    z-index: 1;
-}
-
-.btn-small:hover::before {
-    left: 100%;
-}
-
-.btn-small:hover {
-    transform: translateY(-3px);
-    background: linear-gradient(145deg, var(--color-accent-gold), var(--color-accent-sage-light));
-    color: #2a2018;
-    box-shadow: 
-        0 8px 20px rgba(85, 107, 47, 0.35),
-        0 0 0 1px rgba(85, 107, 47, 0.2);
-}
-
-.btn-small:active {
-    transform: translateY(-1px);
-    transition: all 0.1s ease;
 }
 
 /* NEWS GRID */

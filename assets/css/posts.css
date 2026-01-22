@@ -173,28 +173,6 @@
     margin-top: 40px;
 }
 
-.nav-btn {
-    font-family: 'Special Elite', monospace;
-    padding: 10px 20px;
-    background: rgba(149, 165, 104, 0.1);
-    border: 1px solid #95A568;
-    border-radius: 3px;
-    color: #657043;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-transform: lowercase;
-}
-
-.nav-btn:hover:not(:disabled) {
-    background: rgba(149, 165, 104, 0.2);
-    transform: translateY(-2px);
-}
-
-.nav-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
 .page-info {
     font-family: var(--font-family-mono);
     color: var(--color-text-muted);
