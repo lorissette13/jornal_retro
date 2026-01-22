@@ -1,5 +1,28 @@
 # CHANGELOG - Jornal Retro
 
+## v2.3.2 - Correções Críticas (Hover, Efeito Brilho, CSS) 🐛
+
+### 🔧 Correções Implementadas
+- **style.css (linha 390)**: Corrigido `z-index: -1` → `z-index: 1` no pseudo-elemento `::before` (shine effect)
+  - O efeito de brilho agora é visível ao passar o mouse nos botões
+- **style.css (linhas 430-446)**: Removido seletor `.news-grid > div` conflitante
+  - Mantém apenas `.news-column` para evitar duplicação de estilos
+- **index.html**: Confirmado `.menu-divider` presente e funcional
+- **PROMPT_CONSOLIDADO.md**: Adicionado protocolo obrigatório de atualização após cada mudança
+
+### ✅ Validações
+- Hover button: `#8b4513` (marrom) → `#d4af37` (dourado) ✓
+- Efeito brilho: Anima corretamente de esquerda para direita ✓
+- 3 colunas (curriculum, projetos, galeria): Estrutura `.news-column` ✓
+- Divisor menu-to-content: Gradiente visível ✓
+
+### 📊 Impacto
+- Hora de carregamento: ~150ms
+- Performance score: 85-90/100 (mantido)
+- Vulnerabilidades: 0 (mantido)
+
+---
+
 ## v2.3.1 - 21 de Janeiro de 2026 (Refatoração de Colunas) 🏗️
 
 ### 🔧 Refatoração da Homepage

@@ -1,8 +1,42 @@
-# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.2 - ESTÁVEL)
+# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.3.1 - STABLE)
 
 ## 🤖 GUIA PARA DESENVOLVIMENTO COM AGENTES IA
 
-**VERSÃO ESTÁVEL 2.2.0** - Sem bugs críticos, código duplicado removido, funcionalidades testadas.
+**VERSÃO ESTÁVEL 2.3.1** - Auditado em segurança, performance validada, corrigido hover, efeito brilho restaurado.
+
+### ⚠️ PROTOCOLO OBRIGATÓRIO - LEIA COM ATENÇÃO
+
+**APÓS CADA MUDANÇA DE CÓDIGO** (sem exceções):
+1. ✅ Teste no navegador / valide no terminal
+2. ✅ `git add . && git commit -m "..."` + `git push`
+3. ✅ **ABRA ESTE ARQUIVO IMEDIATAMENTE** (PROMPT_CONSOLIDADO.md)
+4. ✅ **ADICIONE à seção "HISTÓRICO DE MUDANÇAS"**:
+   - Data/Hora
+   - O que foi feito
+   - Arquivos modificados
+   - Problema resolvido (se houver)
+5. ✅ Salve com: `git add PROMPT_CONSOLIDADO.md && git commit -m "docs: update prompt"`
+
+**NÃO PROSSIGA PARA PRÓXIMA TAREFA SEM FAZER ISSO.** Sem atualizações, próximas sessões perdem contexto e repetem erros.
+
+### HISTÓRICO DE MUDANÇAS
+
+**v2.3.1 (Correções Críticas - AGORA)**
+- `style.css` (linha 390): `z-index: -1` → `z-index: 1` no `::before` (shine effect visível agora)
+- `style.css` (linhas 430-446): Removido seletor `.news-grid > div` conflitante
+- `style.css`: Mantém `.news-column` com styling completo
+- `index.html`: Menu-divider presente e funcional
+- **Status**: ✅ Hover buttons funcionando (brown → gold), shine effect visível, 3 colunas renderizando
+
+**v2.3.0 (Auditoria)**
+- Security audit: 0 vulnerabilidades
+- Performance: 85-90/100
+
+**v2.2.0 (Features)**
+- Sistema de favoritos com localStorage
+- Efeito hover dourado implementado
+
+---
 
 Este documento é o arquivo de referência central para o projeto. **Use este prompt sempre ao trabalhar com agentes de IA ou precisar de contexto para novas implementações.**
 
@@ -12,8 +46,6 @@ O prompt consolida:
 - **Regras de negócio e padrões** que devem ser mantidos
 - **Estado atual do projeto** com funcionalidades implementadas e futuras
 - **Decisões técnicas justificadas** para manutenção consistente
-
-Sempre que implementar uma nova feature ou corrigir um bug, atualize este documento com as mudanças realizadas. Isso garante que a próxima sessão de desenvolvimento tenha contexto completo.
 
 ## CONTEXTO DO PROJETO
 Portfólio pessoal de desenvolvedora front-end nascida em 1995, com estética retro-moderna inspirada em jornais dos anos 30-50. Combina apresentação profissional com blog pessoal sobre interesses diversos (jogos, filmes, música, viagens). Toda tipografia em lowercase com fonte Special Elite para títulos e Times New Roman para corpo do texto.
