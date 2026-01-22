@@ -1,4 +1,3 @@
-:assets/js/gallery.js
 /**
  * Sistema de Galeria com Carrossel
  * Galeria interativa com filtros e carrossel
@@ -15,6 +14,7 @@ let slides = [];
 // Inicializa galeria
 async function initGallery() {
     await loadGalleryData();
+    loadFavoritesFromLocalStorage();
     setupGalleryFilters();
     setupCarouselControls();
     setupModal();
@@ -307,8 +307,8 @@ function toggleImageFavorite(imageId) {
     if (image) {
         image.favorite = !image.favorite;
         
-        // Atualiza no localStorage
-        saveImageFavorite(imageId, image.favorite);
+        // Atualiza no localStorage centralizado
+        saveFavoritesToLocalStorage();
         
         // Atualiza display
         updateGalleryDisplay();

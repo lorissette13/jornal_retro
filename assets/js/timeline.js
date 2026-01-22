@@ -1,4 +1,3 @@
-:assets/js/timeline.js
 /**
  * Sistema de Timeline da Trajetória
  * Timeline interativa com filtros e navegação
@@ -12,6 +11,7 @@ let timelineYears = [];
 // Inicializa timeline
 async function initTimeline() {
     await loadTimelineData();
+    loadFavoritesFromLocalStorage();
     setupTimelineFilters();
     setupTimelineNavigation();
     updateTimelineDisplay();
@@ -105,13 +105,18 @@ function createTimelineItem(item) {
     const period = item.period;
     const typeLabel = getTypeLabel(item.type);
     const icon = getTypeIcon(item.type);
+    const isFavorite = item.favorite;
     
     return `
-        <div class="timeline-item" data-year="${period.split('-')[0]}" data-type="${item.type}">
+        <div class="timeline-item" data-id="${item.id}" data-year="${period.split('-')[0]}" data-type="${item.type}">
             <div class="timeline-date">${period}</div>
             
             <div class="timeline-content">
-                ${item.favorite ? '<div class="timeline-favorite">★</div>' : ''}
+                <button class="timeline-favorite-btn ${isFavorite ? 'active' : ''}" 
+                        data-id="${item.id}" 
+                        aria-label="adicionar aos favoritos">
+                    ${isFavorite ? '★' : '☆'}
+                </button>
                 
                 <div class="timeline-type">${icon} ${typeLabel}</div>
                 
@@ -160,6 +165,15 @@ function animateTimelineItems() {
     items.forEach((item, index) => {
         item.style.animationDelay = `${index * 0.1}s`;
         item.classList.add('animated');
+    });
+    
+    // Adiciona listeners para botões de favoritar
+    document.querySelectorAll('.timeline-favorite-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const itemId = btn.dataset.id;
+            toggleTimelineFavorite(itemId);
+        });
     });
 }
 
@@ -230,8 +244,15 @@ function updateTimelineNavigation() {
     const prevBtn = document.getElementById('timeline-prev-btn');
     const nextBtn = document.getElementById('timeline-next-btn');
     
-    if (prevBtn) prevBtn.disabled = currentIndex <= 0;
-    if (nextBtn) nextBtn.disabled = currentIndex >= timelineYears.length - 1;
+    // Botão anterior: desabilita no primeiro item, mostra nos demais
+    if (prevBtn) {
+        prevBtn.disabled = currentIndex <= 0;
+        prevBtn.style.visibility = currentIndex <= 0 ? 'hidden' : 'visible';
+    }
+    
+    if (nextBtn) {
+        nextBtn.disabled = currentIndex >= timelineYears.length - 1;
+    }
     
     // Atualiza display
     document.getElementById('timeline-year-display').textContent = currentYear;
@@ -306,5 +327,61 @@ function showTimelineError() {
                 <p>tente novamente mais tarde</p>
             </div>
         `;
+    }
+}
+
+// Alterna status de favorito de um item da timeline
+function toggleTimelineFavorite(itemId) {
+    const item = timelineData.find(exp => exp.id === itemId);
+    if (!item) return;
+    
+    // Alterna o status
+    item.favorite = !item.favorite;
+    
+    // Atualiza localStorage
+    saveFavoritesToLocalStorage();
+    
+    // Atualiza visual do botão
+    const btn = document.querySelector(`.timeline-favorite-btn[data-id="${itemId}"]`);
+    if (btn) {
+        btn.classList.toggle('active');
+        btn.textContent = item.favorite ? '★' : '☆';
+    }
+}
+
+// Salva favoritos no localStorage
+function saveFavoritesToLocalStorage() {
+    const favorites = {
+        timeline: timelineData.filter(item => item.favorite).map(item => item.id),
+        gallery: typeof galleryData !== 'undefined' 
+            ? galleryData.filter(img => img.favorite).map(img => img.id)
+            : []
+    };
+    localStorage.setItem('portfolio-favorites', JSON.stringify(favorites));
+}
+
+// Carrega favoritos do localStorage
+function loadFavoritesFromLocalStorage() {
+    const saved = localStorage.getItem('portfolio-favorites');
+    if (!saved) return;
+    
+    try {
+        const favorites = JSON.parse(saved);
+        
+        // Restaura favoritos de timeline
+        if (favorites.timeline && timelineData) {
+            timelineData.forEach(item => {
+                item.favorite = favorites.timeline.includes(item.id);
+            });
+        }
+        
+        // Restaura favoritos de galeria (se disponível)
+        if (favorites.gallery && typeof galleryData !== 'undefined') {
+            galleryData.forEach(img => {
+                img.favorite = favorites.gallery.includes(img.id);
+            });
+        }
+    } catch (error) {
+        console.error('Erro ao carregar favoritos:', error);
     }
 }

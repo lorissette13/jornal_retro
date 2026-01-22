@@ -1,4 +1,3 @@
-:assets/data/trajetoria.json
 {
   "experiences": [
     {
@@ -78,12 +77,80 @@
       "description": "app fullstack para compartilhamento de roteiros de viagem. integração com mapas e sistema de reviews.",
       "skills": ["vue.js", "node.js", "mongodb", "mapbox"],
       "favorite": false
+    },
+    {
+      "id": "exp-009",
+      "type": "certification",
+      "title": "typescript advanced masterclass",
+      "period": "2023",
+      "institution": "egghead.io",
+      "description": "aprofundamento em tipos avançados de typescript. genéricos, decoradores e tipos utilitários.",
+      "skills": ["typescript", "tipos avançados", "oop"],
+      "favorite": true
+    },
+    {
+      "id": "exp-010",
+      "type": "work",
+      "title": "tech lead - arquitetura frontend",
+      "period": "2023-presente",
+      "company": "empresa global tech",
+      "description": "liderança técnica de squad de 5 desenvolvedores. definição de arquitetura de microfrontends. implementação de pipeline ci/cd.",
+      "skills": ["arquitetura", "liderança", "nextjs", "webpack", "devops"],
+      "favorite": true
+    },
+    {
+      "id": "exp-011",
+      "type": "project",
+      "title": "plataforma de learning saas",
+      "period": "2023",
+      "description": "desenvolvimento de plataforma educacional com progressão de cursos, sistema de certificados e gamificação.",
+      "skills": ["react", "node.js", "postgresql", "stripe"],
+      "favorite": true
+    },
+    {
+      "id": "exp-012",
+      "type": "education",
+      "title": "mba em transformação digital",
+      "period": "2023-2024",
+      "institution": "universidade de negócios",
+      "description": "especialização em liderança tecnológica, gestão de projetos ágeis e inovação digital.",
+      "skills": ["liderança", "gestão", "inovação", "negócios"],
+      "favorite": false
+    },
+    {
+      "id": "exp-013",
+      "type": "project",
+      "title": "ferramenta de análise de performance",
+      "period": "2024",
+      "description": "cli e dashboard para análise de web vitals. integração com github actions e relatórios automáticos.",
+      "skills": ["node.js", "typescript", "cli", "github api"],
+      "favorite": true
+    },
+    {
+      "id": "exp-014",
+      "type": "certification",
+      "title": "google cloud professional cloud architect",
+      "period": "2024",
+      "institution": "google cloud",
+      "description": "certificação em arquitetura de soluções na nuvem google. design de sistemas escaláveis e seguros.",
+      "skills": ["gcp", "cloud", "arquitetura", "kubernetes"],
+      "favorite": false
+    },
+    {
+      "id": "exp-015",
+      "type": "work",
+      "title": "senior architect - web standards",
+      "period": "2024-presente",
+      "company": "web foundation",
+      "description": "contribuição para padrões web abertos. participação em working groups w3c. mentoring de comunidade open source.",
+      "skills": ["web standards", "wcag", "semântica html", "performance"],
+      "favorite": true
     }
   ],
   "skills": {
-    "frontend": ["html5", "css3", "javascript", "typescript", "react", "vue", "sass", "webpack", "jest"],
+    "frontend": ["html5", "css3", "javascript", "typescript", "react", "vue", "nextjs", "sass", "webpack", "jest"],
     "backend": ["node.js", "python", "graphql", "rest api", "mongodb", "postgresql"],
-    "devops": ["docker", "aws", "ci/cd", "nginx", "linux"],
+    "devops": ["docker", "aws", "gcp", "ci/cd", "nginx", "linux"],
     "tools": ["git", "figma", "storybook", "vscode", "notion"]
   }
 }

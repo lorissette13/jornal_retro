@@ -1,4 +1,3 @@
-:assets/data/gallery.json
 {
   "images": [
     {
@@ -119,6 +118,78 @@
       "tags": ["ferramentas", "criação", "processo"],
       "image": "dev-tools.jpg",
       "thumbnail": "dev-tools-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-011",
+      "title": "prototipagem no figma",
+      "category": "projetos",
+      "year": "2024",
+      "description": "tela de design mostrando prototipagem de interface interativa com componentes.",
+      "favorite": true,
+      "tags": ["design", "prototipagem", "ui"],
+      "image": "figma-design.jpg",
+      "thumbnail": "figma-design-thumb.jpg",
+      "credit": "captura de tela"
+    },
+    {
+      "id": "gallery-012",
+      "title": "evento tech conference 2024",
+      "category": "eventos",
+      "year": "2024",
+      "description": "participação como palestrante em conferência de arquitetura frontend.",
+      "favorite": true,
+      "tags": ["palestra", "conferência", "arquitetura"],
+      "image": "tech-conf-2024.jpg",
+      "thumbnail": "tech-conf-2024-thumb.jpg",
+      "credit": "foto do evento"
+    },
+    {
+      "id": "gallery-013",
+      "title": "montanhas do sul",
+      "category": "viagens",
+      "year": "2023",
+      "description": "vista panorâmica das montanhas do sul durante trilha ecológica.",
+      "favorite": false,
+      "tags": ["natureza", "montanhas", "trilha"],
+      "image": "mountains-south.jpg",
+      "thumbnail": "mountains-south-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-014",
+      "title": "night gaming session",
+      "category": "games",
+      "year": "2024",
+      "description": "sessão noturna de gaming com setup rgb e atmosfera cozy.",
+      "favorite": true,
+      "tags": ["gaming", "stream", "setup"],
+      "image": "night-gaming.jpg",
+      "thumbnail": "night-gaming-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-015",
+      "title": "código limpo em ação",
+      "category": "projetos",
+      "year": "2024",
+      "description": "screenshot de código bem estruturado e documentado no vscode.",
+      "favorite": false,
+      "tags": ["código", "desenvolvimento", "editor"],
+      "image": "clean-code.jpg",
+      "thumbnail": "clean-code-thumb.jpg",
+      "credit": "captura de tela"
+    },
+    {
+      "id": "gallery-016",
+      "title": "biblioteca pessoal",
+      "category": "livros",
+      "year": "2024",
+      "description": "canto da biblioteca com livros de tecnologia, ficção e história.",
+      "favorite": true,
+      "tags": ["leitura", "estante", "conhecimento"],
+      "image": "library-corner.jpg",
+      "thumbnail": "library-corner-thumb.jpg",
       "credit": "foto própria"
     }
   ],

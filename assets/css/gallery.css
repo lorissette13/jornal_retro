@@ -1,4 +1,3 @@
-:assets/css/gallery.css
 /* ESTILOS PARA SISTEMA DE GALERIA */
 
 /* Filtros da Galeria */
@@ -182,7 +181,7 @@
     height: 40px;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid #95A568;
-    border-radius: 50%;
+    border-radius: 2px;
     color: #657043;
     font-size: 1.2rem;
     cursor: pointer;
@@ -190,14 +189,16 @@
 }
 
 .action-btn:hover {
-    background: rgba(149, 165, 104, 0.1);
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #2a2018;
     transform: scale(1.1);
 }
 
 .action-btn.favorite-btn.active {
-    background: rgba(212, 160, 23, 0.1);
-    color: #d4a017;
-    border-color: #d4a017;
+    background: #d4af37;
+    color: #2a2018;
+    border-color: #d4af37;
 }
 
 /* Seção de Miniaturas */

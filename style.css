@@ -209,7 +209,7 @@ body::after {
     text-transform: lowercase;
     padding: 8px 16px;
     border: 1px solid #d2b48c;
-    border-radius: 0;
+    border-radius: 2px;
     background: rgba(245, 240, 225, 0.8);
     transition: all 0.3s ease;
     position: relative;
@@ -217,11 +217,11 @@ body::after {
 }
 
 .nav-item:hover {
-    background: #8b4513;
-    color: #f5f0e8;
-    border-color: #8b4513;
+    background: #d4af37;
+    color: #2a2018;
+    border-color: #d4af37;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 /* SEÇÃO WHO */
@@ -360,7 +360,7 @@ body::after {
     padding: 12px 30px;
     border: 2px solid #8b4513;
     background: rgba(245, 240, 225, 0.9);
-    border-radius: 0;
+    border-radius: 2px;
     transition: all 0.3s ease;
     display: inline-block;
     position: relative;
@@ -368,10 +368,11 @@ body::after {
 }
 
 .btn-read-more:hover {
-    background: #8b4513;
-    color: #f5f0e8;
+    background: #d4af37;
+    color: #2a2018;
+    border-color: #d4af37;
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
 
 .btn-read-more::before {
@@ -398,15 +399,17 @@ body::after {
     padding: 8px 16px;
     border: 1px solid #d2b48c;
     background: rgba(245, 240, 225, 0.8);
-    border-radius: 0;
+    border-radius: 2px;
     transition: all 0.3s ease;
     display: inline-block;
     margin: 5px;
 }
 
 .btn-small:hover {
-    background: #a07850;
-    color: #f5f0e8;
+    background: #d4af37;
+    color: #2a2018;
+    border-color: #d4af37;
+}
     border-color: #a07850;
 }
 
