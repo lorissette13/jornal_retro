@@ -185,10 +185,9 @@ body::after {
 
 .divider {
     width: 300px;
-    height: 3px;
-    background: linear-gradient(to right, #a07850, #8b4513, #a07850);
+    height: 2px;
+    background: linear-gradient(to right, transparent, #a07850, transparent);
     margin: 0 auto 30px;
-    border-radius: 2px;
     position: relative;
     z-index: 2;
 }
@@ -391,8 +390,6 @@ body::after {
 
 .btn-read-more:hover {
     transform: translateY(-3px);
-    background: linear-gradient(145deg, #d4af37, #c9a62f);
-    color: #2a2018;
     box-shadow: 
         0 8px 20px rgba(139, 69, 19, 0.35),
         0 0 0 1px rgba(139, 69, 19, 0.2);
