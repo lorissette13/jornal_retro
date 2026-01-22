@@ -4,6 +4,18 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
 
 ## [Em Desenvolvimento] - 2026-01-22
 
+### Padronização Visual das Colunas na Homepage
+
+#### Adicionado
+- 🎨 **Efeito hover padronizado**: Colunas trajetoria e projetos agora têm o mesmo movimento e sublinhado ao passar o mouse que a coluna cotidiano
+- 🎨 **Link "ver projeto" estilizado**: Link agora usa cores do tema (gradiente olive/sage) ao invés de cores fixas
+
+#### Modificado
+- 📝 **`assets/css/home.css`**
+  - Adicionado `.news-item` com background, padding, bordas e efeito hover
+  - Adicionado `.project-link` com gradiente temático e animação hover
+  - Padronização visual entre todas as colunas da homepage
+
 ### Limpeza de Código e Princípios Clean Code
 
 #### Adicionado
