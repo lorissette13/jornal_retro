@@ -1,0 +1,11 @@
+{
+  "title": "workshop de programação",
+  "category": "eventos",
+  "year": "2022",
+  "description": "ministrando workshop de javascript para iniciantes em espaço colaborativo.",
+  "favorite": false,
+  "tags": ["workshop", "ensino", "javascript"],
+  "image": "coding-workshop.jpg",
+  "thumbnail": "coding-workshop-thumb.jpg",
+  "credit": "foto do participante"
+}

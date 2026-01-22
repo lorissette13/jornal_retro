@@ -1,0 +1,11 @@
+{
+  "title": "workshop advanced css",
+  "category": "eventos",
+  "year": "2024",
+  "description": "coordenação de workshop sobre css avançado para desenvolvedores intermediários.",
+  "favorite": false,
+  "tags": ["educação", "css", "workshop"],
+  "image": "css-workshop.jpg",
+  "thumbnail": "css-workshop-thumb.jpg",
+  "credit": "foto do evento"
+}

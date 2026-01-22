@@ -1,0 +1,11 @@
+{
+  "title": "console retro mini",
+  "category": "games",
+  "year": "2023",
+  "description": "console retro em miniatura com centenas de clássicos emulados.",
+  "favorite": true,
+  "tags": ["retro", "emulação", "nostalgia"],
+  "image": "retro-console-mini.jpg",
+  "thumbnail": "retro-console-mini-thumb.jpg",
+  "credit": "foto própria"
+}

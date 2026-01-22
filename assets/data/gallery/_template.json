@@ -1,0 +1,11 @@
+{
+  "title": "descrição da imagem",
+  "category": "setup|games|viagens|eventos|projetos|livros|hobbies|cotidiano",
+  "year": "2024",
+  "description": "descrição mais detalhada da imagem (1-2 frases)",
+  "favorite": false,
+  "tags": ["tag1", "tag2"],
+  "image": "nome-da-imagem.jpg",
+  "thumbnail": "nome-da-imagem-thumb.jpg",
+  "credit": "foto própria|crédito"
+}

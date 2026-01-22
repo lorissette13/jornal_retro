@@ -1,0 +1,11 @@
+{
+  "title": "equipamento de áudio",
+  "category": "hobbies",
+  "year": "2023",
+  "description": "setup de áudio para gravação de podcasts e trilhas sonoras.",
+  "favorite": false,
+  "tags": ["áudio", "podcast", "equipamento"],
+  "image": "audio-setup.jpg",
+  "thumbnail": "audio-setup-thumb.jpg",
+  "credit": "foto própria"
+}

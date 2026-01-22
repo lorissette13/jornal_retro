@@ -8,19 +8,53 @@
     
     <div class="logo-section">
         <h1 class="logo">
-            <a href="index.html" class="logo-link" data-navigation="home">lorissette13</a>
+            <a href="../index.html" class="logo-link" data-navigation="home">lorissette13</a>
         </h1>
         <p class="slogan">by loris</p>
+        <div class="divider"></div>
     </div>
     
-    <nav class="nav-menu">
-        <a href="#who" class="nav-item" data-page="quem-sou">quem sou</a>
-        <a href="pages/trajetoria.html" class="nav-item" data-page="trajetoria">trajetória</a>
-        <a href="pages/projetos.html" class="nav-item" data-page="projetos">projetos</a>
-        <a href="pages/cotidiano.html" class="nav-item" data-page="cotidiano">cotidiano</a>
-        <a href="pages/galeria.html" class="nav-item" data-page="galeria">galeria</a>
-    </nav>
+    <!-- Menu carregado via modulo -->
+    <nav class="nav-menu" id="nav-menu-pages"></nav>
+    
+    <!-- Divisor após menu -->
+    <div class="menu-divider"></div>
 </header>
+
+<script>
+    // Carrega o menu modular nas páginas internas
+    document.addEventListener('DOMContentLoaded', function() {
+        const navContainer = document.getElementById('nav-menu-pages');
+        
+        fetch('../components/nav-menu.html')
+            .then(response => response.text())
+            .then(html => {
+                navContainer.innerHTML = html;
+                
+                // Ajusta os links para o contexto de páginas internas
+                const navItems = document.querySelectorAll('.nav-item');
+                navItems.forEach(item => {
+                    let href = item.getAttribute('href');
+                    // Se o link começa com ./, precisa adicionar ../
+                    if (href.startsWith('./pages/')) {
+                        // já está certo, deixa como está
+                    } else if (href === './index.html') {
+                        item.href = '../index.html';
+                    }
+                    
+                    // Após carregar o menu, atualiza o estado ativo
+                    const currentPage = window.location.pathname.split('/').pop();
+                    const newHref = item.getAttribute('href');
+                    
+                    if (newHref.includes(currentPage) || 
+                        (currentPage === 'index.html' && newHref.includes('../index'))) {
+                        item.classList.add('active');
+                    }
+                });
+            })
+            .catch(error => console.error('Erro carregando menu:', error));
+    });
+</script>
 
 <style>
 .logo-link {
@@ -31,5 +65,10 @@
 
 .logo-link:hover {
     color: #7E8C54;
+}
+
+.nav-item.active {
+    color: #7E8C54;
+    font-weight: bold;
 }
 </style>

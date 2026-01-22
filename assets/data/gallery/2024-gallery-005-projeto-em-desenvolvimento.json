@@ -1,0 +1,11 @@
+{
+  "title": "projeto em desenvolvimento",
+  "category": "projetos",
+  "year": "2024",
+  "description": "screenshot de um projeto em desenvolvimento mostrando interface e código.",
+  "favorite": true,
+  "tags": ["desenvolvimento", "interface", "código"],
+  "image": "project-dev.jpg",
+  "thumbnail": "project-dev-thumb.jpg",
+  "credit": "captura de tela"
+}

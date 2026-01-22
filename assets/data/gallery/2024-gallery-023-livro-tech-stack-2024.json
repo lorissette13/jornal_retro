@@ -1,0 +1,11 @@
+{
+  "title": "livro tech stack 2024",
+  "category": "livros",
+  "year": "2024",
+  "description": "leitura de best-sellers sobre arquitetura de software e padrões de design.",
+  "favorite": false,
+  "tags": ["arquitetura", "design", "estudos"],
+  "image": "tech-book-stack.jpg",
+  "thumbnail": "tech-book-stack-thumb.jpg",
+  "credit": "foto própria"
+}

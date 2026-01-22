@@ -1,0 +1,11 @@
+{
+  "title": "código limpo em ação",
+  "category": "projetos",
+  "year": "2024",
+  "description": "screenshot de código bem estruturado e documentado no vscode.",
+  "favorite": false,
+  "tags": ["código", "desenvolvimento", "editor"],
+  "image": "clean-code.jpg",
+  "thumbnail": "clean-code-thumb.jpg",
+  "credit": "captura de tela"
+}

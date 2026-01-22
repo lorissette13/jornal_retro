@@ -55,19 +55,6 @@
                 <!-- Projetos carregados via JavaScript -->
             </div>
             
-            <!-- Navegação Inferior -->
-            <div class="posts-navigation bottom-nav">
-                <button class="nav-btn prev-btn" id="prev-btn-bottom" disabled>
-                    ‹ anterior
-                </button>
-                <div class="page-info">
-                    página <span id="current-page-bottom">1</span> de <span id="total-pages-bottom">1</span>
-                </div>
-                <button class="nav-btn next-btn" id="next-btn-bottom">
-                    próximo ›
-                </button>
-            </div>
-            
             <!-- Botão de Voltar -->
             <div class="btn-container">
                 <a href="../index.html" class="btn-read-more">voltar para home</a>
@@ -143,13 +130,9 @@
         function setupNavigation() {
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
-            const prevBtnBottom = document.getElementById('prev-btn-bottom');
-            const nextBtnBottom = document.getElementById('next-btn-bottom');
             
             prevBtn.addEventListener('click', () => goToPreviousPage());
             nextBtn.addEventListener('click', () => goToNextPage());
-            prevBtnBottom.addEventListener('click', () => goToPreviousPage());
-            nextBtnBottom.addEventListener('click', () => goToNextPage());
         }
         
         function goToPreviousPage() {
@@ -177,12 +160,6 @@
             document.getElementById('total-pages').textContent = totalPages;
             document.getElementById('prev-btn').disabled = currentPage === 1;
             document.getElementById('next-btn').disabled = currentPage === totalPages;
-            
-            // Bottom navigation
-            document.getElementById('current-page-bottom').textContent = currentPage;
-            document.getElementById('total-pages-bottom').textContent = totalPages;
-            document.getElementById('prev-btn-bottom').disabled = currentPage === 1;
-            document.getElementById('next-btn-bottom').disabled = currentPage === totalPages;
         }
     </script>
 </body>

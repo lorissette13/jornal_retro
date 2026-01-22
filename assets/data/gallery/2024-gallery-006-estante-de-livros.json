@@ -1,0 +1,11 @@
+{
+  "title": "estante de livros",
+  "category": "livros",
+  "year": "2024",
+  "description": "minha estante com livros de ficção científica, fantasia e tecnologia.",
+  "favorite": false,
+  "tags": ["livros", "estante", "coleção"],
+  "image": "book-shelf.jpg",
+  "thumbnail": "book-shelf-thumb.jpg",
+  "credit": "foto própria"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "dashboard em construção",
+  "category": "projetos",
+  "year": "2024",
+  "description": "dashboard analítico em desenvolvimento com gráficos interativos e dados em tempo real.",
+  "favorite": true,
+  "tags": ["dashboard", "análise", "dados"],
+  "image": "dashboard-dev.jpg",
+  "thumbnail": "dashboard-dev-thumb.jpg",
+  "credit": "captura de tela"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "portfolio website redesign",
+  "category": "projetos",
+  "year": "2024",
+  "description": "redesign completo do portfólio pessoal com nova paleta de cores e layout responsivo.",
+  "favorite": true,
+  "tags": ["web design", "ux/ui", "portfólio"],
+  "image": "portfolio-redesign.jpg",
+  "thumbnail": "portfolio-redesign-thumb.jpg",
+  "credit": "captura de tela"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "viagem para portugal",
+  "category": "viagens",
+  "year": "2023",
+  "description": "vista do castelo de são jorge em lisboa durante o pôr do sol.",
+  "favorite": true,
+  "tags": ["portugal", "lisboa", "pôr do sol"],
+  "image": "lisboa-castle.jpg",
+  "thumbnail": "lisboa-castle-thumb.jpg",
+  "credit": "foto própria"
+}

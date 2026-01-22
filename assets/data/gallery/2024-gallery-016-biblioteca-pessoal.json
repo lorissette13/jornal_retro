@@ -1,0 +1,11 @@
+{
+  "title": "biblioteca pessoal",
+  "category": "livros",
+  "year": "2024",
+  "description": "canto da biblioteca com livros de tecnologia, ficção e história.",
+  "favorite": true,
+  "tags": ["leitura", "estante", "conhecimento"],
+  "image": "library-corner.jpg",
+  "thumbnail": "library-corner-thumb.jpg",
+  "credit": "foto própria"
+}

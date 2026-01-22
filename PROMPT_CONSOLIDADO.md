@@ -5,18 +5,23 @@
 
 ## 🏗️ ARQUITETURA
 ```
-index.html | style.css | script.js
+index.html | style.css
 assets/css/
   ├── tokens.css (variáveis centralizadas)
   ├── layout.css (body, container, page layout - espaçamento 50px top, 80px bottom)
   ├── buttons.css (todos tipos de botão)
-  ├── filters.css (estilos base de filtros)
+  ├── filters.css (estilos base de filtros - padding 14px 30px, font-size 0.95rem)
   └── filter-colors.css (cores específicas por categoria)
-assets/js/ (carregamento e renderização)
+assets/js/
+  ├── gallery.js (carrega pasta data/gallery/ automaticamente)
+  ├── posts.js, projects.js, timeline.js (componentes principais)
+  └── carousel-new.js (classe Carousel genérica)
 assets/data/
-  ├── posts/      (YYYY-MM-DD-slug.md)
-  ├── projects/   (YYYY-MM-DD-slug.md)
-  └── trajectory/ (YYYY-MM-DD-slug.md)
+  ├── gallery/          (YYYY-ID-slug.json - cada imagem é um arquivo)
+  ├── posts/           (YYYY-MM-DD-slug.md)
+  ├── projects/        (YYYY-MM-DD-slug.md)
+  └── trajectory/      (YYYY-MM-DD-slug.md)
+assets/images/gallery/ (imagens reais - adicionar fotos aqui)
 pages/ | components/
 ```
 
@@ -27,8 +32,23 @@ CSS modularizado para máxima reutilização e manutenção centralizada:
 - `tokens.css`: Variáveis de cores, espaçamento, tipografia, bordas, sombras
 - `layout.css`: Body, container, headers, footers, espaçamento global (50px top, 80px bottom)
 - `buttons.css`: Todos tipos de botão (btn-primary, btn-secondary, nav-btn) com efeito shine
-- `filters.css`: Estilos base de componentes de filtro
+- `filters.css`: Estilos base de componentes de filtro (14px 30px padding, 0.95rem font-size)
 - `filter-colors.css`: Cores específicas por categoria (filmes, jogos, livros, etc)
+
+**Módulos JavaScript**:
+- `gallery.js`: Sistema de galeria modular - carrega `assets/data/gallery/*.json`
+  - Cada imagem é um arquivo JSON separado (como posts em markdown)
+  - Filtros, carrossel, modal, favoritos com localStorage
+  - Adicione uma imagem: crie `YYYY-ID-slug.json` em `assets/data/gallery/`
+- `carousel-new.js`: Classe Carousel genérica (reutilizável)
+- `posts.js`, `projects.js`, `timeline.js`: Componentes principais
+
+**Sistema de Dados Modular** (arquivos independentes):
+- **Galeria**: `assets/data/gallery/2024-gallery-001-setup.json` (metadata)
+  - Imagens em `assets/images/gallery/setup-2024.jpg`
+- **Posts**: `assets/data/posts/YYYY-MM-DD-slug.md` (Markdown + YAML)
+- **Projetos**: `assets/data/projects/YYYY-MM-DD-slug.md`
+- **Trajetória**: `assets/data/trajectory/YYYY-MM-DD-slug.md`
 
 **Regra Importante**: Sempre editar em UM ÚNICO LUGAR:
 - Cores → `tokens.css`
@@ -152,6 +172,28 @@ Conclusão ou reflexão final.
 - HTML5 semântico | CSS3 grid/flexbox | JS vanilla
 - Google Fonts | Unicode emojis | Sem frameworks
 - Posts: Markdown + YAML front matter (arquivos independentes)
+
+---
+
+## ⚙️ DECISÕES TÉCNICAS RECENTES
+
+### 1. Spacing do Headline (quem sou eu) - Jan 2026
+**Problema**: Espaço excessivo entre menu-divider e headline "quem sou eu"  
+**Solução**: Adicionar `margin-top: -var(--spacing-lg);` ao `.headline` (style.css)  
+**Justificativa**: Usa sistema de tokens existentes (--spacing-lg = 24px), aproxima visualmente a seção ao menu mantendo hierarquia visual, sem quebrar layout em responsivo  
+**Arquivo**: `style.css` linha ~250 (`.headline`)
+
+### 2. Menu Modular com Fetch - Jan 2026
+**Problema**: Menu precisava aparecer em todas as páginas (home + 5 internas)  
+**Solução**: Criar `components/nav-menu.html` e carregar via `fetch()` em `index.html` e `components/header.html`  
+**Justificativa**: Evita duplicação de HTML, garante consistência, permite manutenção centralizada  
+**Arquivos**: `components/nav-menu.html`, `components/header.html`, `index.html`
+
+### 3. Padronização Layout/Textura - Jan 2026
+**Problema**: Layout.css e style.css tinham estilos inconsistentes (gradientes, sombras, espaçamento)  
+**Solução**: Mover definições CSS para um único arquivo (style.css) com uso de tokens centralizados  
+**Justificativa**: DRY principle, facilita manutenção, garante consistência visual em todas as páginas  
+**Arquivo**: `style.css`, `assets/css/layout.css`
 
 ---
 

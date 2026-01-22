@@ -1,0 +1,11 @@
+{
+  "title": "code review em tempo real",
+  "category": "projetos",
+  "year": "2024",
+  "description": "sessão de code review colaborativa com time de desenvolvimento.",
+  "favorite": false,
+  "tags": ["colaboração", "review", "qualidade"],
+  "image": "code-review.jpg",
+  "thumbnail": "code-review-thumb.jpg",
+  "credit": "captura de tela"
+}

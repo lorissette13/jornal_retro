@@ -1,0 +1,11 @@
+{
+  "title": "coleção de jogos retro",
+  "category": "games",
+  "year": "2023",
+  "description": "parte da minha coleção de jogos retrô para consoles clássicos dos anos 80-90.",
+  "favorite": true,
+  "tags": ["retro", "coleção", "jogos"],
+  "image": "retro-games.jpg",
+  "thumbnail": "retro-games-thumb.jpg",
+  "credit": "foto própria"
+}

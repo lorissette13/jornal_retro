@@ -1,0 +1,11 @@
+{
+  "title": "praia ao entardecer",
+  "category": "viagens",
+  "year": "2023",
+  "description": "caminhada tranquila na praia durante o pôr do sol com céu em tons avermelhados.",
+  "favorite": true,
+  "tags": ["praia", "natureza", "relaxamento"],
+  "image": "beach-sunset.jpg",
+  "thumbnail": "beach-sunset-thumb.jpg",
+  "credit": "foto própria"
+}

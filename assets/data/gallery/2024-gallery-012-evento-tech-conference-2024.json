@@ -1,0 +1,11 @@
+{
+  "title": "evento tech conference 2024",
+  "category": "eventos",
+  "year": "2024",
+  "description": "participação como palestrante em conferência de arquitetura frontend.",
+  "favorite": true,
+  "tags": ["palestra", "conferência", "arquitetura"],
+  "image": "tech-conf-2024.jpg",
+  "thumbnail": "tech-conf-2024-thumb.jpg",
+  "credit": "foto do evento"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "meetup de devs local",
+  "category": "eventos",
+  "year": "2024",
+  "description": "networking e troca de conhecimento com comunidade local de desenvolvedores.",
+  "favorite": false,
+  "tags": ["comunidade", "networking", "devs"],
+  "image": "dev-meetup.jpg",
+  "thumbnail": "dev-meetup-thumb.jpg",
+  "credit": "foto do evento"
+}

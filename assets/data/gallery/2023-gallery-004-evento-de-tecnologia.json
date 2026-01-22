@@ -1,0 +1,11 @@
+{
+  "title": "evento de tecnologia",
+  "category": "eventos",
+  "year": "2023",
+  "description": "participação como palestrante em conferência de desenvolvimento front-end.",
+  "favorite": false,
+  "tags": ["evento", "palestra", "tecnologia"],
+  "image": "tech-event.jpg",
+  "thumbnail": "tech-event-thumb.jpg",
+  "credit": "foto do evento"
+}
