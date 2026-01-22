@@ -43,20 +43,6 @@
     border-color: #f77f00 !important;
 }
 
-.tag-category.filter-color-jogos {
-    border-color: #457b9d;
-    background: linear-gradient(145deg, rgba(69, 123, 157, 0.1), rgba(50, 100, 140, 0.05));
-}
-
-.tag-category.filter-color-música {
-    border-color: #9d4edd;
-    background: linear-gradient(145deg, rgba(157, 78, 221, 0.1), rgba(130, 50, 200, 0.05));
-}
-
-.tag-category.filter-color-dev-life {
-    border-color: #7E8C54;
-    background: linear-gradient(145deg, rgba(126, 140, 84, 0.1), rgba(100, 120, 60, 0.05));
-}
 
 .filter-btn.filter-color-viagens {
     --filter-color: #06a77d;
