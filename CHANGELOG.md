@@ -1,5 +1,41 @@
 # CHANGELOG - Jornal Retro
 
+## v2.5.1 - Refatoração de Cores: Marrom → Verde
+
+**Substituição de Paleta de Cores**:
+- Migração completa de cores marrons (#8b4513, #a07850, #654321) para verde (olive e sage)
+- Todas as cores agora usam variáveis CSS do design system
+- Remoção de estética marrom/jornal antigo, aplicação de novo design verde global
+
+**Cores Substituídas**:
+- `#8b4513` (marrom) → `var(--color-accent-olive)` (#556B2F)
+- `#a07850` (marrom vintage) → `var(--color-accent-sage)` (#7E8C54)
+- `#654321` (marrom escuro) → `var(--color-accent-olive-light)` (#6B8E23)
+- `#d2b48c` (bege/areia) → `var(--color-accent-sage)`
+- `#f5f0e8` (fundo marrom) → `var(--color-bg-cream)` (#faf5eb)
+
+**Elementos Atualizados em `style.css`**:
+✅ Bordas container (double border)
+✅ Botões (btn-read-more, btn-small, news-btn, project-link)
+✅ Navegação (top-bar, nav-items)
+✅ Headers e dividers (gradient)
+✅ Seções de conteúdo (who-column, news-column)
+✅ Textos e títulos (news-title, news-subtitle, news-date, footer-text)
+✅ Tags e badges (skill-tag)
+✅ Galeria (mock-image-gallery)
+✅ Gradientes e sombras (todos os rgba com cores verdes)
+
+**Arquivos Modificados**:
+- `assets/css/style.css` (65+ alterações)
+- Outros arquivos CSS já estavam com variáveis
+
+**Validação**:
+✓ Site testado no navegador (http://localhost:8000)
+✓ Cores verdes aplicadas consistentemente em todas as páginas
+✓ Sem cores marrons remanescentes
+
+---
+
 ## v2.5.0 - Design System & Padronização de Cores/Espaçamentos
 
 **Sistema de Tokens CSS Centralizado**:
