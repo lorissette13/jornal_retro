@@ -1,6 +1,16 @@
 # CHANGELOG - Jornal Retro
 
-## v2.3.12 - Navigation & Content Fixes
+## v2.3.13 - Visual Polish & Content Reliability
+
+**Button Design**: Reduced button sizes for more elegant, less intrusive appearance across all sections
+**Button Spacing**: Added proper margins and spacing between content and buttons to prevent crowding
+**Gallery Button**: Centered gallery button with dedicated container for proper alignment
+**Footer Restoration**: Replaced component-based footer with inline footer matching v0 exactly
+**Content Fallbacks**: Added static fallback content for trajectory and projects when JSON loading fails
+**Footer Styling**: Updated footer CSS to match v0 with proper divider gradient and typography
+**Result**: Cleaner visual hierarchy, reliable content display, and footer consistency with v0 ✓
+
+---
 
 **Menu Navigation**: Fixed menu links to navigate directly to pages instead of anchors on home
 **Section Buttons**: Added "ver mais" buttons to all home sections (projects, trajectory, daily, gallery) for proper page navigation
