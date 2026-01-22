@@ -1,6 +1,16 @@
 # CHANGELOG - Jornal Retro
 
-## v2.3.15 - Gallery Carousel & Content Loading Fixes
+## v2.3.16 - UI Polish & Content Loading Fixes
+
+**Footer Spacing**: Added 80px bottom margin to container for proper spacing between journal border and footer
+**Button Gradient**: Implemented radial gradient on buttons (green to brown from center outward) while preserving exact hover effects
+**Projects Filters**: Standardized all filters to button-based system matching "cotidiano" page style
+**HTML Cleanup**: Removed stray HTML prefixes from all page files (cotidiano.html, projetos.html, quem-sou.html)
+**Gallery Icons**: Increased icon size to 8rem for better visual presence (4 icons forming square)
+**JSON Validation**: Fixed invalid JSON files by removing erroneous prefixes
+**Result**: Improved visual consistency, proper content loading, and enhanced user experience ✓
+
+---
 
 **Gallery Carousel**: Implemented interactive carousel showing 4 items at a time with olive green navigation buttons (#556B2F, #6B8E23)
 **Content Loading Fix**: Fixed "carregando" placeholders - text, experiences, and projects now display actual content instead of loading states
