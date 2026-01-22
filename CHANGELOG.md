@@ -1,5 +1,16 @@
 # CHANGELOG - Jornal Retro
 
+## v2.3.7 - Color Palette Standardization & Button Styling
+
+**Gallery Colors**: Removed ALL green colors (#7E8C54, #657043, #95A568) → uniform brown (#8b4513)
+**Button Standard**: Brown gradient + shine effect across ALL buttons (no color change on hover)
+**Dividers**: Standardized to `.menu-divider` class (2px height, transparent gradient)
+**Navigation Menu**: Removed top/bottom borders for cleaner appearance
+**Gallery Elements**: Image icons, carousel counter, action buttons, slide tags, thumbnails all updated
+**Result**: Complete color consistency, no visual inconsistencies ✓
+
+---
+
 ## v2.3.6 - Documentation Consolidation & Polish
 
 **PROMPT_CONSOLIDADO.md**: Reduced to ~70% size (60 lines → core info only)
