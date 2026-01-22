@@ -178,7 +178,49 @@ document.addEventListener('DOMContentLoaded', init);
 - Navegação: Em `navigation.css` (usa vars de tokens)
 - Responsivo: 4→2→1 colunas (desktop→tablet→mobile)
 
-## 📚 REFERÊNCIA
+## � CORREÇÕES IMPLEMENTADAS (Problema #1)
+
+### Problema: Botões da Home Deproporcionais
+**Status**: ✅ RESOLVIDO
+
+#### Decisões Implementadas:
+1. **Padronizar classe de botão**: Todos os botões da home agora usam `.btn-read-more`
+   - "linha do tempo" (trajetória)
+   - "stack completo" (trajetória)  
+   - "ver todos os projetos" (projetos)
+   - "ver cotidiano completo" (cotidiano)
+   - "ver galeria completa" (galeria)
+
+2. **Efeito shine/brilho**: Padronizado com `linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)`
+   - Transição: 0.6s ease
+   - Aplicado a todos os botões via `::before` pseudo-element
+
+3. **Hover consistente**: Removido ouro (#d4af37) do hover de `.btn-small`
+   - Antes: gradiente para dourado
+   - Depois: mantém verde (olive-light → sage-light)
+
+4. **Texto em uma linha**: Adicionado `white-space: nowrap` a `.btn-read-more`
+   - Desktop: 15px 35px, 1.05rem
+   - Tablet (768px): 13px 30px, 0.98rem + nowrap
+   - Mobile (480px): 12px 25px, 0.92rem + nowrap
+
+5. **Botão cotidiano limitado**: `.tags-section .btn-container` 
+   - `max-width: 300px`
+   - `align-self: center`
+   - `width: 100%` no `.btn-read-more` dentro do container
+
+#### Arquivos Modificados:
+- `assets/css/buttons.css`: white-space, hover color fix
+- `assets/css/style.css`: .tags-section .btn-container e .btn-read-more regras
+- `index.html`: btn-small → btn-read-more (2 botões trajetória)
+
+#### Resultado Visual:
+- Todos os botões da home com proporção idêntica
+- Sem quebra de texto em duas linhas
+- Cor consistente (verde oliva)
+- Brilho uniforme em todos
+
+## �📚 REFERÊNCIA
 → [REGRAS_PERMANENTES.md](REGRAS_PERMANENTES.md)  
 → [README.md](README.md)
 
