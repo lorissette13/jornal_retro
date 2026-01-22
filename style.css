@@ -458,6 +458,74 @@ body::after {
     margin-bottom: 0;
 }
 
+/* Preview de Experiência */
+.experience-preview {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(160, 120, 80, 0.05);
+    border-left: 3px solid #8b4513;
+    border-radius: 2px;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.exp-type {
+    font-family: 'Special Elite', monospace;
+    color: #654321;
+    text-transform: lowercase;
+}
+
+.exp-period {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.75rem;
+    color: #a07850;
+}
+
+.exp-title {
+    font-family: 'Special Elite', monospace;
+    font-size: 1.05rem;
+    color: #2a2018;
+    margin-bottom: 4px;
+    text-transform: lowercase;
+}
+
+.exp-company {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.9rem;
+    color: #654321;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.exp-description {
+    font-family: 'Times New Roman', serif;
+    font-size: 0.9rem;
+    color: #3a2c1e;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.exp-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.exp-skill {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    background: rgba(160, 120, 80, 0.1);
+    border-radius: 10px;
+    color: #654321;
+}
+
 .news-title {
     font-family: 'Special Elite', monospace;
     font-size: 1.2rem;
@@ -590,11 +658,7 @@ body::after {
 }
 
 .divider-footer {
-    width: 200px;
-    height: 2px;
-    background: linear-gradient(to right, #a07850, #8b4513, #a07850);
-    margin: 0 auto 20px;
-    border-radius: 1px;
+    display: none;
 }
 
 .footer-text {

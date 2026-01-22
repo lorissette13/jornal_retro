@@ -1,6 +1,8 @@
-# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO
+# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.2 - ESTÁVEL)
 
 ## 🤖 GUIA PARA DESENVOLVIMENTO COM AGENTES IA
+
+**VERSÃO ESTÁVEL 2.2.0** - Sem bugs críticos, código duplicado removido, funcionalidades testadas.
 
 Este documento é o arquivo de referência central para o projeto. **Use este prompt sempre ao trabalhar com agentes de IA ou precisar de contexto para novas implementações.**
 
@@ -109,25 +111,29 @@ jornal_retro/
 - **Ícones**: Unicode emojis para simplicidade
 
 ### FUNCIONALIDADES IMPLEMENTADAS
-✅ **Layout completo** - Design retro de jornal com 3 colunas
+✅ **Layout completo** - Design retro de jornal com 3 colunas dinâmicas
 ✅ **Responsividade** - Mobile, tablet, desktop adaptativos
 ✅ **Animações** - Typewriter, fade-in, hover effects com dourado padrão
-✅ **Navegação** - Smooth scroll entre seções e botão voltar condicional
-✅ **Sistema de favoritos** - Marcar items da timeline e galeria, persiste em localStorage
-✅ **Galeria expandida** - 16 items com carrossel funcional e filtros
-✅ **Timeline completa** - 15 experiências com botão anterior (aparece só quando há itens anteriores)
+✅ **Navegação** - Smooth scroll entre seções, botão voltar condicional na timeline
+✅ **Sistema de favoritos centralizado** - localStorage único para timeline, galeria e projetos
+✅ **Experiências na home** - Carregamento de experiências favoritas da timeline
+✅ **Projetos na home** - Carregamento de projetos favoritos dinâmicos
+✅ **Posts na home** - Carregamento de posts favoritos dinâmicos
+✅ **Galeria na home** - Carrossel com imagens favoritas
+✅ **Galeria expandida** - 16 items com filtros por categoria e ano
+✅ **Timeline completa** - 15 experiências mockadas com favoritos
 ✅ **Interatividade** - Botões funcionais com feedback dourado #d4af37
 ✅ **Tipografia** - Hierarquia visual consistente em lowercase
 ✅ **Paleta** - Cores sépia/dourado autênticas com hover dourado padrão
-✅ **Clean Code** - Código organizado, funções bem nomeadas, localStorage centralizado
+✅ **Clean Code** - Funções bem nomeadas, localStorage centralizado, sem duplicação
+✅ **Código sem duplicação** - Refatorado para eliminar conteúdo repetido
 
 ### FUNCIONALIDADES FUTURAS (PRONTAS PARA IMPLEMENTAÇÃO)
-🔄 **Sistema de posts** - JSON dinâmico para cotidiano
-🔄 **Integração de favoritos na home** - Mostrar items favoritos marcados
-🔄 **Galeria real** - Carrossel com imagens reais
-🔄 **Timeline interativa** - SVG com animações
-🔄 **Projetos filtráveis** - Grid com categorias
-🔄 **Formulário contato** - Integração com backend
+🔄 **Integração de dados reais** - Conectar com APIs ou banco de dados
+🔄 **Formulário de contato** - Integração com backend
+🔄 **Modo escuro** - Toggle automático baseado em preferências do SO
+🔄 **Busca global** - Procurar em posts, projetos e experiências
+🔄 **Analytics** - Rastrear visitas e interações
 🔄 **SEO otimizado** - Meta tags, schema markup
 
 ### DECISÕES TÉCNICAS CHAVE

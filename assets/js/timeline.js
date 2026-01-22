@@ -385,3 +385,52 @@ function loadFavoritesFromLocalStorage() {
         console.error('Erro ao carregar favoritos:', error);
     }
 }
+
+// Carrega experiências favoritas para a home
+function loadFeaturedExperiences(limit = 2) {
+    const container = document.getElementById('featured-experiences');
+    if (!container) return;
+    
+    const featured = timelineData
+        .filter(exp => exp.favorite)
+        .sort((a, b) => {
+            const yearA = parseInt(a.period.split('-')[0]);
+            const yearB = parseInt(b.period.split('-')[0]);
+            return yearB - yearA;
+        })
+        .slice(0, limit);
+    
+    if (featured.length === 0) {
+        container.innerHTML = '<p class="loading-text">nenhuma experiência marcada como favorita</p>';
+        return;
+    }
+    
+    container.innerHTML = featured.map(createExperiencePreview).join('');
+}
+
+// Cria preview de experiência para a home
+function createExperiencePreview(exp) {
+    const typeLabel = getTypeLabel(exp.type);
+    const icon = getTypeIcon(exp.type);
+    
+    return `
+        <div class="experience-preview">
+            <div class="exp-header">
+                <span class="exp-type">${icon} ${typeLabel}</span>
+                <span class="exp-period">${exp.period}</span>
+            </div>
+            <h4 class="exp-title">${exp.title}</h4>
+            ${exp.company ? `<p class="exp-company">${exp.company}</p>` : ''}
+            ${exp.institution ? `<p class="exp-company">${exp.institution}</p>` : ''}
+            <p class="exp-description">${exp.description.substring(0, 120)}...</p>
+            ${exp.skills ? `
+                <div class="exp-skills">
+                    ${exp.skills.slice(0, 3).map(skill => `<span class="exp-skill">${skill}</span>`).join('')}
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
+// Exporta função para uso global
+window.loadFeaturedExperiences = loadFeaturedExperiences;
