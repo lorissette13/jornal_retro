@@ -397,6 +397,17 @@
     text-align: justify;
 }
 
+/* BOTÃO DENTRO DE TAGS SECTION */
+.tags-section .btn-container {
+    align-self: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.tags-section .btn-read-more {
+    width: 100%;
+}
+
 /* GALERIA */
 .gallery-section {
     margin: 60px 0;

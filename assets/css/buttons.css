@@ -57,6 +57,7 @@ button, .btn, input[type="button"], input[type="submit"] {
         inset 0 1px 0 rgba(255, 255, 255, 0.2),
         0 0 0 1px rgba(85, 107, 47, 0.15);
     text-decoration: none !important;
+    white-space: nowrap;
 }
 
 /* Garante que links com .btn-read-more não têm sublinhado */
@@ -129,8 +130,8 @@ a.btn-small:active {
 .btn-secondary:hover,
 .btn-small:hover {
     transform: translateY(-3px);
-    background: linear-gradient(145deg, var(--color-accent-gold), var(--color-accent-sage-light));
-    color: #2a2018;
+    background: linear-gradient(145deg, var(--color-accent-olive-light), var(--color-accent-sage-light));
+    color: #f5f0e1;
     box-shadow: 
         0 8px 20px rgba(85, 107, 47, 0.35),
         inset 0 1px 0 rgba(255, 255, 255, 0.25),
@@ -220,6 +221,7 @@ a.btn-small:active {
     .btn-read-more {
         padding: 13px 30px;
         font-size: 0.98rem;
+        white-space: nowrap;
     }
 
     .btn-secondary,
@@ -240,6 +242,7 @@ a.btn-small:active {
     .btn-read-more {
         padding: 12px 25px;
         font-size: 0.92rem;
+        white-space: nowrap;
     }
 
     .btn-secondary,
