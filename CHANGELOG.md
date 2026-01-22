@@ -1,5 +1,15 @@
 # CHANGELOG - Jornal Retro
 
+## v2.3.6 - Documentation Consolidation & Polish
+
+**PROMPT_CONSOLIDADO.md**: Reduced to ~70% size (60 lines → core info only)
+**CHANGELOG.md**: Consolidated to recent versions only (41 lines from 293)
+**Header**: Changed "nascida em 1995" → "since 1995" across all files
+**Code Audit**: All functions connected, no unused code detected ✓
+**Dividers**: Standardized pattern, no duplicates
+
+---
+
 ## v2.3.5 - Gallery, News Items, Full Styling
 
 **Carousel**: Emojis + brown buttons (#8b4513) + shine effect
