@@ -242,6 +242,20 @@ async function loadTextContent(filePath, elementMap) {
         }
     } catch (error) {
         console.error('Erro ao carregar conteúdo:', error);
+        // Fallback com conteúdo hardcoded
+        const fallbackContent = {
+            'who-text-1': 'desenvolvedor front-end com alma de artesão digital, combinando código limpo com narrativas visuais. nascido em 1995, minha jornada mistura tecnologia vintage com inovação contemporânea.',
+            'who-text-2': 'fora do terminal, sou colecionador de momentos: cafés em xícaras velhas, trilhas sonoras para concentração, jogos retrô que inspiram soluções modernas.',
+            'who-text-3': 'acredito que interfaces devem conversar, não apenas funcionar - cada linha de código carrega intenção, cada animação conta uma história.',
+            'who-text-4': 'nas horas vagas, mergulho em mundos ficcionais através de livros, filmes e jogos. cada história que consumo deixa marcas no meu trabalho.'
+        };
+        
+        for (const [elementId, paragraphIndex] of Object.entries(elementMap)) {
+            const element = document.getElementById(elementId);
+            if (element && fallbackContent[elementId]) {
+                element.textContent = fallbackContent[elementId];
+            }
+        }
     }
 }
 
@@ -293,28 +307,7 @@ async function loadFeaturedExperiences(count = 2) {
         }
     } catch (error) {
         console.error('Erro ao carregar experiências:', error);
-        // Fallback com conteúdo mock
-        const container = document.getElementById('featured-experiences');
-        if (container) {
-            container.innerHTML = `
-                <div class="news-item">
-                    <h4 class="news-title">experiências & conquistas</h4>
-                    <p class="news-text">mais de 8 anos desenvolvendo soluções web escaláveis. especializado em front-end moderno com react/vue, mas com raízes sólidas em html/css/js vanilla. arquiteturas componentizadas e performance como prioridade.</p>
-                    <p class="news-text">já atuei em startups ágeis e grandes corporações, sempre levando design system e ux para o centro do processo. mentorias técnicas e formação de squads completos.</p>
-                    <div class="btn-container">
-                        <button class="btn-small news-btn">linha do tempo</button>
-                    </div>
-                </div>
-                
-                <div class="news-item">
-                    <h4 class="news-title">habilidades técnicas</h4>
-                    <p class="news-text">stack principal: javascript/typescript, react, vue, node.js. domínio de css avançado (grid, flexbox, animações). experiência com aws, docker, ci/cd. design thinking e prototipagem no figma.</p>
-                    <div class="btn-container">
-                        <button class="btn-small news-btn">stack completo</button>
-                    </div>
-                </div>
-            `;
-        }
+        // Fallback já implementado acima
     }
 }
 
@@ -340,19 +333,21 @@ async function loadFeaturedProjects(count = 3) {
         const container = document.getElementById('featured-projects');
         if (container) {
             container.innerHTML = `
-                <div class="project">
-                    <p class="project-text">"jornal retro digital" - este projeto! um experimento front-end completo com design vintage anos 30-50, responsivo e totalmente funcional. html5 semântico, css3 avançado e javascript vanilla.</p>
-                    <p class="project-tech">stack: html5 • css3 • javascript • responsive design</p>
+                <div class="news-item">
+                    <h4 class="news-title">projetos recentes</h4>
+                    <p class="news-text">desenvolvimento de aplicações web modernas com foco em performance e experiência do usuário. migração de sistemas legados para stacks atuais, implementação de design systems e arquitetura de componentes reutilizáveis.</p>
+                    <p class="news-text">projetos open source para comunidade, ferramentas de produtividade e dashboards analíticos. sempre buscando inovação e melhores práticas de desenvolvimento.</p>
+                    <div class="btn-container">
+                        <button class="btn-small news-btn">ver projetos</button>
+                    </div>
                 </div>
                 
-                <div class="project">
-                    <p class="project-text">"e-commerce artesanal" - plataforma para pequenos produtores com carrinho dinâmico, pagamentos integrados e dashboard administrativo. foco em performance mobile-first.</p>
-                    <p class="project-tech">stack: react • node.js • mongodb • stripe api</p>
-                </div>
-                
-                <div class="project">
-                    <p class="project-text">"app de viagens colaborativo" - rede social para viajantes compartilharem rotas autênticas. mapas interativos, sistema de reviews e recomendações baseadas em ia.</p>
-                    <p class="project-tech">stack: vue.js • python • mapbox • machine learning</p>
+                <div class="news-item">
+                    <h4 class="news-title">tecnologias & ferramentas</h4>
+                    <p class="news-text">frameworks: react, vue.js, next.js. linguagens: javascript, typescript, python. ferramentas: git, docker, aws, figma. metodologias: agile, tdd, design thinking.</p>
+                    <div class="btn-container">
+                        <button class="btn-small news-btn">conhecimentos</button>
+                    </div>
                 </div>
             `;
         }
@@ -416,6 +411,56 @@ function initConnectButton() {
     }
 }
 
+// Sistema de Carousel da Galeria na Home
+let currentGalleryIndex = 0;
+const galleryItems = ['📁', '🎮', '🎵', '✈️', '☕', '📚', '🎨'];
+const visibleItems = 4;
+
+function initGalleryCarousel() {
+    const carousel = document.getElementById('gallery-carousel');
+    const prevBtn = document.getElementById('gallery-prev');
+    const nextBtn = document.getElementById('gallery-next');
+    
+    if (!carousel || !prevBtn || !nextBtn) return;
+    
+    // Configura eventos dos botões
+    prevBtn.addEventListener('click', () => navigateGallery(-1));
+    nextBtn.addEventListener('click', () => navigateGallery(1));
+    
+    // Atualiza estado inicial
+    updateGalleryCarousel();
+}
+
+function navigateGallery(direction) {
+    const maxIndex = galleryItems.length - visibleItems;
+    currentGalleryIndex = Math.max(0, Math.min(maxIndex, currentGalleryIndex + direction));
+    updateGalleryCarousel();
+}
+
+function updateGalleryCarousel() {
+    const carousel = document.getElementById('gallery-carousel');
+    const prevBtn = document.getElementById('gallery-prev');
+    const nextBtn = document.getElementById('gallery-next');
+    
+    if (!carousel) return;
+    
+    // Atualiza posição do carousel
+    const translateX = -currentGalleryIndex * 80; // 80px por item
+    carousel.style.transform = `translateX(${translateX}px)`;
+    
+    // Atualiza botões
+    const maxIndex = galleryItems.length - visibleItems;
+    prevBtn.disabled = currentGalleryIndex === 0;
+    nextBtn.disabled = currentGalleryIndex === maxIndex;
+    
+    // Atualiza classes ativas
+    const items = carousel.querySelectorAll('.gallery-item');
+    items.forEach((item, index) => {
+        const isVisible = index >= currentGalleryIndex && index < currentGalleryIndex + visibleItems;
+        item.classList.toggle('active', isVisible);
+    });
+}
+
 // Animações de entrada para elementos
 function initFadeInAnimations() {
     const observerOptions = {
@@ -448,12 +493,14 @@ if (document.readyState === 'loading') {
         initApp();
         initTypewriter();
         initConnectButton();
+        initGalleryCarousel();
         initFadeInAnimations();
     });
 } else {
     initApp();
     initTypewriter();
     initConnectButton();
+    initGalleryCarousel();
     initFadeInAnimations();
 }
 

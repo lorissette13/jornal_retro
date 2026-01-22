@@ -7,9 +7,6 @@
 let projectsData = [];
 let filteredProjects = [];
 let currentCategory = 'all';
-let currentTech = 'all';
-let currentFilter = 'all';
-let searchTerm = '';
 const PROJECTS_PER_PAGE = 6;
 let currentPage = 1;
 
@@ -40,52 +37,22 @@ async function loadProjectsData() {
 
 // Configura event listeners
 function setupEventListeners() {
-    // Filtro por categoria
-    document.getElementById('category-filter')?.addEventListener('change', (e) => {
-        currentCategory = e.target.value;
-        applyFilters();
-    });
-    
-    // Filtro por tecnologia
-    document.getElementById('tech-filter')?.addEventListener('change', (e) => {
-        currentTech = e.target.value;
-        applyFilters();
-    });
-    
-    // Botões toggle
-    document.querySelectorAll('.toggle-btn').forEach(btn => {
+    // Filtros por categoria (botões)
+    document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            currentFilter = btn.dataset.filter;
-            updateToggleButtons(btn);
+            currentCategory = btn.dataset.category;
+            updateFilterButtons(btn);
             applyFilters();
         });
     });
-    
-    // Busca
-    const searchInput = document.getElementById('project-search');
-    const searchBtn = document.querySelector('.search-btn');
-    
-    if (searchInput) {
-        searchInput.addEventListener('input', debounce((e) => {
-            searchTerm = e.target.value.toLowerCase();
-            applyFilters();
-        }, 300));
-    }
-    
-    if (searchBtn) {
-        searchBtn.addEventListener('click', () => {
-            searchTerm = searchInput.value.toLowerCase();
-            applyFilters();
-        });
-    }
     
     // Favoritos
     document.addEventListener('click', handleFavoriteClick);
 }
 
-// Atualiza botões toggle ativos
-function updateToggleButtons(activeBtn) {
-    document.querySelectorAll('.toggle-btn').forEach(btn => {
+// Atualiza botões de filtro ativos
+function updateFilterButtons(activeBtn) {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.toggle('active', btn === activeBtn);
     });
 }
@@ -97,29 +64,6 @@ function applyFilters() {
     // Filtro por categoria
     if (currentCategory !== 'all') {
         results = results.filter(project => project.category === currentCategory);
-    }
-    
-    // Filtro por tecnologia
-    if (currentTech !== 'all') {
-        results = results.filter(project => 
-            project.tech.some(tech => tech.toLowerCase() === currentTech)
-        );
-    }
-    
-    // Filtro por tipo (todos/favoritos/ativos)
-    if (currentFilter === 'favorites') {
-        results = results.filter(project => project.favorite);
-    } else if (currentFilter === 'active') {
-        results = results.filter(project => project.status === 'ativo');
-    }
-    
-    // Filtro por busca
-    if (searchTerm) {
-        results = results.filter(project => 
-            project.title.toLowerCase().includes(searchTerm) ||
-            project.description.toLowerCase().includes(searchTerm) ||
-            project.tech.some(tech => tech.toLowerCase().includes(searchTerm))
-        );
     }
     
     filteredProjects = results;

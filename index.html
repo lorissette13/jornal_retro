@@ -117,14 +117,18 @@
             <!-- GALERIA -->
             <section class="gallery-section" id="gallery">
                 <h3 class="section-title gallery-title">galeria visual</h3>
-                <div class="gallery-grid">
-                    <div class="mock-image-gallery">📁</div>
-                    <div class="mock-image-gallery">🎮</div>
-                    <div class="mock-image-gallery">🎵</div>
-                    <div class="mock-image-gallery">✈️</div>
-                    <div class="mock-image-gallery">☕</div>
-                    <div class="mock-image-gallery">📚</div>
-                    <div class="mock-image-gallery">🎨</div>
+                <div class="gallery-carousel-container">
+                    <button class="gallery-nav-btn gallery-prev" id="gallery-prev" aria-label="Imagem anterior">‹</button>
+                    <div class="gallery-carousel" id="gallery-carousel">
+                        <div class="gallery-item active">📁</div>
+                        <div class="gallery-item">🎮</div>
+                        <div class="gallery-item">🎵</div>
+                        <div class="gallery-item">✈️</div>
+                        <div class="gallery-item">☕</div>
+                        <div class="gallery-item">📚</div>
+                        <div class="gallery-item">🎨</div>
+                    </div>
+                    <button class="gallery-nav-btn gallery-next" id="gallery-next" aria-label="Próxima imagem">›</button>
                 </div>
                 <div class="gallery-button-container">
                     <button class="btn-read-more" onclick="navigateToPage('pages/galeria.html')">ver galeria completa</button>
