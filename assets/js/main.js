@@ -78,9 +78,8 @@ function initHomePage() {
     loadFeaturedProjects(3);
     loadFeaturedGalleryHome(3);
     
-    // Inicializa carrossel da galeria (se houver)
-    const carouselTrack = document.getElementById('carousel-track');
-    if (!carouselTrack && typeof initCarousel === 'function') {
+    // Inicializa carrossel da galeria
+    if (typeof initCarousel === 'function') {
         initCarousel();
     }
 }

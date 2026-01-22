@@ -31,19 +31,38 @@
     flex: 0 0 auto;
     width: 220px;
     height: 220px;
-    background: linear-gradient(135deg, rgba(149, 165, 104, 0.1), rgba(245, 245, 245, 0.8));
-    border-radius: 6px;
-    border: 2px solid #95A568;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.08), rgba(245, 240, 225, 0.9));
+    border-radius: 2px;
+    border: 2px solid #d2b48c;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.carousel-item:hover::before {
+    left: 100%;
 }
 
 .carousel-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(101, 112, 67, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(139, 69, 19, 0.2);
+    border-color: #a07850;
 }
 
 .carousel-image-placeholder {
@@ -52,41 +71,63 @@
 }
 
 .image-icon {
-    font-size: 3rem;
-    color: #7E8C54;
-    margin-bottom: 15px;
-    opacity: 0.6;
+    font-size: 3.5rem;
+    color: #8b4513;
+    margin-bottom: 12px;
+    opacity: 0.8;
 }
 
 .image-title {
     font-family: 'Special Elite', monospace;
-    font-size: 0.9rem;
-    color: #657043;
+    font-size: 0.95rem;
+    color: #2a2018;
     line-height: 1.4;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
 }
 
 .carousel-btn {
-    background: #7E8C54;
+    background: linear-gradient(145deg, #8b4513, #654321);
+    color: #f5f0e1;
     border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    color: white;
-    font-size: 1.5rem;
+    border-radius: 2px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.25);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.carousel-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.7s ease;
+    z-index: 1;
+}
+
+.carousel-btn:hover::before {
+    left: 100%;
 }
 
 .carousel-btn:hover {
-    background: #657043;
-    transform: scale(1.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.35);
 }
 
-.carousel-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    transform: none;
+.carousel-btn:active {
+    transform: translateY(-1px);
 }
 
 /* Posts Favoritos na Home */

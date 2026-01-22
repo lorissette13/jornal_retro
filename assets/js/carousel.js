@@ -9,21 +9,23 @@ function initCarousel() {
     const track = document.getElementById('carousel-track');
     if (!track) return;
     
-    // Adiciona imagens de exemplo (em produção, carregar de JSON)
+    // Adiciona imagens de exemplo (usando emojis como placeholders)
     const images = [
-        { src: 'assets/images/gallery/setup.jpg', alt: 'Setup de trabalho', title: 'Setup 2024' },
-        { src: 'assets/images/gallery/games.jpg', alt: 'Coleção de jogos', title: 'Jogos Retrô' },
-        { src: 'assets/images/gallery/evento.jpg', alt: 'Evento tech', title: 'Meetup Dev' },
-        { src: 'assets/images/gallery/projeto.jpg', alt: 'Projeto em desenvolvimento', title: 'Workspace' }
+        { emoji: '📸', title: 'Fotografia' },
+        { emoji: '🎮', title: 'Games' },
+        { emoji: '🎵', title: 'Música' },
+        { emoji: '✈️', title: 'Viagens' },
+        { emoji: '☕', title: 'Dev Life' },
+        { emoji: '📚', title: 'Conhecimento' },
+        { emoji: '🎨', title: 'Design' },
+        { emoji: '💻', title: 'Código' }
     ];
     
     track.innerHTML = images.map((img, index) => `
-        <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
-            <div class="slide-content">
-                <div class="slide-image-placeholder">
-                    <div class="image-icon">🖼️</div>
-                    <div class="image-loading">${img.title}</div>
-                </div>
+        <div class="carousel-item ${index === 0 ? 'active' : ''}" data-index="${index}">
+            <div class="carousel-image-placeholder">
+                <div class="image-icon">${img.emoji}</div>
+                <div class="image-title">${img.title}</div>
             </div>
         </div>
     `).join('');
@@ -43,22 +45,23 @@ function setupCarouselControls() {
 }
 
 function navigateCarousel(direction) {
-    const slides = document.querySelectorAll('.carousel-slide');
-    if (slides.length === 0) return;
+    const items = document.querySelectorAll('.carousel-item');
+    if (items.length === 0) return;
     
-    // Remove classe active do slide atual
-    slides[currentSlide].classList.remove('active');
+    // Remove classe active do item atual
+    items[currentSlide].classList.remove('active');
     
     // Calcula novo índice
     currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
     
-    // Adiciona classe active ao novo slide
-    slides[currentSlide].classList.add('active');
+    // Adiciona classe active ao novo item
+    items[currentSlide].classList.add('active');
     
-    // Atualiza posição do track
+    // Atualiza posição do track com scroll suave
     const track = document.getElementById('carousel-track');
     if (track) {
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        const itemWidth = 240; // 220px item + 20px gap
+        track.scrollLeft = currentSlide * itemWidth;
     }
 }
 
