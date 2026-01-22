@@ -178,6 +178,15 @@ document.addEventListener('DOMContentLoaded', init);
 - Navegação: Em `navigation.css` (usa vars de tokens)
 - Responsivo: 4→2→1 colunas (desktop→tablet→mobile)
 
+## 🦶 Footer Strategy (v1.1+)
+- **Home page (index.html)**: Footer carregado dinamicamente com data, links e créditos
+- **Páginas internas (cotidiano, projetos, galeria, trajetória, quem-sou)**: Sem footer
+- **Rationale**: Mantém estética retro limpa; páginas internas focam no conteúdo, com botão "voltar para home"
+- **Implementação**: 
+  - Footer HTML em `/components/footer.html`
+  - Carregado apenas em index.html via `loadComponent('footer-container', '../components/footer.html')`
+  - Todas as páginas internas em `/pages/*` removem footer para manter design consistente
+
 ## 📚 REFERÊNCIA
 → [REGRAS_PERMANENTES.md](REGRAS_PERMANENTES.md)  
 → [README.md](README.md)
