@@ -239,28 +239,6 @@
     margin-bottom: var(--spacing-2xl);
 }
 
-/* Paginação de Galeria */
-.gallery-pagination {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: var(--spacing-lg);
-    margin: var(--spacing-md) 0 var(--spacing-2xl) 0;
-    padding: var(--spacing-md) 0;
-}
-
-.pagination-counter {
-    font-family: var(--font-family-mono);
-    font-size: var(--font-size-md);
-    color: var(--color-primary-brown);
-}
-
-.pagination-controls {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-}
-
 .thumbnail-item {
     position: relative;
     border-radius: 6px;
