@@ -4,6 +4,58 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
 
 ## [Em Desenvolvimento] - 2026-01-22
 
+### Limpeza de Código e Princípios Clean Code
+
+#### Adicionado
+- ✅ **Script de análise de código**: `analyze_code.py` - analisa funções não usadas, CSS duplicado, tamanhos de arquivos
+- ✅ **Relatório de análise**: `code_analysis_report.json` - relatório completo das descobertas
+- ✅ **Roadmap de desenvolvimento**: Seção "PRÓXIMOS PASSOS" em `PROMPT_CONSOLIDADO.md`
+
+#### Modificado
+- 📝 **`assets/css/layout.css`**
+  - Atualizado para usar variáveis CSS em vez de valores hardcoded
+  - `font-family: var(--font-family-serif)` em vez de `'Times New Roman', serif`
+  - `color: var(--color-text-primary)` em vez de `#2a2018`
+
+- 📝 **`PROMPT_CONSOLIDADO.md`**
+  - Adicionada seção "PRÓXIMOS PASSOS" com roadmap detalhado
+  - Inclui: integração de conteúdo, responsividade mobile, página de contato, APIs Spotify/Letterboxd
+
+#### Removido
+- ❌ **10 arquivos JS não utilizados**:
+  - `assets/js/all-data.js` (25.2KB)
+  - `assets/js/timeline-new.js`
+  - `assets/js/carousel-new.js`
+  - `assets/js/posts-new.js`
+  - `assets/js/data-module.js`
+  - `assets/js/projects-new.js`
+  - `assets/js/dom-renderer.js`
+  - `assets/js/index.js`
+  - `assets/js/config.js`
+  - `assets/js/utilities.js`
+
+- ❌ **Regras CSS duplicadas** de `style.css` (raiz):
+  - `html`, `body`, `body::before`, `body::after`
+  - `.container`, `.container::before`
+  - `.header`, `.date`, `.logo-section`
+  - `.who-content`, `.who-column`, `.who-column:last-child::before`
+  - `.news-item`, `.news-item:last-child`
+
+#### Git Commits
+```
+[NOVO] refactor: remove unused JS files (10 files, 3.2K linhas removidas)
+[NOVO] refactor: remove duplicate CSS rules and update layout.css variables
+[NOVO] feat: add code analysis script and update roadmap in PROMPT_CONSOLIDADO.md
+```
+
+#### Resultados da Análise
+- **Redução**: 26 → 16 arquivos JS (-38%)
+- **CSS duplicado**: Reduzido significativamente
+- **Função não usada**: Apenas 1 identificada (função `later` em debounce)
+- **Funcionamento**: Site testado e funcionando normalmente após mudanças
+
+## [Em Desenvolvimento] - 2026-01-22
+
 ### Sistema de Menu Modular e Padronização
 
 #### Adicionado
