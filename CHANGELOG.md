@@ -1,5 +1,30 @@
 # CHANGELOG - Jornal Retro
 
+## v2.3.3 - Padronização de Botões em Páginas Secundárias 🎨
+
+### 🔧 Correções Implementadas
+- **assets/css/style.css**: Atualizado com novo padrão de botões
+  - `.btn-read-more` e `.btn-small` agora usam gradient brown → gold (hover)
+  - Shine effect `::before` com `z-index: 1` (visível)
+  - Animação suave: left -100% → left 100% em 0.7s ease
+  - Transform hover: translateY(-3px)
+
+### ✅ Impacto
+- **Páginas afetadas** (todas agora padronizadas):
+  - pages/cotidiano.html ✓
+  - pages/galeria.html ✓
+  - pages/projetos.html ✓
+  - pages/quem-sou.html ✓
+  - pages/trajetoria.html ✓
+- Botão "voltar para home" em todas as páginas agora tem shine effect correto
+
+### 📊 Consistência
+- Homepage (index.html): style.css ✓
+- Páginas secundárias: assets/css/style.css ✓
+- Ambos agora idênticos em comportamento de botões
+
+---
+
 ## v2.3.2 - Correções Críticas (Hover, Efeito Brilho, CSS) 🐛
 
 ### 🔧 Correções Implementadas

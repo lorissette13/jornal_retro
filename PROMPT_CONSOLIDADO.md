@@ -21,7 +21,13 @@
 
 ### HISTÓRICO DE MUDANÇAS
 
-**v2.3.1 (Correções Críticas - AGORA)**
+**v2.3.3 (Padronização de Botões - AGORA)**
+- `assets/css/style.css`: Atualizado com novo padrão de shine effect nos botões
+- `.btn-read-more` e `.btn-small` agora idênticos à homepage
+- Páginas secundárias (cotidiano, galeria, projetos, quem-sou, trajetoria) agora tem hover correto
+- **Status**: ✅ Todas as 5 páginas + homepage com estilos de botão unificados
+
+**v2.3.2 (Correções Críticas)**
 - `style.css` (linha 390): `z-index: -1` → `z-index: 1` no `::before` (shine effect visível agora)
 - `style.css` (linhas 430-446): Removido seletor `.news-grid > div` conflitante
 - `style.css`: Mantém `.news-column` com styling completo
