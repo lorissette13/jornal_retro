@@ -335,11 +335,79 @@ async function loadComponent(containerId, componentPath) {
     }
 }
 
+// Efeito typewriter para o logo
+function initTypewriter() {
+    const element = document.getElementById('typewriter-logo');
+    if (!element) return;
+    
+    const text = element.textContent;
+    element.textContent = '';
+    element.style.borderRight = '2px solid #7E8C54';
+    
+    let i = 0;
+    const timer = setInterval(() => {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+        } else {
+            clearInterval(timer);
+            setTimeout(() => {
+                element.style.borderRight = 'none';
+            }, 500);
+        }
+    }, 100);
+}
+
+// Inicializa botão conectar-se
+function initConnectButton() {
+    const btn = document.getElementById('main-btn');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            // Simula abertura de modal ou redirecionamento
+            alert('Funcionalidade de contato em desenvolvimento! 📧\n\nPor enquanto, me encontre em:\n• GitHub: @lorissette13\n• LinkedIn: loris-developer\n• Email: loris@example.com');
+        });
+    }
+}
+
+// Animações de entrada para elementos
+function initFadeInAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Seleciona elementos para animar
+    const elementsToAnimate = document.querySelectorAll('.who-column, .news-item, .project, .tag-category, .mock-image-gallery');
+    elementsToAnimate.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+}
+
 // Inicializa quando o DOM estiver pronto
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initApp);
+    document.addEventListener('DOMContentLoaded', () => {
+        initApp();
+        initTypewriter();
+        initConnectButton();
+        initFadeInAnimations();
+    });
 } else {
     initApp();
+    initTypewriter();
+    initConnectButton();
+    initFadeInAnimations();
 }
 
 // Exporta para uso global

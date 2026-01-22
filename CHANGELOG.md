@@ -1,6 +1,14 @@
 # CHANGELOG - Jornal Retro
 
-## v2.3.8 - Home Layout & Color Palette Update
+## v2.3.9 - Dynamic Data Loading Implementation
+
+**Home Data Loading**: Implemented loadFeaturedExperiences() and loadFeaturedProjects() to dynamically load 2 experiences and 3 projects from JSON data
+**Component Loading**: Added loadComponent() function for loading HTML components (header/footer)
+**Data Integration**: Connected assets/data/trajetoria.json and assets/data/projects.json to home sections
+**Error Handling**: Added fallback content for failed data loads
+**Result**: Home sections now load real data instead of "loading..." placeholders ✓
+
+---
 
 **Color Palette**: Migrated from brown tones to modern green palette (#7E8C54, #657043, #95A568) with white/black for text and accents (#8C7E54, #628C54)
 **Home Structure**: Restored v0 layout - third column "cotidiano por tags" with static content, gallery as separate grid section below news-grid

@@ -706,27 +706,6 @@ body::after {
     }
 }
 
-.who-column, .news-item, .project, .tag-category, .mock-image-gallery {
-    animation: fadeInUp 0.6s ease-out forwards;
-    opacity: 0;
-}
-
-.who-column:nth-child(1) { animation-delay: 0.1s; }
-.who-column:nth-child(2) { animation-delay: 0.2s; }
-.news-item:nth-child(1) { animation-delay: 0.3s; }
-.news-item:nth-child(2) { animation-delay: 0.4s; }
-.project:nth-child(1) { animation-delay: 0.2s; }
-.project:nth-child(2) { animation-delay: 0.3s; }
-.project:nth-child(3) { animation-delay: 0.4s; }
-.tag-category:nth-child(1) { animation-delay: 0.2s; }
-.tag-category:nth-child(2) { animation-delay: 0.3s; }
-.tag-category:nth-child(3) { animation-delay: 0.4s; }
-.tag-category:nth-child(4) { animation-delay: 0.5s; }
-.mock-image-gallery:nth-child(1) { animation-delay: 0.1s; }
-.mock-image-gallery:nth-child(2) { animation-delay: 0.2s; }
-.mock-image-gallery:nth-child(3) { animation-delay: 0.3s; }
-.mock-image-gallery:nth-child(4) { animation-delay: 0.4s; }
-
 /* RESPONSIVIDADE */
 @media (max-width: 1024px) {
     .news-grid {
