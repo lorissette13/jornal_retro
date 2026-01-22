@@ -800,7 +800,7 @@
 }
 
 .news-item:hover {
-    transform: translateY(-3px);
+    transform: translateX(5px);
     box-shadow: 0 5px 15px rgba(101, 112, 67, 0.1);
     border-color: #628C54;
 }

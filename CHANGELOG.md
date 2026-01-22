@@ -11,14 +11,12 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
 - 🎨 **Link "ver projeto" estilizado**: Link agora usa cores do tema (gradiente olive/sage) ao invés de cores fixas
 
 #### Modificado
-- 📝 **`assets/css/home.css`**
-  - Adicionado `.news-item` com background, padding, bordas e efeito hover
-  - Adicionado `.project-link` com gradiente temático e animação hover
-  - Padronização visual entre todas as colunas da homepage
+- 📝 **`style.css`**
+  - Corrigido efeito hover dos `.news-item` para `translateX(5px)` (igual ao das tags cotidiano)
+  - Mantido box-shadow e mudança de cor da borda no hover
 
 - 📝 **`assets/css/style.css`**
-  - Adicionada importação do `home.css`
-  - Adicionado efeito hover `translateX(5px)` aos `.news-item` (trajetória e projetos)
+  - Removida definição duplicada de `.news-item` que causava conflito
   - Movidas regras específicas da homepage para o final do arquivo para garantir prioridade de carregamento
 
 ### Limpeza de Código e Princípios Clean Code
