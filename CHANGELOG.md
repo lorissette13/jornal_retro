@@ -1,3 +1,7 @@
+## v2.3.xx
+- Carrossel da galeria migrado para a home (index.html), exibindo 4 cards dinâmicos favoritos.
+- Página galeria (galeria.html) agora exibe apenas grid de miniaturas, sem carrossel.
+- Ajuste de integração entre JS e HTML para garantir funcionamento dinâmico.
 # CHANGELOG - Jornal Retro
 
 ## v2.3.17 - Button Refinement
