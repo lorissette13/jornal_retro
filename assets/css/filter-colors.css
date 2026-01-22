@@ -2,116 +2,173 @@
 
 .filter-btn.filter-color-filmes {
     --filter-color: #e63946;
+    background: linear-gradient(145deg, rgba(230, 57, 70, 0.85), rgba(200, 30, 50, 0.9)) !important;
+    border-color: #e63946 !important;
 }
 
 .filter-btn.filter-color-jogos {
     --filter-color: #457b9d;
+    background: linear-gradient(145deg, rgba(69, 123, 157, 0.85), rgba(50, 100, 140, 0.9)) !important;
+    border-color: #457b9d !important;
 }
 
 .filter-btn.filter-color-boardgames {
     --filter-color: #2a9d8f;
+    background: linear-gradient(145deg, rgba(42, 157, 143, 0.85), rgba(20, 130, 120, 0.9)) !important;
+    border-color: #2a9d8f !important;
 }
 
 .filter-btn.filter-color-livros {
     --filter-color: #e9c46a;
+    background: linear-gradient(145deg, rgba(233, 196, 106, 0.85), rgba(210, 170, 70, 0.9)) !important;
+    border-color: #e9c46a !important;
+    color: #2a2018 !important;
 }
 
 .filter-btn.filter-color-música {
     --filter-color: #9d4edd;
+    background: linear-gradient(145deg, rgba(157, 78, 221, 0.85), rgba(130, 50, 200, 0.9)) !important;
+    border-color: #9d4edd !important;
 }
 
 .filter-btn.filter-color-dev-life {
     --filter-color: #7E8C54;
+    background: linear-gradient(145deg, rgba(126, 140, 84, 0.85), rgba(100, 120, 60, 0.9)) !important;
+    border-color: #7E8C54 !important;
 }
 
 .filter-btn.filter-color-setup {
     --filter-color: #f77f00;
+    background: linear-gradient(145deg, rgba(247, 127, 0, 0.85), rgba(220, 100, 0, 0.9)) !important;
+    border-color: #f77f00 !important;
 }
 
 .filter-btn.filter-color-games {
     --filter-color: #457b9d;
+    background: linear-gradient(145deg, rgba(69, 123, 157, 0.85), rgba(50, 100, 140, 0.9)) !important;
+    border-color: #457b9d !important;
 }
 
 .filter-btn.filter-color-viagens {
     --filter-color: #06a77d;
+    background: linear-gradient(145deg, rgba(6, 167, 125, 0.85), rgba(0, 140, 100, 0.9)) !important;
+    border-color: #06a77d !important;
 }
 
 .filter-btn.filter-color-eventos {
     --filter-color: #d62828;
+    background: linear-gradient(145deg, rgba(214, 40, 40, 0.85), rgba(190, 20, 20, 0.9)) !important;
+    border-color: #d62828 !important;
 }
 
 .filter-btn.filter-color-projetos {
     --filter-color: #2a9d8f;
+    background: linear-gradient(145deg, rgba(42, 157, 143, 0.85), rgba(20, 130, 120, 0.9)) !important;
+    border-color: #2a9d8f !important;
 }
 
 .filter-btn.filter-color-2024 {
     --filter-color: #a8dadc;
+    background: linear-gradient(145deg, rgba(168, 218, 220, 0.85), rgba(140, 200, 210, 0.9)) !important;
+    border-color: #a8dadc !important;
+    color: #2a2018 !important;
 }
 
 .filter-btn.filter-color-2023 {
     --filter-color: #457b9d;
+    background: linear-gradient(145deg, rgba(69, 123, 157, 0.85), rgba(50, 100, 140, 0.9)) !important;
+    border-color: #457b9d !important;
 }
 
 .filter-btn.filter-color-2022 {
     --filter-color: #9d4edd;
+    background: linear-gradient(145deg, rgba(157, 78, 221, 0.85), rgba(130, 50, 200, 0.9)) !important;
+    border-color: #9d4edd !important;
 }
 
 .filter-btn.filter-color-completed {
     --filter-color: #06a77d;
+    background: linear-gradient(145deg, rgba(6, 167, 125, 0.85), rgba(0, 140, 100, 0.9)) !important;
+    border-color: #06a77d !important;
 }
 
 .filter-btn.filter-color-in-progress {
     --filter-color: #f77f00;
+    background: linear-gradient(145deg, rgba(247, 127, 0, 0.85), rgba(220, 100, 0, 0.9)) !important;
+    border-color: #f77f00 !important;
 }
 
 .filter-btn.filter-color-featured {
     --filter-color: #d4a017;
+    background: linear-gradient(145deg, rgba(212, 160, 23, 0.85), rgba(190, 140, 0, 0.9)) !important;
+    border-color: #d4a017 !important;
+    color: #2a2018 !important;
 }
 
 .filter-btn.filter-color-React {
     --filter-color: #61dafb;
+    background: linear-gradient(145deg, rgba(97, 218, 251, 0.85), rgba(70, 200, 240, 0.9)) !important;
+    border-color: #61dafb !important;
+    color: #2a2018 !important;
 }
 
 .filter-btn.filter-color-Vue {
     --filter-color: #42b983;
+    background: linear-gradient(145deg, rgba(66, 185, 131, 0.85), rgba(40, 160, 110, 0.9)) !important;
+    border-color: #42b983 !important;
+    color: #f5f0e1 !important;
 }
 
 .filter-btn.filter-color-JavaScript {
     --filter-color: #f7df1e;
+    background: linear-gradient(145deg, rgba(247, 223, 30, 0.85), rgba(220, 200, 0, 0.9)) !important;
+    border-color: #f7df1e !important;
+    color: #2a2018 !important;
 }
 
 .filter-btn.filter-color-Leadership {
     --filter-color: #e63946;
+    background: linear-gradient(145deg, rgba(230, 57, 70, 0.85), rgba(200, 30, 50, 0.9)) !important;
+    border-color: #e63946 !important;
 }
 
 .filter-btn.filter-color-TypeScript {
     --filter-color: #2b7a0b;
+    background: linear-gradient(145deg, rgba(43, 122, 11, 0.85), rgba(30, 100, 0, 0.9)) !important;
+    border-color: #2b7a0b !important;
 }
 
 .filter-btn.filter-color-Node {
     --filter-color: #339933;
+    background: linear-gradient(145deg, rgba(51, 153, 51, 0.85), rgba(30, 130, 30, 0.9)) !important;
+    border-color: #339933 !important;
 }
 
-/* Aplicar cor ao filtro quando ele tiver uma das classes acima */
-.filter-btn:not(.active)[class*="filter-color-"] {
-    border-color: var(--filter-color);
-    color: var(--filter-color);
-    background: rgba(255, 255, 255, 0.95);
+/* Hover com brilho glass */
+.filter-btn:not(.active)[class*="filter-color-"]:hover::before {
+    left: 100%;
 }
 
 .filter-btn:not(.active)[class*="filter-color-"]:hover {
-    background: var(--filter-color);
-    color: white;
-    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 0 20px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-3px);
+    color: #f5f0e1 !important;
 }
 
-/* Estado active com cor específica */
+/* Estado active com cor específica e mais brilho */
 .filter-btn.active[class*="filter-color-"] {
-    background: var(--filter-color);
-    color: white;
-    border-color: var(--filter-color);
+    box-shadow: 
+        0 6px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 0 25px rgba(0, 0, 0, 0.2) !important;
 }
 
 .filter-btn.active[class*="filter-color-"]:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        0 0 30px rgba(0, 0, 0, 0.25) !important;
 }
