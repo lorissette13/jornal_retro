@@ -1,5 +1,48 @@
 # CHANGELOG - Jornal Retro
 
+## v2.3.1 - 21 de Janeiro de 2026 (Refatoração de Colunas) 🏗️
+
+### 🔧 Refatoração da Homepage
+- **Estrutura**: Restaurada 3 colunas conforme `base.md`
+- **Coluna 1**: Trajetória Profissional (experiências favoritas)
+- **Coluna 2**: Projetos em Destaque (projetos favoritos)
+- **Coluna 3**: Galeria (imagens favoritas - nova coluna)
+
+### ✨ Novas Funcionalidades
+- **loadFeaturedGalleryHome()**: Nova função para carregar imagens na 3ª coluna
+- **Integração Gallery**: Gallery.js agora exporta função para homepage
+- **Estrutura Unificada**: Todas as 3 colunas usam `.news-item` padronizado
+
+### 🏛️ Alterações de HTML
+- Removido `.news-column` wrapper
+- Simplificado `.news-grid` com divs diretos como colunas
+- Adicionado `#featured-gallery` para terceira coluna
+- Removido script inline duplicado em index.html
+
+### 📝 Alterações de JavaScript
+- **timeline.js**: Adicionado `<h3 class="section-title">` em `loadFeaturedExperiences()`
+- **projects.js**: Adicionado `<h3 class="section-title">` em `loadFeaturedProjects()`
+- **gallery.js**: Novo `loadFeaturedGalleryHome()` com estrutura `.news-item`
+- **main.js**: Atualizado para chamar funções corretas (sem posts, com gallery)
+
+### 🎯 Ordem de Carregamento Scripts
+1. navigation.js
+2. text-loader.js
+3. carousel.js
+4. timeline.js ← adicionado
+5. posts.js
+6. projects.js
+7. gallery.js ← adicionado
+8. main.js
+
+### 📊 Estatísticas
+- 6 arquivos modificados
+- 116 inserções | 62 deletions
+- 0 breaking changes
+- 100% compatível com base.md
+
+---
+
 ## v2.3.0 - 21 de Janeiro de 2026 (Auditoria Completa) 🔍
 
 ### 🔒 Auditoria de Segurança
