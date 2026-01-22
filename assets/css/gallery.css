@@ -5,7 +5,7 @@
     background: rgba(245, 245, 245, 0.9);
     padding: 25px;
     border-radius: 4px;
-    border: 1px solid #95A568;
+    border: 1px solid #d2b48c;
     margin-bottom: 40px;
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +24,7 @@
     margin: 0 auto;
     overflow: hidden;
     border-radius: 8px;
-    border: 2px solid #95A568;
+    border: 2px solid #8b4513;
     background: rgba(255, 255, 255, 0.95);
 }
 
@@ -68,14 +68,14 @@
 
 .image-icon {
     font-size: 4rem;
-    color: #7E8C54;
+    color: #8b4513;
     margin-bottom: 20px;
     opacity: 0.6;
 }
 
 .image-loading {
     font-family: 'Special Elite', monospace;
-    color: #657043;
+    color: #654321;
     font-size: 1.1rem;
 }
 
@@ -115,10 +115,10 @@
     font-family: 'Special Elite', monospace;
     font-size: 0.8rem;
     padding: 4px 10px;
-    background: rgba(149, 165, 104, 0.1);
+    background: rgba(139, 69, 19, 0.1);
     border-radius: 12px;
-    color: #657043;
-    border: 1px solid rgba(149, 165, 104, 0.3);
+    color: #8b4513;
+    border: 1px solid rgba(139, 69, 19, 0.3);
 }
 
 /* Botões do Carrossel */
@@ -180,13 +180,13 @@
     padding: 15px;
     background: rgba(245, 245, 245, 0.9);
     border-radius: 4px;
-    border: 1px solid #95A568;
+    border: 1px solid #8b4513;
 }
 
 .carousel-counter {
     font-family: 'Special Elite', monospace;
     font-size: 1.1rem;
-    color: #657043;
+    color: #8b4513;
 }
 
 .carousel-actions {
@@ -198,9 +198,9 @@
     width: 40px;
     height: 40px;
     background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #95A568;
+    border: 1px solid #8b4513;
     border-radius: 2px;
-    color: #657043;
+    color: #8b4513;
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -244,13 +244,13 @@
 
 .thumbnail-item:hover {
     transform: translateY(-5px);
-    border-color: #95A568;
-    box-shadow: 0 10px 20px rgba(101, 112, 67, 0.15);
+    border-color: #8b4513;
+    box-shadow: 0 10px 20px rgba(139, 69, 19, 0.15);
 }
 
 .thumbnail-item.active {
-    border-color: #7E8C54;
-    box-shadow: 0 0 0 3px rgba(126, 140, 84, 0.3);
+    border-color: #8b4513;
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.3);
 }
 
 .thumbnail-image {
@@ -330,7 +330,7 @@
     padding: 30px;
     background: rgba(245, 245, 245, 0.9);
     border-radius: 4px;
-    border: 1px solid #95A568;
+    border: 1px solid #d2b48c;
     text-align: center;
 }
 
@@ -422,14 +422,14 @@
     gap: 15px;
     font-family: 'Special Elite', monospace;
     font-size: 0.9rem;
-    color: #7E8C54;
+    color: #8b4513;
 }
 
 /* Loading States */
 .loading-thumbnails {
     text-align: center;
     padding: 60px 20px;
-    color: #7E8C54;
+    color: #8b4513;
     font-family: 'Special Elite', monospace;
     font-size: 1.1rem;
     grid-column: 1 / -1;
@@ -438,10 +438,10 @@
 .no-images {
     text-align: center;
     padding: 60px 20px;
-    color: #8C7E54;
+    color: #8b4513;
     font-family: 'Special Elite', monospace;
     font-size: 1.1rem;
-    border: 2px dashed #95A568;
+    border: 2px dashed #8b4513;
     border-radius: 4px;
     grid-column: 1 / -1;
 }
