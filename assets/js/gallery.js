@@ -103,20 +103,32 @@ function updateGalleryDisplay() {
 function updateMainCarousel() {
     const carousel = document.querySelector('.main-carousel');
     if (!carousel || filteredGallery.length === 0) return;
-    
-    // Atualiza slides com base nas imagens filtradas
+
     slides = [...filteredGallery];
-    
-    // Atualiza contador
-    document.getElementById('current-slide').textContent = '1';
-    document.getElementById('total-slides').textContent = slides.length;
-    
-    // Se não há slides ativos, cria o primeiro
-    if (!document.querySelector('.carousel-slide.active')) {
-        createSlide(0);
+    let html = '';
+    for (let i = 0; i < 4; i++) {
+        const slide = slides[(currentSlideIndex + i) % slides.length];
+        html += `
+            <div class="carousel-slide ${i === 0 ? 'active' : ''}" data-index="${(currentSlideIndex + i) % slides.length}">
+                <div class="slide-content">
+                    <div class="slide-image-placeholder" data-image="${slide.image}">
+                        <div class="image-icon">🖼️</div>
+                        <div class="image-loading">${slide.title}</div>
+                    </div>
+                    <div class="slide-info">
+                        <h3 class="slide-title">${slide.title}</h3>
+                        <p class="slide-description">${slide.description}</p>
+                        <div class="slide-meta">
+                            ${slide.tags.map(tag => `<span class="slide-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
     }
-    
-    // Atualiza favorito do slide atual
+    carousel.innerHTML = html;
+    document.getElementById('current-slide').textContent = currentSlideIndex + 1;
+    document.getElementById('total-slides').textContent = slides.length;
     updateFavoriteButton();
 }
 
@@ -244,49 +256,10 @@ function setupCarouselControls() {
 
 // Navega para slide específico
 function goToSlide(index) {
-    if (index < 0 || index >= slides.length) return;
-    
-    // Remove classe active do slide atual
-    const currentSlide = document.querySelector('.carousel-slide.active');
-    if (currentSlide) {
-        currentSlide.classList.remove('active');
-    }
-    
-    // Remove classe active da miniatura atual
-    const currentThumb = document.querySelector('.thumbnail-item.active');
-    if (currentThumb) {
-        currentThumb.classList.remove('active');
-    }
-    
-    // Cria novo slide se necessário
-    if (!document.querySelector(`.carousel-slide[data-index="${index}"]`)) {
-        createSlide(index);
-    }
-    
-    // Ativa novo slide
-    const newSlide = document.querySelector(`.carousel-slide[data-index="${index}"]`);
-    if (newSlide) {
-        newSlide.classList.add('active');
-    }
-    
-    // Ativa nova miniatura
-    const newThumb = document.querySelector(`.thumbnail-item[data-index="${index}"]`);
-    if (newThumb) {
-        newThumb.classList.add('active');
-        newThumb.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'center'
-        });
-    }
-    
+    if (index < 0) index = slides.length - 4;
+    if (index >= slides.length) index = 0;
     currentSlideIndex = index;
-    
-    // Atualiza contador
-    document.getElementById('current-slide').textContent = index + 1;
-    
-    // Atualiza botão de favorito
-    updateFavoriteButton();
+    updateMainCarousel();
 }
 
 // Atualiza botão de favorito

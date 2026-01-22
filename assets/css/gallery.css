@@ -126,13 +126,13 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     background: linear-gradient(145deg, #8b4513, #654321);
     border: none;
     border-radius: 2px;
     color: #f5f0e1;
-    font-size: 1.8rem;
+    font-size: 3.2rem;
     cursor: pointer;
     z-index: 10;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);

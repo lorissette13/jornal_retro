@@ -1,6 +1,12 @@
 # CHANGELOG - Jornal Retro
 
-## v2.3.16 - UI Polish & Content Loading Fixes
+## v2.3.17 - Button Refinement
+
+**Button Color**: Reverted to olive green (#556B2F, #6B8E23) linear gradient - radial gradient was visually unappealing
+**Button Size**: Further reduced by 20% (total 36% smaller than original) including font size reduction
+**Result**: Cleaner, more elegant buttons with proper olive green aesthetic ✓
+
+---
 
 **Footer Spacing**: Added 80px bottom margin to container for proper spacing between journal border and footer
 **Button Gradient**: Implemented radial gradient on buttons (green to brown from center outward) while preserving exact hover effects
