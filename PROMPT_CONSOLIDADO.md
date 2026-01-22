@@ -21,23 +21,24 @@
 
 ### HISTÓRICO DE MUDANÇAS
 
-**v2.3.4 (Restauração de Interface - AGORA)**
-- `style.css`: Menu voltou ao padrão original (sem borda/fundo, com underline animation)
-- `style.css`: Botão hover sem mudança de cor, apenas shadow + shine effect
-- `style.css`: Container com margin-top: 50px (espaço superior do container)
-- **Status**: ✅ Menu elegante, botões com shine suave, layout com espaço superior
+**v2.3.5 (Galeria, News Items, Estilos Completos - AGORA)**
+- `carousel.js`: Reescrito com emojis e estrutura corrigida (.carousel-item)
+- `home.css`: Botões ‹ › com padrão marrom + shine effect
+- `style.css`: News-items com emojis 📄, underlines animados, hover effects
+- `.projects-section` e `.tags-section`: Estilos padronizados conforme base.md
+- **Status**: ✅ Galeria funcional, cards bonitos, sem "carregando..."
+
+**v2.3.4 (Restauração de Interface)**
+- `style.css`: Menu voltou ao padrão elegante com underline animation
+- `style.css`: Botão sem mudança de cor no hover (só shine)
+- `style.css`: Container com margin-top: 50px
 
 **v2.3.3 (Padronização de Botões)**
-- `assets/css/style.css`: Atualizado com novo padrão de shine effect nos botões
-- `.btn-read-more` e `.btn-small` agora idênticos à homepage
-- Páginas secundárias (cotidiano, galeria, projetos, quem-sou, trajetoria) agora tem hover correto
-- **Status**: ✅ Todas as 5 páginas + homepage com estilos de botão unificados
+- `assets/css/style.css`: Atualizado com shine effect correto
 
 **v2.3.2 (Correções Críticas)**
-- `style.css` (linha 390): `z-index: -1` → `z-index: 1` no `::before` (shine effect visível)
-- `style.css`: Removido seletor `.news-grid > div` conflitante
-- `index.html`: Menu-divider presente e funcional
-- **Status**: ✅ Hover buttons funcionando, shine effect visível, 3 colunas renderizando
+- `style.css`: Z-index: -1 → 1 no shine effect
+- `style.css`: Removido seletor `.news-grid > div`
 
 ---
 
