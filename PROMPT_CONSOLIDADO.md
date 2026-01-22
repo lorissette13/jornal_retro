@@ -1,4 +1,4 @@
-# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.3.5)
+# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.3.15)
 
 ## 🤖 PROTOCOLO OBRIGATÓRIO
 
@@ -10,10 +10,18 @@
 
 ## HISTÓRICO DE MUDANÇAS
 
-**v2.3.5** - Galeria, news items, dividers, estilos finais
-**v2.3.4** - Menu e botão restaurados
-**v2.3.3** - Padronização de botões
-**v2.3.2** - Z-index e seletores CSS
+**v2.3.15** - Gallery Carousel & Content Loading Fixes
+**v2.3.14** - Content Expansion & Visual Refinement
+**v2.3.13** - Visual Polish & Content Reliability
+**v2.3.12** - Navigation & Content Fixes
+**v2.3.11** - Final Implementation & Testing
+**v2.3.10** - Typewriter & Connect Button
+**v2.3.9** - Dynamic Data Loading
+**v2.3.8** - Component Architecture
+**v2.3.7** - Galeria, news items, dividers, estilos finais
+**v2.3.6** - Menu e botão restaurados
+**v2.3.5** - Padronização de botões
+**v2.3.4** - Z-index e seletores CSS
 
 ---
 
@@ -46,21 +54,25 @@ pages/
 - Footer: "desenvolvido com código e café • desde 1995"
 
 **Estilo**:
-- Animações: typewriter, fade-in, hover effects
+- Animações: typewriter, fade-in, hover effects, carousel transitions
 - Responsivo: 3→2→1 colunas (480px, 768px, 1024px)
-- Buttons: marrom + shine effect (sem mudança cor no hover)
+- Buttons: olive green (#556B2F, #6B8E23) + shine effect, 20% smaller than original
+- Gallery: Interactive carousel showing 4 items with navigation buttons
 - News-items: emoji 📄, underline animation
 - Dividers: separadores padrão (sem duplicatas)
 
 **JavaScript Vanilla**:
+- Gallery carousel with 4 visible items and smooth navigation
+- Dynamic content loading with fallback for text, experiences, and projects
 - Intersection Observer para fade-in
 - localStorage para favoritos
 - Smooth scroll navegação
 - Carrossel com emoji placeholders
 
 ### FUNCIONALIDADES
-✅ Galeria com emoji + carrossel
-✅ News-items com emojis + animations
+✅ Gallery carousel with 4 visible items and olive green navigation buttons
+✅ Dynamic content loading with fallback for text, experiences, and projects
+✅ News-items with emojis + animations
 ✅ Timeline + projetos + posts
 ✅ Sistema favoritos
 ✅ Responsivo mobile-first

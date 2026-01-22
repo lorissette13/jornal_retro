@@ -1,6 +1,15 @@
 # CHANGELOG - Jornal Retro
 
-## v2.3.14 - Content Expansion & Visual Refinement
+## v2.3.15 - Gallery Carousel & Content Loading Fixes
+
+**Gallery Carousel**: Implemented interactive carousel showing 4 items at a time with olive green navigation buttons (#556B2F, #6B8E23)
+**Content Loading Fix**: Fixed "carregando" placeholders - text, experiences, and projects now display actual content instead of loading states
+**Button Size Reduction**: Reduced all button sizes by 20% for more elegant appearance while maintaining olive green color scheme
+**Fallback Content**: Added structured fallback content for trajectory and projects sections when JSON loading fails
+**Carousel Navigation**: Added smooth carousel transitions with disabled states for navigation buttons at boundaries
+**Result**: Fully functional gallery carousel, reliable content display, and refined button aesthetics ✓
+
+---
 
 **Footer Spacing**: Added 80px bottom padding for proper page margin
 **Gallery Enhancement**: Expanded to 7 icons (added coffee, books, art) with responsive auto-fit grid
