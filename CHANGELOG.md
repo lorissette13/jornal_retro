@@ -1,13 +1,39 @@
 # CHANGELOG - Jornal Retro
 
+## v2.3.4 - Interface Restoration (Menu, Buttons, Layout) 🎨
+
+### 🔧 Correções Implementadas
+- **style.css**: Menu restaurado ao padrão elegante original
+  - Removido styling de botão (borda, fundo beige)
+  - Restaurado underline animation com gradiente no hover
+  - Color padrão: #2a2018 escuro → #8b4513 marrom no hover
+  - Border-top/bottom ao menu
+- **style.css**: Botão hover restaurado (mantém shine effect)
+  - Removido: `background: linear-gradient(145deg, #d4af37, #c9a62f)` no hover
+  - Mantido: Shadow + transform translateY(-3px)
+  - Mantido: Shine effect `::before` com gradiente branco passando da esquerda
+- **style.css**: Container margin-top: 50px (espaço superior da borda)
+
+### ✅ Resultado Visual
+- Menu: Simples, elegante, com underline animado ✓
+- Botões: Marrom base com shine effect suave (sem mudança de cor) ✓
+- Layout: Borda do container mais abaixo da tela ✓
+
+### 📌 Pendentes (Relatado pelo usuário)
+- Galeria: Carrossel eternamente "carregando..." (falta arquivo de imagens)
+- Botões do carrossel: Feios em HTML puro (verde #7E8C54 em home.css)
+- Cards: Precisam de textos legais como em base.md
+- News-items: Falta styling completo (animações, emojis)
+
+---
+
 ## v2.3.3 - Padronização de Botões em Páginas Secundárias 🎨
 
 ### 🔧 Correções Implementadas
 - **assets/css/style.css**: Atualizado com novo padrão de botões
-  - `.btn-read-more` e `.btn-small` agora usam gradient brown → gold (hover)
+  - `.btn-read-more` e `.btn-small` agora idênticos à homepage
   - Shine effect `::before` com `z-index: 1` (visível)
-  - Animação suave: left -100% → left 100% em 0.7s ease
-  - Transform hover: translateY(-3px)
+  - Animação suave: left -100% → left 100% em 0.7s
 
 ### ✅ Impacto
 - **Páginas afetadas** (todas agora padronizadas):

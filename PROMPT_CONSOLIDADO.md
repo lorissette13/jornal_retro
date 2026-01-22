@@ -21,26 +21,23 @@
 
 ### HISTÓRICO DE MUDANÇAS
 
-**v2.3.3 (Padronização de Botões - AGORA)**
+**v2.3.4 (Restauração de Interface - AGORA)**
+- `style.css`: Menu voltou ao padrão original (sem borda/fundo, com underline animation)
+- `style.css`: Botão hover sem mudança de cor, apenas shadow + shine effect
+- `style.css`: Container com margin-top: 50px (espaço superior do container)
+- **Status**: ✅ Menu elegante, botões com shine suave, layout com espaço superior
+
+**v2.3.3 (Padronização de Botões)**
 - `assets/css/style.css`: Atualizado com novo padrão de shine effect nos botões
 - `.btn-read-more` e `.btn-small` agora idênticos à homepage
 - Páginas secundárias (cotidiano, galeria, projetos, quem-sou, trajetoria) agora tem hover correto
 - **Status**: ✅ Todas as 5 páginas + homepage com estilos de botão unificados
 
 **v2.3.2 (Correções Críticas)**
-- `style.css` (linha 390): `z-index: -1` → `z-index: 1` no `::before` (shine effect visível agora)
-- `style.css` (linhas 430-446): Removido seletor `.news-grid > div` conflitante
-- `style.css`: Mantém `.news-column` com styling completo
+- `style.css` (linha 390): `z-index: -1` → `z-index: 1` no `::before` (shine effect visível)
+- `style.css`: Removido seletor `.news-grid > div` conflitante
 - `index.html`: Menu-divider presente e funcional
-- **Status**: ✅ Hover buttons funcionando (brown → gold), shine effect visível, 3 colunas renderizando
-
-**v2.3.0 (Auditoria)**
-- Security audit: 0 vulnerabilidades
-- Performance: 85-90/100
-
-**v2.2.0 (Features)**
-- Sistema de favoritos com localStorage
-- Efeito hover dourado implementado
+- **Status**: ✅ Hover buttons funcionando, shine effect visível, 3 colunas renderizando
 
 ---
 
