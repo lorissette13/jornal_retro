@@ -9,6 +9,7 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
 #### Adicionado
 - 🎨 **Efeito hover padronizado**: Colunas trajetoria e projetos agora têm o mesmo movimento e sublinhado ao passar o mouse que a coluna cotidiano
 - 🎨 **Link "ver projeto" estilizado**: Link agora usa cores do tema (gradiente olive/sage) ao invés de cores fixas
+- 🎨 **Acentos de cor nas tags cotidiano**: Tags na coluna cotidiano agora têm cores temáticas sutis baseadas nas categorias (jogos azul, música roxo, dev-life verde)
 
 #### Modificado
 - 📝 **`assets/css/home.css`**
@@ -16,8 +17,15 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
   - Adicionado `.project-link` com gradiente temático e animação hover
   - Padronização visual entre todas as colunas da homepage
 
-- 📝 **`style.css`**
+- 📝 **`index.html`**
+  - Adicionadas classes de cor às `tag-category` (filter-color-jogos, filter-color-música, filter-color-dev-life)
+
+- 📝 **`assets/css/style.css`**
   - Adicionada importação do `home.css`
+  - Adicionado efeito hover `translateX(5px)` aos `.news-item`
+
+- 📝 **`assets/css/filter-colors.css`**
+  - Adicionados estilos para `.tag-category` com cores temáticas sutis
   - Movidas regras específicas da homepage para o final do arquivo para garantir prioridade de carregamento
 
 ### Limpeza de Código e Princípios Clean Code
