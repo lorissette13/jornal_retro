@@ -363,10 +363,10 @@ body::after {
     margin-top: 20px;
 }
 
-/* BUTTONS - MANTIDOS COM AS CORES DA V0 */
+/* BUTTONS - VERDE OLIVA COM GLIMPSE DOURADO */
 .btn-read-more, .btn-small, .btn-submit, .btn-newsletter {
     font-family: 'Special Elite', monospace;
-    background: linear-gradient(145deg, #8b4513, #654321);
+    background: linear-gradient(145deg, #556B2F, #6B8E23);
     color: #f5f0e1;
     border: none;
     padding: 10px 20px;
@@ -377,8 +377,8 @@ body::after {
     letter-spacing: 1px;
     text-transform: lowercase;
     box-shadow: 
-        0 3px 8px rgba(139, 69, 19, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        0 3px 8px rgba(85, 107, 47, 0.2),
+        inset 0 1px 0 rgba(255, 215, 0, 0.1);
     position: relative;
     overflow: hidden;
     font-weight: 400;
@@ -417,14 +417,14 @@ body::after {
 .btn-read-more:hover, .btn-small:hover, .btn-submit:hover, .btn-newsletter:hover {
     transform: translateY(-2px);
     box-shadow: 
-        0 5px 12px rgba(139, 69, 19, 0.3),
-        0 0 0 1px rgba(139, 69, 19, 0.2);
+        0 5px 12px rgba(85, 107, 47, 0.3),
+        0 0 0 1px rgba(85, 107, 47, 0.2);
 }
 
 .btn-small:hover {
     box-shadow: 
-        0 5px 12px rgba(58, 44, 30, 0.3),
-        0 0 0 1px rgba(58, 44, 30, 0.2);
+        0 5px 12px rgba(107, 142, 35, 0.3),
+        0 0 0 1px rgba(107, 142, 35, 0.2);
 }
 
 .btn-read-more:active, .btn-small:active, .btn-submit:active, .btn-newsletter:active {
@@ -639,9 +639,9 @@ body::after {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 20px;
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -671,7 +671,7 @@ body::after {
 /* FOOTER */
 .footer {
     text-align: center;
-    padding-top: 50px;
+    padding: 50px 20px 80px;
     margin-top: 60px;
     position: relative;
     z-index: 2;

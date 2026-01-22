@@ -112,6 +112,48 @@
       "github": "https://github.com/lorissette13/code-collab",
       "demo": null,
       "image": "code-collab.jpg"
+    },
+    {
+      "id": "proj-009",
+      "title": "dashboard analytics para e-commerce",
+      "description": "painel administrativo com gráficos interativos e relatórios em tempo real.",
+      "category": "fullstack",
+      "year": "2022",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["react", "d3.js", "node.js", "postgresql", "redis"],
+      "features": ["gráficos interativos", "relatórios em tempo real", "exportação de dados", "alertas inteligentes"],
+      "github": "https://github.com/lorissette13/analytics-dashboard",
+      "demo": "https://analytics-dashboard.vercel.app",
+      "image": "analytics-dashboard.jpg"
+    },
+    {
+      "id": "proj-010",
+      "title": "app de produtividade pessoal",
+      "description": "aplicativo mobile para gestão de tarefas com gamificação e sincronização na nuvem.",
+      "category": "mobile",
+      "year": "2021",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["react native", "firebase", "redux", "expo"],
+      "features": ["gamificação", "sincronização offline", "lembretes inteligentes", "estatísticas de progresso"],
+      "github": "https://github.com/lorissette13/productivity-app",
+      "demo": "https://expo.dev/@lorissette13/productivity-app",
+      "image": "productivity-app.jpg"
+    },
+    {
+      "id": "proj-011",
+      "title": "plataforma de cursos online",
+      "description": "sistema completo de gestão de cursos com video player e sistema de certificação.",
+      "category": "fullstack",
+      "year": "2023",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["next.js", "prisma", "postgresql", "stripe", "vercel"],
+      "features": ["video player personalizado", "sistema de certificação", "progresso do aluno", "pagamentos integrados"],
+      "github": "https://github.com/lorissette13/learning-platform",
+      "demo": "https://learning-platform.vercel.app",
+      "image": "learning-platform.jpg"
     }
   ],
   "categories": ["frontend", "fullstack", "mobile", "devops", "design"],

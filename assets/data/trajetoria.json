@@ -145,6 +145,36 @@
       "description": "contribuição para padrões web abertos. participação em working groups w3c. mentoring de comunidade open source.",
       "skills": ["web standards", "wcag", "semântica html", "performance"],
       "favorite": true
+    },
+    {
+      "id": "exp-016",
+      "type": "education",
+      "title": "mestrado em ciência da computação",
+      "period": "2018-2020",
+      "institution": "universidade estadual",
+      "description": "pesquisa em interfaces homem-máquina e experiência do usuário. tese sobre acessibilidade em aplicações web modernas.",
+      "skills": ["ux research", "acessibilidade", "pesquisa acadêmica", "estatística"],
+      "favorite": true
+    },
+    {
+      "id": "exp-017",
+      "type": "project",
+      "title": "contribuidor open source ativo",
+      "period": "2019-presente",
+      "institution": "comunidade open source",
+      "description": "contribuições regulares para projetos como react, vue e ferramentas de desenvolvimento. manutenção de bibliotecas pessoais.",
+      "skills": ["open source", "typescript", "documentação", "comunidade"],
+      "favorite": true
+    },
+    {
+      "id": "exp-018",
+      "type": "certification",
+      "title": "certified kubernetes administrator",
+      "period": "2023",
+      "institution": "cloud native computing foundation",
+      "description": "certificação em administração de clusters kubernetes. gerenciamento de containers em produção.",
+      "skills": ["kubernetes", "docker", "orquestração", "containers"],
+      "favorite": false
     }
   ],
   "skills": {

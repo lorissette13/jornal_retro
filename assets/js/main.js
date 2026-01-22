@@ -67,10 +67,12 @@ function getCurrentPageName() {
 
 // Inicializa página home
 function initHomePage() {
-    // Carrega textos dinâmicos
+    // Carrega textos dinâmicos - mais conteúdo na home
     loadTextContent('assets/data/quem-sou.txt', {
         'who-text-1': 0,
-        'who-text-2': 1
+        'who-text-2': 1,
+        'who-text-3': 2,
+        'who-text-4': 3
     });
     
     // Carrega conteúdo destacado em 3 colunas
