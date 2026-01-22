@@ -1,7 +1,10 @@
 :assets/css/projects.css
 /* ESTILOS PARA SISTEMA DE PROJETOS */
 
-/* Controles de Busca e Filtro */
+/* Container de Projetos */
+.projects-container {
+    margin: 40px 0;
+}
 .projects-controls {
     background: rgba(245, 245, 245, 0.9);
     padding: 25px;

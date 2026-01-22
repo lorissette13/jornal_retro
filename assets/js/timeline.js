@@ -8,9 +8,113 @@ let filteredTimeline = [];
 let currentFilter = 'all';
 let timelineYears = [];
 
+// Mock da trajetória (sem necessidade de fetch)
+const TIMELINE_DATA = {
+  "experiences": [
+    {
+      "id": "exp-001",
+      "type": "education",
+      "title": "bacharelado em sistemas de informação",
+      "period": "2013-2017",
+      "institution": "universidade federal",
+      "description": "fundamentos em algoritmos, estrutura de dados, engenharia de software e redes. projeto final: sistema de gerenciamento acadêmico.",
+      "skills": ["algoritmos", "java", "sql", "redes"],
+      "favorite": true
+    },
+    {
+      "id": "exp-002",
+      "type": "work",
+      "title": "desenvolvedor front-end júnior",
+      "period": "2018-2019",
+      "company": "startup tech solutions",
+      "description": "primeira experiência profissional. desenvolvimento de interfaces responsivas com html/css/js. aprendizado de git e metodologias ágeis.",
+      "skills": ["html5", "css3", "javascript", "git", "scrum"],
+      "favorite": false
+    },
+    {
+      "id": "exp-003",
+      "type": "work",
+      "title": "desenvolvedor front-end pleno",
+      "period": "2020-2021",
+      "company": "agência digital creativa",
+      "description": "liderança de projetos front-end. implementação de design systems. mentoring de desenvolvedores júniores. foco em performance.",
+      "skills": ["react", "vue", "sass", "webpack", "jest"],
+      "favorite": true
+    },
+    {
+      "id": "exp-004",
+      "type": "work",
+      "title": "desenvolvedor front-end sênior",
+      "period": "2022-presente",
+      "company": "empresa global tech",
+      "description": "arquitetura de sistemas escaláveis. definição de padrões de código. entrevistas técnicas. foco em acessibilidade e web vitals.",
+      "skills": ["typescript", "next.js", "graphql", "docker", "aws"],
+      "favorite": true
+    },
+    {
+      "id": "exp-005",
+      "type": "certification",
+      "title": "aws certified solutions architect",
+      "period": "2021",
+      "institution": "amazon web services",
+      "description": "certificação em arquitetura de soluções cloud. foco em segurança, escalabilidade e otimização de custos na aws.",
+      "skills": ["aws", "cloud", "arquitetura", "segurança"],
+      "favorite": true
+    },
+    {
+      "id": "exp-006",
+      "type": "certification",
+      "title": "react advanced patterns",
+      "period": "2020",
+      "institution": "frontend masters",
+      "description": "curso avançado de padrões em react. renderização otimizada, hooks customizados e gerenciamento de estado complexo.",
+      "skills": ["react", "hooks", "performance", "padrões"],
+      "favorite": false
+    },
+    {
+      "id": "exp-007",
+      "type": "project",
+      "title": "sistema de design open source",
+      "period": "2021",
+      "description": "criação de design system completo com react e storybook. mais de 500 estrelas no github. usado por 50+ empresas.",
+      "skills": ["react", "storybook", "design tokens", "npm"],
+      "favorite": true
+    },
+    {
+      "id": "exp-008",
+      "type": "project",
+      "title": "aplicativo de viagens colaborativo",
+      "period": "2022",
+      "description": "app fullstack para compartilhamento de roteiros de viagem. integração com mapas e sistema de reviews.",
+      "skills": ["vue.js", "node.js", "mongodb", "mapbox"],
+      "favorite": false
+    },
+    {
+      "id": "exp-009",
+      "type": "certification",
+      "title": "typescript advanced masterclass",
+      "period": "2023",
+      "institution": "egghead.io",
+      "description": "aprofundamento em tipos avançados de typescript. genéricos, decoradores e tipos utilitários.",
+      "skills": ["typescript", "tipos avançados", "oop"],
+      "favorite": true
+    },
+    {
+      "id": "exp-010",
+      "type": "work",
+      "title": "tech lead - arquitetura frontend",
+      "period": "2023-presente",
+      "company": "empresa global tech",
+      "description": "liderança técnica de squad de 5 desenvolvedores. definição de arquitetura de microfrontends. implementação de pipeline ci/cd.",
+      "skills": ["arquitetura", "liderança", "nextjs", "webpack", "devops"],
+      "favorite": true
+    }
+  ]
+};
+
 // Inicializa timeline
-async function initTimeline() {
-    await loadTimelineData();
+function initTimeline() {
+    loadTimelineData();
     loadFavoritesFromLocalStorage();
     setupTimelineFilters();
     setupTimelineNavigation();
@@ -19,21 +123,14 @@ async function initTimeline() {
     updateTimelineStats();
 }
 
-// Carrega dados da timeline
-async function loadTimelineData() {
-    try {
-        const response = await fetch('../assets/data/trajetoria.json');
-        const data = await response.json();
-        timelineData = data.experiences;
-        
-        // Extrai anos únicos para navegação
-        extractTimelineYears();
-        
-        filteredTimeline = [...timelineData];
-    } catch (error) {
-        console.error('Erro ao carregar timeline:', error);
-        showTimelineError();
-    }
+// Carrega dados da timeline (mock local, sem fetch)
+function loadTimelineData() {
+    timelineData = TIMELINE_DATA.experiences;
+    
+    // Extrai anos únicos para navegação
+    extractTimelineYears();
+    
+    filteredTimeline = [...timelineData];
 }
 
 // Extrai anos da timeline

@@ -1,8 +1,66 @@
-## v2.3.xx
-- Carrossel da galeria migrado para a home (index.html), exibindo 4 cards dinâmicos favoritos.
-- Página galeria (galeria.html) agora exibe apenas grid de miniaturas, sem carrossel.
-- Ajuste de integração entre JS e HTML para garantir funcionamento dinâmico.
 # CHANGELOG - Jornal Retro
+
+## v2.4.1 - Simplificação da Home e Estrutura de Dados
+
+**Home Page Refactoring**: 
+- Removido grid de "leitura rápida" (posts destacados)
+- Retornado ao modelo original da v0 com 3 colunas: trajetória, projetos, cotidiano
+- Seção "quem sou eu" mantém 2 parágrafos com lorem ipsum (versão estática)
+- Acesso à página completa via botão "ler mais sobre mim"
+
+**About Me System**: 
+- Criado `about-me-data.js` com 7 parágrafos de conteúdo
+- 2 parágrafos exibidos na home (estaticamente)
+- Todos os 7 parágrafos carregados na página `quem-sou.html`
+- Função `getAllAboutMeParagraphs()` para carregar conteúdo completo
+
+**Posts System Consolidation**:
+- Criado `posts-parser.js` com POSTS_DATA estruturado (8 posts)
+- Incluído em todas as páginas que usam posts (cotidiano.html)
+- Funções helper: `formatDate()`, `getLimitedPosts()`, `getPostsByCategory()`
+- Posts com estrutura: id, title, category, date, favorite, tags, paragraphs[]
+
+**CSS Updates**:
+- Adicionado estilo `.news-date` para exibir data dos posts
+- Adicionado estilo `.news-tech` para stack de projetos
+- Adicionado estilo `.news-btn` com cor olive green (#556B2F)
+- Adicionado estilo `.who-paragraph` para parágrafos com border-left
+- Mantida compatibilidade com grid `.who-grid.two-columns`
+
+**Limpeza de Código**:
+- Removida função `loadHomePostsSection()` do main.js
+- Removida função `loadHomeAboutMe()` do main.js
+- Removido script `about-me-data.js` do index.html (mantém em quem-sou.html)
+- Mantida estrutura modular mas com dados estáticos na home
+
+**Status**: ✓ Home alinhada com v0 | Posts sistema funcionando | Quem sou com 7 parágrafos
+
+---
+
+## v2.4.0 - Sistema Modular de Posts
+
+**Arquitetura**: Implementado sistema completamente modular para posts
+- Posts armazenados como arquivos Markdown independentes em `assets/data/posts/`
+- Formato: YAML front matter + Markdown body
+- Organização por data: `YYYY-MM-DD-slug-titulo.md`
+- Template base em `_template.md` para novos posts
+- 8 posts de exemplo criados (música, jogos, filmes, livros, dev-life, boardgames)
+
+**Documentação**: 
+- Criado `POSTS_SYSTEM.md` com documentação completa do sistema
+- Criado `assets/data/posts/README.md` com instruções práticas
+- Atualizado `PROMPT_CONSOLIDADO.md` com instruções para o agent
+
+**Benefícios**:
+- ✅ Facilidade: Criar posts sem mexer em JavaScript
+- ✅ Escalabilidade: Adicionar 100 posts é tão simples quanto adicionar 1
+- ✅ Modularidade: Cada post é independente e versionável
+- ✅ Organização: Posts ordenados cronologicamente
+- ✅ Reusabilidade: Posts podem ser usados em múltiplos contextos
+
+**Categorias Suportadas**: música, jogos, filmes, livros, boardgames, dev-life, viagens
+
+---
 
 ## v2.3.17 - Button Refinement
 

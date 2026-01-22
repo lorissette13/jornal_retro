@@ -28,9 +28,6 @@
                 <section class="page-section">
                     <div class="section-content" id="full-who-content">
                         <!-- Conteúdo carregado via JS -->
-                        <div class="loading-section">
-                            <p>carregando conteúdo...</p>
-                        </div>
                     </div>
                 </section>
                 
@@ -99,16 +96,26 @@
     <!-- JavaScript -->
     <script src="../assets/js/navigation.js"></script>
     <script src="../assets/js/text-loader.js"></script>
+    <script src="../assets/js/about-me-data.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Carrega o conteúdo completo da página
-            loadFullPageContent('quem-sou');
+            // Carrega todos os 7 parágrafos
+            loadQuemSouContent();
             
             // Carrega componentes
             loadComponent('header-container', '../components/header.html');
             loadComponent('footer-container', '../components/footer.html');
         });
+        
+        function loadQuemSouContent() {
+            const container = document.getElementById('full-who-content');
+            const paragraphs = getAllAboutMeParagraphs();
+            
+            container.innerHTML = paragraphs.map(para => `
+                <p class="paragraph">${para.content}</p>
+            `).join('');
+        }
     </script>
 </body>
 </html>

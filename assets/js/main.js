@@ -18,7 +18,7 @@ const AppState = {
 };
 
 // Inicializa a aplicação
-async function initApp() {
+function initApp() {
     console.log('🚀 Inicializando portfólio lorissette13...');
     
     // Carrega preferências do usuário
@@ -67,17 +67,9 @@ function getCurrentPageName() {
 
 // Inicializa página home
 function initHomePage() {
-    // Carrega textos dinâmicos - mais conteúdo na home
-    loadTextContent('assets/data/quem-sou.txt', {
-        'who-text-1': 0,
-        'who-text-2': 1,
-        'who-text-3': 2,
-        'who-text-4': 3
-    });
-    
     // Carrega conteúdo destacado em 3 colunas
     loadFeaturedExperiences(2);
-    loadFeaturedProjects(3);
+    loadFeaturedProjects(5);
     loadFeaturedGalleryHome(3);
     
     // Inicializa carrossel da galeria
@@ -226,155 +218,85 @@ function initAnalytics() {
 }
 
 // Função utilitária para carregar conteúdo de texto
-async function loadTextContent(filePath, elementMap) {
-    try {
-        const response = await fetch(filePath);
-        if (!response.ok) throw new Error('File not found');
-        
-        const text = await response.text();
-        const paragraphs = text.split('---');
-        
-        for (const [elementId, paragraphIndex] of Object.entries(elementMap)) {
-            const element = document.getElementById(elementId);
-            if (element && paragraphs[paragraphIndex]) {
-                element.textContent = paragraphs[paragraphIndex].trim();
-            }
-        }
-    } catch (error) {
-        console.error('Erro ao carregar conteúdo:', error);
-        // Fallback com conteúdo hardcoded
-        const fallbackContent = {
-            'who-text-1': 'desenvolvedor front-end com alma de artesão digital, combinando código limpo com narrativas visuais. nascido em 1995, minha jornada mistura tecnologia vintage com inovação contemporânea.',
-            'who-text-2': 'fora do terminal, sou colecionador de momentos: cafés em xícaras velhas, trilhas sonoras para concentração, jogos retrô que inspiram soluções modernas.',
-            'who-text-3': 'acredito que interfaces devem conversar, não apenas funcionar - cada linha de código carrega intenção, cada animação conta uma história.',
-            'who-text-4': 'nas horas vagas, mergulho em mundos ficcionais através de livros, filmes e jogos. cada história que consumo deixa marcas no meu trabalho.'
-        };
-        
-        for (const [elementId, paragraphIndex] of Object.entries(elementMap)) {
-            const element = document.getElementById(elementId);
-            if (element && fallbackContent[elementId]) {
-                element.textContent = fallbackContent[elementId];
-            }
+function loadTextContent(filePath, elementMap) {
+    // Carregamento estático de conteúdo padrão
+    const fallbackContent = {
+        'who-text-1': 'desenvolvedor front-end com alma de artesão digital, combinando código limpo com narrativas visuais. nascido em 1995, minha jornada mistura tecnologia vintage com inovação contemporânea.',
+        'who-text-2': 'fora do terminal, sou colecionador de momentos: cafés em xícaras velhas, trilhas sonoras para concentração, jogos retrô que inspiram soluções modernas.',
+        'who-text-3': 'acredito que interfaces devem conversar, não apenas funcionar - cada linha de código carrega intenção, cada animação conta uma história.',
+        'who-text-4': 'nas horas vagas, mergulho em mundos ficcionais através de livros, filmes e jogos. cada história que consumo deixa marcas no meu trabalho.'
+    };
+    
+    for (const [elementId, paragraphIndex] of Object.entries(elementMap)) {
+        const element = document.getElementById(elementId);
+        if (element && fallbackContent[elementId]) {
+            element.textContent = fallbackContent[elementId];
         }
     }
 }
 
 // Função utilitária para carregar conteúdo completo da página
-async function loadFullPageContent(pageName) {
-    try {
-        const response = await fetch(`assets/data/${pageName}.txt`);
-        if (!response.ok) throw new Error('File not found');
-        
-        const text = await response.text();
-        const container = document.getElementById('full-who-content');
-        if (container) {
-            container.innerHTML = text.split('---').map(paragraph => 
-                `<p class="page-paragraph">${paragraph.trim()}</p>`
-            ).join('');
-        }
-    } catch (error) {
-        console.error('Erro ao carregar página:', error);
+function loadFullPageContent(pageName) {
+    // Carregamento estático mantido
+    console.log('Carregamento de página estático:', pageName);
+}
+
+// Carrega experiências destacadas na home (mock local, sem fetch)
+function loadFeaturedExperiences(count = 2) {
+    const experiences = TIMELINE_DATA.experiences.slice(0, count);
+    
+    const container = document.getElementById('featured-experiences');
+    if (container) {
+        container.innerHTML = `
+            <div class="news-item">
+                <h4 class="news-title">experiências & conquistas</h4>
+                <p class="news-text">mais de 8 anos desenvolvendo soluções web escaláveis. especializado em front-end moderno com react/vue, mas com raízes sólidas em html/css/js vanilla. arquiteturas componentizadas e performance como prioridade.</p>
+                <p class="news-text">já atuei em startups ágeis e grandes corporações, sempre levando design system e ux para o centro do processo. mentorias técnicas e formação de squads completos.</p>
+                <div class="btn-container">
+                    <button class="btn-small news-btn">linha do tempo</button>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <h4 class="news-title">habilidades técnicas</h4>
+                <p class="news-text">stack principal: javascript/typescript, react, vue, node.js. domínio de css avançado (grid, flexbox, animações). experiência com aws, docker, ci/cd. design thinking e prototipagem no figma.</p>
+                <div class="btn-container">
+                    <button class="btn-small news-btn">stack completo</button>
+                </div>
+            </div>
+        `;
     }
 }
 
-// Carrega experiências destacadas na home
-async function loadFeaturedExperiences(count = 2) {
-    try {
-        const response = await fetch('assets/data/trajetoria.json');
-        const data = await response.json();
-        const experiences = data.experiences.slice(0, count);
-        
-        const container = document.getElementById('featured-experiences');
-        if (container) {
-            container.innerHTML = `
-                <div class="news-item">
-                    <h4 class="news-title">experiências & conquistas</h4>
-                    <p class="news-text">mais de 8 anos desenvolvendo soluções web escaláveis. especializado em front-end moderno com react/vue, mas com raízes sólidas em html/css/js vanilla. arquiteturas componentizadas e performance como prioridade.</p>
-                    <p class="news-text">já atuei em startups ágeis e grandes corporações, sempre levando design system e ux para o centro do processo. mentorias técnicas e formação de squads completos.</p>
-                    <div class="btn-container">
-                        <button class="btn-small news-btn">linha do tempo</button>
-                    </div>
+// Carrega projetos destacados na home (mock local, sem fetch)
+function loadFeaturedProjects(count = 5) {
+    const projects = PROJECTS_DATA.projects.slice(0, count);
+    
+    const container = document.getElementById('featured-projects');
+    if (container) {
+        container.innerHTML = projects.map(project => `
+            <div class="news-item">
+                <h4 class="news-title">${project.title}</h4>
+                <p class="news-text">${project.description}</p>
+                <p class="news-tech"><strong>stack:</strong> ${project.tech.join(' • ')}</p>
+                <div class="btn-container">
+                    <button class="btn-small news-btn">saiba mais</button>
                 </div>
-                
-                <div class="news-item">
-                    <h4 class="news-title">habilidades técnicas</h4>
-                    <p class="news-text">stack principal: javascript/typescript, react, vue, node.js. domínio de css avançado (grid, flexbox, animações). experiência com aws, docker, ci/cd. design thinking e prototipagem no figma.</p>
-                    <div class="btn-container">
-                        <button class="btn-small news-btn">stack completo</button>
-                    </div>
-                </div>
-            `;
-        }
-    } catch (error) {
-        console.error('Erro ao carregar experiências:', error);
-        // Fallback já implementado acima
+            </div>
+        `).join('');
     }
 }
 
-// Carrega projetos destacados na home
-async function loadFeaturedProjects(count = 3) {
-    try {
-        const response = await fetch('assets/data/projects.json');
-        const data = await response.json();
-        const projects = data.projects.slice(0, count);
-        
-        const container = document.getElementById('featured-projects');
-        if (container) {
-            container.innerHTML = projects.map(project => `
-                <div class="project">
-                    <p class="project-text">"${project.title}" - ${project.description}</p>
-                    <p class="project-tech">stack: ${project.tech.join(' • ')}</p>
-                </div>
-            `).join('');
-        }
-    } catch (error) {
-        console.error('Erro ao carregar projetos:', error);
-        // Fallback com conteúdo mock
-        const container = document.getElementById('featured-projects');
-        if (container) {
-            container.innerHTML = `
-                <div class="news-item">
-                    <h4 class="news-title">projetos recentes</h4>
-                    <p class="news-text">desenvolvimento de aplicações web modernas com foco em performance e experiência do usuário. migração de sistemas legados para stacks atuais, implementação de design systems e arquitetura de componentes reutilizáveis.</p>
-                    <p class="news-text">projetos open source para comunidade, ferramentas de produtividade e dashboards analíticos. sempre buscando inovação e melhores práticas de desenvolvimento.</p>
-                    <div class="btn-container">
-                        <button class="btn-small news-btn">ver projetos</button>
-                    </div>
-                </div>
-                
-                <div class="news-item">
-                    <h4 class="news-title">tecnologias & ferramentas</h4>
-                    <p class="news-text">frameworks: react, vue.js, next.js. linguagens: javascript, typescript, python. ferramentas: git, docker, aws, figma. metodologias: agile, tdd, design thinking.</p>
-                    <div class="btn-container">
-                        <button class="btn-small news-btn">conhecimentos</button>
-                    </div>
-                </div>
-            `;
-        }
-    }
-}
-
-// Carrega galeria destacada na home (agora estático, mas mantendo para compatibilidade)
-async function loadFeaturedGalleryHome(count = 3) {
-    // Como mudamos para estático, não carrega dinamicamente
-    // Mantém a estrutura estática da v0
+// Carrega galeria destacada na home (mock local, mantendo estrutura)
+function loadFeaturedGalleryHome(count = 3) {
+    // Galeria mantida estática conforme v0
     console.log('Galeria home mantida estática conforme v0');
 }
 
 // Carrega componentes HTML externos
-async function loadComponent(containerId, componentPath) {
-    try {
-        const response = await fetch(componentPath);
-        if (!response.ok) throw new Error('Component not found');
-        
-        const html = await response.text();
-        const container = document.getElementById(containerId);
-        if (container) {
-            container.innerHTML = html;
-        }
-    } catch (error) {
-        console.error('Erro ao carregar componente:', error);
-    }
+function loadComponent(containerId, componentPath) {
+    // Carregamento de componentes desabilitado - usando versão estática
+    console.log('Componentes carregados estaticamente:', containerId);
 }
 
 // Efeito typewriter para o logo

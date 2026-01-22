@@ -24,69 +24,51 @@
                 <div class="page-subtitle">linha do tempo profissional e acadêmica</div>
             </div>
             
-            <!-- Filtros da Timeline -->
-            <div class="timeline-filters">
-                <div class="filter-label">mostrar:</div>
+            <!-- Filtros da Trajetória -->
+            <div class="filters-container">
+                <div class="filter-label">filtrar por:</div>
                 <div class="filter-buttons">
-                    <button class="timeline-filter-btn active" data-filter="all">tudo</button>
-                    <button class="timeline-filter-btn" data-filter="work">trabalho</button>
-                    <button class="timeline-filter-btn" data-filter="education">educação</button>
-                    <button class="timeline-filter-btn" data-filter="certification">certificações</button>
-                    <button class="timeline-filter-btn" data-filter="project">projetos</button>
-                    <button class="timeline-filter-btn" data-filter="favorites">favoritos</button>
+                    <button class="filter-btn active" data-type="all">todos</button>
+                    <button class="filter-btn" data-type="featured">destaque</button>
+                    <span class="filter-divider">•</span>
+                    <button class="filter-btn skill-filter" data-skill="React">React</button>
+                    <button class="filter-btn skill-filter" data-skill="Vue.js">Vue.js</button>
+                    <button class="filter-btn skill-filter" data-skill="JavaScript">JavaScript</button>
+                    <button class="filter-btn skill-filter" data-skill="Leadership">Leadership</button>
+                    <button class="filter-btn skill-filter" data-skill="TypeScript">TypeScript</button>
+                    <button class="filter-btn skill-filter" data-skill="Node.js">Node.js</button>
                 </div>
             </div>
             
-            <!-- Timeline -->
-            <div class="timeline-container">
-                <div class="timeline" id="timeline">
-                    <!-- Timeline items serão inseridos via JavaScript -->
-                    <div class="timeline-loading">
-                        <p>carregando trajetória...</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Navegação da Timeline -->
-            <div class="timeline-navigation">
-                <button class="nav-btn timeline-prev-btn" id="timeline-prev-btn" disabled>
+            <!-- Sistema de Navegação -->
+            <div class="posts-navigation">
+                <button class="nav-btn prev-btn" id="prev-btn" disabled>
                     ‹ anterior
                 </button>
-                <div class="timeline-info">
-                    <span id="timeline-year-display">2013</span> - <span id="timeline-year-display-end">presente</span>
+                <div class="page-info">
+                    página <span id="current-page">1</span> de <span id="total-pages">1</span>
                 </div>
-                <button class="nav-btn timeline-next-btn" id="timeline-next-btn">
+                <button class="nav-btn next-btn" id="next-btn">
                     próximo ›
                 </button>
             </div>
             
-            <!-- Habilidades -->
-            <section class="skills-section">
-                <h2 class="section-title">habilidades técnicas</h2>
-                <div class="skills-container" id="skills-container">
-                    <!-- Skills carregadas via JavaScript -->
-                    <div class="loading-skills">carregando habilidades...</div>
-                </div>
-            </section>
+            <!-- Lista de Experiências -->
+            <div class="trajectory-container" id="trajectory-container">
+                <!-- Experiências carregadas via JavaScript -->
+            </div>
             
-            <!-- Estatísticas -->
-            <div class="timeline-stats">
-                <div class="stat-item">
-                    <span class="stat-number" id="total-experience">8+</span>
-                    <span class="stat-label">anos de experiência</span>
+            <!-- Navegação Inferior -->
+            <div class="posts-navigation bottom-nav">
+                <button class="nav-btn prev-btn" id="prev-btn-bottom" disabled>
+                    ‹ anterior
+                </button>
+                <div class="page-info">
+                    página <span id="current-page-bottom">1</span> de <span id="total-pages-bottom">1</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number" id="total-projects">20+</span>
-                    <span class="stat-label">projetos concluídos</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" id="total-certifications">5+</span>
-                    <span class="stat-label">certificações</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" id="current-role">sênior</span>
-                    <span class="stat-label">nível atual</span>
-                </div>
+                <button class="nav-btn next-btn" id="next-btn-bottom">
+                    próximo ›
+                </button>
             </div>
             
             <!-- Botão de Voltar -->
@@ -101,17 +83,145 @@
 
     <!-- JavaScript -->
     <script src="../assets/js/navigation.js"></script>
-    <script src="../assets/js/timeline.js"></script>
+    <script src="../assets/js/data-parser.js"></script>
+    <script src="../assets/js/text-loader.js"></script>
     
     <script>
+        let currentPage = 1;
+        const itemsPerPage = 3;
+        let filteredTrajectory = [];
+        let allTrajectory = TRAJECTORY_DATA.trajectory;
+        let currentFilter = 'all';
+        let currentSkillFilter = null;
+        
         document.addEventListener('DOMContentLoaded', function() {
             // Carrega componentes
             loadComponent('header-container', '../components/header.html');
             loadComponent('footer-container', '../components/footer.html');
             
-            // Inicializa timeline
-            initTimeline();
+            // Inicializa trajetória
+            displayTrajectory();
+            setupFilters();
+            setupNavigation();
         });
+        
+        function setupFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn:not(.skill-filter)');
+            const skillBtns = document.querySelectorAll('.skill-filter');
+            
+            // Filtros gerais (todos/destaque)
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active de todos os não-skill
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Adiciona ao clicado
+                    this.classList.add('active');
+                    
+                    currentFilter = this.getAttribute('data-type');
+                    currentPage = 1;
+                    
+                    applyFilters();
+                });
+            });
+            
+            // Filtros de habilidades
+            skillBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Se já está ativo, desativa (toggle)
+                    if (this.classList.contains('active')) {
+                        this.classList.remove('active');
+                        currentSkillFilter = null;
+                    } else {
+                        // Remove active de todos os outros skills
+                        skillBtns.forEach(b => b.classList.remove('active'));
+                        // Adiciona ao clicado
+                        this.classList.add('active');
+                        currentSkillFilter = this.getAttribute('data-skill');
+                    }
+                    
+                    currentPage = 1;
+                    applyFilters();
+                });
+            });
+        }
+        
+        function applyFilters() {
+            filteredTrajectory = allTrajectory;
+            
+            // Aplica filtro geral
+            if (currentFilter === 'featured') {
+                filteredTrajectory = filteredTrajectory.filter(exp => exp.featured);
+            }
+            
+            // Aplica filtro de skill
+            if (currentSkillFilter) {
+                filteredTrajectory = filteredTrajectory.filter(exp =>
+                    exp.skills.includes(currentSkillFilter)
+                );
+            }
+            
+            displayTrajectory();
+        }
+        
+        function displayTrajectory() {
+            if (filteredTrajectory.length === 0) {
+                filteredTrajectory = allTrajectory;
+            }
+            
+            const container = document.getElementById('trajectory-container');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageTrajectory = filteredTrajectory.slice(startIndex, endIndex);
+            
+            container.innerHTML = pageTrajectory.map(renderTrajectoryHTML).join('');
+            
+            updatePagination();
+        }
+        
+        function setupNavigation() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtnBottom = document.getElementById('prev-btn-bottom');
+            const nextBtnBottom = document.getElementById('next-btn-bottom');
+            
+            prevBtn.addEventListener('click', () => goToPreviousPage());
+            nextBtn.addEventListener('click', () => goToNextPage());
+            prevBtnBottom.addEventListener('click', () => goToPreviousPage());
+            nextBtnBottom.addEventListener('click', () => goToNextPage());
+        }
+        
+        function goToPreviousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayTrajectory();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        
+        function goToNextPage() {
+            const totalPages = Math.ceil(filteredTrajectory.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayTrajectory();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredTrajectory.length / itemsPerPage);
+            
+            // Top navigation
+            document.getElementById('current-page').textContent = currentPage;
+            document.getElementById('total-pages').textContent = totalPages;
+            document.getElementById('prev-btn').disabled = currentPage === 1;
+            document.getElementById('next-btn').disabled = currentPage === totalPages;
+            
+            // Bottom navigation
+            document.getElementById('current-page-bottom').textContent = currentPage;
+            document.getElementById('total-pages-bottom').textContent = totalPages;
+            document.getElementById('prev-btn-bottom').disabled = currentPage === 1;
+            document.getElementById('next-btn-bottom').disabled = currentPage === totalPages;
+        }
     </script>
 </body>
 </html>

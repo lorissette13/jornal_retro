@@ -10,29 +10,190 @@ let currentCategory = 'all';
 const PROJECTS_PER_PAGE = 6;
 let currentPage = 1;
 
+// Mock dos projetos (sem necessidade de fetch)
+const PROJECTS_DATA = {
+  "projects": [
+    {
+      "id": "proj-001",
+      "title": "jornal retro digital",
+      "description": "portfólio com estética vintage anos 30-50. foco em html/css vanilla e design responsivo.",
+      "category": "frontend",
+      "year": "2024",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["html5", "css3", "javascript", "responsive design"],
+      "features": ["design vintage", "totalmente responsivo", "sem frameworks", "performático"],
+      "github": "https://github.com/lorissette13/retro-journal",
+      "demo": "https://lorissette13.github.io/retro-journal",
+      "image": "retro-journal.jpg"
+    },
+    {
+      "id": "proj-002",
+      "title": "e-commerce artesanal",
+      "description": "plataforma para pequenos produtores com carrinho dinâmico e pagamentos integrados.",
+      "category": "fullstack",
+      "year": "2023",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["react", "node.js", "mongodb", "stripe", "jwt"],
+      "features": ["carrinho em tempo real", "checkout seguro", "dashboard admin", "mobile-first"],
+      "github": "https://github.com/lorissette13/artisanal-shop",
+      "demo": "https://artisanal-shop.vercel.app",
+      "image": "artisanal-shop.jpg"
+    },
+    {
+      "id": "proj-003",
+      "title": "app de viagens colaborativo",
+      "description": "rede social para viajantes compartilharem rotas autênticas e recomendações.",
+      "category": "fullstack",
+      "year": "2023",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["vue.js", "python", "mapbox", "mongodb", "docker"],
+      "features": ["mapas interativos", "sistema de reviews", "recomendações por ia", "comunidade"],
+      "github": "https://github.com/lorissette13/travel-collab",
+      "demo": "https://travel-collab.netlify.app",
+      "image": "travel-app.jpg"
+    },
+    {
+      "id": "proj-004",
+      "title": "sistema de design open source",
+      "description": "biblioteca de componentes reutilizáveis com documentação completa em storybook.",
+      "category": "frontend",
+      "year": "2022",
+      "status": "ativo",
+      "favorite": false,
+      "tech": ["react", "typescript", "storybook", "styled-components", "npm"],
+      "features": ["50+ componentes", "documentação completa", "theme switching", "a11y compliant"],
+      "github": "https://github.com/lorissette13/design-system",
+      "demo": "https://design-system-storybook.vercel.app",
+      "image": "design-system.jpg"
+    },
+    {
+      "id": "proj-005",
+      "title": "dashboard de analytics",
+      "description": "painel administrativo para visualização de dados em tempo real com gráficos interativos.",
+      "category": "frontend",
+      "year": "2022",
+      "status": "ativo",
+      "favorite": false,
+      "tech": ["react", "d3.js", "websockets", "chart.js", "tailwind"],
+      "features": ["gráficos em tempo real", "filtros avançados", "exportação de dados", "dark mode"],
+      "github": "https://github.com/lorissette13/analytics-dashboard",
+      "demo": "https://analytics-dashboard-demo.vercel.app",
+      "image": "analytics-dashboard.jpg"
+    },
+    {
+      "id": "proj-006",
+      "title": "plataforma de cursos online",
+      "description": "sistema completo de e-learning com vídeos, exercícios e certificados.",
+      "category": "fullstack",
+      "year": "2021",
+      "status": "ativo",
+      "favorite": false,
+      "tech": ["next.js", "node.js", "postgresql", "aws s3", "ffmpeg"],
+      "features": ["streaming de vídeo", "exercícios interativos", "sistema de progresso", "certificados"],
+      "github": "https://github.com/lorissette13/learning-platform",
+      "demo": "https://learn-platform.vercel.app",
+      "image": "learning-platform.jpg"
+    },
+    {
+      "id": "proj-007",
+      "title": "app de produtividade pomodoro",
+      "description": "aplicativo de gerenciamento de tempo com técnica pomodoro e estatísticas.",
+      "category": "mobile",
+      "year": "2021",
+      "status": "ativo",
+      "favorite": false,
+      "tech": ["react native", "expo", "async storage", "notificações"],
+      "features": ["temporizador pomodoro", "estatísticas diárias", "notificações", "modo foco"],
+      "github": "https://github.com/lorissette13/pomodoro-app",
+      "demo": null,
+      "image": "pomodoro-app.jpg"
+    },
+    {
+      "id": "proj-008",
+      "title": "ferramenta de colaboração em código",
+      "description": "editor de código colaborativo em tempo real com syntax highlighting.",
+      "category": "fullstack",
+      "year": "2020",
+      "status": "arquivado",
+      "favorite": false,
+      "tech": ["vue.js", "socket.io", "codemirror", "redis", "docker"],
+      "features": ["edição em tempo real", "syntax highlighting", "chat integrado", "salvamento automático"],
+      "github": "https://github.com/lorissette13/code-collab",
+      "demo": null,
+      "image": "code-collab.jpg"
+    },
+    {
+      "id": "proj-009",
+      "title": "dashboard analytics para e-commerce",
+      "description": "painel administrativo com gráficos interativos e relatórios em tempo real.",
+      "category": "fullstack",
+      "year": "2022",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["react", "d3.js", "node.js", "postgresql", "redis"],
+      "features": ["gráficos interativos", "relatórios em tempo real", "exportação de dados", "alertas inteligentes"],
+      "github": "https://github.com/lorissette13/analytics-dashboard",
+      "demo": "https://analytics-dashboard.vercel.app",
+      "image": "analytics-dashboard.jpg"
+    },
+    {
+      "id": "proj-010",
+      "title": "app de produtividade pessoal",
+      "description": "aplicativo mobile para gestão de tarefas com gamificação e sincronização na nuvem.",
+      "category": "mobile",
+      "year": "2021",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["react native", "firebase", "redux", "expo"],
+      "features": ["gamificação", "sincronização offline", "lembretes inteligentes", "estatísticas de progresso"],
+      "github": "https://github.com/lorissette13/productivity-app",
+      "demo": "https://expo.dev/@lorissette13/productivity-app",
+      "image": "productivity-app.jpg"
+    },
+    {
+      "id": "proj-011",
+      "title": "plataforma de cursos online",
+      "description": "sistema completo de gestão de cursos com video player e sistema de certificação.",
+      "category": "fullstack",
+      "year": "2023",
+      "status": "ativo",
+      "favorite": true,
+      "tech": ["next.js", "prisma", "postgresql", "stripe", "vercel"],
+      "features": ["video player personalizado", "sistema de certificação", "progresso do aluno", "pagamentos integrados"],
+      "github": "https://github.com/lorissette13/learning-platform",
+      "demo": "https://learning-platform.vercel.app",
+      "image": "learning-platform.jpg"
+    }
+  ],
+  "categories": ["frontend", "fullstack", "mobile", "devops", "design"],
+  "technologies": {
+    "frontend": ["html5", "css3", "javascript", "typescript", "react", "vue", "sass", "tailwind"],
+    "backend": ["node.js", "python", "java", "graphql", "rest api"],
+    "database": ["mongodb", "postgresql", "redis", "mysql"],
+    "devops": ["docker", "aws", "ci/cd", "nginx", "linux"],
+    "mobile": ["react native", "expo", "flutter", "ios", "android"]
+  }
+};
+
 // Inicializa página de projetos
-async function initProjectsPage() {
-    await loadProjectsData();
+function initProjectsPage() {
+    loadProjectsData();
     setupEventListeners();
     updateProjectsDisplay();
     updateProjectsStats();
 }
 
-// Carrega dados dos projetos
-async function loadProjectsData() {
-    try {
-        const response = await fetch('../assets/data/projects.json');
-        const data = await response.json();
-        projectsData = data.projects;
-        
-        // Ordena por ano (mais recente primeiro)
-        projectsData.sort((a, b) => parseInt(b.year) - parseInt(a.year));
-        
-        filteredProjects = [...projectsData];
-    } catch (error) {
-        console.error('Erro ao carregar projetos:', error);
-        showProjectsError();
-    }
+// Carrega dados dos projetos (mock local, sem fetch)
+function loadProjectsData() {
+    projectsData = PROJECTS_DATA.projects;
+    
+    // Ordena por ano (mais recente primeiro)
+    projectsData.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+    
+    filteredProjects = [...projectsData];
 }
 
 // Configura event listeners

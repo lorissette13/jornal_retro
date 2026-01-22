@@ -90,9 +90,6 @@ async function navigateToPage(pagePath) {
     // Salva scroll position atual
     saveScrollPosition();
     
-    // Mostra loading
-    showPageLoading();
-    
     try {
         // Carrega a página
         const response = await fetch(pagePath);
@@ -125,9 +122,6 @@ async function navigateToPage(pagePath) {
                 // Executa scripts da nova página
                 executePageScripts(newDoc);
                 
-                // Remove loading
-                hidePageLoading();
-                
                 // Restaura scroll position
                 restoreScrollPosition();
                 
@@ -145,7 +139,6 @@ async function navigateToPage(pagePath) {
         }
     } catch (error) {
         console.error('Erro na navegação:', error);
-        hidePageLoading();
         showNavigationError();
     }
 }
@@ -312,35 +305,12 @@ function restoreScrollPosition() {
 
 // Mostra loading durante navegação
 function showPageLoading() {
-    let loader = document.getElementById('page-loader');
-    
-    if (!loader) {
-        loader = document.createElement('div');
-        loader.id = 'page-loader';
-        loader.className = 'page-loader';
-        loader.innerHTML = `
-            <div class="loader-content">
-                <div class="loader-spinner"></div>
-                <div class="loader-text">carregando...</div>
-            </div>
-        `;
-        document.body.appendChild(loader);
-    }
-    
-    loader.classList.add('active');
+    // Função removida - sem necessidade de loading sem API
 }
 
 // Esconde loading
 function hidePageLoading() {
-    const loader = document.getElementById('page-loader');
-    if (loader) {
-        loader.classList.remove('active');
-        setTimeout(() => {
-            if (loader.parentNode) {
-                loader.parentNode.removeChild(loader);
-            }
-        }, 300);
-    }
+    // Função removida - sem necessidade de loading sem API
 }
 
 // Mostra erro de navegação

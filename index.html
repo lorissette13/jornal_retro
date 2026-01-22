@@ -50,13 +50,11 @@
                 <div class="who-content">
                     <div class="who-grid">
                         <div class="who-column">
-                            <p class="paragraph" id="who-text-1">carregando...</p>
-                            <p class="paragraph" id="who-text-2">carregando...</p>
+                            <p class="paragraph">lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
                         </div>
-
+                        
                         <div class="who-column">
-                            <p class="paragraph" id="who-text-3">carregando...</p>
-                            <p class="paragraph" id="who-text-4">carregando...</p>
+                            <p class="paragraph">sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
                         </div>
                     </div>
 
@@ -67,21 +65,19 @@
             </section>
 
             <!-- NEWS GRID -->
-            <section class="news-grid">
+            <section class="news-grid" id="featured-posts-section">
                 <!-- Coluna 1: CURRÍCULO -->
                 <article class="news-column" id="curriculum">
                     <h3 class="section-title">trajetória profissional</h3>
                     <div id="featured-experiences">
-                        <p class="loading-text">carregando experiências...</p>
                     </div>
-                    <button class="btn-read-more" onclick="navigateToPage('pages/trajetoria.html')">ver trajetória completa</button>
+                    <a href="pages/trajetoria.html" class="btn-read-more">ver trajetória completa</a>
                 </article>
 
                 <!-- Coluna 2: PROJETOS -->
                 <article class="news-column" id="projects">
                     <h3 class="section-title">projetos em destaque</h3>
                     <div id="featured-projects">
-                        <p class="loading-text">carregando projetos...</p>
                     </div>
                     <button class="btn-read-more" onclick="navigateToPage('pages/projetos.html')">ver todos os projetos</button>
                 </article>
@@ -152,6 +148,27 @@
     <script src="assets/js/posts.js"></script>
     <script src="assets/js/projects.js"></script>
     <script src="assets/js/gallery.js"></script>
+    <script src="assets/js/posts-parser.js"></script>
+    <script src="assets/js/data-parser.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <!-- Carregar dados modulares na home -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carrega 2 experiências mais recentes
+            const recentTrajectory = getRecentTrajectory(2);
+            const experienceContainer = document.getElementById('featured-experiences');
+            if (experienceContainer) {
+                experienceContainer.innerHTML = recentTrajectory.map(renderTrajectoryHTML).join('');
+            }
+            
+            // Carrega 2 projetos mais recentes
+            const recentProjects = getRecentProjects(2);
+            const projectContainer = document.getElementById('featured-projects');
+            if (projectContainer) {
+                projectContainer.innerHTML = recentProjects.map(renderProjectHTML).join('');
+            }
+        });
+    </script>
 </body>
 </html>

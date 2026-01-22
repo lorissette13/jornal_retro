@@ -629,7 +629,19 @@ body::after {
 
 /* GALERIA */
 .gallery-section {
-    margin-bottom: 50px;
+    margin: 60px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.gallery-section::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #a07850, transparent);
 }
 
 .gallery-title {

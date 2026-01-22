@@ -9,9 +9,208 @@ let currentGalleryFilter = 'all';
 let currentSlideIndex = 0;
 let slides = [];
 
+// Mock da galeria (sem necessidade de fetch)
+const GALLERY_DATA = {
+  "images": [
+    {
+      "id": "gallery-001",
+      "title": "setup de trabalho",
+      "category": "setup",
+      "year": "2024",
+      "description": "meu ambiente de trabalho atual com monitor duplo, teclado mecânico e iluminação personalizada.",
+      "favorite": true,
+      "tags": ["setup", "ergonomia", "iluminação"],
+      "image": "setup-2024.jpg",
+      "thumbnail": "setup-2024-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-002",
+      "title": "coleção de jogos retro",
+      "category": "games",
+      "year": "2023",
+      "description": "parte da minha coleção de jogos retrô para consoles clássicos dos anos 80-90.",
+      "favorite": true,
+      "tags": ["retro", "coleção", "jogos"],
+      "image": "retro-games.jpg",
+      "thumbnail": "retro-games-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-003",
+      "title": "viagem para portugal",
+      "category": "viagens",
+      "year": "2023",
+      "description": "vista do castelo de são jorge em lisboa durante o pôr do sol.",
+      "favorite": true,
+      "tags": ["portugal", "lisboa", "pôr do sol"],
+      "image": "lisboa-castle.jpg",
+      "thumbnail": "lisboa-castle-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-004",
+      "title": "evento de tecnologia",
+      "category": "eventos",
+      "year": "2023",
+      "description": "participação como palestrante em conferência de desenvolvimento front-end.",
+      "favorite": false,
+      "tags": ["evento", "palestra", "tecnologia"],
+      "image": "tech-event.jpg",
+      "thumbnail": "tech-event-thumb.jpg",
+      "credit": "foto do evento"
+    },
+    {
+      "id": "gallery-005",
+      "title": "projeto em desenvolvimento",
+      "category": "projetos",
+      "year": "2024",
+      "description": "screenshot de um projeto em desenvolvimento mostrando interface e código.",
+      "favorite": true,
+      "tags": ["desenvolvimento", "interface", "código"],
+      "image": "project-dev.jpg",
+      "thumbnail": "project-dev-thumb.jpg",
+      "credit": "captura de tela"
+    },
+    {
+      "id": "gallery-006",
+      "title": "estante de livros",
+      "category": "livros",
+      "year": "2024",
+      "description": "minha estante com livros de ficção científica, fantasia e tecnologia.",
+      "favorite": false,
+      "tags": ["livros", "estante", "coleção"],
+      "image": "book-shelf.jpg",
+      "thumbnail": "book-shelf-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-007",
+      "title": "workshop de programação",
+      "category": "eventos",
+      "year": "2022",
+      "description": "ministrando workshop de javascript para iniciantes em espaço colaborativo.",
+      "favorite": false,
+      "tags": ["workshop", "ensino", "javascript"],
+      "image": "coding-workshop.jpg",
+      "thumbnail": "coding-workshop-thumb.jpg",
+      "credit": "foto do participante"
+    },
+    {
+      "id": "gallery-008",
+      "title": "equipamento de áudio",
+      "category": "hobbies",
+      "year": "2023",
+      "description": "setup de áudio para gravação de podcasts e trilhas sonoras.",
+      "favorite": false,
+      "tags": ["áudio", "podcast", "equipamento"],
+      "image": "audio-setup.jpg",
+      "thumbnail": "audio-setup-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-009",
+      "title": "café da manhã criativo",
+      "category": "cotidiano",
+      "year": "2024",
+      "description": "ritual matinal com café especial e planejamento do dia de trabalho.",
+      "favorite": true,
+      "tags": ["café", "rotina", "criatividade"],
+      "image": "morning-coffee.jpg",
+      "thumbnail": "morning-coffee-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-010",
+      "title": "ferramentas de desenvolvimento",
+      "category": "setup",
+      "year": "2024",
+      "description": "ferramentas físicas que uso no processo criativo e de desenvolvimento.",
+      "favorite": false,
+      "tags": ["ferramentas", "criação", "processo"],
+      "image": "dev-tools.jpg",
+      "thumbnail": "dev-tools-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-011",
+      "title": "prototipagem no figma",
+      "category": "projetos",
+      "year": "2024",
+      "description": "tela de design mostrando prototipagem de interface interativa com componentes.",
+      "favorite": true,
+      "tags": ["design", "prototipagem", "ui"],
+      "image": "figma-design.jpg",
+      "thumbnail": "figma-design-thumb.jpg",
+      "credit": "captura de tela"
+    },
+    {
+      "id": "gallery-012",
+      "title": "evento tech conference 2024",
+      "category": "eventos",
+      "year": "2024",
+      "description": "participação como palestrante em conferência de arquitetura frontend.",
+      "favorite": true,
+      "tags": ["palestra", "conferência", "arquitetura"],
+      "image": "tech-conf-2024.jpg",
+      "thumbnail": "tech-conf-2024-thumb.jpg",
+      "credit": "foto do evento"
+    },
+    {
+      "id": "gallery-013",
+      "title": "montanhas do sul",
+      "category": "viagens",
+      "year": "2023",
+      "description": "vista panorâmica das montanhas do sul durante trilha ecológica.",
+      "favorite": false,
+      "tags": ["natureza", "montanhas", "trilha"],
+      "image": "mountains-south.jpg",
+      "thumbnail": "mountains-south-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-014",
+      "title": "night gaming session",
+      "category": "games",
+      "year": "2024",
+      "description": "sessão noturna de gaming com setup rgb e atmosfera cozy.",
+      "favorite": true,
+      "tags": ["gaming", "stream", "setup"],
+      "image": "night-gaming.jpg",
+      "thumbnail": "night-gaming-thumb.jpg",
+      "credit": "foto própria"
+    },
+    {
+      "id": "gallery-015",
+      "title": "código limpo em ação",
+      "category": "projetos",
+      "year": "2024",
+      "description": "screenshot de código bem estruturado e documentado no vscode.",
+      "favorite": false,
+      "tags": ["código", "desenvolvimento", "editor"],
+      "image": "clean-code.jpg",
+      "thumbnail": "clean-code-thumb.jpg",
+      "credit": "captura de tela"
+    },
+    {
+      "id": "gallery-016",
+      "title": "biblioteca pessoal",
+      "category": "livros",
+      "year": "2024",
+      "description": "canto da biblioteca com livros de tecnologia, ficção e história.",
+      "favorite": true,
+      "tags": ["leitura", "estante", "conhecimento"],
+      "image": "library-corner.jpg",
+      "thumbnail": "library-corner-thumb.jpg",
+      "credit": "foto própria"
+    }
+  ],
+  "categories": ["setup", "games", "viagens", "eventos", "projetos", "livros", "hobbies", "cotidiano"]
+};
+
 // Inicializa galeria
-async function initGallery() {
-    await loadGalleryData();
+function initGallery() {
+    loadGalleryData();
     loadFavoritesFromLocalStorage();
     setupGalleryFilters();
     setupCarouselControls();
@@ -20,22 +219,15 @@ async function initGallery() {
     updateGalleryStats();
 }
 
-// Carrega dados da galeria
-async function loadGalleryData() {
-    try {
-        const response = await fetch('../assets/data/gallery.json');
-        const data = await response.json();
-        galleryData = data.images;
-        
-        // Ordena por ano (mais recente primeiro)
-        galleryData.sort((a, b) => parseInt(b.year) - parseInt(a.year));
-        
-        filteredGallery = [...galleryData];
-        slides = [...galleryData];
-    } catch (error) {
-        console.error('Erro ao carregar galeria:', error);
-        showGalleryError();
-    }
+// Carrega dados da galeria (mock local, sem fetch)
+function loadGalleryData() {
+    galleryData = GALLERY_DATA.images;
+    
+    // Ordena por ano (mais recente primeiro)
+    galleryData.sort((a, b) => parseInt(b.year) - parseInt(a.year));
+    
+    filteredGallery = [...galleryData];
+    slides = [...galleryData];
 }
 
 // Configura filtros da galeria

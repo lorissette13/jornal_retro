@@ -28,73 +28,43 @@
             <div class="filters-container">
                 <div class="filter-label">filtrar por:</div>
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-category="all">todos</button>
-                    <button class="filter-btn" data-category="frontend">frontend</button>
-                    <button class="filter-btn" data-category="fullstack">fullstack</button>
-                    <button class="filter-btn" data-category="mobile">mobile</button>
-                    <button class="filter-btn" data-category="backend">backend</button>
+                    <button class="filter-btn active" data-status="all">todos</button>
+                    <button class="filter-btn" data-status="completed">concluídos</button>
+                    <button class="filter-btn" data-status="in-progress">em progresso</button>
+                    <button class="filter-btn" data-status="featured">destaque</button>
                 </div>
+            </div>
+            
+            <!-- Sistema de Navegação -->
+            <div class="posts-navigation">
+                <button class="nav-btn prev-btn" id="prev-btn" disabled>
+                    ‹ anterior
+                </button>
+                <div class="page-info">
+                    página <span id="current-page">1</span> de <span id="total-pages">1</span>
+                </div>
+                <button class="nav-btn next-btn" id="next-btn">
+                    próximo ›
+                </button>
             </div>
             
             <!-- Grid de Projetos -->
-            <div class="projects-grid" id="projects-grid">
+            <div class="projects-container" id="projects-container">
                 <!-- Projetos carregados via JavaScript -->
-                <div class="loading-projects">
-                    <p>carregando projetos...</p>
-                </div>
             </div>
             
-            <!-- Navegação de Páginas -->
-            <div class="pagination" id="projects-pagination">
-                <!-- Paginação gerada via JavaScript -->
+            <!-- Navegação Inferior -->
+            <div class="posts-navigation bottom-nav">
+                <button class="nav-btn prev-btn" id="prev-btn-bottom" disabled>
+                    ‹ anterior
+                </button>
+                <div class="page-info">
+                    página <span id="current-page-bottom">1</span> de <span id="total-pages-bottom">1</span>
+                </div>
+                <button class="nav-btn next-btn" id="next-btn-bottom">
+                    próximo ›
+                </button>
             </div>
-            
-            <!-- Estatísticas -->
-            <div class="projects-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">📁</div>
-                    <div class="stat-content">
-                        <span class="stat-number" id="total-projects">0</span>
-                        <span class="stat-label">projetos</span>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">⭐</div>
-                    <div class="stat-content">
-                        <span class="stat-number" id="favorite-projects">0</span>
-                        <span class="stat-label">favoritos</span>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">✅</div>
-                    <div class="stat-content">
-                        <span class="stat-number" id="active-projects">0</span>
-                        <span class="stat-label">ativos</span>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">💻</div>
-                    <div class="stat-content">
-                        <span class="stat-number" id="total-tech">0</span>
-                        <span class="stat-label">tecnologias</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Carrossel de Tecnologias -->
-            <section class="tech-carousel-section">
-                <h2 class="section-title">tecnologias utilizadas</h2>
-                <div class="tech-carousel-container">
-                    <button class="carousel-btn prev-tech" aria-label="tecnologias anteriores">‹</button>
-                    <div class="tech-carousel" id="tech-carousel">
-                        <!-- Tecnologias carregadas via JavaScript -->
-                    </div>
-                    <button class="carousel-btn next-tech" aria-label="próximas tecnologias">›</button>
-                </div>
-            </section>
             
             <!-- Botão de Voltar -->
             <div class="btn-container">
@@ -108,21 +78,110 @@
 
     <!-- JavaScript -->
     <script src="../assets/js/navigation.js"></script>
-    <script src="../assets/js/projects.js"></script>
-    <script src="../assets/js/tech-carousel.js"></script>
+    <script src="../assets/js/data-parser.js"></script>
+    <script src="../assets/js/text-loader.js"></script>
     
     <script>
+        let currentPage = 1;
+        const itemsPerPage = 3;
+        let filteredProjects = [];
+        let allProjects = PROJECTS_DATA.projects;
+        
         document.addEventListener('DOMContentLoaded', function() {
             // Carrega componentes
             loadComponent('header-container', '../components/header.html');
             loadComponent('footer-container', '../components/footer.html');
             
-            // Inicializa sistema de projetos
-            initProjectsPage();
-            
-            // Inicializa carrossel de tecnologias
-            initTechCarousel();
+            // Inicializa projetos
+            displayProjects();
+            setupFilters();
+            setupNavigation();
         });
+        
+        function setupFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active de todos
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Adiciona ao clicado
+                    this.classList.add('active');
+                    
+                    const status = this.getAttribute('data-status');
+                    currentPage = 1;
+                    
+                    if (status === 'all') {
+                        filteredProjects = allProjects;
+                    } else if (status === 'featured') {
+                        filteredProjects = allProjects.filter(p => p.featured);
+                    } else {
+                        filteredProjects = allProjects.filter(p => p.status === status);
+                    }
+                    
+                    displayProjects();
+                });
+            });
+        }
+        
+        function displayProjects() {
+            if (filteredProjects.length === 0) {
+                filteredProjects = allProjects;
+            }
+            
+            const container = document.getElementById('projects-container');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageProjects = filteredProjects.slice(startIndex, endIndex);
+            
+            container.innerHTML = pageProjects.map(renderProjectHTML).join('');
+            
+            updatePagination();
+        }
+        
+        function setupNavigation() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtnBottom = document.getElementById('prev-btn-bottom');
+            const nextBtnBottom = document.getElementById('next-btn-bottom');
+            
+            prevBtn.addEventListener('click', () => goToPreviousPage());
+            nextBtn.addEventListener('click', () => goToNextPage());
+            prevBtnBottom.addEventListener('click', () => goToPreviousPage());
+            nextBtnBottom.addEventListener('click', () => goToNextPage());
+        }
+        
+        function goToPreviousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayProjects();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        
+        function goToNextPage() {
+            const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayProjects();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+            
+            // Top navigation
+            document.getElementById('current-page').textContent = currentPage;
+            document.getElementById('total-pages').textContent = totalPages;
+            document.getElementById('prev-btn').disabled = currentPage === 1;
+            document.getElementById('next-btn').disabled = currentPage === totalPages;
+            
+            // Bottom navigation
+            document.getElementById('current-page-bottom').textContent = currentPage;
+            document.getElementById('total-pages-bottom').textContent = totalPages;
+            document.getElementById('prev-btn-bottom').disabled = currentPage === 1;
+            document.getElementById('next-btn-bottom').disabled = currentPage === totalPages;
+        }
     </script>
 </body>
 </html>

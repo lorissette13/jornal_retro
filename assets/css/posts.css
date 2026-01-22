@@ -198,6 +198,14 @@
     transform: translateY(-2px);
 }
 
+.filter-divider {
+    color: #95A568;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    margin: 0 5px;
+    align-self: center;
+}
+
 .filter-btn.active {
     background: #7E8C54;
     color: white;

@@ -1,4 +1,4 @@
-# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.3.15)
+# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.4.0)
 
 ## 🤖 PROTOCOLO OBRIGATÓRIO
 
@@ -10,6 +10,7 @@
 
 ## HISTÓRICO DE MUDANÇAS
 
+**v2.4.0** - Sistema Modular de Posts (Markdown)
 **v2.3.15** - Gallery Carousel & Content Loading Fixes
 **v2.3.14** - Content Expansion & Visual Refinement
 **v2.3.13** - Visual Polish & Content Reliability
@@ -78,10 +79,76 @@ pages/
 ✅ Responsivo mobile-first
 ✅ Performance otimizada
 
+### SISTEMA DE POSTS (MODULAR)
+
+**Estrutura de Arquivos**:
+```
+assets/data/posts/
+├── _template.md          # Template para novos posts
+├── 2024-01-15-nova-descoberta-musical.md
+├── 2024-01-10-jogo-indie-surpreendeu.md
+└── ... (posts organizados por data)
+```
+
+**Formato do Post (Markdown + YAML)**:
+```markdown
+---
+title: "título descritivo"
+category: "categoria"
+date: "YYYY-MM-DD"
+favorite: true/false
+tags: ["tag1", "tag2", "tag3"]
+---
+
+## Parágrafo 1
+Conteúdo do primeiro parágrafo.
+
+## Parágrafo 2
+Conteúdo do segundo parágrafo.
+
+## Parágrafo 3
+Conclusão ou reflexão final.
+```
+
+**Categorias Válidas**:
+- `música` - Descobertas musicais, playlists, artistas
+- `jogos` - Análise de video games, narrativa interativa
+- `filmes` - Análise de filmes, inspiração visual
+- `livros` - Resenhas, reflexões sobre leitura
+- `boardgames` - Jogos de tabuleiro, estratégia
+- `dev-life` - Rotina dev, setups, produtividade
+- `viagens` - Experiências, localidades, aventuras
+
+**Instruções para o Agent**:
+Ao criar um novo post, siga este processo:
+1. Determine a data do post (formato YYYY-MM-DD)
+2. Escolha 1 categoria principal (lista acima)
+3. Defina 2-3 tags relevantes
+4. Escreva 3 parágrafos com títulos descritivos
+5. Considere favoritar posts particularmente bons (favorite: true)
+6. Nomeie arquivo: `YYYY-MM-DD-slug-do-titulo.md`
+7. Salve em `assets/data/posts/`
+8. Use template em `assets/data/posts/_template.md` como referência
+
+**Exemplo de Comando para o Agent**:
+```
+Criar novo post no portfólio:
+- Tema: "descoberta de uma nova ferramenta de dev"
+- Categoria: dev-life
+- Data: 2026-01-21
+- Tags: ferramentas, produtividade, automação
+- Conteúdo: 3 parágrafos sobre como a ferramenta melhorou workflow
+- Favorite: true (destaque)
+
+Salve em: assets/data/posts/2026-01-21-nova-ferramenta-dev.md
+```
+
 ### TECNOLOGIAS
 - HTML5 semântico | CSS3 grid/flexbox | JS vanilla
 - Google Fonts | Unicode emojis | Sem frameworks
+- Posts: Markdown + YAML front matter (arquivos independentes)
 
 ---
 
 **IMPORTANTE**: Manter estética retro, decisões técnicas. Qualquer mudança precisa justificativa técnica.
+
