@@ -1,28 +1,16 @@
-# Sistema Modular de Posts
+# Sistema de Posts
 
-Este é o sistema de posts do portfólio lorissette13. Todos os posts são armazenados como arquivos Markdown com metadados YAML.
+Posts em Markdown com metadados YAML, organizados por data: `YYYY-MM-DD-slug-titulo.md`
 
 ## 📁 Estrutura
 
 ```
 posts/
-├── _template.md                                # Template para novos posts
-├── 2024-01-15-nova-descoberta-musical.md       # Exemplo: música
-├── 2024-01-10-jogo-indie-surpreendeu.md        # Exemplo: jogos
-├── 2024-01-08-ritual-matinal.md                # Exemplo: dev-life
-├── 2024-01-05-filme-inspira-codigo.md          # Exemplo: filmes
-├── 2024-01-03-boardgame-devs.md                # Exemplo: boardgames
-├── 2023-12-28-livro-expandiu-horizontes.md     # Exemplo: livros
-├── 2023-12-20-setup-otimizado.md               # Exemplo: dev-life
-└── 2023-12-15-trilha-codar.md                  # Exemplo: música
+├── _template.md           # Template para novos posts
+└── YYYY-MM-DD-*.md        # Posts individuais
 ```
 
-## 📝 Como Criar um Post
-
-### 1. Copie o template
-Use `_template.md` como base para seu novo post.
-
-### 2. Preencha os metadados (YAML)
+## 📝 Formato
 
 ```yaml
 ---
@@ -32,72 +20,34 @@ date: "YYYY-MM-DD"
 favorite: true/false
 tags: ["tag1", "tag2", "tag3"]
 ---
+
+## Parágrafo 1
+Conteúdo...
+
+## Parágrafo 2
+Conteúdo...
+
+## Parágrafo 3
+Conclusão...
 ```
-
-### 3. Escreva o conteúdo
-
-```markdown
-## Primeiro Parágrafo
-Primeiro parágrafo com desenvolvimento da ideia principal.
-
-## Segundo Parágrafo  
-Segundo parágrafo com mais detalhes e reflexão.
-
-## Terceiro Parágrafo
-Conclusão, insight ou recomendação.
-```
-
-### 4. Nomeie o arquivo
-
-Format: `YYYY-MM-DD-slug-descritivo.md`
-
-Exemplos:
-- `2024-01-15-nova-descoberta-musical.md`
-- `2024-01-08-ritual-matinal.md`
-- `2024-01-05-filme-inspira-codigo.md`
 
 ## 📂 Categorias
 
-| Categoria | Descrição | Emoji |
-|-----------|-----------|-------|
-| `música` | Descobertas musicais, playlists, artistas | 🎵 |
-| `jogos` | Video games, narrativa interativa | 🎮 |
-| `filmes` | Análise de filmes, inspiração visual | 🎬 |
-| `livros` | Resenhas, reflexões sobre leitura | 📚 |
-| `boardgames` | Jogos de tabuleiro, estratégia | 🎲 |
-| `dev-life` | Rotina dev, setups, produtividade | 💻 |
-| `viagens` | Experiências, localidades, aventuras | ✈️ |
+`música`, `jogos`, `filmes`, `livros`, `boardgames`, `dev-life`, `viagens`
 
 ## 🏷️ Tags
 
-Use tags para classificação secundária. Exemplos:
-- Música: `indie`, `synthwave`, `descoberta`
-- Jogos: `indie`, `pixel-art`, `narrativa`
-- Dev-life: `rotina`, `produtividade`, `ferramentas`
+Use 2-3 tags para classificação. Exemplos: `indie`, `synthwave`, `descoberta`, `pixel-art`, `narrativa`, `rotina`, `produtividade`, `ferramentas`
 
-## ⭐ Campo Favorite
+## 📋 Checklist
 
-- `true` - Post destaque, aparece em listas de favoritos
-- `false` - Post normal
-
-## 📋 Checklist para um bom post
-
-- [ ] Título descritivo mas não muito longo
-- [ ] Data correta (YYYY-MM-DD)
-- [ ] Categoria única e relevante
-- [ ] 2-3 tags específicas
+- [ ] Título descritivo
+- [ ] Data YYYY-MM-DD
+- [ ] Categoria única
+- [ ] 2-3 tags
 - [ ] 3 parágrafos com títulos
-- [ ] Cada parágrafo tem 2-3 frases no mínimo
-- [ ] Conteúdo autêntico e pessoal
-- [ ] Arquivo nomeado corretamente: `YYYY-MM-DD-slug.md`
-- [ ] Arquivo na pasta `posts/`
-
-## 🔄 Fluxo de Edição
-
-1. Crie o arquivo `.md` nesta pasta
-2. Siga o formato YAML + Markdown
-3. Teste no navegador (posts carregam automaticamente)
-4. Faça commit e push
+- [ ] Arquivo nomeado corretamente
+- [ ] Arquivo em pasta `posts/`
 5. Atualize CHANGELOG.md se necessário
 
 ## 💡 Dicas
