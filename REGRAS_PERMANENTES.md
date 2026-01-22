@@ -38,6 +38,7 @@ index.html (home, header inline)
 - Fonte: Special Elite monospace
 - Cores: Paleta verde de tokens.css
 - Divider entre "lorissette13" e "by loris": REMOVIDO
+- **Botão HOME**: Visível em TODAS as páginas internas, oculto apenas na HOME (classe `hide-on-home` em nav-menu.html)
 - Typewriter: Ativo em todas as páginas
 
 ## 📝 Conteúdo

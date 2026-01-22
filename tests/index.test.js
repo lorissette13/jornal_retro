@@ -299,6 +299,10 @@ describe('Navigation and Filters', () => {
             <button class="next-btn">Próximo</button>
             <span id="current-page">1</span>
             <span id="total-pages">5</span>
+            <nav id="nav-menu-pages" role="navigation">
+                <a href="../index.html" class="nav-item" data-page="home">home</a>
+                <a href="../pages/cotidiano.html" class="nav-item" data-page="cotidiano">cotidiano</a>
+            </nav>
         `;
     });
 
@@ -326,6 +330,12 @@ describe('Navigation and Filters', () => {
         
         expect(current.textContent).toBe('1');
         expect(total.textContent).toBe('5');
+    });
+
+    test('deve ter link HOME visível em páginas internas', () => {
+        const homeLink = document.querySelector('a[data-page="home"]');
+        expect(homeLink).toBeTruthy();
+        expect(homeLink.href).toContain('index.html');
     });
 });
 

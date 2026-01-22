@@ -98,6 +98,11 @@
     width: 100% !important;
 }
 
+/* Oculta link home na página home */
+.nav-item.hide-on-home {
+    display: none !important;
+}
+
 /* Links de Página */
 .page-link {
     color: var(--color-accent-sage);
