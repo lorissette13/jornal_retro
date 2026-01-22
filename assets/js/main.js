@@ -78,6 +78,9 @@ function initHomePage() {
     loadFeaturedProjects(3);
     loadFeaturedGalleryHome(3);
     
+    // Carrega componentes
+    loadComponent('footer-container', 'components/footer.html');
+    
     // Inicializa carrossel da galeria
     if (typeof initCarousel === 'function') {
         initCarousel();
@@ -270,13 +273,24 @@ async function loadFeaturedExperiences(count = 2) {
         
         const container = document.getElementById('featured-experiences');
         if (container) {
-            container.innerHTML = experiences.map(exp => `
+            container.innerHTML = `
                 <div class="news-item">
-                    <h4 class="news-title">${exp.title}</h4>
-                    <p class="news-text">${exp.description}</p>
-                    <p class="news-text"><strong>${exp.period}</strong> - ${exp.company}</p>
+                    <h4 class="news-title">experiências & conquistas</h4>
+                    <p class="news-text">mais de 8 anos desenvolvendo soluções web escaláveis. especializado em front-end moderno com react/vue, mas com raízes sólidas em html/css/js vanilla. arquiteturas componentizadas e performance como prioridade.</p>
+                    <p class="news-text">já atuei em startups ágeis e grandes corporações, sempre levando design system e ux para o centro do processo. mentorias técnicas e formação de squads completos.</p>
+                    <div class="btn-container">
+                        <button class="btn-small news-btn">linha do tempo</button>
+                    </div>
                 </div>
-            `).join('');
+                
+                <div class="news-item">
+                    <h4 class="news-title">habilidades técnicas</h4>
+                    <p class="news-text">stack principal: javascript/typescript, react, vue, node.js. domínio de css avançado (grid, flexbox, animações). experiência com aws, docker, ci/cd. design thinking e prototipagem no figma.</p>
+                    <div class="btn-container">
+                        <button class="btn-small news-btn">stack completo</button>
+                    </div>
+                </div>
+            `;
         }
     } catch (error) {
         console.error('Erro ao carregar experiências:', error);
@@ -298,7 +312,7 @@ async function loadFeaturedProjects(count = 3) {
         if (container) {
             container.innerHTML = projects.map(project => `
                 <div class="project">
-                    <p class="project-text">${project.description}</p>
+                    <p class="project-text">"${project.title}" - ${project.description}</p>
                     <p class="project-tech">stack: ${project.tech.join(' • ')}</p>
                 </div>
             `).join('');

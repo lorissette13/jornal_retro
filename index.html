@@ -31,11 +31,11 @@
             </div>
 
             <nav class="nav-menu">
-                <a href="#who" class="nav-item">quem sou</a>
-                <a href="#curriculum" class="nav-item">curriculum</a>
-                <a href="#projects" class="nav-item">projetos de desenvolvimento</a>
-                <a href="#daily" class="nav-item">cotidiano</a>
-                <a href="#gallery" class="nav-item">galeria</a>
+                <a href="pages/quem-sou.html" class="nav-item">quem sou</a>
+                <a href="pages/trajetoria.html" class="nav-item">curriculum</a>
+                <a href="pages/projetos.html" class="nav-item">projetos de desenvolvimento</a>
+                <a href="pages/cotidiano.html" class="nav-item">cotidiano</a>
+                <a href="pages/galeria.html" class="nav-item">galeria</a>
             </nav>
 
             <!-- DIVISOR APÓS MENU -->
@@ -72,6 +72,7 @@
                     <div id="featured-experiences">
                         <p class="loading-text">carregando experiências...</p>
                     </div>
+                    <button class="btn-read-more" onclick="navigateToPage('pages/trajetoria.html')">ver trajetória completa</button>
                 </article>
 
                 <!-- Coluna 2: PROJETOS -->
@@ -80,6 +81,7 @@
                     <div id="featured-projects">
                         <p class="loading-text">carregando projetos...</p>
                     </div>
+                    <button class="btn-read-more" onclick="navigateToPage('pages/projetos.html')">ver todos os projetos</button>
                 </article>
 
                 <!-- Coluna 3: COTIDIANO -->
@@ -106,6 +108,7 @@
                             <p class="tag-text">rotinas, setups, ferramentas que realmente funcionam, burnout e criatividade no desenvolvimento.</p>
                         </div>
                     </div>
+                    <button class="btn-read-more" onclick="navigateToPage('pages/cotidiano.html')">ver cotidiano completo</button>
                 </article>
             </section>
 
@@ -118,6 +121,7 @@
                     <div class="mock-image-gallery">🎵</div>
                     <div class="mock-image-gallery">✈️</div>
                 </div>
+                <button class="btn-read-more" onclick="navigateToPage('pages/galeria.html')">ver galeria completa</button>
             </section>
         </main>
 
@@ -134,13 +138,5 @@
     <script src="assets/js/projects.js"></script>
     <script src="assets/js/gallery.js"></script>
     <script src="assets/js/main.js"></script>
-    
-    <script>
-        // Inicialização da homepage
-        document.addEventListener('DOMContentLoaded', function() {
-            // Carrega componentes
-            loadComponent('footer-container', 'components/footer.html');
-        });
-    </script>
 </body>
 </html>
