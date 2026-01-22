@@ -180,7 +180,7 @@
 .filter-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gap-sm);
+    gap: 12px;
 }
 
 .filter-btn {
