@@ -12,16 +12,19 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
 
 #### Modificado
 - 📝 **`index.html`**
-  - Removido script inline conflitante que sobrescrevia conteúdo das colunas trajetória e projetos
-  - Mantido apenas o sistema do `main.js` para carregamento consistente
-
-- 📝 **`style.css`**
-  - Corrigido efeito hover dos `.news-item` para `translateX(5px)` (igual ao das tags cotidiano)
-  - Adicionado mudança de background no hover para maior feedback visual
+  - Restaurado script inline para carregamento de conteúdo das colunas trajetória e projetos
+  - Script usa funções do `data-parser.js` para carregar dados reais
 
 - 📝 **`assets/js/main.js`**
-  - Removidos logs de debug desnecessários
-  - Movidas regras específicas da homepage para o final do arquivo para garantir prioridade de carregamento
+  - Funções `loadFeaturedExperiences` e `loadFeaturedProjects` atualizadas para usar `data-parser.js`
+  - Removidos logs de debug
+
+- 📝 **`assets/js/data-parser.js`**
+  - Adicionadas exportações globais das funções necessárias
+  - Dados hardcoded disponíveis para carregamento
+
+- 📝 **`style.css`**
+  - Efeitos hover aplicados corretamente aos elementos `.news-item`
 
 ### Limpeza de Código e Princípios Clean Code
 

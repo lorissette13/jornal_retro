@@ -282,3 +282,9 @@ function formatDate(dateString) {
   const months = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
   return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 }
+
+// Exporta funções para uso global
+window.getRecentTrajectory = getRecentTrajectory;
+window.getRecentProjects = getRecentProjects;
+window.renderTrajectoryHTML = renderTrajectoryHTML;
+window.renderProjectHTML = renderProjectHTML;

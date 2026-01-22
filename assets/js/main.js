@@ -241,49 +241,29 @@ function loadFullPageContent(pageName) {
     console.log('Carregamento de página estático:', pageName);
 }
 
-// Carrega experiências destacadas na home (mock local, sem fetch)
+// Carrega experiências destacadas na home (usando data-parser)
 function loadFeaturedExperiences(count = 2) {
-    const experiences = TIMELINE_DATA.experiences.slice(0, count);
-    
-    const container = document.getElementById('featured-experiences');
-    if (container) {
-        container.innerHTML = `
-            <div class="news-item">
-                <h4 class="news-title">experiências & conquistas</h4>
-                <p class="news-text">mais de 8 anos desenvolvendo soluções web escaláveis. especializado em front-end moderno com react/vue, mas com raízes sólidas em html/css/js vanilla. arquiteturas componentizadas e performance como prioridade.</p>
-                <p class="news-text">já atuei em startups ágeis e grandes corporações, sempre levando design system e ux para o centro do processo. mentorias técnicas e formação de squads completos.</p>
-                <div class="btn-container">
-                    <button class="btn-small news-btn">linha do tempo</button>
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <h4 class="news-title">habilidades técnicas</h4>
-                <p class="news-text">stack principal: javascript/typescript, react, vue, node.js. domínio de css avançado (grid, flexbox, animações). experiência com aws, docker, ci/cd. design thinking e prototipagem no figma.</p>
-                <div class="btn-container">
-                    <button class="btn-small news-btn">stack completo</button>
-                </div>
-            </div>
-        `;
+    try {
+        const recentExperiences = getRecentTrajectory(count);
+        const container = document.getElementById('featured-experiences');
+        if (container && recentExperiences.length > 0) {
+            container.innerHTML = recentExperiences.map(renderTrajectoryHTML).join('');
+        }
+    } catch (e) {
+        console.error('Erro carregando experiências:', e);
     }
 }
 
-// Carrega projetos destacados na home (mock local, sem fetch)
+// Carrega projetos destacados na home (usando data-parser)
 function loadFeaturedProjects(count = 5) {
-    const projects = PROJECTS_DATA.projects.slice(0, count);
-    
-    const container = document.getElementById('featured-projects');
-    if (container) {
-        container.innerHTML = projects.map(project => `
-            <div class="news-item">
-                <h4 class="news-title">${project.title}</h4>
-                <p class="news-text">${project.description}</p>
-                <p class="news-tech"><strong>stack:</strong> ${project.tech.join(' • ')}</p>
-                <div class="btn-container">
-                    <button class="btn-small news-btn">saiba mais</button>
-                </div>
-            </div>
-        `).join('');
+    try {
+        const recentProjects = getRecentProjects(count);
+        const container = document.getElementById('featured-projects');
+        if (container && recentProjects.length > 0) {
+            container.innerHTML = recentProjects.map(renderProjectHTML).join('');
+        }
+    } catch (e) {
+        console.error('Erro carregando projetos:', e);
     }
 }
 
