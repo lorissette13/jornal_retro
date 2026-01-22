@@ -175,34 +175,7 @@
                     }
                 })
                 .catch(error => console.error('Erro carregando menu:', error));
-            
-            // Carrega dados modulares (posts, experiências, projetos)
-            loadFeaturedContent();
         });
-        
-        function loadFeaturedContent() {
-            try {
-                // Carrega 2 experiências mais recentes
-                const recentTrajectory = getRecentTrajectory(2);
-                const experienceContainer = document.getElementById('featured-experiences');
-                if (experienceContainer && recentTrajectory.length > 0) {
-                    experienceContainer.innerHTML = recentTrajectory.map(renderTrajectoryHTML).join('');
-                }
-            } catch (e) {
-                console.error('Erro carregando trajetórias:', e);
-            }
-            
-            try {
-                // Carrega 2 projetos mais recentes
-                const recentProjects = getRecentProjects(2);
-                const projectContainer = document.getElementById('featured-projects');
-                if (projectContainer && recentProjects.length > 0) {
-                    projectContainer.innerHTML = recentProjects.map(renderProjectHTML).join('');
-                }
-            } catch (e) {
-                console.error('Erro carregando projetos:', e);
-            }
-        }
     </script>
 </body>
 </html>

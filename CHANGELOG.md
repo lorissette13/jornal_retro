@@ -11,12 +11,16 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
 - 🎨 **Link "ver projeto" estilizado**: Link agora usa cores do tema (gradiente olive/sage) ao invés de cores fixas
 
 #### Modificado
+- 📝 **`index.html`**
+  - Removido script inline conflitante que sobrescrevia conteúdo das colunas trajetória e projetos
+  - Mantido apenas o sistema do `main.js` para carregamento consistente
+
 - 📝 **`style.css`**
   - Corrigido efeito hover dos `.news-item` para `translateX(5px)` (igual ao das tags cotidiano)
-  - Mantido box-shadow e mudança de cor da borda no hover
+  - Adicionado mudança de background no hover para maior feedback visual
 
-- 📝 **`assets/css/style.css`**
-  - Removida definição duplicada de `.news-item` que causava conflito
+- 📝 **`assets/js/main.js`**
+  - Removidos logs de debug desnecessários
   - Movidas regras específicas da homepage para o final do arquivo para garantir prioridade de carregamento
 
 ### Limpeza de Código e Princípios Clean Code

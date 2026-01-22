@@ -803,6 +803,7 @@
     transform: translateX(5px);
     box-shadow: 0 5px 15px rgba(101, 112, 67, 0.1);
     border-color: #628C54;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.98), rgba(255, 255, 255, 1));
 }
 
 .news-item::before {
