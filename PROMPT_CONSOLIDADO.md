@@ -98,6 +98,17 @@ HTML5, CSS3 grid/flexbox, JS vanilla, Google Fonts, Markdown + YAML
 **Solução**: Módulos CSS com tokens centralizados
 **Justificativa**: DRY principle, consistência visual
 
+### UI da Home: Grid de Miniaturas (Jan 2026)
+**Problema**: Carrossel horizontal inconsistente com página galeria
+**Solução**: Grid 4x1 com miniaturas (mesmo padrão da página galeria)
+**Mudanças**:
+- Título/logo centralizado com `text-align: center`
+- Efeito typewriter reativado no carregamento (`initTypewriter()`)
+- Substituição de `.gallery-carousel` por `.thumbnails-container-home`
+- Grid responsivo: 4→2→1 colunas (desktop→tablet→mobile)
+- Ícones por categoria: 💻 setup, 🎮 games, ✈️ viagens, 🎪 eventos, 📁 projetos
+**Justificativa**: Consistência visual, melhor UX mobile, alinhamento com design system
+
 ---
 
 ## 🚀 PRÓXIMOS PASSOS
