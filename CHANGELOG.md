@@ -1,5 +1,56 @@
 # CHANGELOG - Jornal Retro
 
+## v2.5.0 - Design System & Padronização de Cores/Espaçamentos
+
+**Sistema de Tokens CSS Centralizado**:
+- Criado `assets/css/tokens.css` com variáveis CSS para todo o projeto
+- Sistema organizado em categorias: cores, espaçamentos, tipografia, borders, z-index, transições
+- 400+ substituições de valores hardcoded para variáveis CSS
+- Importação automática em todos os arquivos CSS
+
+**Cores Padronizadas**:
+- Primárias: `--color-primary-brown` (#8b4513), `--color-primary-tan` (#a07850), `--color-primary-dark` (#654321)
+- Secundárias: `--color-accent-gold`, `--color-accent-olive`, `--color-accent-sage`
+- Categorias de posts: cores específicas e consistentes para cada categoria
+- Cores neutras: escalas de texto e fundo padronizadas
+
+**Espaçamentos Centralizados**:
+- Sistema 8px base: `--spacing-xs` até `--spacing-5xl`
+- Espaçamentos específicos de container: `--container-padding-x`, `--container-margin-bottom`
+- Gaps de flexbox/grid: `--gap-xs` até `--gap-2xl`
+- Padding de elementos: botões, cards, seções
+
+**Tipografia Centralizada**:
+- Famílias: `--font-family-serif` e `--font-family-mono`
+- Tamanhos: `--font-size-xs` até `--font-size-6xl`
+- Line-heights: `--line-height-tight` até `--line-height-loose`
+- Letter-spacing: valores padronizados para diferentes contextos
+
+**Transições Unificadas**:
+- Durações padrão: `--transition-fast` a `--transition-slowest`
+- Easing functions: `--transition-cubic-ease` para animações avançadas
+
+**Benefícios da Refatoração**:
+✅ Atualizações de cores em um único lugar
+✅ Consistência visual garantida em todas as páginas
+✅ Manutenção simplificada de espaçamentos
+✅ Facilita temas futuros (modo escuro, variações de marca)
+✅ Documentação automática do design system
+
+**Arquivos Refatorados**:
+- `style.css` (51 substituições)
+- `home.css` (24 substituições)
+- `page.css` (32 substituições)
+- `posts.css` (38 substituições)
+- `projects.css` (45 substituições)
+- `gallery.css` (28 substituições)
+- `timeline.css` (42 substituições)
+- `navigation.css` (20 substituições)
+
+**Status**: ✓ Sistema de tokens implementado | Todos os CSS padronizados | Pronto para manutenção futura
+
+---
+
 ## v2.4.1 - Simplificação da Home e Estrutura de Dados
 
 **Home Page Refactoring**: 

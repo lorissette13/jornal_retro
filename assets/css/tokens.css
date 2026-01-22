@@ -1,0 +1,152 @@
+/* ==========================================================================
+   TOKENS DESIGN SYSTEM - PORTFÓLIO LORISSETTE13
+   Sistema centralizado de cores, espaçamentos, tipografia e outros valores
+   ========================================================================== */
+
+:root {
+    /* CORES PRIMÁRIAS - PALETTE RETRO JORNAL */
+    --color-primary-brown: #8b4513;      /* Marrom principal */
+    --color-primary-tan: #a07850;        /* Marrom vintage */
+    --color-primary-dark: #654321;       /* Marrom escuro */
+    
+    /* CORES SECUNDÁRIAS - DESTAQUES */
+    --color-accent-gold: #d4af37;        /* Dourado */
+    --color-accent-olive: #556B2F;       /* Verde oliva */
+    --color-accent-olive-light: #6B8E23; /* Verde oliva claro */
+    --color-accent-sage: #7E8C54;        /* Sage verde */
+    --color-accent-sage-light: #95A568;  /* Sage claro */
+    --color-accent-sand: #d2b48c;        /* Areia/bege */
+    
+    /* CORES CATEGORIAS - POSTS */
+    --color-cat-filmes: #e63946;         /* Filmes */
+    --color-cat-jogos: #457b9d;          /* Jogos */
+    --color-cat-boardgames: #2a9d8f;     /* Boardgames */
+    --color-cat-livros: #e9c46a;         /* Livros */
+    --color-cat-musica: #9d4edd;         /* Música */
+    --color-cat-devlife: #7E8C54;        /* Dev Life */
+    
+    /* CORES NEUTRAS */
+    --color-text-primary: #000000;       /* Texto principal */
+    --color-text-secondary: #3a3a3a;     /* Texto secundário */
+    --color-text-muted: #657043;         /* Texto silenciado */
+    --color-text-light: #a09080;         /* Texto claro */
+    
+    --color-bg-white: #ffffff;           /* Fundo branco */
+    --color-bg-cream: #faf5eb;           /* Fundo creme */
+    --color-bg-light: #f5f5f5;           /* Fundo claro */
+    --color-bg-lighter: #f0ebe3;         /* Fundo mais claro */
+    
+    --color-dark-text: #2a2018;          /* Texto muito escuro */
+    --color-dark-text-medium: #3a2c1e;   /* Texto escuro médio */
+
+    /* BORDERS E DIVIDERS */
+    --color-border-primary: #95A568;     /* Border principal */
+    --color-border-secondary: #d2b48c;   /* Border secundária */
+    --color-border-brown: #8b4513;       /* Border marrom */
+
+    /* SHADOWS */
+    --shadow-light: rgba(126, 140, 84, 0.08);
+    --shadow-medium: rgba(126, 140, 84, 0.15);
+    --shadow-dark: rgba(0, 0, 0, 0.1);
+    --shadow-olive: rgba(85, 107, 47, 0.2);
+
+    /* ESPAÇAMENTO - SISTEMA 8px */
+    --spacing-2xs: 4px;        /* Extra pequeno */
+    --spacing-xs: 8px;         /* Muito pequeno */
+    --spacing-sm: 12px;        /* Pequeno */
+    --spacing-md: 16px;        /* Médio */
+    --spacing-lg: 24px;        /* Grande */
+    --spacing-xl: 30px;        /* Extra grande */
+    --spacing-2xl: 40px;       /* Muito grande */
+    --spacing-3xl: 50px;       /* Gigante */
+    --spacing-4xl: 60px;       /* Extremo */
+    --spacing-5xl: 80px;       /* Muito extremo */
+
+    /* ESPAÇAMENTO ESPECÍFICO - CONTAINER */
+    --container-padding-x: 40px;         /* Padding horizontal container */
+    --container-padding-y: 50px;         /* Padding vertical container */
+    --container-margin-y: 50px;          /* Margin vertical container */
+    --container-margin-bottom: 80px;     /* Margin bottom footer */
+    --container-max-width: 1200px;       /* Max width container */
+    --page-content-max-width: 1000px;    /* Max width page content */
+
+    /* ESPAÇAMENTO SEÇÕES */
+    --section-margin-bottom: 60px;
+    --section-margin-bottom-small: 40px;
+    --section-margin-bottom-xs: 30px;
+    --section-padding: 25px;
+    --section-padding-lg: 30px;
+
+    /* GAPS - FLEXBOX/GRID */
+    --gap-xs: 8px;
+    --gap-sm: 12px;
+    --gap-md: 16px;
+    --gap-lg: 20px;
+    --gap-xl: 30px;
+    --gap-2xl: 50px;
+
+    /* PADDING - ELEMENTOS */
+    --padding-btn: 8px 16px;             /* Padding botão */
+    --padding-card: 25px;                /* Padding card */
+    --padding-card-lg: 30px;             /* Padding card grande */
+    --padding-section: 30px;             /* Padding seção */
+    --padding-header: 15px 0;            /* Padding header */
+
+    /* ALTURAS */
+    --height-btn-small: 45px;            /* Altura botão pequeno */
+    --height-btn-normal: 50px;           /* Altura botão normal */
+    --height-divider: 2px;               /* Altura divider */
+    --height-divider-thick: 3px;         /* Altura divider grossa */
+
+    /* BORDERS */
+    --border-radius-small: 2px;          /* Border radius pequeno */
+    --border-radius-medium: 4px;         /* Border radius médio */
+    --border-radius-large: 12px;         /* Border radius grande */
+    --border-width-thin: 1px;            /* Border width fino */
+    --border-width-normal: 2px;          /* Border width normal */
+    --border-width-thick: 3px;           /* Border width grosso */
+    --border-width-very-thick: 4px;      /* Border width muito grosso */
+
+    /* TIPOGRAFIA */
+    --font-family-serif: 'Times New Roman', serif;
+    --font-family-mono: 'Special Elite', monospace;
+
+    --font-size-xs: 0.8rem;
+    --font-size-sm: 0.9rem;
+    --font-size-md: 1rem;
+    --font-size-base: 1.05rem;
+    --font-size-lg: 1.1rem;
+    --font-size-xl: 1.2rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.2rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.5rem;
+
+    --line-height-tight: 1.15;
+    --line-height-normal: 1.6;
+    --line-height-relaxed: 1.7;
+    --line-height-loose: 1.8;
+
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 1px;
+    --letter-spacing-wider: 1.5px;
+    --letter-spacing-widest: 2px;
+
+    /* Z-INDEX */
+    --z-background: -2;
+    --z-texture: -1;
+    --z-base: 1;
+    --z-elevated: 2;
+    --z-dropdown: 10;
+    --z-modal: 100;
+
+    /* TRANSIÇÕES */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.4s ease;
+    --transition-slower: 0.6s ease;
+    --transition-slowest: 0.7s ease;
+
+    --transition-cubic-ease: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

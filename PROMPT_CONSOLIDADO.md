@@ -1,4 +1,4 @@
-# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.4.0)
+# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.5.0)
 
 ## 🤖 PROTOCOLO OBRIGATÓRIO
 
@@ -7,9 +7,11 @@
 2. `git add . && git commit` + `git push`
 3. Atualizar HISTÓRICO DE MUDANÇAS
 4. Documentação é parte da tarefa
+5. **USAR VARIÁVEIS CSS DO DESIGN SYSTEM** (ver DESIGN_SYSTEM.md)
 
 ## HISTÓRICO DE MUDANÇAS
 
+**v2.5.0** - Design System & Padronização de Cores/Espaçamentos
 **v2.4.0** - Sistema Modular de Posts (Markdown)
 **v2.3.15** - Gallery Carousel & Content Loading Fixes
 **v2.3.14** - Content Expansion & Visual Refinement
@@ -34,17 +36,42 @@
 ```
 index.html | style.css | script.js
 assets/
-├── css/ | js/ | data/
+├── css/
+│   ├── tokens.css          ← VARIÁVEIS CSS CENTRALIZADAS (importado em style.css)
+│   ├── style.css           ← Estilos principais
+│   ├── home.css | page.css | posts.css | projects.css | gallery.css | timeline.css
+│   ├── navigation.css | index.css
+│   └── [todos usam tokens.css automaticamente]
+├── js/ | data/
 pages/
 ├── quem-sou.html | cotidiano.html | galeria.html
 ├── projetos.html | trajetoria.html
 ```
 
-### PALETA CORES
-- **Primárias**: `#8b4513` (marrom), `#a07850` (vintage), `#654321` (médio)
-- **Destaque**: `#d4af37` (dourado)
-- **Secundárias**: `#d2b48c` (bege), `#faf5eb` (creme)
-- **Neutros**: `#2a2018` (escuro), `#3a2c1e` (médio)
+### DESIGN SYSTEM (v2.5.0)
+**NOVO**: Sistema centralizado de variáveis CSS em `assets/css/tokens.css`
+
+Variáveis disponíveis para:
+- **Cores**: primárias, secundárias, categorias, neutras, borders, shadows
+- **Espaçamentos**: container, seções, gaps, padding
+- **Tipografia**: fontes, tamanhos, line-height, letter-spacing
+- **Borders**: widths, radius, alturas
+- **Transições**: durações, easing
+- **Z-Index**: valores padronizados
+
+📖 Ver `DESIGN_SYSTEM.md` para documentação completa e exemplos!
+
+**IMPORTANTE**: Ao adicionar/modificar estilos:
+1. Use variáveis CSS do `tokens.css` em vez de valores hardcoded
+2. Exemplo: `color: var(--color-text-primary)` em vez de `color: #000000`
+3. Se precisar de nova cor/espaçamento, adicione em `tokens.css` primeiro
+4. Isso garante consistência e facilita manutenção futura
+
+### PALETA CORES (Variables)
+- **Primárias**: `--color-primary-brown` (#8b4513), `--color-primary-tan` (#a07850)
+- **Destaque**: `--color-accent-gold` (#d4af37), `--color-accent-olive` (#556B2F)
+- **Categorias**: filmes, jogos, boardgames, livros, música, dev-life
+- **Neutros**: text-primary, text-secondary, bg-white, etc.
 
 ### COMPONENTES CHAVE
 

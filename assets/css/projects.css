@@ -3,14 +3,14 @@
 
 /* Container de Projetos */
 .projects-container {
-    margin: 40px 0;
+    margin: var(--spacing-2xl) 0;
 }
 .projects-controls {
     background: rgba(245, 245, 245, 0.9);
-    padding: 25px;
-    border-radius: 4px;
-    border: 1px solid #95A568;
-    margin-bottom: 40px;
+    padding: var(--padding-card);
+    border-radius: var(--border-radius-medium);
+    border: var(--border-width-thin) solid var(--color-border-primary);
+    margin-bottom: var(--spacing-2xl);
 }
 
 .search-container {
@@ -21,11 +21,11 @@
 
 .search-input {
     flex: 1;
-    padding: 12px 15px;
-    border: 1px solid #95A568;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: var(--border-width-thin) solid var(--color-border-primary);
     border-right: none;
-    border-radius: 3px 0 0 3px;
-    font-family: 'Special Elite', monospace;
+    border-radius: var(--border-radius-medium) 0 0 var(--border-radius-medium);
+    font-family: var(--font-family-mono);
     font-size: 0.95rem;
     color: #2a2a2a;
     background: white;
@@ -37,14 +37,14 @@
 }
 
 .search-btn {
-    padding: 12px 20px;
-    background: #7E8C54;
-    border: 1px solid #95A568;
-    border-radius: 0 3px 3px 0;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-accent-sage);
+    border: var(--border-width-thin) solid var(--color-border-primary);
+    border-radius: 0 var(--border-radius-medium) var(--border-radius-medium) 0;
     color: white;
     cursor: pointer;
     font-size: 1rem;
-    transition: background 0.2s ease;
+    transition: var(--transition-fast);
 }
 
 .search-btn:hover {
@@ -54,7 +54,7 @@
 .filter-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: var(--gap-xl);
     align-items: center;
 }
 
@@ -65,18 +65,18 @@
 }
 
 .filter-label {
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     font-size: 0.9rem;
-    color: #657043;
+    color: var(--color-text-muted);
     text-transform: lowercase;
 }
 
 .filter-select {
-    padding: 8px 12px;
-    border: 1px solid #95A568;
-    border-radius: 3px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: var(--border-width-thin) solid var(--color-border-primary);
+    border-radius: var(--border-radius-medium);
     background: white;
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     color: #2a2a2a;
     min-width: 150px;
     cursor: pointer;
@@ -89,18 +89,18 @@
 
 .toggle-buttons {
     display: flex;
-    gap: 5px;
+    gap: var(--spacing-2xs);
 }
 
 .toggle-btn {
-    padding: 8px 16px;
+    padding: var(--spacing-xs) var(--spacing-md);
     background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #95A568;
-    color: #657043;
+    border: var(--border-width-thin) solid var(--color-border-primary);
+    color: var(--color-text-muted);
     cursor: pointer;
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     font-size: 0.9rem;
-    transition: all 0.2s ease;
+    transition: var(--transition-fast);
     text-transform: lowercase;
 }
 
@@ -117,17 +117,17 @@
 }
 
 .toggle-btn.active {
-    background: #7E8C54;
+    background: var(--color-accent-sage);
     color: white;
-    border-color: #657043;
+    border-color: var(--color-text-muted);
 }
 
 /* Grid de Projetos */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
+    gap: var(--gap-xl);
+    margin: var(--spacing-2xl) 0;
 }
 
 .project-card {
@@ -136,10 +136,10 @@
         rgba(245, 245, 245, 0.95),
         rgba(255, 255, 255, 0.98)
     );
-    border-radius: 6px;
-    border: 1px solid #95A568;
+    border-radius: var(--border-radius-large);
+    border: var(--border-width-thin) solid var(--color-border-primary);
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: var(--transition-normal);
     animation: fadeInUp 0.5s ease-out;
     opacity: 0;
     animation-fill-mode: forwards;
@@ -152,8 +152,8 @@
 
 /* Header do Card */
 .project-header {
-    padding: 20px;
-    border-bottom: 1px solid rgba(149, 165, 104, 0.3);
+    padding: var(--gap-md);
+    border-bottom: var(--border-width-thin) solid rgba(149, 165, 104, 0.3);
     position: relative;
 }
 
@@ -165,17 +165,17 @@
 }
 
 .project-category {
-    padding: 4px 12px;
+    padding: var(--spacing-2xs) var(--spacing-sm);
     background: rgba(149, 165, 104, 0.1);
     border-radius: 12px;
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     font-size: 0.8rem;
-    color: #657043;
+    color: var(--color-text-muted);
     text-transform: lowercase;
 }
 
 .project-year {
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     font-size: 0.9rem;
     color: #8C7E54;
 }
@@ -198,19 +198,19 @@
 }
 
 .project-title {
-    font-family: 'Special Elite', monospace;
-    font-size: 1.4rem;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-2xl);
     color: #2a2a2a;
-    margin-bottom: 10px;
-    line-height: 1.3;
+    margin-bottom: var(--spacing-xs);
+    line-height: var(--line-height-tight);
     text-transform: lowercase;
 }
 
 .project-status {
     display: inline-block;
-    padding: 3px 10px;
+    padding: var(--spacing-2xs) var(--spacing-xs);
     border-radius: 10px;
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     font-size: 0.75rem;
     font-weight: bold;
     text-transform: lowercase;
@@ -228,26 +228,26 @@
 
 /* Corpo do Card */
 .project-body {
-    padding: 20px;
+    padding: var(--gap-md);
 }
 
 .project-description {
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: var(--line-height-normal);
     color: #3a3a3a;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-lg);
 }
 
 .project-features {
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-lg);
 }
 
 .project-features-title {
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     font-size: 0.9rem;
-    color: #657043;
-    margin-bottom: 10px;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
     text-transform: lowercase;
 }
 
@@ -257,12 +257,12 @@
 }
 
 .project-feature {
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     font-size: 0.85rem;
     color: #3a3a3a;
-    padding-left: 20px;
+    padding-left: var(--spacing-lg);
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: var(--spacing-2xs);
 }
 
 .project-feature::before {
@@ -274,23 +274,23 @@
 
 /* Tecnologias do Projeto */
 .project-tech {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px dashed rgba(149, 165, 104, 0.3);
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: var(--border-width-thin) dashed rgba(149, 165, 104, 0.3);
 }
 
 .project-tech-title {
-    font-family: 'Special Elite', monospace;
+    font-family: var(--font-family-mono);
     font-size: 0.9rem;
-    color: #657043;
-    margin-bottom: 10px;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
     text-transform: lowercase;
 }
 
 .project-tech-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: var(--gap-xs);
 }
 
 .project-tech-item {
