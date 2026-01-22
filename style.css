@@ -366,11 +366,11 @@ body::after {
 /* BUTTONS - VERDE OLIVA COM GLIMPSE DOURADO */
 .btn-read-more, .btn-small, .btn-submit, .btn-newsletter {
     font-family: 'Special Elite', monospace;
-    background: radial-gradient(circle at center, #556B2F 0%, #6B8E23 30%, #8b4513 70%, #654321 100%);
+    background: linear-gradient(145deg, #556B2F, #6B8E23);
     color: #f5f0e1;
     border: none;
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 8px 16px;
+    font-size: 0.72rem;
     cursor: pointer;
     border-radius: 2px;
     transition: all 0.3s ease;
@@ -385,7 +385,7 @@ body::after {
     z-index: 1;
     margin: 20px auto 0;
     display: block;
-    max-width: 200px;
+    max-width: 160px;
 }
 
 .btn-read-more::before, .btn-small::before, .btn-submit::before, .btn-newsletter::before {
