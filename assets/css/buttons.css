@@ -158,9 +158,7 @@ a.btn-read-more:active {
 }
 
 /* Garantir que .nav-btn não sobrescreve estilos de página */
-.posts-navigation .nav-btn,
-.timeline-navigation .nav-btn,
-.page-nav .nav-btn {
+.posts-navigation .nav-btn {
     /* Mesmo padrão acima */
 }
 
