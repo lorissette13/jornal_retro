@@ -3,6 +3,10 @@
    ========================================================================== */
 
 @import url('./assets/css/tokens.css');
+@import url('./assets/css/layout.css');
+@import url('./assets/css/buttons.css');
+@import url('./assets/css/filters.css');
+@import url('./assets/css/filter-colors.css');
 
 /* RESET E BASE */
 * {
