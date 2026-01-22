@@ -66,10 +66,10 @@
     border-right: 1px solid rgba(149, 165, 104, 0.3);
 }
 
-.image-icon {
-    font-size: 8rem;
+.image-icon-small {
+    font-size: 3rem;
     color: #8b4513;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     opacity: 0.6;
 }
 
@@ -226,7 +226,7 @@
 
 .thumbnails-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-top: 30px;
 }
