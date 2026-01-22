@@ -1,4 +1,3 @@
-:assets/js/tech-carousel.js
 /**
  * Carrossel de Tecnologias
  */

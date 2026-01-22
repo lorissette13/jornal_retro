@@ -8,14 +8,78 @@
 | **Layout** | `layout.css` |
 | **Botões** | `buttons.css` |
 | **Header** | `header.css` + `header-loader.js` |
+| **Tipografia** | Fonte padrão monospace (Special Elite) em TODO site via `body` |
 | **Footer** | ✅ Obrigatório em TODAS as páginas |
 | **Botão HOME** | ✅ Visível em páginas internas, oculto na HOME |
-| **Typewriter** | `typewriter.js` ativo sempre |
+| **Typewriter** | `assets/js/typewriter.js` ativo sempre |
 | **Componentes** | `/components/` carregados dinamicamente |
 | **Dados** | Centralizado em `assets/content/` |
 | **Funções** | `setup*()`, `display*()`, `fetch*()`, `render*()` |
 | **Módulos** | Testar em HOME + página interna |
 | **Testes** | 30% cobertura essencial, consolidado em `tests/index.test.js` |
+| **Scripts Diagnóstico** | ✅ SEMPRE em Python, REMOVIDO antes de add/commit/push |
+
+---
+
+## 🏛️ REGRAS PERMANENTES v2.0 (PODE SER REMOVIDA APENAS COM PEDIDO EXPRESSO)
+
+**Nota Importante**: As regras abaixo são PERMANENTES. Para remover qualquer uma, é necessário fazer um pedido EXPLÍCITO como: _"Remova a regra de [título]"_.
+
+### 1. 📝 Scripts Diagnóstico - SEMPRE Python
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Scripts Diagnóstico"]**
+- ✅ Todo script diagnóstico/debugging: **OBRIGATORIAMENTE em Python** (`.py`)
+- ✅ Removido **ANTES de `git add`** (nunca commitado)
+- ✅ Exemplos válidos: `debug-home-css.py`, `trace-css.py`, `validate-fonts.py`
+- ✅ Se criado: executar, analisar output, `rm [script].py` antes de commit
+
+### 2. 🎬 Typewriter Module - Centralizado em `assets/js/typewriter.js`
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Typewriter Module"]**
+- ✅ UMA única função: `initTypewriter()` em `assets/js/typewriter.js`
+- ✅ Targets APENAS elemento com `id="typewriter-logo"` (logo/título)
+- ✅ Velocidade: 100ms por caractere (elegante, legível)
+- ✅ Safe check: `if (!element) return;` (não quebra se elemento não existe)
+- ✅ Exportado globalmente: `window.initTypewriter`
+- ✅ TODAS as 6 páginas chamam: `window.addEventListener('DOMContentLoaded', initTypewriter)`
+- ✅ Sem duplicação de lógica (modular, reutilizável)
+
+### 3. 🎨 Navegação - Hover Elegante (Dourado → Verde)
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Navegação Hover"]**
+- ✅ Cor base `.nav-item`: `#d4af37` (dourado chique)
+- ✅ Cor hover: `var(--color-accent-sage)` (#7E8C54 - verde elegante)
+- ✅ Display: `inline-block` (sublinhado proporcional ao texto)
+- ✅ Underline animation: `1px → 2px` em `0.25s cubic-bezier(0.4, 0, 0.2, 1)`
+- ✅ Sem borders, background transparente
+- ✅ Consistente em: `header.css` + `navigation.css` + `style.css`
+
+### 4. 🔤 Tipografia - Monospace (Special Elite) em TODO Site
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Tipografia Monospace"]**
+- ✅ `body { font-family: var(--font-family-mono); }` em `layout.css`
+- ✅ Toda herança vem do `body` (SEM exceções de font-family)
+- ✅ ZERO font-family declarations em outros arquivos (não redundar)
+- ✅ Font carregada: **Special Elite** do Google Fonts
+- ✅ **NUNCA** carregar Times New Roman (removido de Google Fonts URL)
+- ✅ Resultado: 100% monospace em HOME + 5 páginas internas
+
+### 5. 🔗 Google Fonts - APENAS Special Elite (SEM Times New Roman)
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Google Fonts"]**
+- ✅ URL em `index.html`: `?family=Special+Elite&display=swap`
+- ✅ **NUNCA adicionar** `&family=Times+New+Roman` (sobrescreve CSS monospace)
+- ✅ Query string de cache: `?v=2.0` em TODO arquivo CSS em todas 6 páginas
+- ✅ Cache buster atualizado quando font muda
+
+### 6. 🐛 Sintaxe - SEM `:components/` ou `:assets/` Prefixes
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Sintaxe Prefixes"]**
+- ✅ Primeira linha de arquivo NUNCA contém `:components/footer.html` (erro)
+- ✅ Primeira linha de arquivo NUNCA contém `:assets/css/navigation.css` (erro)
+- ✅ Exemplo ERRADO: `:assets/js/tech-carousel.js`
+- ✅ Exemplo CORRETO: `<!-- Tech Carousel Module -->`
+
+### 7. 💾 Cache Busting - Query Strings em TODO CSS
+**[REGRA PERMANENTE - Não remover sem pedido expresso: "Remova a regra Cache Busting"]**
+- ✅ TODO arquivo HTML carrega CSS com `?v=X.X` query string
+- ✅ Exemplo: `<link rel="stylesheet" href="assets/css/style.css?v=2.0">`
+- ✅ Atualizar versão quando CSS é significativamente mudado
+- ✅ Força refresh do browser (sem cache do arquivo antigo)
 
 ## 📐 Arquitetura Essencial
 
@@ -155,4 +219,4 @@ index.html (home, header inline)
 
 ---
 **Última atualização**: Jan 22, 2026  
-**Versão**: 1.2 (com footer, HOME button, dados centralizados, testes simplificados)
+**Versão**: 2.0 (Sprint Tipografia & Modularização - 7 Regras Permanentes)

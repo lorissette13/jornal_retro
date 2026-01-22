@@ -5,7 +5,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Special Elite', monospace;
     font-size: 0.9rem;
     color: var(--color-accent-olive);
     padding-bottom: 12px;
@@ -34,7 +33,6 @@
 }
 
 .logo {
-    font-family: 'Special Elite', monospace;
     font-size: 4.5rem;
     font-weight: 400;
     letter-spacing: 3px;
@@ -76,7 +74,6 @@
 }
 
 .slogan {
-    font-family: 'Special Elite', monospace;
     font-size: 1.2rem;
     font-style: italic;
     color: var(--color-accent-olive-light);
@@ -107,9 +104,8 @@
 }
 
 .nav-item {
-    font-family: 'Special Elite', monospace;
     text-decoration: none;
-    color: var(--color-dark-text);
+    color: #d4af37; /* Dourado chique */
     font-weight: 400;
     font-size: 1.1rem;
     position: relative;
@@ -117,26 +113,30 @@
     padding: 5px 0;
     text-transform: lowercase;
     letter-spacing: 1px;
+    border: none;
+    background: transparent;
+    display: inline-block;
 }
 
 .nav-item:hover {
-    color: var(--color-accent-olive);
+    color: var(--color-accent-sage); /* Verde ao passar mouse */
     transform: translateY(-2px);
 }
 
 .nav-item::after {
     content: '';
     position: absolute;
-    bottom: -3px;
+    bottom: -4px;
     left: 0;
     width: 0;
-    height: 2px;
-    background: linear-gradient(to right, var(--color-accent-sage), var(--color-accent-olive));
-    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 1px;
+    background: var(--color-accent-sage); /* Verde */
+    transition: width 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .nav-item:hover::after {
     width: 100%;
+    height: 2px; /* Sublinhado aumenta ao passar mouse */
 }
 
 .nav-item.active {

@@ -4,7 +4,6 @@
 
 /* BASE DE TODOS OS BOTÕES */
 button, .btn, input[type="button"], input[type="submit"] {
-    font-family: 'Special Elite', monospace;
     font-weight: 400;
     letter-spacing: 0.8px;
     text-transform: lowercase;
@@ -45,7 +44,7 @@ button, .btn, input[type="button"], input[type="submit"] {
 /* ============= BOTÃO PRIMÁRIO (Home, Main Actions) ============= */
 .btn-primary,
 .btn-read-more {
-    font-family: 'Special Elite', monospace;
+
     background: linear-gradient(145deg, var(--color-accent-olive), var(--color-accent-olive-light));
     color: #f5f0e1;
     border: none;
@@ -96,7 +95,6 @@ a.btn-read-more:active {
 /* ============= BOTÃO SECUNDÁRIO (Smaller Actions) ============= */
 .btn-secondary,
 .btn-small {
-    font-family: 'Special Elite', monospace;
     background: linear-gradient(145deg, var(--color-accent-olive-light), var(--color-accent-sage));
     color: #f5f0e1;
     border: none;
@@ -147,7 +145,6 @@ a.btn-small:active {
 /* ============= BOTÃO DE NAVEGAÇÃO (Pagination, Navigation) ============= */
 .nav-btn,
 .pagination-btn {
-    font-family: 'Special Elite', monospace;
     padding: 10px 20px;
     background: linear-gradient(145deg, rgba(149, 165, 104, 0.85), rgba(126, 140, 84, 0.9));
     border: 2px solid var(--color-accent-olive);

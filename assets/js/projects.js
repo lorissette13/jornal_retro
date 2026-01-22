@@ -1,4 +1,3 @@
-:assets/js/projects.js
 /**
  * Sistema de Projetos Portfólio
  * Filtros, busca e exibição de projetos

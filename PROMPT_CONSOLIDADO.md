@@ -65,20 +65,103 @@ featured: true/false
 ## Responsabilidades
 ```
 
-## 🔧 HISTÓRICO DE CORREÇÕES
+## 🔧 HISTÓRICO DE CORREÇÕES v2.0 (Sprint Tipografia & Modularização)
 
-### Problema #1: Botões Home Desproporcionais ✅ RESOLVIDO
+### Problema #1: Formalizar Regra de Scripts Diagnóstico ✅ RESOLVIDO
+**Decisão Técnica**: Scripts diagnóstico SEMPRE em Python e REMOVIDOS antes de add/commit/push
+**Arquivos Modificados**: `REGRAS_PERMANENTES.md`
+**Status**: Regra adicionada. Todos scripts futuros seguem este padrão.
+
+---
+
+### Problema #2: Remover Efeito Typewriter dos Parágrafos + Modularizar ✅ RESOLVIDO
 **Soluções Implementadas**:
-- ✅ Todos botões home usam `.btn-read-more` (proporção uniforme)
-- ✅ Shine effect padronizado: `rgba(255,255,255,0.2)` em 0.6s
-- ✅ Hover consistente: verde (olive-light → sage-light, sem ouro)
-- ✅ Texto sempre uma linha: `white-space: nowrap`
-- ✅ Botões em `.btn-container` com `justify-content: center`
-- ✅ Limite 300px para `.tags-section .btn-container`
+- ✅ Criado módulo centralizado `assets/js/typewriter.js` com função `initTypewriter()`
+- ✅ Efeito APENAS no elemento `#typewriter-logo` (logo/título)
+- ✅ Velocidade: 100ms por caractere
+- ✅ Paragrafos (`<p>`) removidos do targeting
+- ✅ Todos páginas importam e usam: `index.html`, `quem-sou.html`, `projetos.html`, `cotidiano.html`, `trajetoria.html`, `galeria.html`
 
-**Arquivos Modificados**: `buttons.css`, `style.css`, `gallery.css`, `filters.css`, `index.html`
+**Arquivos Modificados**: `typewriter.js` (novo), `index.html`, `pages/*.html` (6 páginas)
+**Status**: Modularizado em 1 linha: `window.addEventListener('DOMContentLoaded', initTypewriter)`
 
-**Status**: Commits 87063f3 → 4cd8280 (Problema concluído)
+---
+
+### Problema #3: Estilizar Navegação com Hover Elegante ✅ RESOLVIDO
+**Soluções Implementadas**:
+- ✅ `.nav-item` cor padrão: `#d4af37` (dourado chique)
+- ✅ Hover color: `var(--color-accent-sage)` (#7E8C54 - verde elegante)
+- ✅ Underline animation: 1px → 2px em 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+- ✅ Display: `inline-block` (para sublinhado proporcional ao texto)
+- ✅ Removido: borders, background colors, conflitos de estilo
+
+**Arquivos Modificados**: `header.css`, `style.css`, `navigation.css`
+**Status**: Navegação consistente em TODO site
+
+---
+
+### Problema #4: Padronizar Fonte Monospace em TODO Site ✅ RESOLVIDO
+**Soluções Implementadas**:
+- ✅ `body { font-family: var(--font-family-mono) }` em `layout.css`
+- ✅ Removidas 30+ declarações redundantes de `font-family: 'Special Elite'`
+- ✅ Removidas 15+ instâncias de `font-family: Times New Roman` (do CSS)
+- ✅ Toda herança derivada do `body` (sem exceções)
+- ✅ Font principal: **Special Elite** (Google Fonts, monospace elegante)
+
+**Arquivos Modificados**: `layout.css` (body), `buttons.css`, `header.css`, `style.css`
+**Removed**: 45+ linhas de código redundante
+**Status**: 0 font-family declarations (tudo herda de body)
+
+---
+
+### Problema #5: Otimizar Efeito Typewriter no Carregamento ✅ RESOLVIDO
+**Soluções Implementadas**:
+- ✅ Lógica centralizada em `typewriter.js` (sem duplicação)
+- ✅ 1 função pura: `initTypewriter()` com 15 linhas
+- ✅ Timing: 100ms entre caracteres (velocidade elegante)
+- ✅ Safe check: retorna se elemento não existe (`if (!element) return`)
+- ✅ Export global: `window.initTypewriter` (acessível de qualquer página)
+
+**Arquivos Modificados**: `typewriter.js` (refatorado)
+**Status**: Performance melhorada, sem delays
+
+---
+
+### Problema #6: Corrigir Sintaxe Erronea (`:components/`, `:assets/` prefixes) ✅ RESOLVIDO
+**Soluções Implementadas**:
+- ✅ Removido `:components/footer.html` de `components/footer.html`
+- ✅ Removido `:components/header.html` de `components/header-old.html`
+- ✅ Removido `:components/timeline-preview.html` de `components/timeline-preview.html`
+- ✅ Removido `:components/post-card.html` de `components/post-card.html`
+- ✅ Removido `:assets/css/navigation.css` de `assets/css/navigation.css`
+- ✅ Removido `:assets/js/tech-carousel.js` de `assets/js/tech-carousel.js`
+- ✅ Removido `:assets/js/projects.js` de `assets/js/projects.js`
+- ✅ Removido `:assets/css/posts.css` de `assets/css/posts.css`
+- ✅ Removido `:assets/css/index.css` de `assets/css/index.css`
+- ✅ Removido `:assets/css/projects.css` de `assets/css/projects.css`
+
+**Arquivos Modificados**: 10 arquivos com erros de sintaxe
+**Status**: 0 syntax errors
+
+---
+
+### Problema #7: Corrigir Fontes na Home (Google Fonts + Cache) ✅ RESOLVIDO
+**Root Cause Identificado**: 
+`index.html` estava carregando `Times+New+Roman` do Google Fonts, sobrescrevendo CSS body monospace
+
+**Diagnostic Process**:
+1. Criado `debug-home-css.py` → CSS chain estava correto
+2. Criado `trace-css.py` → Revelou culprit: `index.html` carregava Times+New+Roman, `projetos.html` não
+3. Google Fonts URL em `index.html`: `?family=Special+Elite&family=Times+New+Roman&display=swap`
+
+**Soluções Implementadas**:
+- ✅ Removido `&family=Times+New+Roman` de `index.html` Google Fonts link
+- ✅ Adicionado `?v=2.0` query string em todas 6 páginas (cache busting)
+- ✅ Home agora renderiza com monospace correto
+- ✅ Diagnostic scripts removidos (`debug-home-css.py`, `trace-css.py`)
+
+**Arquivos Modificados**: `index.html` (Google Fonts), `quem-sou.html`, `projetos.html`, `cotidiano.html`, `trajetoria.html`, `galeria.html` (query strings)
+**Status**: Todo site com monospace uniformemente (home + 5 páginas internas)
 
 ## � ARQUIVOS EXISTENTES (NÃO CRIAR NOVOS)
 

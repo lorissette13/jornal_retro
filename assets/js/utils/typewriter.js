@@ -1,6 +1,6 @@
 /**
- * Typewriter Effect for Logo
- * Módulo reutilizável para efeito de digitação
+ * Typewriter Effect - Módulo para efeito de digitação no logo
+ * Executado em todas as páginas (home + internas)
  */
 
 function initTypewriter() {
