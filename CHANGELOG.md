@@ -4,6 +4,66 @@ Todas mudanças notáveis neste projeto serão documentadas neste arquivo.
 
 ## [Em Desenvolvimento] - 2026-01-22
 
+### Normalização Completa de Espaçamentos e UI/UX
+
+#### Adicionado
+- ✨ **Efeito typewriter melhorado no logo**
+  - Cursor piscante durante digitação usando CSS animation
+  - Delay inicial de 500ms antes de começar a digitação
+  - Velocidade otimizada (120ms por caractere)
+  - Animação de blink para o cursor (|)
+
+- 🎨 **Grid de galeria home padronizado**
+  - Grid da home agora usa o mesmo estilo da página galeria
+  - Quadradinhos com bordas, sombras e efeitos hover idênticos
+  - Background gradiente consistente (`rgba(139, 69, 19, 0.08)`)
+  - Efeito shine (brilho) ao passar o mouse
+  - Border-color dinâmico no hover (#a07850)
+  - Box-shadow elevado ao hover
+
+- 🧭 **Botão home oculto apenas na página inicial**
+  - Classe `hide-on-home` adicionada ao botão home no menu
+  - Classe `home-page` no body do index.html
+  - CSS condicional para ocultar botão apenas na home
+  - Botão aparece normalmente em todas as outras páginas
+
+#### Modificado
+- 📝 **Espaçamentos normalizados em todo o site**
+  - Uso consistente de tokens CSS (`--spacing-*`, `--gap-*`, `--padding-*`)
+  - Margens e paddings padronizados em seções, cards e elementos
+  - Melhor legibilidade e consistência visual
+
+- 📝 **Navegação de posts inline em todas as páginas**
+  - Botões anterior/próximo agora em linha única
+  - Background com bordas arredondadas
+  - Estilo consistente entre cotidiano, projetos, trajetória e galeria
+  - Melhor espaçamento e alinhamento
+
+- 📝 **Logo centralizado**
+  - `text-align: center` aplicado
+  - `min-height: 60px` para evitar saltos durante animação
+  - Mantém centralização em todas as resoluções
+
+#### Arquivos Modificados
+- 📝 `style.css`: Logo com cursor piscante, regra hide-on-home
+- 📝 `assets/css/home.css`: Grid galeria atualizado, responsividade melhorada
+- 📝 `assets/css/posts.css`: Navegação inline padronizada
+- 📝 `components/nav-menu.html`: Classe hide-on-home no botão home
+- 📝 `index.html`: Classe home-page no body
+- 📝 `script.js`: Função typewriter melhorada
+
+#### Git Commit
+```
+feat: normalize spacing, fix home button visibility, enhance typewriter effect, and improve gallery grid
+- Padronize espaçamentos em todo o site para melhor legibilidade
+- Oculte botão 'home' apenas na página inicial (aparece em outras páginas)
+- Adicione efeito typewriter melhorado com cursor piscante no logo
+- Normalize grid de galeria da home com mesmo estilo da página galeria
+- Melhore navegação inline em todas as páginas
+- Ajuste responsividade e espaçamentos de botões
+- Centralize título e melhore layout geral
+```
+
 ### Padronização Visual das Colunas na Homepage
 
 #### Adicionado
