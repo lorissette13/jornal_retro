@@ -1275,7 +1275,7 @@ body {
         <header class="header">
             <div class="top-bar">
                 <span class="edition">portfólio digital</span>
-                <span class="date">nascida em 1995</span>
+                <span class="date">since 1995</span>
                 <span class="price">developer & creative</span>
             </div>
             
