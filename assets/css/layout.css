@@ -15,10 +15,10 @@ html {
 
 /* BODY - FUNDO E TEXTURA ÚNICA */
 body {
-    font-family: 'Times New Roman', serif;
+    font-family: var(--font-family-serif);
     font-size: 16px;
-    line-height: 1.6;
-    color: #2a2018;
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
     background: var(--color-bg-white);
     background-image:
         radial-gradient(circle at 20% 30%, var(--shadow-light) 0%, transparent 40%),
