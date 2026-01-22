@@ -1,53 +1,82 @@
-# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO (v2.5.0)
+# PORTFÓLIO LORISSETTE13 - PROMPT CONSOLIDADO
 
-## 🤖 PROTOCOLO
+## 📋 PROJETO
+**Portfólio retro**: desenvolvedor front-end, estética jornal 30-50s (Special Elite + Times New Roman). Sistema modular com posts, projetos e trajetória em Markdown.
 
-Após mudanças: Teste, commit, push. Atualizar docs. Usar variáveis CSS do Design System.
-
----
-
-## PROJETO
-
-**Portfólio retro**: desenvolvedora front-end, estética jornal 30-50s, lowercase, Special Elite + Times New Roman.
-
-### ESTRUTURA
+## 🏗️ ARQUITETURA
 ```
 index.html | style.css | script.js
-assets/
-├── css/
-│   ├── tokens.css          ← VARIÁVEIS CSS CENTRALIZADAS (importado em style.css)
-│   ├── style.css           ← Estilos principais
-│   ├── home.css | page.css | posts.css | projects.css | gallery.css | timeline.css
-│   ├── navigation.css | index.css
-│   └── [todos usam tokens.css automaticamente]
-├── js/ | data/
-pages/
-├── quem-sou.html | cotidiano.html | galeria.html
-├── projetos.html | trajetoria.html
+assets/css/tokens.css (variáveis centralizadas)
+assets/js/ (carregamento e renderização)
+assets/data/
+  ├── posts/      (YYYY-MM-DD-slug.md)
+  ├── projects/   (YYYY-MM-DD-slug.md)
+  └── trajectory/ (YYYY-MM-DD-slug.md)
+pages/ | components/
 ```
 
-### DESIGN SYSTEM (v2.5.0)
-**NOVO**: Sistema centralizado de variáveis CSS em `assets/css/tokens.css`
+## 🎨 DESIGN SYSTEM
+Todas variáveis CSS centralizadas em `tokens.css`. **Regra**: use variáveis em vez de hardcoding.
 
-Variáveis disponíveis para:
-- **Cores**: primárias, secundárias, categorias, neutras, borders, shadows
-- **Espaçamentos**: container, seções, gaps, padding
-- **Tipografia**: fontes, tamanhos, line-height, letter-spacing
-- **Borders**: widths, radius, alturas
-- **Transições**: durações, easing
-- **Z-Index**: valores padronizados
+Principais: `--color-primary-brown`, `--color-accent-gold`, `--color-accent-olive`, `--color-cat-*`, `--spacing-*`, `--font-family-serif`, `--border-width-*`, `--transition-*`, `--z-*`
 
-📖 Ver `DESIGN_SYSTEM.md` para documentação completa e exemplos!
+## 📝 CONTEÚDO
 
-**IMPORTANTE**: Ao adicionar/modificar estilos:
-1. Use variáveis CSS do `tokens.css` em vez de valores hardcoded
-2. Exemplo: `color: var(--color-text-primary)` em vez de `color: #000000`
-3. Se precisar de nova cor/espaçamento, adicione em `tokens.css` primeiro
-4. Isso garante consistência e facilita manutenção futura
+### Posts: `assets/data/posts/YYYY-MM-DD-slug.md`
+```yaml
+---
+title: "título"
+category: "música|jogos|filmes|livros|boardgames|dev-life|viagens"
+date: "YYYY-MM-DD"
+favorite: true/false
+tags: ["tag1", "tag2"]
+---
+## Título Parágrafo 1
+Conteúdo...
+## Título Parágrafo 2
+Conteúdo...
+## Título Parágrafo 3
+Conclusão...
+```
 
-### PALETA CORES
+### Projetos: `assets/data/projects/YYYY-MM-DD-slug.md`
+```yaml
+---
+title: "Nome"
+description: "Breve descrição"
+date: "YYYY-MM-DD"
+featured: true/false
+status: "completed|in-progress|archived"
+stack: ["tech1", "tech2"]
+links: {"github": "url", "live": "url"}
+---
+## Descrição
+## Desafios
+## Solução
+## Resultados
+```
 
-Variáveis centralizadas em `tokens.css`: primárias (brown, tan), destaque (gold, olive), categorias, neutras
+### Trajetória: `assets/data/trajectory/YYYY-MM-DD-slug.md`
+```yaml
+---
+title: "Experiência"
+position: "Cargo"
+company: "Empresa"
+period: "Jan 2020 - Dez 2021"
+date: "YYYY-MM-DD"
+featured: true/false
+skills: ["skill1", "skill2"]
+---
+## Contexto
+## Realizações
+## Aprendizados
+```
+
+## 🔄 PROTOCOLO
+1. Adicione conteúdo em Markdown em `assets/data/`
+2. Sistema carrega automaticamente
+3. Novos estilos: adicione variáveis em `tokens.css` primeiro
+4. Teste → commit → push → documentação
 
 ### COMPONENTES CHAVE
 

@@ -1,0 +1,117 @@
+/* MÓDULO REUTILIZÁVEL DE FILTROS COLORIDOS */
+
+.filter-btn.filter-color-filmes {
+    --filter-color: #e63946;
+}
+
+.filter-btn.filter-color-jogos {
+    --filter-color: #457b9d;
+}
+
+.filter-btn.filter-color-boardgames {
+    --filter-color: #2a9d8f;
+}
+
+.filter-btn.filter-color-livros {
+    --filter-color: #e9c46a;
+}
+
+.filter-btn.filter-color-música {
+    --filter-color: #9d4edd;
+}
+
+.filter-btn.filter-color-dev-life {
+    --filter-color: #7E8C54;
+}
+
+.filter-btn.filter-color-setup {
+    --filter-color: #f77f00;
+}
+
+.filter-btn.filter-color-games {
+    --filter-color: #457b9d;
+}
+
+.filter-btn.filter-color-viagens {
+    --filter-color: #06a77d;
+}
+
+.filter-btn.filter-color-eventos {
+    --filter-color: #d62828;
+}
+
+.filter-btn.filter-color-projetos {
+    --filter-color: #2a9d8f;
+}
+
+.filter-btn.filter-color-2024 {
+    --filter-color: #a8dadc;
+}
+
+.filter-btn.filter-color-2023 {
+    --filter-color: #457b9d;
+}
+
+.filter-btn.filter-color-2022 {
+    --filter-color: #9d4edd;
+}
+
+.filter-btn.filter-color-completed {
+    --filter-color: #06a77d;
+}
+
+.filter-btn.filter-color-in-progress {
+    --filter-color: #f77f00;
+}
+
+.filter-btn.filter-color-featured {
+    --filter-color: #d4a017;
+}
+
+.filter-btn.filter-color-React {
+    --filter-color: #61dafb;
+}
+
+.filter-btn.filter-color-Vue {
+    --filter-color: #42b983;
+}
+
+.filter-btn.filter-color-JavaScript {
+    --filter-color: #f7df1e;
+}
+
+.filter-btn.filter-color-Leadership {
+    --filter-color: #e63946;
+}
+
+.filter-btn.filter-color-TypeScript {
+    --filter-color: #2b7a0b;
+}
+
+.filter-btn.filter-color-Node {
+    --filter-color: #339933;
+}
+
+/* Aplicar cor ao filtro quando ele tiver uma das classes acima */
+.filter-btn:not(.active)[class*="filter-color-"] {
+    border-color: var(--filter-color);
+    color: var(--filter-color);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.filter-btn:not(.active)[class*="filter-color-"]:hover {
+    background: var(--filter-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Estado active com cor específica */
+.filter-btn.active[class*="filter-color-"] {
+    background: var(--filter-color);
+    color: white;
+    border-color: var(--filter-color);
+}
+
+.filter-btn.active[class*="filter-color-"]:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

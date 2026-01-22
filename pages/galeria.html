@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/page.css">
     <link rel="stylesheet" href="../assets/css/gallery.css">
+    <link rel="stylesheet" href="../assets/css/filter-colors.css">
     
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
 </head>
@@ -25,35 +26,19 @@
             </div>
             
             <!-- Filtros da Galeria -->
-            <div class="gallery-filters">
-                <div class="filter-group">
-                    <label for="gallery-category" class="filter-label">categoria:</label>
-                    <select id="gallery-category" class="filter-select">
-                        <option value="all">todas</option>
-                        <option value="setup">setup</option>
-                        <option value="games">games</option>
-                        <option value="viagens">viagens</option>
-                        <option value="eventos">eventos</option>
-                        <option value="projetos">projetos</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="gallery-year" class="filter-label">ano:</label>
-                    <select id="gallery-year" class="filter-select">
-                        <option value="all">todos</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label class="filter-label">mostrar:</label>
-                    <div class="toggle-buttons">
-                        <button class="toggle-btn active" data-filter="all">todas</button>
-                        <button class="toggle-btn" data-filter="favorites">favoritas</button>
-                    </div>
+            <div class="filters-container">
+                <div class="filter-label">filtrar por:</div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">todas</button>
+                    <button class="filter-btn filter-color-setup" data-category="setup">setup</button>
+                    <button class="filter-btn filter-color-games" data-category="games">games</button>
+                    <button class="filter-btn filter-color-viagens" data-category="viagens">viagens</button>
+                    <button class="filter-btn filter-color-eventos" data-category="eventos">eventos</button>
+                    <button class="filter-btn filter-color-projetos" data-category="projetos">projetos</button>
+                    <span class="filter-divider">•</span>
+                    <button class="filter-btn filter-color-2024" data-year="2024">2024</button>
+                    <button class="filter-btn filter-color-2023" data-year="2023">2023</button>
+                    <button class="filter-btn filter-color-2022" data-year="2022">2022</button>
                 </div>
             </div>
             

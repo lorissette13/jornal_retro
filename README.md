@@ -1,47 +1,42 @@
 # Portfólio Lorissette13
 
-Portfólio pessoal com estética retro-moderna. Combina apresentação profissional com compartilhamento de interesses (filmes, jogos, música, viagens).
+Portfólio pessoal com estética retro-moderna (jornal 30-50s). Sistema modular com blog pessoal, galeria visual, timeline interativa, favoritos e navegação responsiva.
 
-## 📋 Referência
+## 🚀 Quick Start
 
-Veja [PROMPT_CONSOLIDADO.md](PROMPT_CONSOLIDADO.md) para contexto completo do projeto, arquitetura e especificações técnicas.
-
-## ✨ Funcionalidades
-
-Blog pessoal, galeria visual, timeline interativa, sistema de favoritos, navegação responsiva, conteúdo dinâmico via Markdown
-
-## 🛠️ Stack
-
-HTML5, CSS3 Vanilla, JavaScript ES6+, Markdown (posts), localStorage
-
-## 🚀 Setup
-
-Clone, instale dependências (`npm install`) e rode um servidor local (`python -m http.server 8000` ou `npx serve .`)
+```bash
+# Clone, instale e rode localmente
+npm install
+python -m http.server 8000  # ou: npx serve .
+```
 
 ## 📁 Estrutura
 
-```
-├── index.html | pages/
-├── assets/css/ | assets/js/ | assets/data/
-└── components/ | tests/
-```
+- `index.html | pages/` - páginas
+- `assets/css/tokens.css` - variáveis centralizadas
+- `assets/data/` - conteúdo em Markdown (posts, projetos, trajetória)
+- `assets/js/` - carregamento e renderização dinâmica
+- `components/` - header, footer, cards reutilizáveis
 
-Ver PROMPT_CONSOLIDADO.md para detalhes completos.
+## 📝 Adicionar Conteúdo
 
-## Customização
+Crie arquivos Markdown em:
+- **Posts**: `assets/data/posts/YYYY-MM-DD-slug.md`
+- **Projetos**: `assets/data/projects/YYYY-MM-DD-slug.md`
+- **Trajetória**: `assets/data/trajectory/YYYY-MM-DD-slug.md`
 
-Editar conteúdo em `assets/data/`. Cores em variáveis CSS (`tokens.css`). Posts em Markdown (`assets/data/posts/`).
+**Referência completa**: veja [PROMPT_CONSOLIDADO.md](PROMPT_CONSOLIDADO.md)
 
-## Próximas Features
+## 🎨 Customização
 
-Spotify API, modo escuro, suporte inglês
+- **Cores/Espaços**: editar `assets/css/tokens.css`
+- **Conteúdo**: arquivos Markdown em `assets/data/`
+- **Layout/Estrutura**: HTML em `pages/` e `components/`
 
-## Licença
+## 🛠️ Stack
 
-Projeto pessoal - Uso livre para referência e estudo
+HTML5, CSS3 (variáveis), JavaScript ES6+, Markdown, localStorage
 
-## Autor
+## 📄 Licença
 
-lorissette13 (by loris)
-Desenvolvedor front-end nascido em 1995
-GitHub | LinkedIn | Portfólio
+Projeto pessoal - uso livre para referência e estudo
