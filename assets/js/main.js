@@ -73,13 +73,14 @@ function initHomePage() {
         'who-text-2': 1
     });
     
-    // Carrega conteúdo destacado
-    loadFeaturedPosts(3);
+    // Carrega conteúdo destacado em 3 colunas
+    loadFeaturedExperiences(2);
     loadFeaturedProjects(3);
-    loadFeaturedGallery(4);
+    loadFeaturedGalleryHome(3);
     
-    // Inicializa carrossel da home
-    if (typeof initCarousel === 'function') {
+    // Inicializa carrossel da galeria (se houver)
+    const carouselTrack = document.getElementById('carousel-track');
+    if (!carouselTrack && typeof initCarousel === 'function') {
         initCarousel();
     }
 }

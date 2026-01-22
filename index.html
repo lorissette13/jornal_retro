@@ -63,41 +63,24 @@
 
             <!-- NEWS GRID -->
             <section class="news-grid">
-                <!-- Coluna 1: CURRÍCULO -->
-                <article class="news-column" id="curriculum">
+                <!-- Coluna 1: TRAJETÓRIA -->
+                <div id="featured-experiences">
                     <h3 class="section-title">trajetória profissional</h3>
-                    <div id="featured-experiences" class="news-item">
-                        <!-- Experiências favoritas carregadas via JS -->
-                        <p class="loading-text">carregando experiências...</p>
-                    </div>
-                    <div class="btn-container">
-                        <a href="pages/trajetoria.html" class="btn-small">ver trajetória completa</a>
-                    </div>
-                </article>
+                    <p class="loading-text">carregando experiências...</p>
+                </div>
 
                 <!-- Coluna 2: PROJETOS -->
-                <article class="news-column" id="projects">
+                <div id="featured-projects">
                     <h3 class="section-title">projetos em destaque</h3>
-                    <div id="featured-projects" class="projects-section">
-                        <!-- Projetos favoritos carregados via JS -->
-                        <p class="loading-text">carregando projetos...</p>
-                    </div>
-                    <div class="btn-container">
-                        <a href="pages/projetos.html" class="btn-small">ver todos os projetos</a>
-                    </div>
-                </article>
+                    <p class="loading-text">carregando projetos...</p>
+                </div>
 
-                <!-- Coluna 3: COTIDIANO -->
-                <article class="news-column" id="daily">
-                    <h3 class="section-title">cotidiano</h3>
-                    <div id="featured-posts" class="tags-section">
-                        <!-- Posts favoritos carregados via JS -->
-                        <p class="loading-text">carregando posts...</p>
-                    </div>
-                    <div class="btn-container">
-                        <a href="pages/cotidiano.html" class="btn-small">ver todos os posts</a>
-                    </div>
-                </article>
+                <!-- Coluna 3: GALERIA -->
+                <div id="featured-gallery">
+                    <h3 class="section-title">galeria</h3>
+                    <p class="loading-text">carregando imagens...</p>
+                </div>
+            </section>
             </section>
 
             <!-- GALERIA -->
@@ -126,9 +109,11 @@
     <!-- JavaScript -->
     <script src="assets/js/navigation.js"></script>
     <script src="assets/js/text-loader.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/timeline.js"></script>
     <script src="assets/js/posts.js"></script>
     <script src="assets/js/projects.js"></script>
-    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/gallery.js"></script>
     <script src="assets/js/main.js"></script>
     
     <script>
@@ -136,18 +121,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Carrega componentes
             loadComponent('footer-container', 'components/footer.html');
-            
-            // Carrega posts favoritos
-            loadFeaturedPosts(3);
-            
-            // Carrega projetos favoritos
-            loadFeaturedProjects(3);
-            
-            // Carrega experiências favoritas
-            loadFeaturedExperiences(2);
-            
-            // Inicializa carrossel
-            initCarousel();
         });
     </script>
 </body>

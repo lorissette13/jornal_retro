@@ -421,6 +421,20 @@ body::after {
     margin-bottom: 60px;
 }
 
+.news-grid > div {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.95),
+        rgba(250, 245, 235, 0.98)
+    );
+    border: 2px solid #d2b48c;
+    border-radius: 0;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+}
+
 .news-column {
     background: linear-gradient(
         to bottom,

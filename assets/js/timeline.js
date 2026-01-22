@@ -401,11 +401,21 @@ function loadFeaturedExperiences(limit = 2) {
         .slice(0, limit);
     
     if (featured.length === 0) {
-        container.innerHTML = '<p class="loading-text">nenhuma experiência marcada como favorita</p>';
+        container.innerHTML = `
+            <h3 class="section-title">trajetória profissional</h3>
+            <p class="loading-text">nenhuma experiência marcada como favorita</p>
+        `;
         return;
     }
     
-    container.innerHTML = featured.map(createExperiencePreview).join('');
+    const html = `
+        <h3 class="section-title">trajetória profissional</h3>
+        ${featured.map(createExperiencePreview).join('')}
+        <div class="btn-container">
+            <a href="pages/trajetoria.html" class="btn-small">ver trajetória completa</a>
+        </div>
+    `;
+    container.innerHTML = html;
 }
 
 // Cria preview de experiência para a home
@@ -414,15 +424,15 @@ function createExperiencePreview(exp) {
     const icon = getTypeIcon(exp.type);
     
     return `
-        <div class="experience-preview">
+        <div class="news-item">
             <div class="exp-header">
                 <span class="exp-type">${icon} ${typeLabel}</span>
                 <span class="exp-period">${exp.period}</span>
             </div>
-            <h4 class="exp-title">${exp.title}</h4>
-            ${exp.company ? `<p class="exp-company">${exp.company}</p>` : ''}
-            ${exp.institution ? `<p class="exp-company">${exp.institution}</p>` : ''}
-            <p class="exp-description">${exp.description.substring(0, 120)}...</p>
+            <h4 class="news-title">${exp.title}</h4>
+            ${exp.company ? `<p class="news-text">${exp.company}</p>` : ''}
+            ${exp.institution ? `<p class="news-text">${exp.institution}</p>` : ''}
+            <p class="news-text">${exp.description.substring(0, 120)}...</p>
             ${exp.skills ? `
                 <div class="exp-skills">
                     ${exp.skills.slice(0, 3).map(skill => `<span class="exp-skill">${skill}</span>`).join('')}

@@ -418,7 +418,51 @@ function updateGalleryStats() {
     document.getElementById('total-years').textContent = years;
 }
 
-// Carrega imagens favoritas para a home
+// Carrega imagens favoritas para a home (terceira coluna)
+function loadFeaturedGalleryHome(limit = 3) {
+    const container = document.getElementById('featured-gallery');
+    if (!container) return;
+    
+    const featured = galleryData
+        .filter(image => image.favorite)
+        .slice(0, limit);
+    
+    if (featured.length === 0) {
+        container.innerHTML = `
+            <h3 class="section-title">galeria</h3>
+            <p class="loading-text">nenhuma imagem marcada como favorita</p>
+        `;
+        return;
+    }
+    
+    const html = `
+        <h3 class="section-title">galeria</h3>
+        ${featured.map(createGalleryPreview).join('')}
+        <div class="btn-container">
+            <a href="pages/galeria.html" class="btn-small">ver galeria completa</a>
+        </div>
+    `;
+    container.innerHTML = html;
+}
+
+// Cria preview de imagem para a home
+function createGalleryPreview(image) {
+    return `
+        <div class="news-item">
+            <h4 class="news-title">${image.title}</h4>
+            <p class="news-text"><strong>categoria:</strong> ${image.category}</p>
+            <p class="news-text"><strong>ano:</strong> ${image.year}</p>
+            <p class="news-text">${image.description.substring(0, 100)}...</p>
+            ${image.tags ? `
+                <div class="exp-skills">
+                    ${image.tags.slice(0, 3).map(tag => `<span class="exp-skill">${tag}</span>`).join('')}
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
+// Carrega imagens favoritas para o carrossel
 function loadFeaturedGallery(limit = 4) {
     const container = document.getElementById('carousel-track');
     if (!container) return;
@@ -493,3 +537,4 @@ function showGalleryError() {
 
 // Exporta funções para uso global
 window.loadFeaturedGallery = loadFeaturedGallery;
+window.loadFeaturedGalleryHome = loadFeaturedGalleryHome;

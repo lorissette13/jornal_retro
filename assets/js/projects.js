@@ -361,11 +361,21 @@ function loadFeaturedProjects(limit = 3) {
         .slice(0, limit);
     
     if (featured.length === 0) {
-        container.innerHTML = '<p class="no-projects">nenhum projeto favorito ainda</p>';
+        container.innerHTML = `
+            <h3 class="section-title">projetos em destaque</h3>
+            <p class="loading-text">nenhum projeto favorito ainda</p>
+        `;
         return;
     }
     
-    container.innerHTML = featured.map(createProjectPreview).join('');
+    const html = `
+        <h3 class="section-title">projetos em destaque</h3>
+        ${featured.map(createProjectPreview).join('')}
+        <div class="btn-container">
+            <a href="pages/projetos.html" class="btn-small">ver todos os projetos</a>
+        </div>
+    `;
+    container.innerHTML = html;
 }
 
 // Cria preview de projeto para a home
@@ -373,9 +383,10 @@ function createProjectPreview(project) {
     const statusClass = project.status === 'ativo' ? 'ativo' : 'arquivado';
     
     return `
-        <div class="project">
-            <p class="project-text">"${project.title}" - ${project.description}</p>
-            <p class="project-tech">stack: ${project.tech.join(' • ')}</p>
+        <div class="news-item">
+            <h4 class="news-title">${project.title}</h4>
+            <p class="news-text">${project.description}</p>
+            <p class="news-text"><strong>stack:</strong> ${project.tech.join(' • ')}</p>
             <div class="project-links">
                 ${project.demo ? `
                     <a href="${project.demo}" target="_blank" class="project-link-small">demo</a>
