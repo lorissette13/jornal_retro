@@ -41,17 +41,7 @@
             </div>
             
             <!-- Sistema de Navegação -->
-            <div class="posts-navigation">
-                <button class="nav-btn prev-btn" id="prev-btn" disabled>
-                    ‹ anterior
-                </button>
-                <div class="page-info">
-                    página <span id="current-page">1</span> de <span id="total-pages">1</span>
-                </div>
-                <button class="nav-btn next-btn" id="next-btn">
-                    próximo ›
-                </button>
-            </div>
+            <div id="pages-navigation-container"></div>
             
             <!-- Lista de Posts -->
             <div class="posts-container" id="posts-container">
@@ -96,6 +86,7 @@
             // Carrega componentes
             loadComponent('header-container', '../components/header.html');
             loadComponent('footer-container', '../components/footer.html');
+            loadComponent('pages-navigation-container', '../components/pages-navigation.html');
             
             // Inicializa sistema de posts
             initPostsPage();

@@ -1,14 +1,6 @@
 :assets/css/projects.css
 /* ESTILOS PARA SISTEMA DE PROJETOS */
 
-/* Garantir padrão de navegação */
-.posts-navigation {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    flex-direction: row !important;
-}
-
 /* Container de Projetos */
 .projects-container {
     margin: var(--spacing-2xl) 0;

@@ -1,13 +1,5 @@
 /* ESTILOS PARA TIMELINE DA TRAJETÓRIA */
 
-/* Garantir padrão de navegação */
-.posts-navigation {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    flex-direction: row !important;
-}
-
 /* Container de Trajetória */
 .trajectory-container {
     margin: var(--spacing-2xl) 0;
