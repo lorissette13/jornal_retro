@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="internal-page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,8 +72,10 @@
     <!-- JavaScript -->
     <script src="../assets/js/utils/component-loader.js"></script>
     <script src="../assets/js/utils/component-checker.js"></script>
+    <script src="../assets/js/utils/component-loader.js"></script>
     <script src="../assets/js/utils/navigation-checker.js"></script>
     <script src="../assets/js/utils/typewriter.js"></script>
+    <script src="../assets/js/header-loader.js"></script>
     <script src="../assets/js/data-parser.js"></script>
     <script src="../assets/js/text-loader.js"></script>
     <script src="../assets/js/projects-page.js"></script>
@@ -83,6 +85,13 @@
             // Carrega componentes
             loadComponent('header-container', '../components/header.html');
             loadComponent('footer-container', '../components/footer.html');
+            
+            // Inicia efeito typewriter do logo
+            setTimeout(function() {
+                if (typeof initTypewriter === 'function') {
+                    initTypewriter();
+                }
+            }, 300);
         });
     </script>
 </body>

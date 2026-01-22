@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="internal-page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,9 +87,12 @@
     <script src="../assets/js/utils/component-loader.js"></script>
     <script src="../assets/js/utils/component-checker.js"></script>
     <script src="../assets/js/utils/navigation-checker.js"></script>
+    <script src="../assets/js/utils/component-loader.js"></script>
     <script src="../assets/js/posts-parser.js"></script>
     <script src="../assets/js/posts.js"></script>
     <script src="../assets/js/filters.js"></script>
+    <script src="../assets/js/utils/typewriter.js"></script>
+    <script src="../assets/js/header-loader.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -99,6 +102,13 @@
             
             // Inicializa sistema de posts
             initPostsPage();
+            
+            // Inicia efeito typewriter do logo
+            setTimeout(function() {
+                if (typeof initTypewriter === 'function') {
+                    initTypewriter();
+                }
+            }, 300);
         });
     </script>
 </body>

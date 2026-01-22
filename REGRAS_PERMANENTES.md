@@ -4,9 +4,10 @@
 
 | Decisão | Regra |
 |---------|-------|
-| Cores | Editar só em `tokens.css` |
+| Cores | SEMPRE usar `tokens.css`, nunca cores hardcoded v0 |
 | Layout | Editar só em `layout.css` |
 | Botões | Editar só em `buttons.css` |
+| Header | Editar em `header.css` - logo com typewriter sempre |
 | Animação logo | Editar só em `typewriter.js` |
 | Componentes | Editar em `/components/` |
 | Testes | Rodar `?debug=components` |
@@ -16,16 +17,25 @@
 ```
 index.html (home, header inline)
 ├── assets/css/
-│   ├── tokens.css (variáveis)
+│   ├── tokens.css (variáveis - SEMPRE usar!)
+│   ├── header.css (logo grande na home, pequeno internamente)
 │   ├── layout.css (grid/flex)
 │   └── page.css (páginas)
 ├── assets/js/
-│   ├── utils/ (typewriter, loader, checker)
+│   ├── utils/typewriter.js (efeito digitação logo)
+│   ├── utils/component-loader.js
 │   └── [page-modules]
 ├── assets/data/ (Markdown + JSON)
-├── pages/ (6 páginas internas)
+├── pages/*.html (classe="internal-page" obrigatória)
 └── components/ (header, footer, etc)
 ```
+
+**Header Info:**
+- Logo: 4.5rem (home) | 2.5rem (internas)
+- Fonte: Special Elite monospace
+- Cores: Paleta verde de tokens.css
+- Divider entre "lorissette13" e "by loris": REMOVIDO
+- Typewriter: Ativo em todas as páginas
 
 ## 📝 Conteúdo
 

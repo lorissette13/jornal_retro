@@ -1,4 +1,70 @@
-/* header.css */
+/* ===== HEADER STYLES - logo, top-bar, navegação ===== */
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.9rem;
+    color: var(--color-accent-olive);
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--color-accent-sage);
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+    text-transform: lowercase;
+}
+
+.edition, .date, .price {
+    padding: 4px 8px;
+    background: rgba(126, 140, 84, 0.08);
+    border-radius: 2px;
+    border: 1px solid var(--color-accent-sage-light);
+}
+
+/* LOGO SECTION */
+.logo-section {
+    text-align: center;
+    margin: 40px 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    font-family: 'Special Elite', monospace;
+    font-size: 4.5rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: var(--color-dark-text);
+    text-transform: lowercase;
+    margin-bottom: 0;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.15),
+        0 0 20px rgba(126, 140, 84, 0.2);
+    position: relative;
+    display: inline-block;
+    min-height: 4.5rem;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--color-accent-sage) 20%, 
+        var(--color-accent-olive) 50%, 
+        var(--color-accent-sage) 80%, 
+        transparent 100%);
+    opacity: 0.7;
+}
+
 .logo-link {
     color: inherit;
     text-decoration: none;
@@ -6,10 +72,174 @@
 }
 
 .logo-link:hover {
-    color: #7E8C54;
+    color: var(--color-accent-olive);
+}
+
+.slogan {
+    font-family: 'Special Elite', monospace;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--color-accent-olive-light);
+    margin: 10px 0 25px 0;
+    letter-spacing: 1.5px;
+    text-transform: lowercase;
+}
+
+.divider {
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color-accent-sage), transparent);
+    margin: 0 auto 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* NAVEGAÇÃO */
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 22px 0;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-item {
+    font-family: 'Special Elite', monospace;
+    text-decoration: none;
+    color: var(--color-dark-text);
+    font-weight: 400;
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+}
+
+.nav-item:hover {
+    color: var(--color-accent-olive);
+    transform: translateY(-2px);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--color-accent-sage), var(--color-accent-olive));
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-item:hover::after {
+    width: 100%;
 }
 
 .nav-item.active {
-    color: #7E8C54;
+    color: var(--color-accent-olive);
     font-weight: bold;
+}
+
+.menu-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-accent-sage), transparent);
+    margin: 0 0 30px 0;
+}
+
+/* PÁGINA HOME - LOGO GRANDE */
+body.home .logo {
+    font-size: 4.5rem;
+    min-height: 4.5rem;
+}
+
+/* PÁGINAS INTERNAS - LOGO MENOR */
+body.internal-page .logo {
+    font-size: 2.5rem;
+    min-height: 2.5rem;
+    letter-spacing: 2px;
+}
+
+body.internal-page .slogan {
+    font-size: 1rem;
+    margin: 8px 0 20px 0;
+}
+
+body.internal-page .logo-section {
+    margin: 30px 0 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 3rem;
+        min-height: 3rem;
+    }
+    
+    body.internal-page .logo {
+        font-size: 2.2rem;
+        min-height: 2.2rem;
+    }
+    
+    .nav-menu {
+        gap: 20px;
+    }
+    
+    .nav-item {
+        font-size: 0.95rem;
+    }
+    
+    .top-bar {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 2.2rem;
+        min-height: 2.2rem;
+        letter-spacing: 1.5px;
+    }
+    
+    body.internal-page .logo {
+        font-size: 1.8rem;
+        min-height: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .nav-menu {
+        gap: 15px;
+        margin-bottom: 20px;
+        padding: 15px 0;
+    }
+    
+    .nav-item {
+        font-size: 0.85rem;
+        padding: 4px 0;
+    }
+    
+    .top-bar {
+        font-size: 0.7rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .slogan {
+        font-size: 1rem;
+        margin: 8px 0 15px 0;
+    }
+    
+    body.internal-page .slogan {
+        font-size: 0.9rem;
+        margin: 5px 0 12px 0;
+    }
+    
+    .divider {
+        width: 200px;
+        margin: 0 auto 20px;
+    }
 }

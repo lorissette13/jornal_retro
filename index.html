@@ -17,28 +17,8 @@
 </head>
 <body>
     <div class="container">
-        <!-- HEADER -->
-        <header class="header">
-            <div class="top-bar">
-                <span class="edition">portfólio digital</span>
-                <span class="date">since 1995</span>
-                <span class="price">developer & creative</span>
-            </div>
-            
-            <div class="logo-section">
-                <h1 class="logo" id="typewriter-logo">lorissette13</h1>
-                <p class="slogan">by loris</p>
-                <div class="divider"></div>
-            </div>
-            
-            <nav class="nav-menu">
-                <a href="#who" class="nav-item">quem sou</a>
-                <a href="#curriculum" class="nav-item">curriculum</a>
-                <a href="#projects" class="nav-item">projetos de desenvolvimento</a>
-                <a href="#daily" class="nav-item">cotidiano</a>
-                <a href="pages/galeria.html" class="nav-item">galeria</a>
-            </nav>
-        </header>
+        <!-- HEADER - Carregado via componente -->
+        <div id="header-container"></div>
 
         <!-- MAIN CONTENT -->
         <main class="content">
@@ -157,16 +137,23 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="assets/js/utils/component-loader.js"></script>
     <script src="assets/js/utils/typewriter.js"></script>
+    <script src="assets/js/header-loader.js"></script>
     <script src="assets/js/utils/component-checker.js"></script>
     <script src="assets/js/utils/navigation-checker.js"></script>
     <script>
-        // Inicialização simples da home
+        // Inicialização da home
         document.addEventListener('DOMContentLoaded', function() {
-            // Ativa efeito typewriter no logo
-            if (typeof initTypewriter === 'function') {
-                initTypewriter();
-            }
+            // Carrega componentes
+            loadComponent('header-container', 'components/header.html');
+            
+            // Ativa efeito typewriter no logo após carregar o componente
+            setTimeout(function() {
+                if (typeof initTypewriter === 'function') {
+                    initTypewriter();
+                }
+            }, 200);
         });
     </script>
 </body>
