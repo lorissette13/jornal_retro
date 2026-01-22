@@ -126,12 +126,6 @@ a.btn-small:active {
     text-decoration: none !important;
 }
 
-/* Reduzir tamanho de .btn-small quando em .news-item para proporção correta */
-.news-item .btn-container .btn-small {
-    padding: 10px 24px;
-    font-size: 0.90rem;
-}
-
 .btn-secondary:hover,
 .btn-small:hover {
     transform: translateY(-3px);
