@@ -1,6 +1,16 @@
 # CHANGELOG - Jornal Retro
 
-## v2.3.13 - Visual Polish & Content Reliability
+## v2.3.14 - Content Expansion & Visual Refinement
+
+**Footer Spacing**: Added 80px bottom padding for proper page margin
+**Gallery Enhancement**: Expanded to 7 icons (added coffee, books, art) with responsive auto-fit grid
+**Content Expansion**: Added 3 more projects (analytics dashboard, productivity app, learning platform) and 3 more experiences (master's degree, open source contributor, kubernetes certification)
+**Dynamic Who Section**: Enhanced "quem sou eu" with 4 dynamic paragraphs on home page and "ler mais sobre mim" button
+**Olive Green Buttons**: Changed button color scheme to olive green (#556B2F, #6B8E23) with refined gold accent
+**Button Shadows**: Updated hover effects to match new green color palette
+**Result**: Richer content, better spacing, and sophisticated olive green aesthetic ✓
+
+---
 
 **Button Design**: Reduced button sizes for more elegant, less intrusive appearance across all sections
 **Button Spacing**: Added proper margins and spacing between content and buttons to prevent crowding
