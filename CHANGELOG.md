@@ -1,6 +1,14 @@
 # CHANGELOG - Jornal Retro
 
-## v2.3.7 - Color Palette Standardization & Button Styling
+## v2.3.8 - Home Layout & Color Palette Update
+
+**Color Palette**: Migrated from brown tones to modern green palette (#7E8C54, #657043, #95A568) with white/black for text and accents (#8C7E54, #628C54)
+**Home Structure**: Restored v0 layout - third column "cotidiano por tags" with static content, gallery as separate grid section below news-grid
+**Buttons**: Maintained original brown colors (#8b4513, #654321) for consistency
+**Background**: Updated gradients and textures to green tones while preserving vintage newspaper aesthetic
+**Result**: Modern green blog appearance with restored v0 home structure ✓
+
+---
 
 **Gallery Colors**: Removed ALL green colors (#7E8C54, #657043, #95A568) → uniform brown (#8b4513)
 **Button Standard**: Brown gradient + shine effect across ALL buttons (no color change on hover)

@@ -261,6 +261,80 @@ async function loadFullPageContent(pageName) {
     }
 }
 
+// Carrega experiências destacadas na home
+async function loadFeaturedExperiences(count = 2) {
+    try {
+        const response = await fetch('assets/data/trajetoria.json');
+        const data = await response.json();
+        const experiences = data.experiences.slice(0, count);
+        
+        const container = document.getElementById('featured-experiences');
+        if (container) {
+            container.innerHTML = experiences.map(exp => `
+                <div class="news-item">
+                    <h4 class="news-title">${exp.title}</h4>
+                    <p class="news-text">${exp.description}</p>
+                    <p class="news-text"><strong>${exp.period}</strong> - ${exp.company}</p>
+                </div>
+            `).join('');
+        }
+    } catch (error) {
+        console.error('Erro ao carregar experiências:', error);
+        const container = document.getElementById('featured-experiences');
+        if (container) {
+            container.innerHTML = '<p class="error-text">Erro ao carregar experiências.</p>';
+        }
+    }
+}
+
+// Carrega projetos destacados na home
+async function loadFeaturedProjects(count = 3) {
+    try {
+        const response = await fetch('assets/data/projects.json');
+        const data = await response.json();
+        const projects = data.projects.slice(0, count);
+        
+        const container = document.getElementById('featured-projects');
+        if (container) {
+            container.innerHTML = projects.map(project => `
+                <div class="project">
+                    <p class="project-text">${project.description}</p>
+                    <p class="project-tech">stack: ${project.tech.join(' • ')}</p>
+                </div>
+            `).join('');
+        }
+    } catch (error) {
+        console.error('Erro ao carregar projetos:', error);
+        const container = document.getElementById('featured-projects');
+        if (container) {
+            container.innerHTML = '<p class="error-text">Erro ao carregar projetos.</p>';
+        }
+    }
+}
+
+// Carrega galeria destacada na home (agora estático, mas mantendo para compatibilidade)
+async function loadFeaturedGalleryHome(count = 3) {
+    // Como mudamos para estático, não carrega dinamicamente
+    // Mantém a estrutura estática da v0
+    console.log('Galeria home mantida estática conforme v0');
+}
+
+// Carrega componentes HTML externos
+async function loadComponent(containerId, componentPath) {
+    try {
+        const response = await fetch(componentPath);
+        if (!response.ok) throw new Error('Component not found');
+        
+        const html = await response.text();
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.innerHTML = html;
+        }
+    } catch (error) {
+        console.error('Erro ao carregar componente:', error);
+    }
+}
+
 // Inicializa quando o DOM estiver pronto
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initApp);
