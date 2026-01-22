@@ -6,57 +6,20 @@
 ## 🏗️ ARQUITETURA
 ```
 index.html | style.css
-assets/css/
-  ├── tokens.css (variáveis centralizadas)
-  ├── layout.css (body, container, page layout - espaçamento 50px top, 80px bottom)
-  ├── buttons.css (todos tipos de botão)
-  ├── filters.css (estilos base de filtros - padding 14px 30px, font-size 0.95rem)
-  └── filter-colors.css (cores específicas por categoria)
-assets/js/
-  ├── gallery.js (carrega pasta data/gallery/ automaticamente)
-  ├── posts.js, projects.js, timeline.js (componentes principais)
-  └── carousel-new.js (classe Carousel genérica)
-assets/data/
-  ├── gallery/          (YYYY-ID-slug.json - cada imagem é um arquivo)
-  ├── posts/           (YYYY-MM-DD-slug.md)
-  ├── projects/        (YYYY-MM-DD-slug.md)
-  └── trajectory/      (YYYY-MM-DD-slug.md)
-assets/images/gallery/ (imagens reais - adicionar fotos aqui)
+assets/css/ → tokens.css, layout.css, buttons.css, filters.css, filter-colors.css
+assets/js/ → gallery.js, posts.js, projects.js, timeline.js, carousel-new.js
+assets/data/ → gallery/, posts/, projects/, trajectory/ (arquivos Markdown/JSON)
 pages/ | components/
 ```
 
 ## 🎨 DESIGN SYSTEM
-CSS modularizado para máxima reutilização e manutenção centralizada:
+**CSS Modular**: tokens.css (variáveis), layout.css (body/container), buttons.css (botões), filters.css (filtros), filter-colors.css (cores).
 
-**Módulos CSS** (importados automaticamente via style.css):
-- `tokens.css`: Variáveis de cores, espaçamento, tipografia, bordas, sombras
-- `layout.css`: Body, container, headers, footers, espaçamento global (50px top, 80px bottom)
-- `buttons.css`: Todos tipos de botão (btn-primary, btn-secondary, nav-btn) com efeito shine
-- `filters.css`: Estilos base de componentes de filtro (14px 30px padding, 0.95rem font-size)
-- `filter-colors.css`: Cores específicas por categoria (filmes, jogos, livros, etc)
+**JS Modular**: gallery.js (galeria automática), carousel-new.js (genérico), posts.js/projects.js/timeline.js (componentes).
 
-**Módulos JavaScript**:
-- `gallery.js`: Sistema de galeria modular - carrega `assets/data/gallery/*.json`
-  - Cada imagem é um arquivo JSON separado (como posts em markdown)
-  - Filtros, carrossel, modal, favoritos com localStorage
-  - Adicione uma imagem: crie `YYYY-ID-slug.json` em `assets/data/gallery/`
-- `carousel-new.js`: Classe Carousel genérica (reutilizável)
-- `posts.js`, `projects.js`, `timeline.js`: Componentes principais
+**Dados**: Arquivos independentes em assets/data/ - galeria (JSON), posts/projetos/trajetória (Markdown + YAML).
 
-**Sistema de Dados Modular** (arquivos independentes):
-- **Galeria**: `assets/data/gallery/2024-gallery-001-setup.json` (metadata)
-  - Imagens em `assets/images/gallery/setup-2024.jpg`
-- **Posts**: `assets/data/posts/YYYY-MM-DD-slug.md` (Markdown + YAML)
-- **Projetos**: `assets/data/projects/YYYY-MM-DD-slug.md`
-- **Trajetória**: `assets/data/trajectory/YYYY-MM-DD-slug.md`
-
-**Regra Importante**: Sempre editar em UM ÚNICO LUGAR:
-- Cores → `tokens.css`
-- Layout/espaçamento → `layout.css`
-- Botões → `buttons.css`
-- Filtros → `filters.css` ou `filter-colors.css`
-
-Principais variáveis: `--color-primary-brown`, `--color-accent-gold`, `--color-accent-olive`, `--color-accent-sage`, `--container-margin-y` (50px), `--container-margin-bottom` (80px), `--spacing-*`, `--font-family-serif`
+**Regra**: Editar em UM lugar: cores→tokens.css, layout→layout.css, botões→buttons.css.
 
 ## 📝 CONTEÚDO
 
@@ -69,12 +32,8 @@ date: "YYYY-MM-DD"
 favorite: true/false
 tags: ["tag1", "tag2"]
 ---
-## Título Parágrafo 1
+## Parágrafo 1
 Conteúdo...
-## Título Parágrafo 2
-Conteúdo...
-## Título Parágrafo 3
-Conclusão...
 ```
 
 ### Projetos: `assets/data/projects/YYYY-MM-DD-slug.md`
@@ -83,14 +42,10 @@ Conclusão...
 title: "Nome"
 description: "Breve descrição"
 date: "YYYY-MM-DD"
-featured: true/false
-status: "completed|in-progress|archived"
+status: "completed|in-progress"
 stack: ["tech1", "tech2"]
-links: {"github": "url", "live": "url"}
 ---
 ## Descrição
-## Desafios
-## Solução
 ## Resultados
 ```
 
@@ -101,160 +56,84 @@ title: "Experiência"
 position: "Cargo"
 company: "Empresa"
 period: "Jan 2020 - Dez 2021"
-date: "YYYY-MM-DD"
-featured: true/false
 skills: ["skill1", "skill2"]
 ---
-## Contexto
 ## Realizações
-## Aprendizados
 ```
 
 ## 🔄 PROTOCOLO
-1. Adicione conteúdo em Markdown em `assets/data/`
+1. Adicione conteúdo em `assets/data/` (Markdown/JSON)
 2. Sistema carrega automaticamente
-3. Novos estilos: adicione variáveis em `tokens.css` primeiro
-4. Teste → commit → push → documentação
+3. Novos estilos: variáveis em `tokens.css` primeiro
+4. Teste → commit → push
 
 ### COMPONENTES CHAVE
-
-**Layout**: Header (typewriter logo), Grid responsivo 3→2→1 colunas, Footer
-**Estilo**: Animações typewriter/fade-in, Gallery carousel 4 items, Buttons olive green
-**JavaScript**: Carousel, dynamic content loading, localStorage favoritos, fade-in, smooth scroll
+**Layout**: Header typewriter, Grid 3→2→1 colunas, Footer
+**Estilo**: Animações fade-in, Gallery carousel, Buttons olive green
+**JS**: Carousel dinâmico, localStorage favoritos, smooth scroll
 
 ### FUNCIONALIDADES
-
 ✅ Gallery carousel | ✅ Dynamic content | ✅ Timeline + Posts + Projetos | ✅ Favoritos | ✅ Mobile responsivo
 
-### SISTEMA DE POSTS (MODULAR)
-
-**Estrutura de Arquivos**:
-```
-assets/data/posts/
-├── _template.md          # Template para novos posts
-├── 2024-01-15-nova-descoberta-musical.md
-├── 2024-01-10-jogo-indie-surpreendeu.md
-└── ... (posts organizados por data)
-```
-
-**Formato do Post (Markdown + YAML)**:
-```markdown
----
-title: "título descritivo"
-category: "categoria"
-date: "YYYY-MM-DD"
-favorite: true/false
-tags: ["tag1", "tag2", "tag3"]
----
-
-## Parágrafo 1
-Conteúdo do primeiro parágrafo.
-
-## Parágrafo 2
-Conteúdo do segundo parágrafo.
-
-## Parágrafo 3
-Conclusão ou reflexão final.
-```
-
-**Categorias Válidas**:
-- `música` - Descobertas musicais, playlists, artistas
-- `jogos` - Análise de video games, narrativa interativa
-- `filmes` - Análise de filmes, inspiração visual
-- `livros` - Resenhas, reflexões sobre leitura
-- `boardgames` - Jogos de tabuleiro, estratégia
-- `dev-life` - Rotina dev, setups, produtividade
-- `viagens` - Experiências, localidades, aventuras
-
-**Criar novo post**: Data (YYYY-MM-DD), categoria, 2-3 tags, 3 parágrafos. Arquivo: `YYYY-MM-DD-slug.md`. Template: `assets/data/posts/_template.md`
+### SISTEMA DE POSTS
+**Estrutura**: `assets/data/posts/YYYY-MM-DD-slug.md`
+**Formato**: YAML front matter + Markdown
+**Categorias**: música, jogos, filmes, livros, boardgames, dev-life, viagens
+**Template**: `assets/data/posts/_template.md`
 
 ### TECNOLOGIAS
-- HTML5 semântico | CSS3 grid/flexbox | JS vanilla
-- Google Fonts | Unicode emojis | Sem frameworks
-- Posts: Markdown + YAML front matter (arquivos independentes)
+HTML5, CSS3 grid/flexbox, JS vanilla, Google Fonts, Markdown + YAML
 
 ---
 
-## ⚙️ DECISÕES TÉCNICAS RECENTES
+## ⚙️ DECISÕES TÉCNICAS
 
-### 1. Spacing do Headline (quem sou eu) - Jan 2026
-**Problema**: Espaço excessivo entre menu-divider e headline "quem sou eu"  
-**Solução**: Adicionar `margin-top: -var(--spacing-lg);` ao `.headline` (style.css)  
-**Justificativa**: Usa sistema de tokens existentes (--spacing-lg = 24px), aproxima visualmente a seção ao menu mantendo hierarquia visual, sem quebrar layout em responsivo  
-**Arquivo**: `style.css` linha ~250 (`.headline`)
+### Menu Modular (Jan 2026)
+**Problema**: Menu em todas as páginas
+**Solução**: `components/nav-menu.html` carregado via fetch()
+**Justificativa**: Evita duplicação, manutenção centralizada
 
-### 2. Menu Modular com Fetch - Jan 2026
-**Problema**: Menu precisava aparecer em todas as páginas (home + 5 internas)  
-**Solução**: Criar `components/nav-menu.html` e carregar via `fetch()` em `index.html` e `components/header.html`  
-**Justificativa**: Evita duplicação de HTML, garante consistência, permite manutenção centralizada  
-**Arquivos**: `components/nav-menu.html`, `components/header.html`, `index.html`
-
-### 3. Padronização Layout/Textura - Jan 2026
-**Problema**: Layout.css e style.css tinham estilos inconsistentes (gradientes, sombras, espaçamento)  
-**Solução**: Mover definições CSS para um único arquivo (style.css) com uso de tokens centralizados  
-**Justificativa**: DRY principle, facilita manutenção, garante consistência visual em todas as páginas  
-**Arquivo**: `style.css`, `assets/css/layout.css`
+### Layout Padronizado (Jan 2026)
+**Problema**: Estilos inconsistentes
+**Solução**: Módulos CSS com tokens centralizados
+**Justificativa**: DRY principle, consistência visual
 
 ---
 
-**IMPORTANTE**: Manter estética retro, decisões técnicas. Qualquer mudança precisa justificativa técnica.
+## 🚀 PRÓXIMOS PASSOS
 
----
+### 1. Integração de Conteúdo
+- Sistema para adicionar posts/projetos via interface
+- Editor visual Markdown
+- Agendamento de posts
 
-## 🚀 PRÓXIMOS PASSOS - ROADMAP DE DESENVOLVIMENTO
+### 2. Responsividade Mobile
+- Layout para telas pequenas (320px+)
+- Menu hamburger
+- Galeria touch/swipe
+- Tipografia responsiva
 
-### 1. **Integração de Conteúdo Dinâmico**
-- ✅ **Atualização automática de conteúdo**: Sistema para adicionar posts, projetos e trajetória via interface simples
-- ✅ **Editor visual**: Interface para criar/editar posts em Markdown sem conhecimento técnico
-- ✅ **Sistema de rascunhos**: Salvar posts como rascunho antes de publicar
-- ✅ **Agendamento de posts**: Publicar conteúdo em datas futuras
+### 3. Página de Contato
+- Formulário com validação
+- Integração backend (Netlify Forms)
+- Proteção anti-spam
 
-### 2. **Responsividade e Mobile-First**
-- ✅ **Otimização para celulares**: Ajustar layout para telas pequenas (320px+)
-- ✅ **Menu mobile**: Implementar hamburger menu para navegação touch
-- ✅ **Galeria touch**: Swipe gestures para navegação na galeria
-- ✅ **Tipografia responsiva**: Fontes que se adaptam ao tamanho da tela
-- ✅ **Performance mobile**: Otimizar carregamento e interações em dispositivos móveis
+### 4. APIs Externas
+- Spotify: músicas favoritas/playlists
+- Letterboxd: filmes assistidos
+- Fallback gracioso
 
-### 3. **Página de Contato**
-- ✅ **Formulário de contato**: Campos para nome, email, assunto, mensagem
-- ✅ **Validação**: Validação client-side e server-side dos campos
-- ✅ **Integração com backend**: Envio de emails via serviço (Netlify Forms, Formspree, etc.)
-- ✅ **Feedback visual**: Confirmação de envio, estados de loading
-- ✅ **Proteção anti-spam**: CAPTCHA ou honeypot para evitar spam
+### 5. Performance & SEO
+- Lazy loading, compressão
+- Cache, meta tags, analytics
 
-### 4. **Integração API Spotify**
-- ✅ **Widget de músicas favoritas**: Exibir últimas músicas ouvidas
-- ✅ **Playlists curadas**: Mostrar playlists públicas do Spotify
-- ✅ **Integração Letterboxd**: Exibir últimos filmes assistidos e reviews
-- ✅ **API endpoints**: Configurar chaves API e autenticação
-- ✅ **Fallback gracioso**: Conteúdo alternativo se APIs falharem
+### 6. Recursos Avançados
+- Modo escuro, busca interna
+- Comentários, RSS, PWA
 
-### 5. **Melhorias de Performance e SEO**
-- ✅ **Lazy loading**: Carregar imagens e conteúdo sob demanda
-- ✅ **Compressão**: Minificar CSS/JS, otimizar imagens
-- ✅ **Cache**: Estratégias de cache para conteúdo estático
-- ✅ **SEO**: Meta tags, structured data, sitemap
-- ✅ **Analytics**: Google Analytics ou similar para métricas
+### 7. Manutenção
+- Testes automatizados, CI/CD
+- Monitoramento, backup
 
-### 6. **Recursos Avançados**
-- ✅ **Modo escuro**: Toggle para tema dark/light
-- ✅ **Busca interna**: Buscar posts, projetos, galeria
-- ✅ **Comentários**: Sistema de comentários em posts (Disqus, etc.)
-- ✅ **RSS Feed**: Feed RSS para novos conteúdos
-- ✅ **PWA**: Progressive Web App para instalação offline
-
-### 7. **Manutenção e Escalabilidade**
-- ✅ **Testes automatizados**: Suite de testes para funcionalidades críticas
-- ✅ **CI/CD**: Pipeline de deploy automático
-- ✅ **Monitoramento**: Alertas para erros e performance
-- ✅ **Backup**: Estratégia de backup de conteúdo
-- ✅ **Documentação**: Docs completas para contribuidores
-
----
-
-**STATUS ATUAL** (Jan 2026):
-- ✅ Limpeza de código concluída (funções não usadas removidas, CSS duplicado reduzido)
-- 🔄 Responsividade mobile em desenvolvimento
-- 📋 Próximos: Contato, APIs externas, performance
+**STATUS**: Limpeza concluída, mobile em desenvolvimento, próximos: contato e APIs.
 
