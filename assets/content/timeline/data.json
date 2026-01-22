@@ -1,0 +1,54 @@
+{
+  "experiences": [
+    {
+      "id": "exp-001",
+      "type": "education",
+      "title": "bacharelado em sistemas de informação",
+      "period": "2013-2017",
+      "institution": "universidade federal",
+      "description": "fundamentos em algoritmos, estrutura de dados, engenharia de software e redes. projeto final: sistema de gerenciamento acadêmico.",
+      "skills": ["algoritmos", "java", "sql", "redes"],
+      "favorite": true
+    },
+    {
+      "id": "exp-002",
+      "type": "work",
+      "title": "desenvolvedor front-end júnior",
+      "period": "2018-2019",
+      "company": "startup tech solutions",
+      "description": "primeira experiência profissional. desenvolvimento de interfaces responsivas com html/css/js. aprendizado de git e metodologias ágeis.",
+      "skills": ["html5", "css3", "javascript", "git", "scrum"],
+      "favorite": false
+    },
+    {
+      "id": "exp-003",
+      "type": "work",
+      "title": "desenvolvedor front-end pleno",
+      "period": "2020-2021",
+      "company": "agência digital creativa",
+      "description": "liderança de projetos front-end. implementação de design systems. mentoring de desenvolvedores júniores. foco em performance.",
+      "skills": ["react", "vue", "sass", "webpack", "jest"],
+      "favorite": true
+    },
+    {
+      "id": "exp-004",
+      "type": "work",
+      "title": "desenvolvedor front-end sênior",
+      "period": "2022-presente",
+      "company": "empresa global tech",
+      "description": "arquitetura de sistemas escaláveis. definição de padrões de código. entrevistas técnicas. foco em acessibilidade e web vitals.",
+      "skills": ["typescript", "next.js", "graphql", "docker", "aws"],
+      "favorite": true
+    },
+    {
+      "id": "exp-005",
+      "type": "certification",
+      "title": "aws certified solutions architect",
+      "period": "2021",
+      "institution": "amazon web services",
+      "description": "certificação em arquitetura de soluções cloud. foco em segurança, escalabilidade e otimização de custos na aws.",
+      "skills": ["aws", "cloud", "arquitetura", "segurança"],
+      "favorite": true
+    }
+  ]
+}

@@ -1,7 +1,6 @@
 /**
  * SISTEMA DE GALERIA - VERSÃO MODULAR
- * Carrega dados de assets/data/gallery/YYYY-ID-slug.json (como posts)
- * Cada arquivo é uma imagem independente
+ * Carrega dados de assets/content/gallery/data.json
  */
 
 let galleryData = [];
@@ -15,80 +14,32 @@ let currentPage = 0;
 const itemsPerPage = 8;
 
 /**
- * Carrega dados da galeria da pasta
- * Busca todos os arquivos JSON em assets/data/gallery/
+ * Carrega dados da galeria centralizada
+ * Busca único arquivo JSON em assets/content/gallery/data.json
  */
 function loadGalleryData() {
-    // Carrega lista de arquivos com fetch da pasta (requer listing endpoint ou alternativa)
-    // Para simplificar, vamos usar uma abordagem pragmática:
-    // Definir um array com os nomes dos arquivos esperados
-    
-    const galleryFiles = [
-        '2024-gallery-001-setup-de-trabalho',
-        '2023-gallery-002-colecao-de-jogos-retro',
-        '2023-gallery-003-viagem-para-portugal',
-        '2023-gallery-004-evento-de-tecnologia',
-        '2024-gallery-005-projeto-em-desenvolvimento',
-        '2024-gallery-006-estante-de-livros',
-        '2022-gallery-007-workshop-de-programacao',
-        '2023-gallery-008-equipamento-de-audio',
-        '2024-gallery-009-cafe-da-manha-criativo',
-        '2024-gallery-010-ferramentas-de-desenvolvimento',
-        '2024-gallery-011-prototipagem-no-figma',
-        '2024-gallery-012-evento-tech-conference-2024',
-        '2023-gallery-013-montanhas-do-sul',
-        '2024-gallery-014-night-gaming-session',
-        '2024-gallery-015-codigo-limpo-em-acao',
-        '2024-gallery-016-biblioteca-pessoal',
-        '2024-gallery-017-code-review-em-tempo-real',
-        '2024-gallery-018-plantinhas-da-mesa',
-        '2023-gallery-019-praia-ao-entardecer',
-        '2024-gallery-020-meetup-de-devs-local',
-        '2024-gallery-021-dashboard-em-construcao',
-        '2024-gallery-022-setup-gaming-rgb-2024',
-        '2024-gallery-023-livro-tech-stack-2024',
-        '2023-gallery-024-console-retro-mini',
-        '2024-gallery-025-portfolio-website-redesign',
-        '2023-gallery-026-viagem-internacional-londres',
-        '2024-gallery-027-workshop-advanced-css',
-        '2024-gallery-028-colecao-de-teclados-mecanicos'
-    ];
-    
-    // Carrega todos os arquivos em paralelo
-    Promise.all(
-        galleryFiles.map(filename => 
-            fetch(`../assets/data/gallery/${filename}.json`)
-                .then(response => response.json())
-                .catch(error => {
-                    console.warn(`Erro ao carregar ${filename}:`, error);
-                    return null;
-                })
-        )
-    ).then(results => {
-        // Filtra null (arquivos não encontrados) e adiciona ID
-        galleryData = results
-            .filter(img => img !== null)
-            .map((img, index) => ({
-                ...img,
-                id: `gallery-${String(index + 1).padStart(3, '0')}`
-            }));
-        
-        // Ordena por ano (mais recente primeiro)
-        galleryData.sort((a, b) => parseInt(b.year) - parseInt(a.year));
-        filteredGallery = [...galleryData];
-        slides = [...galleryData];
-        
-        // Carrega localStorage
-        loadFavoritesFromLocalStorage();
-        
-        // Se estamos na página de galeria, inicializa
-        if (document.getElementById('thumbnails-container')) {
-            initGallery();
-        }
-    }).catch(error => {
-        console.error('Erro ao carregar galeria:', error);
-        showGalleryError();
-    });
+    // Carrega arquivo único centralizado
+    loadJSON('../assets/content/gallery/data.json')
+        .then(data => {
+            // Processa dados
+            galleryData = (data.images || [])
+                .sort((a, b) => parseInt(b.year) - parseInt(a.year));
+            
+            filteredGallery = [...galleryData];
+            slides = [...galleryData];
+            
+            // Carrega localStorage
+            loadFavoritesFromLocalStorage();
+            
+            // Se estamos na página de galeria, inicializa
+            if (document.getElementById('thumbnails-container')) {
+                initGallery();
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar galeria:', error);
+            showGalleryError();
+        });
 }
 
 /**
@@ -485,7 +436,7 @@ function openModal() {
     
     const modalImg = document.getElementById('modal-image');
     modalImg.alt = currentImage.title;
-    modalImg.src = `../assets/images/gallery/${currentImage.image}`;
+    modalImg.src = `../assets/content/gallery/images/${currentImage.image}`;
     
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';

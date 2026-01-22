@@ -4,13 +4,16 @@
 
 | Decisão | Regra |
 |---------|-------|
-| Cores | SEMPRE usar `tokens.css`, nunca cores hardcoded v0 |
-| Layout | Editar só em `layout.css` |
-| Botões | Editar só em `buttons.css` |
-| Header | Editar em `header.css` - logo com typewriter sempre |
-| Animação logo | Editar só em `typewriter.js` |
-| Componentes | Editar em `/components/` |
-| Testes | Rodar `?debug=components` |
+| Cores | `tokens.css` sempre |
+| Layout | `layout.css` |
+| Botões | `buttons.css` |
+| Header | `header.css` |
+| Typewriter | `typewriter.js` |
+| Componentes | `/components/` |
+| Testes visuais | `npm test -- tests/visual.test.js` (após CSS) |
+| Funções | `setup*()`, `display*()`, `fetch*()`, `render*()` |
+| Módulos | Testar em HOME + página interna |
+| Dados | JSON com `_id` (MongoDB compatible) |
 
 ## 📐 Arquitetura
 
@@ -94,35 +97,12 @@ featured: true/false
 
 ## 🔄 Padrão de Páginas
 
-```javascript
-// HTML: Sempre use este padrão
-<script src="../assets/js/utils/component-loader.js"></script>
-<script src="../assets/js/utils/component-checker.js"></script>
-<script src="../assets/js/utils/navigation-checker.js"></script>
-<script src="../assets/js/[module].js"></script>
-
-// JS: Sempre use setTimeout após DOMContentLoaded
-setTimeout(function() {
-    initPage();
-}, 100);
-```
-
-## 📦 Tecnologias
+## 📦 Stack
 
 - HTML5 + CSS3 Grid/Flexbox
-- Vanilla JavaScript (ES6+)
-- Markdown + YAML para conteúdo
+- Vanilla JS (ES6+)
+- Markdown + JSON
 - Google Fonts: Special Elite + Times New Roman
+- Retro 30-50s (jornal), 4→2→1 responsive
 
-## 🎨 Estilo
-
-- Retro 30-50s (jornal)
-- Cores de `tokens.css`
-- Grid responsivo: 4→2→1 colunas
-- Sem frameworks, sem build
-
----
-
-**Última atualização**: Jan 22, 2026  
-**Status**: ✅ Em produção  
-**Próximo**: Filtros compartilhados
+**Referência**: Ver [PROMPT_CONSOLIDADO.md](PROMPT_CONSOLIDADO.md)

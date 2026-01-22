@@ -76,9 +76,82 @@ featured: true/false
 - Links funcionam
 - Testes passam
 
+## 📂 DADOS
+
+```
+assets/data/
+├── cotidiano/        ← Posts (JSON)
+├── projetos/         ← Projects (JSON)
+├── galeria/          ← Gallery (JSON)
+└── trajetoria/       ← Timeline (JSON)
+
+assets/images/
+├── cotidiano/, projetos/, galeria/, trajetoria/
+```
+
+Preparado para MongoDB: cada arquivo com `_id`
+
+## 🏗️ PADRÃO NOVO (v2+) - Módulos Limpos
+
+### Nomenclatura Funções
+| Tipo | Padrão | Exemplo |
+|------|--------|---------|
+| Setup | `setup[Feature]()` | `setupFilters()`, `setupNavigation()` |
+| Display | `display[Feature]()` | `displayPosts()`, `displayProjects()` |
+| Fetch | `fetch[Feature]()` | `fetchPosts()`, `fetchProjects()` |
+| Load | `load[Component]()` | `loadHeader()`, `loadFooter()` |
+| Render | `render[Item]()` | `renderPostCard()`, `renderProjectCard()` |
+
+### Evitar (v0 defasado)
+❌ `loadComponent(path, container, {...args})`  
+❌ Funções com +100 linhas de lógica mista  
+❌ Variáveis globais sem namespace  
+
+### Testes (30% cobertura)
+```javascript
+describe('setupFilters()', () => {
+  test('deve adicionar listeners aos botões', () => {
+    // Arrange + Act + Assert
+  });
+});
+```
+
+### Init Limpo
+```javascript
+async function init() {
+  await loadHeader();
+  await setupFilters();
+  await setupNavigation();
+  const data = await fetchPosts();
+  await displayPosts(data);
+}
+document.addEventListener('DOMContentLoaded', init);
+```
+
+## 📍 MÓDULOS - Responsabilidades por Página
+
+| Página | Arquivo JS | Responsabilidades | Home | Integração |
+|--------|-----------|-------------------|------|-----------|
+| **cotidiano** | `posts.js` | displayPosts(), setupFilters(), setupNavigation() | 3 posts featured | Testar em index + cotidiano.html |
+| **projetos** | `projects.js` | displayProjects(), setupFilters(), paginação | 3-4 projects | Testar em index + projetos.html |
+| **galeria** | `gallery.js` | displayGallery(), filtros, grid 4→2→1 | 6-8 destaques | Testar em index + galeria.html |
+| **trajetória** | `trajectory-page.js` | displayTimeline(), ordem cronológica | 2-3 experiências | Testar em index + trajetoria.html |
+| **quem-sou** | `quem-sou-page.js` + tech-carousel.js | Tech stack, bio, redes | Tech skills | Testar em index + quem-sou.html |
+| **GLOBAL** | `header-loader.js` + utils.js | Header, Footer, Typewriter | TODAS as páginas | Testar em TODAS as 6 páginas |
+
+**Regra**: Ao mexer em um módulo, testar em TODAS as páginas onde aparece (home + interna)
+
+## 🎨 Design Unificado
+- Cores: Sempre em `tokens.css`
+- Botões: Sempre em `buttons.css`
+- Filtros: Em `filters.css` (usa vars de tokens)
+- Navegação: Em `navigation.css` (usa vars de tokens)
+- Responsivo: 4→2→1 colunas (desktop→tablet→mobile)
+
 ## 📚 REFERÊNCIA
-→ [REGRAS_PERMANENTES.md](REGRAS_PERMANENTES.md) - Todas as decisões  
-→ [README.md](README.md) - Setup  
-→ [TESTES_COMPONENTES.md](TESTES_COMPONENTES.md) - Testing
+→ [REGRAS_PERMANENTES.md](REGRAS_PERMANENTES.md)  
+→ [README.md](README.md)
+
+**Nota**: Adicionar docs em REGRAS_PERMANENTES (sucinto). Não criar .md novos.
 
 

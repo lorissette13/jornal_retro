@@ -1,5 +1,6 @@
 /* IMPORT DE MÓDULOS PRINCIPAIS */
 @import url('./tokens.css');
+@import url('./header.css');
 @import url('./layout.css');
 @import url('./buttons.css');
 @import url('./filters.css');

@@ -1,135 +1,42 @@
 /**
  * Sistema de Posts do Cotidiano - Refatorado
- * Carrega dados de assets/data/posts.json
+ * Carrega dados de assets/content/blog/data.json
  */
 
 let currentPage = 1;
+let currentCategory = 'all';
 const itemsPerPage = 4;
+const POSTS_PER_PAGE = 4;
 let allPosts = [];
 let filteredPosts = [];
 
-function initPosts() {
-    loadJSON('../assets/data/posts.json')
-        .then(data => {
-            allPosts = data.posts || [];
-            filteredPosts = allPosts;
-            displayPosts();
-            setupFilters('.filter-btn', handleFilterChange);
-            setupPagination('prev-btn', 'next-btn', handlePageChange);
-        })
-        .catch(error => console.error('Erro carregando posts:', error));
-}
-
-function handleFilterChange(category) {
-    currentPage = 1;
-    filteredPosts = filterData(allPosts, category, 'category');
-    displayPosts();
-}
-
-function handlePageChange(direction) {
-    if (direction === 'prev' && currentPage > 1) {
-        currentPage--;
-    } else if (direction === 'next') {
-        const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
-        if (currentPage < totalPages) {
-            currentPage++;
-        }
-    }
-    displayPosts();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function displayPosts() {
-    const pagination = paginateData(filteredPosts, currentPage, itemsPerPage);
-    document.getElementById('posts-container').innerHTML = pagination.items.map(renderPostHTML).join('');
-    updatePaginationControls(currentPage, pagination.totalPages, 'current-page', 'total-pages', 'prev-btn', 'next-btn');
-}
-      "paragraphs": [
-        "revendo 'her' percebi quantas interfaces do filme influenciaram design atual.",
-        "a simplicidade das interações entre humano e ia mostra poder da comunicação não-verbal.",
-        "às vezes, ficção científica é o melhor briefing para produtos inovadores."
-      ]
-    },
-    {
-      "id": "post-005",
-      "title": "boardgame para devs",
-      "category": "boardgames",
-      "date": "2024-01-03",
-      "favorite": false,
-      "tags": ["estratégia", "cooperação", "lógica"],
-      "paragraphs": [
-        "'pandemic legacy' ensina mais sobre trabalho em equipe do que muitos cursos corporativos.",
-        "a necessidade de comunicação clara e adaptação a mudanças é quase um sprint de desenvolvimento.",
-        "recomendo para equipes de tech que querem melhorar colaboração de forma divertida."
-      ]
-    },
-    {
-      "id": "post-006",
-      "title": "livro que expandiu horizontes",
-      "category": "livros",
-      "date": "2023-12-28",
-      "favorite": true,
-      "tags": ["ficção", "filosofia", "tecnologia"],
-      "paragraphs": [
-        "'exhalation' do ted chiang é obrigatório para quem pensa sobre ética e tecnologia.",
-        "cada conto é uma premissa científica explorada com profundidade filosófica incrível.",
-        "especialmente 'the lifecycle of software objects' para desenvolvedores refletirem."
-      ]
-    },
-    {
-      "id": "post-007",
-      "title": "setup otimizado",
-      "category": "dev-life",
-      "date": "2023-12-20",
-      "favorite": false,
-      "tags": ["setup", "ergonomia", "ferramentas"],
-      "paragraphs": [
-        "após meses testando, encontrei a configuração perfeita de atalhos no vscode.",
-        "customizei todos os shortcuts para mapear fluxo mental, não funções isoladas.",
-        "produtividade aumentou 30% quando parei de lutar contra as ferramentas."
-      ]
-    },
-    {
-      "id": "post-008",
-      "title": "trilha para codar",
-      "category": "música",
-      "date": "2023-12-15",
-      "favorite": false,
-      "tags": ["playlist", "foco", "instrumental"],
-      "paragraphs": [
-        "compilando playlists específicas para tipos diferentes de tarefas de programação.",
-        "bug fixing: jazz suave. arquitetura nova: post-rock expansivo. refatoração: ambient.",
-        "a trilha sonora certa pode transformar completamente o fluxo de trabalho."
-      ]
-    }
-  ],
-  "categories": [
-    "filmes",
-    "jogos",
-    "boardgames",
-    "livros",
-    "discos",
-    "música",
-    "dev-life",
-    "viagens"
-  ]
-};
-
 // Inicializa página de posts
 function initPostsPage() {
-    loadPosts();
-    setupEventListeners();
+    loadPostsData();
 }
 
-// Carrega posts (mock local, sem fetch)
-function loadPosts() {
-    allPosts = POSTS_DATA.posts;
-    
-    // Ordena por data (mais recente primeiro)
-    allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    
-    updatePostsDisplay();
-    updateStats();
+// Carrega dados dos posts do arquivo centralizado
+function loadPostsData() {
+    loadJSON('../assets/content/blog/data.json')
+        .then(data => {
+            allPosts = data.posts || [];
+            
+            // Ordena por data (mais recente primeiro)
+            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Carrega localStorage de favoritos
+            loadFavoritesFromLocalStorage();
+            
+            filteredPosts = [...allPosts];
+            
+            setupEventListeners();
+            updatePostsDisplay();
+            updateStats();
+        })
+        .catch(error => {
+            console.error('Erro carregando posts:', error);
+            showErrorMessage();
+        });
 }
 
 // Configura event listeners
@@ -388,6 +295,18 @@ function showErrorMessage() {
                 <p>tente novamente mais tarde</p>
             </div>
         `;
+    }
+}
+
+// Carrega favoritos do localStorage
+function loadFavoritesFromLocalStorage() {
+    try {
+        const favorites = JSON.parse(localStorage.getItem('post-favorites') || '{}');
+        allPosts.forEach(post => {
+            post.favorite = !!favorites[post.id];
+        });
+    } catch (error) {
+        console.error('Erro ao carregar favoritos:', error);
     }
 }
 
