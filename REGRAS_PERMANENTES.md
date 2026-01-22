@@ -57,27 +57,32 @@ index.html (home, header inline)
 
 ## 🎨 Componentes Obrigatórios
 
+### Botões Home - Padrão Essencial ✅ 
+**[REGRA PERMANENTE - Não remover sem pedido expresso]**
+
+- **Classe obrigatória**: TODOS os botões da home usam `.btn-read-more`
+- **Elementos**: 
+  - trajetória (2): "linha do tempo", "stack completo"
+  - projetos: "ver todos os projetos"
+  - cotidiano: "ver cotidiano completo"
+  - galeria: "ver galeria completa"
+- **Proporção**: 100% idêntica entre botões
+  - Desktop: `padding: 15px 35px; font-size: 1.05rem;`
+  - Tablet: `padding: 13px 30px; font-size: 0.98rem;`
+  - Mobile: `padding: 12px 25px; font-size: 0.92rem;`
+- **Texto**: `white-space: nowrap;` (SEMPRE em uma linha)
+- **Cores base**: Gradiente `--color-accent-olive` (#556B2F) → `--color-accent-olive-light` (#6B8E23)
+- **Hover**: Mesmo verde (olive-light → sage-light), SEM ouro/dourado
+- **Shine effect**: `linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)` com transição 0.6s
+- **Wrapper HTML obrigatório**: `<div class="btn-container">` com `display: flex; justify-content: center;`
+- **Contexto tags-section**: Limite máximo de 300px (`.tags-section .btn-container { max-width: 300px; }`)
+- **Referência visual**: IGUAL ao padrão da página cotidiano (sem desvios)
+
 ### Header (em TODAS as páginas)
 - ✅ **Footer** carregado via `loadComponent('footer-container', '../components/footer.html')`
 - ✅ **Menu** com HOME link (visível em internas, oculto em home)
 - ✅ **Logo** com typewriter effect
 - ✅ Classe `hide-on-home` para ocultar HOME apenas na home page
-
-### Botões - Padrão Obrigatório
-- **Classes**: `.btn-read-more` (primário) e `.btn-small` (secundário)
-- **CSS**: Sempre em `assets/css/buttons.css` (NUNCA em style.css)
-- **Cores**: Gradiente olive - `--color-accent-olive` (#556B2F) a `--color-accent-olive-light` (#6B8E23)
-- **Efeito**: Shine/brilho com `::before` pseudo-element (linear-gradient 90deg)
-- **Texto**: `text-decoration: none !important;` para links
-- **HTML obrigatório**: Nenhuma classe `news-btn` ou classes obsoletas
-- **Verificação**: Validar cores.json antes de commit
-
-### Parágrafos "Quem Sou" - Layout Lado-a-Lado
-- **Classe CSS**: `.who-grid.two-columns` (OBRIGATÓRIO)
-- **HTML**: `<div class="who-grid two-columns">` (NÃO deixar vazio)
-- **Layout**: `grid-template-columns: repeat(2, 1fr)` em desktop
-- **Altura**: ~140 caracteres por parágrafo (máximo 3 linhas)
-- **Responsividade**: Muda para 1 coluna em 900px (mobile)
 
 ### Navigation (nav-menu.html)
 
