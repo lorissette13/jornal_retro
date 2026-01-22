@@ -199,3 +199,62 @@ Conclusão ou reflexão final.
 
 **IMPORTANTE**: Manter estética retro, decisões técnicas. Qualquer mudança precisa justificativa técnica.
 
+---
+
+## 🚀 PRÓXIMOS PASSOS - ROADMAP DE DESENVOLVIMENTO
+
+### 1. **Integração de Conteúdo Dinâmico**
+- ✅ **Atualização automática de conteúdo**: Sistema para adicionar posts, projetos e trajetória via interface simples
+- ✅ **Editor visual**: Interface para criar/editar posts em Markdown sem conhecimento técnico
+- ✅ **Sistema de rascunhos**: Salvar posts como rascunho antes de publicar
+- ✅ **Agendamento de posts**: Publicar conteúdo em datas futuras
+
+### 2. **Responsividade e Mobile-First**
+- ✅ **Otimização para celulares**: Ajustar layout para telas pequenas (320px+)
+- ✅ **Menu mobile**: Implementar hamburger menu para navegação touch
+- ✅ **Galeria touch**: Swipe gestures para navegação na galeria
+- ✅ **Tipografia responsiva**: Fontes que se adaptam ao tamanho da tela
+- ✅ **Performance mobile**: Otimizar carregamento e interações em dispositivos móveis
+
+### 3. **Página de Contato**
+- ✅ **Formulário de contato**: Campos para nome, email, assunto, mensagem
+- ✅ **Validação**: Validação client-side e server-side dos campos
+- ✅ **Integração com backend**: Envio de emails via serviço (Netlify Forms, Formspree, etc.)
+- ✅ **Feedback visual**: Confirmação de envio, estados de loading
+- ✅ **Proteção anti-spam**: CAPTCHA ou honeypot para evitar spam
+
+### 4. **Integração API Spotify**
+- ✅ **Widget de músicas favoritas**: Exibir últimas músicas ouvidas
+- ✅ **Playlists curadas**: Mostrar playlists públicas do Spotify
+- ✅ **Integração Letterboxd**: Exibir últimos filmes assistidos e reviews
+- ✅ **API endpoints**: Configurar chaves API e autenticação
+- ✅ **Fallback gracioso**: Conteúdo alternativo se APIs falharem
+
+### 5. **Melhorias de Performance e SEO**
+- ✅ **Lazy loading**: Carregar imagens e conteúdo sob demanda
+- ✅ **Compressão**: Minificar CSS/JS, otimizar imagens
+- ✅ **Cache**: Estratégias de cache para conteúdo estático
+- ✅ **SEO**: Meta tags, structured data, sitemap
+- ✅ **Analytics**: Google Analytics ou similar para métricas
+
+### 6. **Recursos Avançados**
+- ✅ **Modo escuro**: Toggle para tema dark/light
+- ✅ **Busca interna**: Buscar posts, projetos, galeria
+- ✅ **Comentários**: Sistema de comentários em posts (Disqus, etc.)
+- ✅ **RSS Feed**: Feed RSS para novos conteúdos
+- ✅ **PWA**: Progressive Web App para instalação offline
+
+### 7. **Manutenção e Escalabilidade**
+- ✅ **Testes automatizados**: Suite de testes para funcionalidades críticas
+- ✅ **CI/CD**: Pipeline de deploy automático
+- ✅ **Monitoramento**: Alertas para erros e performance
+- ✅ **Backup**: Estratégia de backup de conteúdo
+- ✅ **Documentação**: Docs completas para contribuidores
+
+---
+
+**STATUS ATUAL** (Jan 2026):
+- ✅ Limpeza de código concluída (funções não usadas removidas, CSS duplicado reduzido)
+- 🔄 Responsividade mobile em desenvolvimento
+- 📋 Próximos: Contato, APIs externas, performance
+
