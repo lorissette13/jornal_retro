@@ -76,20 +76,37 @@ featured: true/false
 - Links funcionam
 - Testes passam
 
-## 📂 DADOS
+## 📂 DADOS - ESTRUTURA CENTRALIZADA (v1.1+)
+
+**Nova Estrutura (Jan 2026)**: Dados centralizados por seção, pronto para API/MongoDB
 
 ```
-assets/data/
-├── cotidiano/        ← Posts (JSON)
-├── projetos/         ← Projects (JSON)
-├── galeria/          ← Gallery (JSON)
-└── trajetoria/       ← Timeline (JSON)
-
-assets/images/
-├── cotidiano/, projetos/, galeria/, trajetoria/
+assets/content/
+├── blog/
+│   ├── data.json         ← Todos os posts (array)
+│   └── images/           ← Imagens de blog
+├── projects/
+│   ├── data.json         ← Todos os projetos (array)
+│   └── images/           ← Imagens de projetos
+├── timeline/
+│   ├── data.json         ← Todas experiências (array)
+│   └── images/           ← Imagens trajetória
+└── gallery/
+    ├── data.json         ← Todas as imagens (array)
+    └── images/           ← Fotos galeria
 ```
 
-Preparado para MongoDB: cada arquivo com `_id`
+**Formato data.json** (pronto para MongoDB):
+```json
+{
+  "posts": [{"_id": "post-001", "title": "...", ...}],
+  "categories": ["filmes", "jogos", ...]
+}
+```
+
+**Migração para API**: Substituir `loadJSON('../assets/content/blog/data.json')` por `fetch('https://api.exemple.com/blog')`
+
+**Antigas pastas** (`assets/data/`, `assets/images/`) mantidas em `.gitkeep` para compatibilidade
 
 ## 🏗️ PADRÃO NOVO (v2+) - Módulos Limpos
 
@@ -107,14 +124,27 @@ Preparado para MongoDB: cada arquivo com `_id`
 ❌ Funções com +100 linhas de lógica mista  
 ❌ Variáveis globais sem namespace  
 
-### Testes (30% cobertura)
-```javascript
-describe('setupFilters()', () => {
-  test('deve adicionar listeners aos botões', () => {
-    // Arrange + Act + Assert
-  });
-});
+### Testes (30% cobertura focada - v1.1+)
+
+**Estratégia Simplificada** (Jan 2026):
+- ✅ **1 arquivo único**: `tests/index.test.js` (consolidado, removidos testes redundantes)
+- ✅ **Cobertura essencial**: Component loading, Data loading, Visual elements, Navigation, Favorites
+- ✅ **Testes visuais adicionados**: Typewriter, Hover effects, Button colors
+
+**Rodando**:
+```bash
+npm test              # Todos os testes
+npm run test:watch   # Modo watch
+npm run test:coverage # Cobertura
 ```
+
+**Elementos visuais garantidos**:
+- Typewriter effect no logo (classe, conteúdo, animação)
+- Hover em project cards (interatividade mantida)
+- Button colors (tokens CSS preservados)
+- Data sources (`assets/content/`) preparado para API
+
+Ver [TESTES_SIMPLIFICACAO.md](TESTES_SIMPLIFICACAO.md) para detalhes
 
 ### Init Limpo
 ```javascript
