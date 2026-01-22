@@ -1,6 +1,16 @@
 # CHANGELOG - Jornal Retro
 
-## v2.3.11 - Final Implementation & Testing
+## v2.3.12 - Navigation & Content Fixes
+
+**Menu Navigation**: Fixed menu links to navigate directly to pages instead of anchors on home
+**Section Buttons**: Added "ver mais" buttons to all home sections (projects, trajectory, daily, gallery) for proper page navigation
+**Footer Loading**: Moved footer component loading to initHomePage to ensure proper initialization
+**Projects Display**: Updated projects format to match v0 with quoted titles and descriptions
+**Trajectory Content**: Restored v0 trajectory format with static "experiências & conquistas" and "habilidades técnicas" sections
+**Code Cleanup**: Removed duplicate footer loading and unnecessary navigation code
+**Result**: Proper navigation flow, visible buttons, and content matching v0 expectations ✓
+
+--- & Testing
 
 **Footer Fix**: Corrected navigation.js to not attempt loading non-existent header component
 **Navigation Buttons Module**: Created reusable navigation-buttons.js with standardized button creation functions
