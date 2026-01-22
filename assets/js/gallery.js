@@ -59,8 +59,8 @@ function initGallery() {
  * Configura controles de paginação
  */
 function setupPaginationControls() {
-    const prevBtn = document.getElementById('pagination-prev');
-    const nextBtn = document.getElementById('pagination-next');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
     
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
@@ -90,9 +90,10 @@ function setupPaginationControls() {
  */
 function updatePaginationControls() {
     const totalPages = Math.ceil(filteredGallery.length / itemsPerPage);
-    const prevBtn = document.getElementById('pagination-prev');
-    const nextBtn = document.getElementById('pagination-next');
-    const counter = document.getElementById('pagination-counter');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const currentPageSpan = document.getElementById('current-page');
+    const totalPagesSpan = document.getElementById('total-pages');
     
     if (prevBtn) {
         prevBtn.disabled = currentPage === 0;
@@ -102,11 +103,13 @@ function updatePaginationControls() {
         nextBtn.disabled = currentPage >= totalPages - 1 || totalPages === 0;
     }
     
-    if (counter) {
+    if (currentPageSpan && totalPagesSpan) {
         if (totalPages > 0) {
-            counter.textContent = `página ${currentPage + 1} de ${totalPages}`;
+            currentPageSpan.textContent = currentPage + 1;
+            totalPagesSpan.textContent = totalPages;
         } else {
-            counter.textContent = '';
+            currentPageSpan.textContent = '0';
+            totalPagesSpan.textContent = '0';
         }
     }
 }

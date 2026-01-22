@@ -28,34 +28,31 @@
             </div>
             
             <!-- Filtros por Categoria -->
-            <div class="filters-container" role="region" aria-labelledby="filters-title">
-                <h2 id="filters-title" class="sr-only">Filtros de projetos</h2>
+            <div class="filters-container">
                 <div class="filter-label">filtrar por:</div>
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-status="all" aria-pressed="true">todos</button>
-                    <button class="filter-btn filter-color-completed" data-status="completed" aria-pressed="false">concluídos</button>
-                    <button class="filter-btn filter-color-in-progress" data-status="in-progress" aria-pressed="false">em progresso</button>
-                    <button class="filter-btn filter-color-featured" data-status="featured" aria-pressed="false">destaque</button>
+                    <button class="filter-btn active" data-status="all">todos</button>
+                    <button class="filter-btn filter-color-completed" data-status="completed">concluídos</button>
+                    <button class="filter-btn filter-color-in-progress" data-status="in-progress">em progresso</button>
+                    <button class="filter-btn filter-color-featured" data-status="featured">destaque</button>
                 </div>
             </div>
             
             <!-- Sistema de Navegação -->
-            <nav class="posts-navigation" role="navigation" aria-labelledby="pagination-title">
-                <h2 id="pagination-title" class="sr-only">Navegação de páginas</h2>
-                <button class="nav-btn prev-btn" id="prev-btn" disabled aria-label="Página anterior">
+            <div class="posts-navigation">
+                <button class="nav-btn prev-btn" id="prev-btn" disabled>
                     ‹ anterior
                 </button>
-                <div class="page-info" aria-live="polite">
+                <div class="page-info">
                     página <span id="current-page">1</span> de <span id="total-pages">1</span>
                 </div>
-                <button class="nav-btn next-btn" id="next-btn" aria-label="Próxima página">
+                <button class="nav-btn next-btn" id="next-btn">
                     próximo ›
                 </button>
-            </nav>
+            </div>
             
             <!-- Grid de Projetos -->
-            <div class="projects-container" id="projects-container" role="region" aria-labelledby="projects-title">
-                <h2 id="projects-title" class="sr-only">Lista de projetos</h2>
+            <div class="projects-container" id="projects-container">
                 <!-- Projetos carregados via JavaScript -->
             </div>
             
