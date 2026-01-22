@@ -25,7 +25,7 @@ function initNavigation() {
 
 // Carrega componentes comuns
 async function loadCommonComponents() {
-    await loadComponent('header-container', 'components/header.html');
+    // Header já está inline no index.html, apenas carrega footer
     await loadComponent('footer-container', 'components/footer.html');
 }
 
