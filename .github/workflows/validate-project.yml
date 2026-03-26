@@ -1,0 +1,127 @@
+name: Validate Project
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate Code Quality
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 1. HTML Validation — No duplicate closing tags
+        run: |
+          echo "Checking for duplicate </body> or </html> tags..."
+          FAILED=0
+          for file in index.html pages/*.html; do
+            body_count=$(grep -c '</body>' "$file" 2>/dev/null || true)
+            html_count=$(grep -c '</html>' "$file" 2>/dev/null || true)
+            if [ "$body_count" -gt 1 ]; then
+              echo "FAIL: $file has $body_count </body> tags (expected 1)"
+              FAILED=1
+            fi
+            if [ "$html_count" -gt 1 ]; then
+              echo "FAIL: $file has $html_count </html> tags (expected 1)"
+              FAILED=1
+            fi
+          done
+          if [ "$FAILED" -eq 0 ]; then
+            echo "PASS: No duplicate closing HTML tags found"
+          fi
+          exit $FAILED
+
+      - name: 2. No Duplicate Scripts — Each script imported once per file
+        run: |
+          echo "Checking for duplicate script imports..."
+          FAILED=0
+          for file in index.html pages/*.html; do
+            duplicates=$(grep -o 'src="[^"]*\.js[^"]*"' "$file" 2>/dev/null | sort | uniq -d || true)
+            if [ -n "$duplicates" ]; then
+              echo "FAIL: $file has duplicate script imports:"
+              echo "$duplicates"
+              FAILED=1
+            fi
+          done
+          if [ "$FAILED" -eq 0 ]; then
+            echo "PASS: No duplicate script imports found"
+          fi
+          exit $FAILED
+
+      - name: 3. Cache Busting — All CSS imports use version query parameter
+        run: |
+          echo "Checking for CSS imports without cache busting..."
+          FAILED=0
+          for file in index.html pages/*.html; do
+            missing=$(grep 'rel="stylesheet"' "$file" 2>/dev/null | grep -v '?v=' | grep 'assets/css' || true)
+            if [ -n "$missing" ]; then
+              echo "FAIL: $file has CSS imports without ?v= parameter:"
+              echo "$missing"
+              FAILED=1
+            fi
+          done
+          if [ "$FAILED" -eq 0 ]; then
+            echo "PASS: All CSS imports have cache busting parameters"
+          fi
+          exit $FAILED
+
+      - name: 4. No Hardcoded Colors — style.css uses tokens only
+        run: |
+          echo "Checking for hardcoded hex colors in style.css..."
+          hardcoded=$(grep -E 'color:\s*#[0-9a-fA-F]{3,6}' assets/css/style.css || true)
+          if [ -n "$hardcoded" ]; then
+            echo "FAIL: style.css contains hardcoded hex colors (use CSS tokens instead):"
+            echo "$hardcoded"
+            exit 1
+          fi
+          echo "PASS: No hardcoded hex colors found in style.css"
+
+      - name: 5. No Obsolete Files — No old/backup files in components/
+        run: |
+          echo "Checking for obsolete files in components/..."
+          obsolete=$(find components/ -name '*old*' -o -name '*backup*' 2>/dev/null || true)
+          if [ -n "$obsolete" ]; then
+            echo "FAIL: Found obsolete files in components/:"
+            echo "$obsolete"
+            exit 1
+          fi
+          echo "PASS: No obsolete files found in components/"
+
+      - name: 6. Footer Check — All HTML pages have footer-container
+        run: |
+          echo "Checking that all pages have footer-container..."
+          FAILED=0
+          for file in index.html pages/*.html; do
+            if ! grep -q 'footer-container' "$file" 2>/dev/null; then
+              echo "FAIL: $file is missing footer-container"
+              FAILED=1
+            fi
+          done
+          if [ "$FAILED" -eq 0 ]; then
+            echo "PASS: All pages have footer-container"
+          fi
+          exit $FAILED
+
+      - name: 7. Navigation Links — nav-menu.html paths handled correctly
+        run: |
+          echo "Checking that nav-menu.html navigation paths are properly handled..."
+          FAILED=0
+          # If nav-menu.html uses relative ./pages/ paths, verify header-loader.js adjusts them
+          if grep -q 'href="\./pages/' components/nav-menu.html 2>/dev/null; then
+            if ! grep -q "replace('./pages/'," assets/js/header-loader.js 2>/dev/null; then
+              echo "FAIL: nav-menu.html uses ./pages/ paths but header-loader.js does not adjust them for internal pages"
+              FAILED=1
+            else
+              echo "PASS: nav-menu.html paths adjusted by header-loader.js"
+            fi
+          else
+            echo "PASS: nav-menu.html does not use paths that break in subdirectories"
+          fi
+          exit $FAILED
