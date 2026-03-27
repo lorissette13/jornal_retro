@@ -897,3 +897,260 @@
     .yn-style--mesa { grid-template-columns: 1fr; padding: var(--spacing-md); }
     .yn-modal__box { padding: var(--spacing-lg); }
 }
+
+/* --------------------------------------------------------------------------
+   LINHA DO TEMPO — Evolução das Anotações
+   -------------------------------------------------------------------------- */
+
+.yn-history {
+    margin-top: var(--spacing-3xl);
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    border-radius: 4px;
+    background: linear-gradient(160deg, rgba(253, 249, 240, 0.4), rgba(248, 242, 226, 0.4));
+    overflow: hidden;
+}
+
+.yn-history__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px dashed rgba(139, 69, 19, 0.15);
+    background: rgba(42, 32, 24, 0.03);
+    flex-wrap: wrap;
+}
+
+.yn-history__title-area {
+    flex: 1;
+    min-width: 0;
+}
+
+.yn-history__eyebrow {
+    display: block;
+    font-family: var(--font-family-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--color-accent-gold);
+    margin-bottom: 4px;
+    opacity: 0.85;
+}
+
+.yn-history__title {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xl);
+    color: var(--color-dark-text);
+    text-transform: lowercase;
+    letter-spacing: var(--letter-spacing-wide);
+    margin: 0 0 4px;
+    line-height: var(--line-height-tight);
+}
+
+.yn-history__subtitle {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    text-transform: lowercase;
+    letter-spacing: 0.3px;
+    margin: 0;
+}
+
+.yn-history__toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid rgba(139, 69, 19, 0.3);
+    border-radius: 3px;
+    color: var(--color-text-muted);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.yn-history__toggle:hover {
+    background: rgba(139, 69, 19, 0.06);
+    border-color: rgba(139, 69, 19, 0.5);
+    color: var(--color-dark-text);
+}
+
+.yn-history__toggle[aria-expanded="true"] .yn-history__toggle-icon {
+    transform: rotate(180deg);
+}
+
+.yn-history__toggle-icon {
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+.yn-history__timeline {
+    padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Faixa horizontal da timeline */
+.yn-tl {
+    position: relative;
+    min-width: max-content;
+}
+
+.yn-tl__track {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    position: relative;
+    padding-top: 56px;
+    padding-bottom: var(--spacing-xs);
+}
+
+/* Linha de tempo central */
+.yn-tl__track::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(139, 69, 19, 0.35) 4%,
+        rgba(139, 69, 19, 0.35) 96%,
+        transparent 100%
+    );
+}
+
+.yn-tl__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 148px;
+    flex-shrink: 0;
+    padding: 0 8px;
+}
+
+.yn-tl__era {
+    position: absolute;
+    top: -44px;
+    font-family: var(--font-family-mono);
+    font-size: 0.6rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+    text-transform: lowercase;
+}
+
+/* Ponto / ícone da era */
+.yn-tl__dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fdf9f0, #f5edd8);
+    border: 1px solid rgba(139, 69, 19, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.09);
+    margin-bottom: var(--spacing-sm);
+    flex-shrink: 0;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.yn-tl__item:hover .yn-tl__dot {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Destaque para item atual */
+.yn-tl__item--current .yn-tl__dot {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(149, 165, 104, 0.15));
+    border-color: rgba(212, 175, 55, 0.55);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.yn-tl__item--current .yn-tl__profession {
+    color: var(--color-accent-gold);
+}
+
+/* Card da era */
+.yn-tl__card {
+    padding: var(--spacing-sm);
+    background: linear-gradient(160deg, #fdf9f0, #f8f2e2);
+    border: 1px solid rgba(139, 69, 19, 0.18);
+    border-radius: 2px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.06);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.yn-tl__item:hover .yn-tl__card {
+    transform: translateY(-2px);
+    box-shadow: 2px 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.yn-tl__profession {
+    display: block;
+    font-family: var(--font-family-mono);
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--color-accent-olive);
+    margin-bottom: 4px;
+}
+
+.yn-tl__name {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-dark-text);
+    text-transform: lowercase;
+    letter-spacing: var(--letter-spacing-wide);
+    margin: 0 0 6px;
+    line-height: var(--line-height-tight);
+}
+
+.yn-tl__desc {
+    font-family: var(--font-family-mono);
+    font-size: 0.62rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+    margin: 0;
+    text-transform: lowercase;
+}
+
+/* Scrollbar discreta na timeline */
+.yn-history__timeline::-webkit-scrollbar {
+    height: 4px;
+}
+
+.yn-history__timeline::-webkit-scrollbar-track {
+    background: rgba(139, 69, 19, 0.06);
+    border-radius: 2px;
+}
+
+.yn-history__timeline::-webkit-scrollbar-thumb {
+    background: rgba(139, 69, 19, 0.25);
+    border-radius: 2px;
+}
+
+/* Responsividade da timeline histórica */
+@media (max-width: 600px) {
+    .yn-history__header { flex-direction: column; align-items: flex-start; }
+    .yn-history__toggle { align-self: flex-end; }
+    .yn-tl__item { width: 128px; }
+}

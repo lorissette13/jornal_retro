@@ -338,7 +338,27 @@ function initYourNotes() {
     }
 
     setupEvents();
+    setupHistoryToggle();
     renderNotes();
+}
+
+/* =========================================================================
+   TOGGLE — Linha do Tempo Histórica
+   ========================================================================= */
+
+function setupHistoryToggle() {
+    const btn = document.getElementById('yn-history-toggle');
+    const panel = document.getElementById('yn-history-timeline');
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', function () {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        const next = !isExpanded;
+        this.setAttribute('aria-expanded', String(next));
+        panel.hidden = !next;
+        this.querySelector('.yn-history__toggle-text').textContent =
+            next ? 'ocultar linha do tempo' : 'ver linha do tempo';
+    });
 }
 
 window.initYourNotes = initYourNotes;
