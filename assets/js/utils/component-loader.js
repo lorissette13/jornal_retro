@@ -27,6 +27,11 @@ async function loadComponent(containerId, componentPath) {
         
         const html = await response.text();
         container.innerHTML = html;
+
+        container.dispatchEvent(new CustomEvent('component-loaded', {
+            bubbles: true,
+            detail: { containerId: containerId }
+        }));
         
         console.log(`✓ Componente carregado: ${componentPath}`);
     } catch (error) {
