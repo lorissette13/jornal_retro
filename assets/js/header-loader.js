@@ -95,8 +95,8 @@ function initializeNavigation() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
+document.addEventListener('component-loaded', function(e) {
+    if (e.detail && e.detail.containerId === 'header-container') {
         loadNavigationMenu();
-    }, 150);
+    }
 });
