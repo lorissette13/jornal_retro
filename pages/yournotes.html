@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="internal-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YourNotes — crie notas pessoais que se empilham como recortes de jornal vintage. Salvas localmente no navegador, suas notas persistem entre visitas.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css?v=2.0">
+    <link rel="stylesheet" href="../assets/css/page.css?v=2.0">
+    <link rel="stylesheet" href="../assets/css/yournotes.css?v=1.0">
+
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
+    <title>yournotes — portfolio</title>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">pular para o conteúdo</a>
+    <div class="container">
+
+        <!-- HEADER -->
+        <div id="header-container"></div>
+
+        <!-- CONTEÚDO DA PÁGINA -->
+        <main class="page-content" role="main" id="main-content">
+
+            <div class="page-header">
+                <h1 class="page-title">yournotes</h1>
+                <div class="page-subtitle">seus pensamentos, suas manchetes — salvas aqui, no seu navegador</div>
+            </div>
+
+            <!-- =========================================================
+                 STYLE PICKER TOOLBAR — barra de seleção de estilo moderno
+                 ========================================================= -->
+            <div class="yn-toolbar" role="toolbar" aria-label="Selecionar estilo de visualização">
+
+                <div class="yn-toolbar__left">
+                    <span class="yn-toolbar__badge">visual</span>
+                    <span class="yn-toolbar__label">·</span>
+                    <span class="yn-toolbar__label" id="yn-active-style-label">Mural de Recortes</span>
+                </div>
+
+                <div class="yn-style-picker" role="group" aria-label="Estilos disponíveis">
+                    <button class="yn-style-btn active"
+                            data-style="mural"
+                            aria-pressed="true"
+                            title="Mural de Recortes — notas coladas num mural vintage">
+                        <span class="yn-style-btn__icon">📋</span>
+                        <span>mural</span>
+                    </button>
+                    <button class="yn-style-btn"
+                            data-style="edicao"
+                            aria-pressed="false"
+                            title="Edição do Dia — layout de colunas de jornal">
+                        <span class="yn-style-btn__icon">🗞️</span>
+                        <span>edição</span>
+                    </button>
+                    <button class="yn-style-btn"
+                            data-style="caderno"
+                            aria-pressed="false"
+                            title="Caderno do Repórter — anotações em caderno pautado">
+                        <span class="yn-style-btn__icon">🔖</span>
+                        <span>caderno</span>
+                    </button>
+                    <button class="yn-style-btn"
+                            data-style="mesa"
+                            aria-pressed="false"
+                            title="Mesa de Edição — papéis empilhados na mesa do editor">
+                        <span class="yn-style-btn__icon">✂️</span>
+                        <span>mesa</span>
+                    </button>
+                    <button class="yn-style-btn"
+                            data-style="arquivo"
+                            aria-pressed="false"
+                            title="Arquivo do Jornal — timeline cronológica de arquivo">
+                        <span class="yn-style-btn__icon">🏛️</span>
+                        <span>arquivo</span>
+                    </button>
+                </div>
+
+                <div class="yn-toolbar__right">
+                    <span id="yn-counter" aria-live="polite">mural vazio</span>
+                    <button class="yn-btn-new" id="yn-btn-new" aria-label="criar nova nota">
+                        + nova nota
+                    </button>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 FILTROS DE CATEGORIA
+                 ========================================================= -->
+            <div class="yn-filters" role="group" aria-label="Filtrar por categoria">
+                <span class="yn-filter-label">filtrar:</span>
+                <button class="yn-filter-btn active" data-category="all">todas</button>
+                <button class="yn-filter-btn" data-category="editorial">editorial</button>
+                <button class="yn-filter-btn" data-category="classificado">classificado</button>
+                <button class="yn-filter-btn" data-category="coluna">coluna</button>
+                <button class="yn-filter-btn" data-category="última hora">última hora</button>
+                <button class="yn-filter-btn" data-category="nota pessoal">nota pessoal</button>
+            </div>
+
+            <!-- =========================================================
+                 CONTAINER DE NOTAS — estilo aplicado via JS
+                 ========================================================= -->
+            <div class="yn-notes-container yn-style--mural" id="yn-notes-container" aria-live="polite">
+            </div>
+
+            <!-- Botão de Voltar -->
+            <div class="btn-container" style="margin-top: 40px;">
+                <a href="../index.html" class="btn-read-more">voltar para home</a>
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL DE CRIAÇÃO / EDIÇÃO DE NOTA
+         ===================================================================== -->
+    <div class="yn-modal" id="yn-modal" role="dialog" aria-modal="true" aria-labelledby="yn-modal-title">
+        <div class="yn-modal__box">
+            <div class="yn-modal__header">
+                <h2 id="yn-modal-title">nova nota</h2>
+                <button class="yn-modal__close" id="yn-modal-close" aria-label="fechar modal">✕</button>
+            </div>
+
+            <form class="yn-form" id="yn-form">
+                <div class="yn-field">
+                    <label class="yn-label" for="yn-input-title">título / manchete</label>
+                    <input class="yn-input" id="yn-input-title" type="text"
+                           placeholder="ex: ideia para projeto…" maxlength="120" autocomplete="off">
+                </div>
+
+                <div class="yn-field">
+                    <label class="yn-label" for="yn-input-content">conteúdo</label>
+                    <textarea class="yn-textarea" id="yn-input-content"
+                              placeholder="escreva sua nota aqui…" maxlength="2000" rows="5"></textarea>
+                </div>
+
+                <div class="yn-field">
+                    <label class="yn-label" for="yn-input-category">categoria</label>
+                    <select class="yn-select" id="yn-input-category">
+                        <option value="editorial">editorial</option>
+                        <option value="classificado">classificado</option>
+                        <option value="coluna">coluna</option>
+                        <option value="última hora">última hora</option>
+                        <option value="nota pessoal" selected>nota pessoal</option>
+                    </select>
+                </div>
+
+                <div class="yn-form__actions">
+                    <button type="button" class="yn-btn-cancel" id="yn-modal-cancel">cancelar</button>
+                    <button type="submit" class="yn-btn-save">salvar nota</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/utils/component-loader.js"></script>
+    <script src="../assets/js/utils/component-checker.js"></script>
+    <script src="../assets/js/utils/navigation-checker.js"></script>
+    <script src="../assets/js/utils/typewriter.js"></script>
+    <script src="../assets/js/header-loader.js"></script>
+    <script src="../assets/js/yournotes-data.js"></script>
+    <script src="../assets/js/yournotes-app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            loadComponent('header-container', '../components/header.html');
+            loadComponent('footer-container', '../components/footer.html');
+
+            initYourNotes();
+
+            setTimeout(function () {
+                if (typeof initTypewriter === 'function') {
+                    initTypewriter();
+                }
+            }, 300);
+        });
+    </script>
+</body>
+</html>
