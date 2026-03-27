@@ -47,7 +47,7 @@
 .interest-title {
     font-family: var(--font-family-mono);
     font-size: var(--font-size-2xl);
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     margin-bottom: var(--spacing-xs);
     text-transform: lowercase;
 }
@@ -55,7 +55,7 @@
 .interest-text {
     font-family: var(--font-family-mono);
     font-size: 0.95rem;
-    color: #3a3a3a;
+    color: var(--color-text-secondary);
     line-height: var(--line-height-normal);
 }
 

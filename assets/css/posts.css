@@ -63,11 +63,11 @@
 }
 
 .post-date {
-    color: #8C7E54;
+    color: var(--color-text-date);
 }
 
 .post-favorite {
-    color: #d4a017;
+    color: var(--color-accent-gold-dark);
     font-weight: bold;
 }
 
@@ -82,7 +82,7 @@
 .post-title {
     font-family: var(--font-family-mono);
     font-size: var(--font-size-2xl);
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     margin-bottom: var(--spacing-xs);
     line-height: var(--line-height-tight);
     text-transform: lowercase;
@@ -114,7 +114,7 @@
     font-family: var(--font-family-mono);
     font-size: var(--font-size-md);
     line-height: var(--line-height-relaxed);
-    color: #3a3a3a;
+    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-md);
     max-width: 100%;
     overflow-wrap: break-word;
@@ -152,8 +152,8 @@
 
 .post-action-btn.favorite-btn.active {
     background: rgba(212, 160, 23, 0.1);
-    color: #d4a017;
-    border-color: #d4a017;
+    color: var(--color-accent-gold-dark);
+    border-color: var(--color-accent-gold-dark);
 }
 
 /* Navegação entre Posts - EM LINHA */
@@ -222,7 +222,7 @@
 .no-posts {
     text-align: center;
     padding: var(--spacing-3xl) var(--spacing-lg);
-    color: #8C7E54;
+    color: var(--color-text-date);
     font-family: var(--font-family-mono);
     font-size: var(--font-size-lg);
     border: var(--border-width-normal) dashed var(--color-border-primary);

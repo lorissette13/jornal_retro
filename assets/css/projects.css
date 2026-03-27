@@ -26,7 +26,7 @@
     border-radius: var(--border-radius-medium) 0 0 var(--border-radius-medium);
     font-family: var(--font-family-mono);
     font-size: 0.95rem;
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     background: white;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .search-btn:hover {
-    background: #657043;
+    background: var(--color-text-muted);
 }
 
 .filter-container {
@@ -76,7 +76,7 @@
     border-radius: var(--border-radius-medium);
     background: white;
     font-family: var(--font-family-mono);
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     min-width: 150px;
     cursor: pointer;
 }
@@ -176,7 +176,7 @@
 .project-year {
     font-family: var(--font-family-mono);
     font-size: 0.9rem;
-    color: #8C7E54;
+    color: var(--color-text-date);
 }
 
 .project-favorite {
@@ -186,7 +186,7 @@
     background: none;
     border: none;
     font-size: 1.2rem;
-    color: #d4a017;
+    color: var(--color-accent-gold-dark);
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 0.2s ease;
@@ -199,7 +199,7 @@
 .project-title {
     font-family: var(--font-family-mono);
     font-size: var(--font-size-2xl);
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     margin-bottom: var(--spacing-xs);
     line-height: var(--line-height-tight);
     text-transform: lowercase;
@@ -234,7 +234,7 @@
     font-family: var(--font-family-mono);
     font-size: 0.95rem;
     line-height: var(--line-height-normal);
-    color: #3a3a3a;
+    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -258,7 +258,7 @@
 .project-feature {
     font-family: var(--font-family-mono);
     font-size: 0.85rem;
-    color: #3a3a3a;
+    color: var(--color-text-secondary);
     padding-left: var(--spacing-lg);
     position: relative;
     margin-bottom: var(--spacing-2xs);
@@ -268,7 +268,7 @@
     content: '→';
     position: absolute;
     left: 0;
-    color: #7E8C54;
+    color: var(--color-accent-sage);
 }
 
 /* Tecnologias do Projeto */
@@ -298,7 +298,7 @@
     padding: 3px 8px;
     background: rgba(149, 165, 104, 0.08);
     border-radius: 10px;
-    color: #657043;
+    color: var(--color-text-muted);
     border: 1px solid rgba(149, 165, 104, 0.2);
 }
 
@@ -322,9 +322,9 @@
     font-size: 0.85rem;
     padding: 6px 12px;
     background: rgba(149, 165, 104, 0.1);
-    border: 1px solid #95A568;
+    border: 1px solid var(--color-border-primary);
     border-radius: 3px;
-    color: #657043;
+    color: var(--color-text-muted);
     text-decoration: none;
     transition: all 0.2s ease;
     text-transform: lowercase;
@@ -336,13 +336,13 @@
 }
 
 .project-link.demo {
-    background: #7E8C54;
+    background: var(--color-accent-sage);
     color: white;
-    border-color: #657043;
+    border-color: var(--color-text-muted);
 }
 
 .project-link.demo:hover {
-    background: #657043;
+    background: var(--color-text-muted);
 }
 
 /* Estatísticas */
@@ -354,7 +354,7 @@
     padding: 30px;
     background: rgba(245, 245, 245, 0.9);
     border-radius: 4px;
-    border: 1px solid #95A568;
+    border: 1px solid var(--color-border-primary);
 }
 
 .stat-card {
@@ -380,14 +380,14 @@
 .stat-number {
     font-family: 'Special Elite', monospace;
     font-size: 1.8rem;
-    color: #7E8C54;
+    color: var(--color-accent-sage);
     margin-bottom: 5px;
 }
 
 .stat-label {
     font-family: 'Special Elite', monospace;
     font-size: 0.9rem;
-    color: #657043;
+    color: var(--color-text-muted);
     text-transform: lowercase;
 }
 
@@ -422,7 +422,7 @@
     padding: 20px;
     background: white;
     border-radius: 8px;
-    border: 2px solid #95A568;
+    border: 2px solid var(--color-border-primary);
     text-align: center;
     transition: all 0.3s ease;
 }
@@ -441,7 +441,7 @@
 .tech-name {
     font-family: 'Special Elite', monospace;
     font-size: 0.9rem;
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     text-transform: lowercase;
 }
 
@@ -451,7 +451,7 @@
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background: #7E8C54;
+    background: var(--color-accent-sage);
     border: none;
     border-radius: 50%;
     color: white;
@@ -462,7 +462,7 @@
 }
 
 .carousel-btn:hover {
-    background: #657043;
+    background: var(--color-text-muted);
 }
 
 .carousel-btn.prev-tech {
@@ -477,7 +477,7 @@
 .loading-projects {
     text-align: center;
     padding: 60px 20px;
-    color: #7E8C54;
+    color: var(--color-accent-sage);
     font-family: 'Special Elite', monospace;
     font-size: 1.1rem;
     grid-column: 1 / -1;
@@ -486,10 +486,10 @@
 .no-projects {
     text-align: center;
     padding: 60px 20px;
-    color: #8C7E54;
+    color: var(--color-text-date);
     font-family: 'Special Elite', monospace;
     font-size: 1.1rem;
-    border: 2px dashed #95A568;
+    border: 2px dashed var(--color-border-primary);
     border-radius: 4px;
     grid-column: 1 / -1;
 }

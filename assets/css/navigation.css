@@ -58,14 +58,14 @@
 .page-error h2 {
     font-family: var(--font-family-mono);
     font-size: var(--font-size-3xl);
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     margin-bottom: var(--spacing-lg);
 }
 
 .page-error p {
     font-family: var(--font-family-mono);
     font-size: var(--font-size-lg);
-    color: #3a3a3a;
+    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-xl);
     line-height: var(--line-height-normal);
 }
@@ -112,7 +112,7 @@
 }
 
 .page-link:hover {
-    color: #657043;
+    color: var(--color-text-muted);
     border-bottom-style: solid;
 }
 
@@ -120,7 +120,7 @@
 .breadcrumb {
     font-family: var(--font-family-mono);
     font-size: 0.9rem;
-    color: #8C7E54;
+    color: var(--color-text-date);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-xs);
     border-bottom: var(--border-width-thin) solid rgba(149, 165, 104, 0.3);
