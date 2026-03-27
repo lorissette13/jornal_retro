@@ -1,5 +1,5 @@
 ---
-title: "Jornal Retro"
+title: "Portfólio Retro"
 description: "Portfólio pessoal com design vintage de jornal anos 30-50"
 date: "2024-01-20"
 featured: true

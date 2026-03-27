@@ -1,4 +1,4 @@
-# Testes - Jornal Retro
+# Testes - Portfólio Lorissette13
 
 Testes automatizados com Jest. **Cobertura mínima: 30%** focada em funcionalidades críticas.
 
