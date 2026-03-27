@@ -9,20 +9,17 @@ function loadNavigationMenu() {
         return;
     }
 
-    // Se já tem conteúdo, é porque foi carregado pelo componente
     if (navContainer.innerHTML.trim().length > 0) {
         initializeNavigation();
         return;
     }
 
-    // Detecta se está na home ou em página interna
     const isHome = window.location.pathname.endsWith('index.html') || 
                    window.location.pathname.endsWith('/') ||
                    window.location.pathname === '';
 
     const navPath = isHome ? 'components/nav-menu.html' : '../components/nav-menu.html';
 
-    // Carrega o menu
     fetch(navPath)
         .then(response => response.text())
         .then(html => {
@@ -42,10 +39,11 @@ function initializeNavigation() {
         return;
     }
 
-    // Detecta se está na home
     const isHome = window.location.pathname.endsWith('index.html') || 
                    window.location.pathname.endsWith('/') ||
                    window.location.pathname === '';
+
+    const currentPage = window.location.pathname.split('/').pop();
 
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
@@ -53,10 +51,8 @@ function initializeNavigation() {
         const dataPage = item.getAttribute('data-page');
         
         if (isHome) {
-            // Na home: converter para links internos com # (exceto yournotes que é página separada)
             if (dataPage === 'home') {
-                item.classList.add('active');
-                item.style.display = 'none'; // Esconde link home
+                item.style.display = 'none';
             } else if (dataPage === 'quem-sou') {
                 item.href = '#who';
             } else if (dataPage === 'trajetoria') {
@@ -68,7 +64,6 @@ function initializeNavigation() {
             } else if (dataPage === 'galeria') {
                 item.href = '#gallery';
             } else if (dataPage === 'yournotes') {
-                // yournotes não tem seção na home, aponta direto para a página
                 item.href = 'pages/yournotes.html';
             }
         } else {
@@ -78,16 +73,19 @@ function initializeNavigation() {
             } else if (href && href.startsWith('./pages/')) {
                 item.href = href.replace('./pages/', '../pages/');
             }
-            
+
             // Mostra o link home nas páginas internas
             if (dataPage === 'home') {
                 item.style.display = 'inline-block';
             }
-            
-            // Atualiza o estado ativo
-            const currentPage = window.location.pathname.split('/').pop();
-            const newHref = item.getAttribute('href');
 
+            // Esconde o item do menu que corresponde à página atual
+            const newHref = item.getAttribute('href');
+            if (newHref && newHref.includes(currentPage) && currentPage !== 'index.html') {
+                item.style.display = 'none';
+            }
+
+            // Atualiza estado ativo
             if (newHref && (newHref.includes(currentPage) ||
                 (currentPage === 'index.html' && newHref.includes('../index')) ||
                 (currentPage === 'trajetoria.html' && dataPage === 'trajetoria'))) {
@@ -97,9 +95,7 @@ function initializeNavigation() {
     });
 }
 
-// Espera o componente ser carregado antes de inicializar
 document.addEventListener('DOMContentLoaded', function() {
-    // Aguarda um pouco para garantir que o componente foi carregado
     setTimeout(function() {
         loadNavigationMenu();
     }, 150);
