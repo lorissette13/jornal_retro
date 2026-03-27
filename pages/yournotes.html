@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css?v=2.0">
     <link rel="stylesheet" href="../assets/css/page.css?v=2.0">
-    <link rel="stylesheet" href="../assets/css/yournotes.css?v=1.0">
+    <link rel="stylesheet" href="../assets/css/yournotes.css?v=1.1">
 
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
     <title>yournotes — portfolio</title>
@@ -98,6 +98,112 @@
                  ========================================================= -->
             <div class="yn-notes-container yn-style--mural" id="yn-notes-container" aria-live="polite">
             </div>
+
+            <!-- =========================================================
+                 LINHA DO TEMPO — Evolução das Anotações
+                 ========================================================= -->
+            <section class="yn-history" aria-labelledby="yn-history-title">
+                <div class="yn-history__header">
+                    <div class="yn-history__title-area">
+                        <span class="yn-history__eyebrow">contexto histórico</span>
+                        <h2 class="yn-history__title" id="yn-history-title">a evolução das anotações</h2>
+                        <p class="yn-history__subtitle">como o ato de registrar moldou profissões ao longo do tempo</p>
+                    </div>
+                    <button class="yn-history__toggle" id="yn-history-toggle"
+                            aria-expanded="false" aria-controls="yn-history-timeline">
+                        <span class="yn-history__toggle-text">ver linha do tempo</span>
+                        <span class="yn-history__toggle-icon">▾</span>
+                    </button>
+                </div>
+
+                <div class="yn-history__timeline" id="yn-history-timeline" hidden>
+                    <div class="yn-tl">
+                        <div class="yn-tl__track">
+
+                            <div class="yn-tl__item">
+                                <div class="yn-tl__era">3000 a.C.</div>
+                                <div class="yn-tl__dot" aria-hidden="true">📜</div>
+                                <div class="yn-tl__card">
+                                    <span class="yn-tl__profession">Escriba</span>
+                                    <h3 class="yn-tl__name">tábua de argila</h3>
+                                    <p class="yn-tl__desc">mesopotâmia e egito: cuneiforme e hieróglifo. escribas eram figuras de alto prestígio social.</p>
+                                </div>
+                            </div>
+
+                            <div class="yn-tl__item">
+                                <div class="yn-tl__era">séc. V</div>
+                                <div class="yn-tl__dot" aria-hidden="true">✍️</div>
+                                <div class="yn-tl__card">
+                                    <span class="yn-tl__profession">Copista</span>
+                                    <h3 class="yn-tl__name">pergaminho</h3>
+                                    <p class="yn-tl__desc">monges medievais copiavam manuscritos iluminados à mão, preservando o conhecimento ocidental.</p>
+                                </div>
+                            </div>
+
+                            <div class="yn-tl__item">
+                                <div class="yn-tl__era">1450</div>
+                                <div class="yn-tl__dot" aria-hidden="true">⚙️</div>
+                                <div class="yn-tl__card">
+                                    <span class="yn-tl__profession">Tipógrafo</span>
+                                    <h3 class="yn-tl__name">prensa móvel</h3>
+                                    <p class="yn-tl__desc">gutenberg democratizou o texto impresso. o tipógrafo nascia como profissão técnica de precisão.</p>
+                                </div>
+                            </div>
+
+                            <div class="yn-tl__item">
+                                <div class="yn-tl__era">séc. XIX</div>
+                                <div class="yn-tl__dot" aria-hidden="true">📔</div>
+                                <div class="yn-tl__card">
+                                    <span class="yn-tl__profession">Repórter</span>
+                                    <h3 class="yn-tl__name">caderno de campo</h3>
+                                    <p class="yn-tl__desc">jornalistas percorriam cidades anotando histórias em cadernos de bolso — notas como manchetes.</p>
+                                </div>
+                            </div>
+
+                            <div class="yn-tl__item">
+                                <div class="yn-tl__era">1867</div>
+                                <div class="yn-tl__dot" aria-hidden="true">⌨️</div>
+                                <div class="yn-tl__card">
+                                    <span class="yn-tl__profession">Estenógrafa</span>
+                                    <h3 class="yn-tl__name">máquina de escrever</h3>
+                                    <p class="yn-tl__desc">a typewriter de sholes transformou a escrita em ofício. estenógrafas dominavam velocidade e ritmo.</p>
+                                </div>
+                            </div>
+
+                            <div class="yn-tl__item">
+                                <div class="yn-tl__era">anos 80</div>
+                                <div class="yn-tl__dot" aria-hidden="true">💾</div>
+                                <div class="yn-tl__card">
+                                    <span class="yn-tl__profession">Analista</span>
+                                    <h3 class="yn-tl__name">processador de texto</h3>
+                                    <p class="yn-tl__desc">pcs com word e wordperfect digitalizaram o registro. o analista de sistemas nascia como escriba moderno.</p>
+                                </div>
+                            </div>
+
+                            <div class="yn-tl__item">
+                                <div class="yn-tl__era">anos 2000</div>
+                                <div class="yn-tl__dot" aria-hidden="true">🌐</div>
+                                <div class="yn-tl__card">
+                                    <span class="yn-tl__profession">Editor Digital</span>
+                                    <h3 class="yn-tl__name">blog &amp; wiki</h3>
+                                    <p class="yn-tl__desc">blogger, wordpress e wikipedia abriram o registro público a qualquer pessoa com acesso à internet.</p>
+                                </div>
+                            </div>
+
+                            <div class="yn-tl__item yn-tl__item--current">
+                                <div class="yn-tl__era">hoje</div>
+                                <div class="yn-tl__dot" aria-hidden="true">📱</div>
+                                <div class="yn-tl__card">
+                                    <span class="yn-tl__profession">Você</span>
+                                    <h3 class="yn-tl__name">app de notas</h3>
+                                    <p class="yn-tl__desc">notion, obsidian, bear — e agora o yournotes. o registro pessoal sempre no bolso, sempre seu.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Botão de Voltar -->
             <div class="btn-container" style="margin-top: 40px;">
