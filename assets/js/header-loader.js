@@ -84,7 +84,6 @@ function initializeNavigation() {
             // Atualiza o estado ativo
             const currentPage = window.location.pathname.split('/').pop();
             const newHref = item.getAttribute('href');
-            const dataPage = item.getAttribute('data-page');
 
             if (newHref && (newHref.includes(currentPage) ||
                 (currentPage === 'index.html' && newHref.includes('../index')) ||

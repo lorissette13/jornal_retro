@@ -184,6 +184,29 @@ body.internal-page .logo-section {
     }
 }
 
+@media (max-width: 600px) {
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .nav-item {
+        font-size: 0.85rem;
+        padding: 4px 8px;
+    }
+
+    .filter-buttons {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .filter-btn {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+}
+
 @media (max-width: 480px) {
     .logo {
         font-size: 2.2rem;

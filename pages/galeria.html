@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>galeria • lorissette13</title>
+    <meta name="description" content="Galeria visual de Loris: momentos, projetos e inspirações. Fotografias e registros de experiências desde 1995.">
     
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css?v=2.0">
@@ -16,12 +16,13 @@
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">pular para o conteúdo</a>
     <div class="container">
         <!-- HEADER -->
         <div id="header-container"></div>
 
         <!-- CONTEÚDO DA PÁGINA -->
-        <main class="page-content">
+        <main class="page-content" role="main" id="main-content">
             <div class="page-header">
                 <h1 class="page-title">galeria</h1>
                 <div class="page-subtitle">momentos, projetos e inspirações visuais</div>
@@ -80,7 +81,7 @@
         <div class="modal-content">
             <button class="modal-close" id="modal-close" aria-label="fechar">×</button>
             <div class="modal-image-container">
-                <img id="modal-image" src="" alt="" class="modal-image">
+                <img id="modal-image" src="" alt="" class="modal-image" loading="lazy">
             </div>
             <div class="modal-info">
                 <h3 id="modal-title"></h3>
