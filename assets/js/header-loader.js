@@ -53,7 +53,7 @@ function initializeNavigation() {
         const dataPage = item.getAttribute('data-page');
         
         if (isHome) {
-            // Na home: converter para links internos com #
+            // Na home: converter para links internos com # (exceto yournotes que é página separada)
             if (dataPage === 'home') {
                 item.classList.add('active');
                 item.style.display = 'none'; // Esconde link home
@@ -67,6 +67,9 @@ function initializeNavigation() {
                 item.href = '#daily';
             } else if (dataPage === 'galeria') {
                 item.href = '#gallery';
+            } else if (dataPage === 'yournotes') {
+                // yournotes não tem seção na home, aponta direto para a página
+                item.href = 'pages/yournotes.html';
             }
         } else {
             // Nas páginas internas: ajustar caminhos relativos
