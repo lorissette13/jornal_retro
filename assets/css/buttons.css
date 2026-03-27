@@ -116,11 +116,15 @@ a.btn-read-more:active {
     background: transparent;
     color: var(--color-accent-olive);
     border: 2px solid var(--color-accent-olive);
+    box-shadow: 0 3px 10px rgba(85, 107, 47, 0.15);
+    padding: 15px 35px;
 }
 
 .btn-read-more.btn-secondary:hover {
     background: var(--color-accent-olive);
     color: var(--color-text-on-olive);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(85, 107, 47, 0.35);
 }
 
 /* ============= BOTÃO SECUNDÁRIO (Smaller Actions) ============= */

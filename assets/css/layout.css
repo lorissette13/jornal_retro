@@ -5,22 +5,23 @@
 /* Skip Navigation - Acessibilidade */
 .skip-link {
     position: absolute;
-    top: -100%;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -9999px;
+    left: -9999px;
     background: var(--color-accent-olive);
     color: var(--color-text-on-olive);
-    padding: 8px 16px;
-    z-index: 1000;
+    padding: 12px 24px;
+    z-index: 10000;
     text-decoration: none;
     font-size: 0.9rem;
-    transition: top 0.3s ease;
     border-radius: 0 0 4px 4px;
+    font-family: 'Special Elite', monospace;
 }
 
 .skip-link:focus {
     top: 0;
-    outline: 2px solid var(--color-accent-olive);
+    left: 50%;
+    transform: translateX(-50%);
+    outline: 3px solid var(--color-accent-olive);
     outline-offset: 2px;
 }
 
