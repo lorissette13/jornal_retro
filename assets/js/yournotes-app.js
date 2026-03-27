@@ -17,6 +17,29 @@ const STYLES = [
     { id: 'arquivo', icon: '🏛️', label: 'Arquivo do Jornal'  }
 ];
 
+const STYLE_QUOTES = {
+    mural: {
+        icon: '📋',
+        text: 'hoje, a nota é um fragmento digital colado num mural invisível — pessoal, instantânea e sempre à mão. o ato de registrar nunca foi tão democrático.'
+    },
+    edicao: {
+        icon: '🗞️',
+        text: 'na redação do jornal, o repórter anotava tudo. a pauta era uma nota. a manchete, uma nota. o jornal inteiro nasceu de anotações rabiscadas às pressas.'
+    },
+    caderno: {
+        icon: '🔖',
+        text: 'nos séculos XIX e XX, o caderno de campo era a extensão do repórter — cada página, uma fatia do mundo capturada antes que o momento se perdesse.'
+    },
+    mesa: {
+        icon: '✂️',
+        text: 'na mesa de edição, cada margem era território de anotação. o editor dialogava com o texto em tinta vermelha, corrigindo o presente e moldando a história.'
+    },
+    arquivo: {
+        icon: '🏛️',
+        text: 'o arquivo é a memória do jornal. cada nota preservada atravessou décadas para chegar até aqui — rastro de quem registrou o mundo antes de nós.'
+    }
+};
+
 const CATEGORY_COLORS = {
     'editorial':    'var(--color-accent-olive)',
     'classificado': 'var(--color-accent-gold)',
@@ -277,6 +300,24 @@ function setupEvents() {
 }
 
 /* =========================================================================
+   QUOTE CONTEXTUAL — exibe citação histórica ao trocar de estilo
+   ========================================================================= */
+
+function showStyleQuote(style) {
+    const quoteBlock = document.getElementById('yn-context-quote');
+    const quoteIcon  = document.getElementById('yn-context-icon');
+    const quoteText  = document.getElementById('yn-context-text');
+    if (!quoteBlock || !quoteIcon || !quoteText) return;
+
+    const q = STYLE_QUOTES[style];
+    if (!q) { quoteBlock.hidden = true; return; }
+
+    quoteIcon.textContent = q.icon;
+    quoteText.textContent = q.text;
+    quoteBlock.hidden = false;
+}
+
+/* =========================================================================
    TROCA DE ESTILO
    ========================================================================= */
 
@@ -297,6 +338,7 @@ function setActiveStyle(style) {
     }
 
     renderNotes();
+    showStyleQuote(style);
 }
 
 /* =========================================================================
@@ -340,6 +382,7 @@ function initYourNotes() {
     setupEvents();
     setupHistoryToggle();
     renderNotes();
+    showStyleQuote(currentStyle);
 }
 
 /* =========================================================================

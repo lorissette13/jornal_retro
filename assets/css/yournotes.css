@@ -160,6 +160,43 @@
 }
 
 /* --------------------------------------------------------------------------
+   QUOTE CONTEXTUAL — citação histórica por estilo
+   -------------------------------------------------------------------------- */
+
+.yn-context-quote {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gap-sm);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: linear-gradient(135deg, rgba(248, 242, 226, 0.6), rgba(253, 249, 240, 0.6));
+    border-left: 3px solid var(--color-accent-gold);
+    border-radius: 0 4px 4px 0;
+    animation: yn-quote-in 0.3s ease;
+}
+
+@keyframes yn-quote-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.yn-context-quote__icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.yn-context-quote__text {
+    margin: 0;
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+}
+
+/* --------------------------------------------------------------------------
    FILTROS DE CATEGORIA
    -------------------------------------------------------------------------- */
 
