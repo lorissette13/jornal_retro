@@ -81,6 +81,14 @@
             </div>
 
             <!-- =========================================================
+                 QUOTE CONTEXTUAL — exibida ao selecionar um estilo
+                 ========================================================= -->
+            <div class="yn-context-quote" id="yn-context-quote" aria-live="polite" hidden>
+                <span class="yn-context-quote__icon" id="yn-context-icon" aria-hidden="true"></span>
+                <blockquote class="yn-context-quote__text" id="yn-context-text"></blockquote>
+            </div>
+
+            <!-- =========================================================
                  FILTROS DE CATEGORIA
                  ========================================================= -->
             <div class="yn-filters" role="group" aria-label="Filtrar por categoria">
@@ -268,22 +276,17 @@
     <script src="../assets/js/yournotes-app.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            loadComponent('header-container', '../components/header.html');
-            loadComponent('footer-container', '../components/footer.html');
+        document.addEventListener('DOMContentLoaded', async function () {
+            await loadComponent('header-container', '../components/header.html');
 
-            initYourNotes();
-        });
-
-        document.addEventListener('component-loaded', function (e) {
-            if (e.detail && e.detail.containerId === 'header-container') {
-                const logoEl = document.getElementById('typewriter-logo');
-                if (logoEl) logoEl.textContent = 'yournotes';
-
-                if (typeof initTypewriter === 'function') {
-                    initTypewriter();
-                }
+            const logoEl = document.getElementById('typewriter-logo');
+            if (logoEl) {
+                logoEl.textContent = 'yournotes';
+                if (typeof initTypewriter === 'function') initTypewriter();
             }
+
+            loadComponent('footer-container', '../components/footer.html');
+            initYourNotes();
         });
     </script>
 </body>
