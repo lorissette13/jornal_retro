@@ -2,6 +2,24 @@
    MÓDULO GLOBAL DE LAYOUT - ESTILOS PADRONIZADOS PARA TODAS AS PÁGINAS
    ========================================================================== */
 
+/* Skip Navigation - Acessibilidade */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-accent-olive);
+    color: var(--color-text-on-olive);
+    padding: 8px 16px;
+    z-index: 1000;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 /* RESET E BASE GLOBAL */
 * {
     margin: 0;

@@ -111,6 +111,18 @@ a.btn-read-more:active {
     transition: all 0.1s ease;
 }
 
+/* Botão secundário — variante outline */
+.btn-read-more.btn-secondary {
+    background: transparent;
+    color: var(--color-accent-olive);
+    border: 2px solid var(--color-accent-olive);
+}
+
+.btn-read-more.btn-secondary:hover {
+    background: var(--color-accent-olive);
+    color: var(--color-text-on-olive);
+}
+
 /* ============= BOTÃO SECUNDÁRIO (Smaller Actions) ============= */
 .btn-secondary,
 .btn-small {
