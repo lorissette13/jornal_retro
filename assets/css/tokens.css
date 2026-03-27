@@ -11,6 +11,7 @@
     
     /* CORES SECUNDÁRIAS - DESTAQUES */
     --color-accent-gold: #d4af37;        /* Dourado */
+    --color-accent-gold-dark: #d4a017;   /* Dourado escuro (favoritos/destaques) */
     --color-accent-olive: #556B2F;       /* Verde oliva */
     --color-accent-olive-light: #6B8E23; /* Verde oliva claro */
     --color-accent-sage: #7E8C54;        /* Sage verde */
@@ -29,6 +30,7 @@
     --color-text-primary: #000000;       /* Texto principal */
     --color-text-secondary: #3a3a3a;     /* Texto secundário */
     --color-text-muted: #657043;         /* Texto silenciado */
+    --color-text-date: #8C7E54;          /* Texto de data em posts */
     --color-text-light: #a09080;         /* Texto claro */
     
     --color-bg-white: #ffffff;           /* Fundo branco */

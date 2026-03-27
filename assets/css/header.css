@@ -89,7 +89,7 @@
 
 .nav-item {
     text-decoration: none;
-    color: #d4af37; /* Dourado chique */
+    color: var(--color-accent-gold); /* Dourado chique */
     font-weight: 400;
     font-size: 1.1rem;
     position: relative;

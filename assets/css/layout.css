@@ -5,8 +5,9 @@
 /* Skip Navigation - Acessibilidade */
 .skip-link {
     position: absolute;
-    top: -40px;
-    left: 0;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
     background: var(--color-accent-olive);
     color: var(--color-text-on-olive);
     padding: 8px 16px;
@@ -14,10 +15,13 @@
     text-decoration: none;
     font-size: 0.9rem;
     transition: top 0.3s ease;
+    border-radius: 0 0 4px 4px;
 }
 
 .skip-link:focus {
     top: 0;
+    outline: 2px solid var(--color-accent-olive);
+    outline-offset: 2px;
 }
 
 /* RESET E BASE GLOBAL */
@@ -186,7 +190,7 @@ footer, .footer {
     font-family: 'Special Elite', monospace;
     font-size: var(--font-size-5xl, 2.5rem);
     font-weight: 400;
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     margin-bottom: var(--spacing-md, 15px);
     letter-spacing: 1.5px;
     text-transform: lowercase;
@@ -220,7 +224,7 @@ footer, .footer {
     font-family: 'Special Elite', monospace;
     font-size: 1rem;
     line-height: 1.8;
-    color: #3a3a3a;
+    color: var(--color-text-secondary);
     text-align: justify;
 }
 

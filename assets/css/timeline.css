@@ -181,7 +181,7 @@
 .timeline-title {
     font-family: var(--font-family-mono);
     font-size: var(--font-size-2xl);
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     margin-bottom: var(--spacing-xs);
     line-height: var(--line-height-tight);
     text-transform: lowercase;
@@ -201,7 +201,7 @@
     font-family: var(--font-family-mono);
     font-size: 0.95rem;
     line-height: var(--line-height-normal);
-    color: #3a3a3a;
+    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-md);
 }
 
@@ -228,7 +228,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #d4a017;
+    color: var(--color-accent-gold-dark);
     font-size: 1.2rem;
     opacity: 0.7;
 }
@@ -243,18 +243,18 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    color: #95A568;
+    color: var(--color-accent-sage-light);
     padding: 5px;
     border-radius: 4px;
 }
 
 .timeline-favorite-btn:hover {
-    color: #d4af37;
+    color: var(--color-accent-gold);
     transform: scale(1.2);
 }
 
 .timeline-favorite-btn.active {
-    color: #d4af37;
+    color: var(--color-accent-gold);
 }
 
 /* Seção de Habilidades */
@@ -283,7 +283,7 @@
 .skill-category-title {
     font-family: var(--font-family-mono);
     font-size: var(--font-size-2xl);
-    color: #2a2a2a;
+    color: var(--color-dark-text);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-xs);
     border-bottom: var(--border-width-normal) solid var(--color-border-primary);
