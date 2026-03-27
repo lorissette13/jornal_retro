@@ -1,7 +1,7 @@
 {
-  "name": "jornal-retro-tests",
+  "name": "lorissette13-portfolio-tests",
   "version": "1.0.0",
-  "description": "Test suite for jornal-retro project",
+  "description": "Test suite for lorissette13 portfolio",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
