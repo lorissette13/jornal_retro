@@ -67,6 +67,9 @@ function initializeNavigation() {
                 item.href = '#daily';
             } else if (dataPage === 'galeria') {
                 item.href = '#gallery';
+            } else if (dataPage === 'yournotes') {
+                // yournotes has no anchor section on the home page — link directly to the page
+                item.href = 'pages/yournotes.html';
             }
         } else {
             // Nas páginas internas: ajustar caminhos relativos
